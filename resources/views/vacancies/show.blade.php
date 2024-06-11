@@ -1,10 +1,10 @@
-@include('layouts.header')
+@include('layouts.header', ['slider' => true])
 
 <div class="container mt-5">
     <h1>{{ $data['title'] }}</h1>
 
     @if ($data['image'])
-        <img src="{{ asset('storage/' . $data['image']) }}" class="img-fluid mb-4" alt="{{ $data['title'] }}">
+        <img src="{{ asset($data['image']) }}" class="img-fluid mb-4" alt="{{ $data['title'] }}">
     @else
         <img src="{{ asset('/images/placeholder.png') }}" class="img-fluid mb-4" alt="{{ $data['title'] }}">
     @endif

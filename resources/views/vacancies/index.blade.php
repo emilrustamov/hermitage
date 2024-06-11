@@ -1,4 +1,4 @@
-@include('layouts.header')
+@include('layouts.header', ['slider' => true])
 
 <div class="mt-5">
     <h1>Vacancies1</h1>

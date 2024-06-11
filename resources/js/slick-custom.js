@@ -9,6 +9,16 @@ $(function(){
         slidesToScroll: 2,
     });
 });
+$(function(){
+    $(".fav-slider").slick({
+        dots: false,
+        arrows:false,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        centerMode: true,
+    });
+});
 
 
 $(function(){

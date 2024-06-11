@@ -1,14 +1,21 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\VacancyController;
 use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\SubscriberController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\AdminSubscriberController;
 use UniSharp\LaravelFilemanager\Lfm;
 use Illuminate\Support\Facades\Auth;
+
+
+//header links
+Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorite');
+Route::get('/register',[RegisterController::class, 'index'])->name('register')->middleware('guest');
 
 
 

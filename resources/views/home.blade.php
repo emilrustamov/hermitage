@@ -1,4 +1,4 @@
-@include('layouts.header')
+@include('layouts.header', ['slider' => true])
 
 <section class="aboutSctn">
     <div class="row py-5">
@@ -17,7 +17,7 @@
 </section>
 <section>
     <div class="row">
-        <div class="col-lg-4 d-flex flex-column justify-content-around" style="background-color: #0D0D0D;">
+        <div class="col-lg-4 d-flex flex-column justify-content-around" style="background-color: #202020;">
             <h2 class=" text-white align-self-center">Направления</h2>
             <div class=" text-white align-self-center">Ознакомьтесь с нашими направлениями</div>
             <a href="#" class="text-uppercase  align-self-center">посмотреть все</a>
@@ -69,7 +69,7 @@
 </section>
 <section>
     <div class="row">
-        <div class="col-lg-4 d-flex flex-column justify-content-around" style="background-color: #0D0D0D;">
+        <div class="col-lg-4 d-flex flex-column justify-content-around" style="background-color: #202020;">
             <h2 class=" text-white align-self-center">Направления</h2>
             <div class=" text-white align-self-center">Ознакомьтесь с нашими направлениями</div>
             <a href="#" class="text-uppercase  align-self-center">посмотреть все</a>

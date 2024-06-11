@@ -14,7 +14,10 @@
     <div class="wrapper p-0">
         <div>
             <header>
-                <div class="regular2">
+                @if ($slider)
+                    @include('layouts.head_slider')
+                @endif
+                {{-- <div class="regular2">
                     <div class="slide" style="background-image: url(/images/main.jpg); min-height:900px;background-repeat: no-repeat;background-size: cover;">
                         <!-- Add content for slide 1 if needed -->
                     </div>
@@ -30,7 +33,7 @@
                     <div class="slide" style="background-image: url(/images/main5.jpg); min-height:900px;background-repeat: no-repeat;background-size: cover;">
                         <!-- Add content for slide 3 if needed -->
                     </div>
-                </div>
+                </div> --}}
                 <div class="header-content">
                     <div class="d-flex">
                         <nav role="navigation">
@@ -67,16 +70,16 @@
                                 <a class="dropdown-item" href="#" data-lang="tk">TK</a>
                             </div>
                         </div>
-                        <i class="fa fa-user punkt-menu" aria-hidden="true" style="color:white"></i>
+                        <a href="{{ route('login') }}"><i class="fa fa-user punkt-menu" aria-hidden="true" style="color:white"></i></a>
                         <i class="fa fa-shopping-cart punkt-menu" aria-hidden="true" style="color:white"></i>
-                        <i class="fa fa-heart punkt-menu" aria-hidden="true" style="color:white"></i>
+                        <a href="/favorites"><i class="fa fa-heart punkt-menu" aria-hidden="true" style="color:white"></i></a>
                     </div>
                 </div>
             </header>
         </div>
-        <main class="mb-5 mt-5">
+        {{-- <main class=""> --}}
             @yield('content')
-        </main>
+        {{-- </main> --}}
     </div>
 
    

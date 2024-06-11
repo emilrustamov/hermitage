@@ -1,4 +1,4 @@
-@include('layouts.header')
+@include('layouts.header', ['slider' => false])
 
 <div class="mt-5">
     <h1>Admin - Blogs</h1>

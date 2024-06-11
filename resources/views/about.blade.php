@@ -1,4 +1,4 @@
-@include('layouts.header')
+@include('layouts.header', ['slider' => true])
 <div class="container py-5">
     <div class="w-100">
         <div class="left-div">

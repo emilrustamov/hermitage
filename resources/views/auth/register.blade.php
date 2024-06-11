@@ -1,77 +1,115 @@
-@extends('layouts.app')
+@extends('layouts.header', ['slider' => false])
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+    <div class="d-flex reg-content">
+        <img class="photo-for-reg" src="{{ asset('/images/register-photo.jpg') }}" alt="reg">
+        <div class=" form-reg w-50  justify-content-center">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+            <p class="text-center reg-title">Я новый клиент</p>
+            <p class="text-center reg-sub">Пожалуйста, зарегистрируйтесь чтобы создать </br> учётную запись</p>
+            <form method="POST" action="{{ route('register') }}">
+                @csrf
+                <div class="mx-auto d-flex justify-content-center name-w-sur">
 
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                    <div class="" style="margin-right:20px">
+                        <div class="required">
+                            <input id="name" type="text" class="form-control  @error('name') is-invalid @enderror"
+                                name="name" value="{{ old('name') }}" required autocomplete="name" autofocus
+                                placeholder="Имя">
+                        <div class="required-sign"></div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                    <div class="">
+                        <div class="required">
+                            <input id="surname" type="text" class="form-control  @error('surname') is-invalid @enderror"
+                                name="surname" value="{{ old('surname') }}" required autocomplete="surname"
+                                placeholder="Фамилия">
+                        <div class="required-sign"></div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                        @error('surname')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
                 </div>
-            </div>
+
+                <div class="d-flex justify-content-center">
+                    <input id="company" type="text" class="company-input  @error('company') is-invalid @enderror"
+                        name="company" value="{{ old('company') }}"  autocomplete="company"
+                        placeholder="Название компании">
+
+                    @error('company')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="required">
+                        <input id="email" type="email" class="form-control   @error('email') is-invalid @enderror"
+                            name="email" value="{{ old('email') }}" required autocomplete="email"
+                            placeholder="Электронная почта">
+                            <div class="required-sign"></div>
+                    </div>
+
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <div class="required">
+                        <input id="password" type="password" class="form-control  @error('password') is-invalid @enderror"
+                            name="password" required autocomplete="new-password" placeholder="Пароль">
+                            <div class="required-sign"></div>
+                    </div>
+
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+
+
+                <div class="d-flex justify-content-center">
+                    <div class="required">
+                        <input id="password-confirm" type="password" class="form-control " name="password_confirmation" required
+                            autocomplete="new-password" placeholder="Подтвердите пароль">
+                        <div class="required-sign"></div>
+                    </div>
+                </div>
+                <p class="pass-clue mt-2 mb-2">Пароль должен: быть длиной не менее 8 символов, содержать как  буквы, так и цифры</p>
+                <div class="d-flex justify-content-center">
+                    <div class="required">
+                        <input id="contacts" type="tel" class="form-control " name="contacts" required
+                            autocomplete="contacts" placeholder="Контакты">
+                        <div class="required-sign"></div>
+                    </div>
+                </div>
+                <div class="mt-2 mb-3 d-flex align-items-center  justify-content-center">
+                    <input type="checkbox" class="my-auto checkbox-input" name="agreement">
+                    <label for="agreement" class="agr-lab">Я бы хотел получать рассылки на электронную почту</label>
+                </div>
+                <div class="row mb-0 justify-content-center mx-auto">
+                        <button type="submit" class="reg-btn">
+                           Зарегистрироваться
+                        </button>
+                </div>
+            </form>
         </div>
     </div>
-</div>
 @endsection
