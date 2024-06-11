@@ -1,0 +1,21 @@
+@import 'slick.css';
+@import '@fortawesome/fontawesome-free/css/fontawesome.css';
+@import '@fortawesome/fontawesome-free/css/regular.css';
+@import '@fortawesome/fontawesome-free/css/solid.css';
+@import '@fortawesome/fontawesome-free/css/brands.css';
+
+@font-face {
+    font-family: 'TT Sans Pro';
+    src: url(./fonts/normsproregular.otf);
+}
+
+@font-face {
+    font-family: 'TT Sans Pro';
+    src: url(./fonts/normsprobold.otf);
+    font-weight: bold;
+}
+
+body {
+    font-family: 'TT Sans Pro';
+   
+}
