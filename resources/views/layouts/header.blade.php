@@ -70,17 +70,18 @@
                                 <a class="dropdown-item" href="#" data-lang="tk">TK</a>
                             </div>
                         </div>
-                        <a href="{{ route('login') }}"><i class="fa fa-user punkt-menu" aria-hidden="true" style="color:white"></i></a>
-                        <i class="fa fa-shopping-cart punkt-menu" aria-hidden="true" style="color:white"></i>
+                        <a href="{{ route('register') }}"><i class="fa fa-user punkt-menu" aria-hidden="true" style="color:white"></i></a>
+                        <i class="fa fa-shopping-cart punkt-menu" aria-hidden="true" style="color:white" id="cartIcon"></i>
                         <a href="/favorites"><i class="fa fa-heart punkt-menu" aria-hidden="true" style="color:white"></i></a>
-                    </div>
-                </div>
-            </header>
-        </div>
-        {{-- <main class=""> --}}
-            @yield('content')
-        {{-- </main> --}}
-    </div>
+                        </div>
+                        </div>
+                        </header>
+                        </div>
+                        {{-- <main class=""> --}}
+                            @yield('content')
+                            {{-- </main> --}}
+                            </div>
+                        @include('components.cart_sidebar')
 
    
 </body>

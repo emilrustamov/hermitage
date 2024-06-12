@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ProjectCalcController;
 use App\Http\Controllers\VacancyController;
 use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Config;
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorite');
 Route::get('/register',[RegisterController::class, 'index'])->name('register')->middleware('guest');
 
+//proj
+Route::get('/projectcalc',[ProjectCalcController::class, 'index'])->name('projectcalc');
 
 
 // Маршрут для смены языка

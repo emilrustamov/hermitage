@@ -24,7 +24,10 @@
                                     </button>
                                 </div>
                                 <p class="fs-5 product-price text-center mt-2">55 800,00 TMT</p>
-                                <p class="fs-5 mt-5 text-center">Доставка осуществляется в течении 3-5 дней</p>
+                                <div class="d-flex align-items-center shipment">
+                                    <img src="{{ asset('/images/icons/shipment.png') }}" alt="">
+                                    <p class=" my-auto text-center">Доставка осуществляется в течении 3-5 дней</p>
+                                </div>
                             <button class="mx-auto buy-btn">Купить прямо сейчас</button>
                             </div>
                         </div>
@@ -40,7 +43,10 @@
                                     </button>
                                 </div>
                                 <p class="fs-5 product-price text-center mt-2">55 800,00 TMT</p>
-                                <p class="fs-5 mt-5 text-center">Доставка осуществляется в течении 3-5 дней</p>
+                                <div class="d-flex align-items-center shipment">
+                                    <img src="{{ asset('/images/icons/shipment.png') }}" alt="">
+                                    <p class=" my-auto text-center">Доставка осуществляется в течении 3-5 дней</p>
+                                </div>
                             <button class="mx-auto buy-btn">Купить прямо сейчас</button>
                             </div>
                         </div>
@@ -56,7 +62,10 @@
                                     </button>
                                 </div>
                                 <p class="fs-5 product-price text-center mt-2">55 800,00 TMT</p>
-                                <p class="fs-5 mt-5 text-center">Доставка осуществляется в течении 3-5 дней</p>
+                                <div class="d-flex align-items-center shipment">
+                                    <img src="{{ asset('/images/icons/shipment.png') }}" alt="">
+                                    <p class=" my-auto text-center">Доставка осуществляется в течении 3-5 дней</p>
+                                </div>
                             <button class="mx-auto buy-btn">Купить прямо сейчас</button>
                             </div>
                         </div>

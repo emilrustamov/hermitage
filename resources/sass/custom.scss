@@ -15,6 +15,7 @@ nav {
 }
 
 .punkt-menu {
+  cursor: pointer;
   padding: 10px;
 }
 
@@ -167,7 +168,6 @@ footer {
   bottom: 0;
   width: 100%;
   text-wrap: balance;
-
 }
 
 .textImageL {
@@ -285,17 +285,216 @@ footer {
     color: white;
   }
 }
-.slider-wrapper{
+.slider-wrapper {
   background-color: white;
-.fav-slider {
+  .fav-slider {
+    background-color: white;
+    height: 80vh;
+    border-bottom: 1px black solid;
+    .product-item {
+      .img-wrapper {
+        padding: 20px;
+        width: 400px;
+        height: 400px;
+        background-color: #eaeaea;
+        .product-img {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+        }
+      }
+      .product-info {
+        .shipment{
+          p{
+            font-size: 16px
+          }
+          img{
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            object-fit: cover;
+          }
+        }
+        width: 35%;
+        margin-left: 50px;
+        .name-w-delete {
+          img {
+            width: 16px;
+            height: 16px;
+            object-fit: cover;
+          }
+          button {
+            background: transparent;
+            border: none;
+          }
+        }
+        .product-price {
+          color: #b10000;
+        }
+        .buy-btn {
+          color: $body-bg;
+          border: none;
+          background-color: #202020;
+          font-size: 20px;
+          padding: 5px 10px;
+        }
+      }
+    }
+  }
+}
+.photo-for-reg {
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+}
+.reg-content {
   background-color: white;
-  height: 80vh;
-  border-bottom: 1px black solid;
+}
+.form-reg {
+  margin-top: 100px;
+  .reg-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  .reg-sub {
+    font-size: 16px;
+    color: #282828;
+    margin-bottom: 60px;
+  }
+  .reg-btn {
+    background-color: #202020;
+    padding: 15px;
+    border: none;
+    border-radius: 0;
+    color: white;
+    font-size: 16px;
+    width: 350px;
+    text-align: center;
+    font-family: 'TT Sans Pro';
+  }
+  .name-w-sur {
+    width: 350px;
+    .required {
+      width: 165px;
+      input {
+        width: 165px;
+      }
+    }
+  }
+  input {
+    width: 350px;
+    margin-bottom: 10px;
+    background-color: #eaeaea;
+    border-radius: 0;
+    padding: 15px;
+    border: none;
+    transition: all 0.3s ease;
+    &::placeholder {
+      color: #282828;
+    }
+    &:focus,
+    &:active {
+      background-color: #f0f0f0;
+      border: none;
+      box-shadow: none;
+    }
+  }
+  .checkbox-input {
+    width: 14px;
+    height: 14px;
+    margin-right: 10px;
+  }
+  .agr-lab {
+    font-size: 12px;
+  }
+  .required {
+    position: relative;
+    width: 350px;
+    input {
+      position: relative;
+      // max-width: 350px;
+      margin-bottom: 10px;
+      background-color: #eaeaea;
+      border-radius: 0;
+      padding: 15px;
+      border: none;
+      transition: all 0.3s ease;
+      &::placeholder {
+        color: #282828;
+      }
+      &:focus,
+      &:active {
+        background-color: #f0f0f0;
+
+        border: none;
+        box-shadow: none;
+      }
+    }
+    .required-sign {
+      position: absolute;
+      top: 21px;
+      right: 15px;
+      background: yellow;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+  }
+  .pass-clue {
+    font-size: 12px;
+    margin: auto;
+    padding-left: 15px;
+    width: 350px;
+    color: #333;
+    // color: #202020;
+  }
+}
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -27%; /* начальное положение сайдбара за пределами экрана */
+  width: 27%;
+  height: 100%;
+  background-color: #121212;
+  transition: right 0.5s ease; /* анимация для плавного появления сайдбара */
+  padding: 20px 10px;
+  box-sizing: border-box;
+  z-index: 999; /* убедитесь, что сайдбар находится выше других элементов */
+  .cart-header {
+    padding: 0 20px;
+    margin-bottom: 50px;
+    img {
+      cursor: pointer;
+      width: 26px;
+      height: 26px;
+      object-fit: cover;
+      transition: all 0.3s ease;
+      &:hover {
+        transform: rotate(180deg);
+      }
+    }
+    p {
+      color: white;
+    }
+  }
+  .delete-item{
+    cursor: pointer;
+    margin-right: 10px;
+    background-color: transparent;
+    border: none;
+    img{
+      width: 16px;
+      height: 16px;
+      object-fit: cover;
+      filter: invert(1);
+    }
+  }
   .product-item {
     .img-wrapper {
       padding: 20px;
-      width: 400px;
-      height: 400px;
+      width: 150px;
+      height: 150px;
       background-color: #eaeaea;
       .product-img {
         width: 100%;
@@ -303,9 +502,14 @@ footer {
         object-fit: cover;
       }
     }
+    .prod-name {
+      font-size: 14px;
+      color: white;
+      margin-bottom: 10px;
+    }
     .product-info {
-      width: 35%;
-      margin-left: 50px;
+      // width: 35%;
+      margin-left: 30px;
       .name-w-delete {
         img {
           width: 16px;
@@ -317,123 +521,177 @@ footer {
           border: none;
         }
       }
+      .pr-info {
+        width: 20%;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.6);
+      }
       .product-price {
-        color: #b10000;
+        font-size: 16px;
+        color: white;
+        margin-right: 20px;
       }
-    .buy-btn{
-      color: $body-bg;
+      .buy-btn {
+        color: $body-bg;
+        border: none;
+        background-color: #202020;
+        font-size: 20px;
+        padding: 5px 10px;
+      }
+      .quant-btn{
+        padding: 2px 5px;
+        border: 1px solid white;
+        width: fit-content;
+        i{
+          cursor: pointer;
+          font-size: 12px;
+          color: white;
+        }
+        .quant{
+          font-size: 16px;
+          color: white;
+          margin: 0 15px;
+        }
+      }
+    }
+  }
+  .cart-footer{
+    .total-sum{
+      margin: 40px 40px 20px;
+      border-top: 1px solid white;
+      border-bottom: 1px solid white;
+      padding: 20px 0;
+      .product-price{
+        font-size: 16px;
+      }
+      p{
+        font-size: 18px;
+        margin-bottom: 0;
+        color: white;
+      }
+    }
+    .shipment{
+      margin-left: 40px;
+      margin-bottom: 20px;
+      p{
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.6);
+      }
+      img{
+        width: 20px;
+        height: 20px;
+        object-fit: cover;
+        margin-right: 5px;
+        filter: invert(1);
+      }
+    }
+    .checkout-btn{
+      cursor: pointer;
+      width: -webkit-fill-available;
+      padding: 15px 60px;
+      margin-left:40px;
+      margin-right: 40px;
       border: none;
-      background-color: #202020;
-      font-size: 20px;
-      padding: 5px 10px;
-    }
-    }
-  }
-}
-}
-.photo-for-reg{
-  width: 50%;
-  height: auto;
-  object-fit: cover;
-}
-.reg-content{
-  background-color: white;
-}
-.form-reg{
-  margin-top: 100px;
-  .reg-title{
-    font-size: 24px;
-    margin-bottom: 20px;
-    font-weight: bold;
-  }
-  .reg-sub{
-    font-size: 16px;
-    color: #282828;
-    margin-bottom: 60px;
-  }
-  .reg-btn{
-    background-color: #202020;
-    padding: 15px;
-    border: none;
-    border-radius: 0;
-    color: white;
-    font-size: 16px;
-    width: 350px;
-    text-align: center;
-    font-family: $font-family-sans-serif;
-  }
-  .name-w-sur{
-    width: 350px;
-    .required{
-      width: 165px;
-      input{
-        width: 165px ;
+      background-color: #bcbdb8;
+      p{
+        font-size: 15px;
+        font-family: "TT Sans Pro";
       }
     }
+  }
+}
+.radio-options{
+  background-color: white;
+  padding: 58px 40px 20px;
+}
+.radio-title{
+  &.fr{
+    margin-right: 84px;
+  }
+  margin-right: 60px;
+}
+.type-object{
+  margin-bottom: 40px;
+}
+.radio-btn-wrap {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 20px;
+ 
+  input[type="radio"] {
+    position: absolute;
+    left: -9999px;
+  }
+
+  input[type="radio"] + label {
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    font-size: 13px;
+    display: inline-block;
+    color: #333;
+  }
+
+  input[type="radio"] + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #121212;
+    border-radius: 100%;
+  }
+
+  input[type="radio"] + label:after {
+    content: '✔';
+    color: white;
+    font-size: 11px;
+    text-align: center;
+    width: 17px;
+    height: 17px;
+    background: #000;
+    position: absolute;
+    left: 0px;
+    border-radius: 100%;
+    transition: all 0.2s ease;
+    transform: scale(0);
+  }
+
+  input[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  input[type="radio"]:checked + label:after {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.info{
+  background-color: white;
+  margin-left: 40px;
+  h6{
+    margin-right: 45px;
   }
   input{
-    width: 350px;
-    margin-bottom: 10px;
     background-color: #eaeaea;
-    border-radius: 0;
     padding: 15px;
     border: none;
-    transition: all 0.3s ease;
-    &::placeholder{
-      color: #282828;
-    }
-    &:focus, &:active{
-      background-color: #f0f0f0;
-      border: none;
-      box-shadow: none;
-    }
-  }
-  .checkbox-input{
-    width: 14px;
-    height: 14px;
+    width: 350px;
     margin-right: 10px;
+  };
   }
-  .agr-lab{
-    font-size: 12px;
-  }
-  .required{
-    position: relative;
+  .contact-form{
+  input, textarea{
+    background-color: #eaeaea;
+    padding: 15px;
+    border: none;
     width: 350px;
-    input{
-      position: relative;
-      // max-width: 350px;
-      margin-bottom: 10px;
-      background-color: #eaeaea;
-      border-radius: 0;
-      padding: 15px;
-      border: none;
-      transition: all 0.3s ease;
-      &::placeholder{
-        color: #282828;
-      }
-      &:focus, &:active{
-      background-color: #f0f0f0;
-        
-        border: none;
-        box-shadow: none;
-      }
-    }
-    .required-sign{
-      position: absolute;
-      top: 21px;
-      right: 15px;
-      background: yellow;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-    }
-  }
-  .pass-clue{
-    font-size: 12px;
-    margin: auto;
-    padding-left: 15px;
-    width: 350px;
-    color: #333;
-    // color: #202020;
-  }
+    margin-right: 10px;
+  };
+
 }
+
