@@ -4,23 +4,23 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ProjectCalcController;
 use App\Http\Controllers\VacancyController;
 use App\Http\Controllers\BlogController;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\AdminSubscriberController;
+use App\Http\Controllers\PartnerController;
 use UniSharp\LaravelFilemanager\Lfm;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
-
-//header links
+// header links
 Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorite');
-Route::get('/register',[RegisterController::class, 'index'])->name('register')->middleware('guest');
+Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
 
-//proj
-Route::get('/projectcalc',[ProjectCalcController::class, 'index'])->name('projectcalc');
-
+// proj
+Route::get('/projectcalc', [ProjectCalcController::class, 'index'])->name('projectcalc');
 
 // Маршрут для смены языка
 Route::get('change-locale/{locale}', function ($locale) {
@@ -35,8 +35,8 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
     Lfm::routes();
 });
 
-
 Auth::routes();
+
 Route::prefix('admin')->group(function () {
     Route::get('/vacancies', [VacancyController::class, 'index'])->name('admin.vacancies.index');
     Route::get('/vacancies/create', [VacancyController::class, 'create'])->name('admin.vacancies.create');
@@ -54,13 +54,33 @@ Route::prefix('admin')->group(function () {
     Route::get('/blogs/{id}/edit', [BlogController::class, 'edit'])->name('admin.blogs.edit');
     Route::put('/blogs/{id}', [BlogController::class, 'update'])->name('admin.blogs.update');
     Route::delete('/blogs/{id}', [BlogController::class, 'destroy'])->name('admin.blogs.destroy');
-});
 
+    Route::get('/projects', [ProjectController::class, 'index'])->name('admin.projects.index');
+    Route::get('/projects/create', [ProjectController::class, 'create'])->name('admin.projects.create');
+    Route::post('/projects', [ProjectController::class, 'store'])->name('admin.projects.store');
+    Route::get('/projects/{id}/edit', [ProjectController::class, 'edit'])->name('admin.projects.edit');
+    Route::put('/projects/{id}', [ProjectController::class, 'update'])->name('admin.projects.update');
+    Route::delete('/projects/{id}', [ProjectController::class, 'destroy'])->name('admin.projects.destroy');
+
+    // Routes for Partners and Categories
+    Route::get('/partners/categories', [PartnerController::class, 'indexCategory'])->name('admin.partners.categories.index');
+    Route::get('/partners/categories/create', [PartnerController::class, 'createCategory'])->name('admin.partners.categories.create');
+    Route::post('/partners/categories', [PartnerController::class, 'storeCategory'])->name('admin.partners.categories.store');
+    Route::get('/partners/categories/{id}/edit', [PartnerController::class, 'editCategory'])->name('admin.partners.categories.edit');
+    Route::put('/partners/categories/{id}', [PartnerController::class, 'updateCategory'])->name('admin.partners.categories.update');
+    Route::delete('/partners/categories/{id}', [PartnerController::class, 'destroyCategory'])->name('admin.partners.categories.destroy');
+
+    Route::get('/partners', [PartnerController::class, 'index'])->name('admin.partners.index');
+    Route::get('/partners/create', [PartnerController::class, 'createPartner'])->name('admin.partners.create');
+    Route::post('/partners', [PartnerController::class, 'storePartner'])->name('admin.partners.store');
+    Route::get('/partners/{id}/edit', [PartnerController::class, 'editPartner'])->name('admin.partners.edit');
+    Route::put('/partners/{id}', [PartnerController::class, 'updatePartner'])->name('admin.partners.update');
+    Route::delete('/partners/{id}', [PartnerController::class, 'destroyPartner'])->name('admin.partners.destroy');
+});
 
 Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
-
 
 Route::get('/', function () {
     return redirect('/ru');
@@ -77,15 +97,15 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'web'], function () {
     Route::get('/vacancies/{id}', [VacancyController::class, 'publicShow'])->name('vacancies.show');
     Route::get('/blogs', [BlogController::class, 'publicIndex'])->name('blogs.index');
     Route::get('/blogs/{id}', [BlogController::class, 'publicShow'])->name('blogs.show');
+    Route::get('/projects', [ProjectController::class, 'publicIndex'])->name('projects.index');
+    Route::get('/projects/{id}', [ProjectController::class, 'publicShow'])->name('projects.show');
 });
-
 
 // Route::get('/', [SubscriberController::class, 'subscriber_form'])->name('form');
 Route::post('/subscriber', [SubscriberController::class, 'index'])->name('subscribe');
 Route::get('/subscriber/verify/{token}/{email}', [SubscriberController::class, 'verify'])->name('subscriber_verify');
 
-// Message to All Subscriber
-
+// Message to All Subscribers
 Route::get('/subscriber/all', [AdminSubscriberController::class, 'show_all'])->name('admin_subscribers');
 Route::get('/subscriber/send-email', [AdminSubscriberController::class, 'send_email'])->name('subscriber_send_email');
 Route::post('/admin/subscriber/send-email-submit', [AdminSubscriberController::class, 'send_email_submit'])->name('subscriber_send_email_submit');

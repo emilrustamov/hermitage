@@ -1,4 +1,4 @@
-@include('layouts.header')
+@include('layouts.headerA')
 
 <div class="container mt-5">
     <h1>Admin - Vacancies</h1>
