@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-lg-4  d-flex flex-column" style="padding-right:0">
             <div class="d-flex flex-column justify-content-around right-block" style="background-color: #202020;">
-                <div class="d-flex flex-column">
+                <div class="d-flex flex-column left-info">
                     <h1 class="mb-1 mt-1 text-white align-self-center text-uppercase">Расчёт стоимости</h1>
                     <h3 class="mb-5 text-white align-self-center text-uppercase">Индвидидуального проекта</h3>
                     <div class="mt-5 text-white fs-5 text-start align-self-center">Мы предоставляем удобный и интуитивно
@@ -101,24 +101,31 @@
                 </div>
             </div>
             <div class="info">
-                <div class="d-flex align-items-center justfy-content-center">
+                <div class="d-flex justfy-content-center">
                     <h6 class="text-uppercase">Укажите площадь объекта</h6>
-                    <input type="text">
-                    <p>м²</p>
+                    <div class="d-flex flex-column">
+                        <div class="d-flex align-items-center">
+                            <input type="text">
+                            <p>м²</p>
+                        </div>
+                    <div class="contact-form d-flex flex-column">
+                        <p class="text-uppercase">Ваши контактные данные</p>
+                        <input type="text" placeholder="Страна, город*">
+                        <input type="text" placeholder="Имя*">
+                        <input type="text" placeholder="Телефон*">
+                        <input type="email" placeholder="Email*">
+                        <textarea name="" id="" cols="30" rows="6" placeholder="Сообщение"></textarea>
+                        <div class="mt-2 mb-3 d-flex align-items-center  justify-content-start">
+                            <input type="checkbox" class="my-auto checkbox-input" name="agreement">
+                            <label for="agreement" class="agr-lab">Я согласен с правилами обработки обращений</label>
+                        </div>
+                        <button class="d-flex align-items-center justify-content-center">
+                            <p class="m-auto">Отправить заявку</p>
+                            <i class="fa fa-long-arrow-right"></i>
+                        </button>
+                    </div>
+                    </div>
                 </div>
-            </div>
-            <div class="contact-form d-flex flex-column">
-                <p>Ваши контактные данные</p>
-                <input type="text" placeholder="Страна">
-                <input type="text" placeholder="Имя*">
-                <input type="text" placeholder="Телефон*">
-                <input type="email" placeholder="Email*">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Сообщение"></textarea>
-                <div class="mt-2 mb-3 d-flex align-items-center  justify-content-center">
-                    <input type="checkbox" class="my-auto checkbox-input" name="agreement">
-                    <label for="agreement" class="agr-lab">Я бы хотел получать рассылки на электронную почту</label>
-                </div>
-                <button>Отправить заявку</button>
             </div>
         </div>
 </section>

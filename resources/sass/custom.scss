@@ -287,6 +287,7 @@ footer {
 }
 .slider-wrapper {
   background-color: white;
+  padding: 0 3rem;
   .fav-slider {
     background-color: white;
     height: 80vh;
@@ -304,11 +305,11 @@ footer {
         }
       }
       .product-info {
-        .shipment{
-          p{
-            font-size: 16px
+        .shipment {
+          p {
+            font-size: 16px;
           }
-          img{
+          img {
             width: 20px;
             height: 20px;
             margin-right: 5px;
@@ -372,6 +373,19 @@ footer {
     width: 350px;
     text-align: center;
     font-family: 'TT Sans Pro';
+  }
+  .log-a {
+    margin-top: 15px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    color: #121212 !important;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    &:hover {
+      text-decoration-color: white;
+    }
   }
   .name-w-sur {
     width: 350px;
@@ -478,12 +492,12 @@ footer {
       color: white;
     }
   }
-  .delete-item{
+  .delete-item {
     cursor: pointer;
     margin-right: 10px;
     background-color: transparent;
     border: none;
-    img{
+    img {
       width: 16px;
       height: 16px;
       object-fit: cover;
@@ -538,16 +552,16 @@ footer {
         font-size: 20px;
         padding: 5px 10px;
       }
-      .quant-btn{
+      .quant-btn {
         padding: 2px 5px;
         border: 1px solid white;
         width: fit-content;
-        i{
+        i {
           cursor: pointer;
           font-size: 12px;
           color: white;
         }
-        .quant{
+        .quant {
           font-size: 16px;
           color: white;
           margin: 0 15px;
@@ -555,29 +569,29 @@ footer {
       }
     }
   }
-  .cart-footer{
-    .total-sum{
+  .cart-footer {
+    .total-sum {
       margin: 40px 40px 20px;
       border-top: 1px solid white;
       border-bottom: 1px solid white;
       padding: 20px 0;
-      .product-price{
+      .product-price {
         font-size: 16px;
       }
-      p{
+      p {
         font-size: 18px;
         margin-bottom: 0;
         color: white;
       }
     }
-    .shipment{
+    .shipment {
       margin-left: 40px;
       margin-bottom: 20px;
-      p{
+      p {
         font-size: 12px;
         color: rgba(255, 255, 255, 0.6);
       }
-      img{
+      img {
         width: 20px;
         height: 20px;
         object-fit: cover;
@@ -585,32 +599,32 @@ footer {
         filter: invert(1);
       }
     }
-    .checkout-btn{
+    .checkout-btn {
       cursor: pointer;
       width: -webkit-fill-available;
       padding: 15px 60px;
-      margin-left:40px;
+      margin-left: 40px;
       margin-right: 40px;
       border: none;
       background-color: #bcbdb8;
-      p{
+      p {
         font-size: 15px;
-        font-family: "TT Sans Pro";
+        font-family: 'TT Sans Pro';
       }
     }
   }
 }
-.radio-options{
+.radio-options {
   background-color: white;
   padding: 58px 40px 20px;
 }
-.radio-title{
-  &.fr{
+.radio-title {
+  &.fr {
     margin-right: 84px;
   }
   margin-right: 60px;
 }
-.type-object{
+.type-object {
   margin-bottom: 40px;
 }
 .radio-btn-wrap {
@@ -618,13 +632,13 @@ footer {
   display: inline-block;
   margin-right: 20px;
   margin-bottom: 20px;
- 
-  input[type="radio"] {
+
+  input[type='radio'] {
     position: absolute;
     left: -9999px;
   }
 
-  input[type="radio"] + label {
+  input[type='radio'] + label {
     position: relative;
     padding-left: 28px;
     cursor: pointer;
@@ -634,7 +648,7 @@ footer {
     color: #333;
   }
 
-  input[type="radio"] + label:before {
+  input[type='radio'] + label:before {
     content: '';
     position: absolute;
     left: 0;
@@ -645,7 +659,7 @@ footer {
     border-radius: 100%;
   }
 
-  input[type="radio"] + label:after {
+  input[type='radio'] + label:after {
     content: '✔';
     color: white;
     font-size: 11px;
@@ -660,38 +674,173 @@ footer {
     transform: scale(0);
   }
 
-  input[type="radio"]:not(:checked) + label:after {
+  input[type='radio']:not(:checked) + label:after {
     opacity: 0;
     transform: scale(0);
   }
 
-  input[type="radio"]:checked + label:after {
+  input[type='radio']:checked + label:after {
     opacity: 1;
     transform: scale(1);
   }
 }
-.info{
+.left-info {
+  padding: 55px 30px 300px;
+}
+.info {
   background-color: white;
   margin-left: 40px;
-  h6{
+  padding-bottom: 80px;
+  border-bottom: 1px solid #333;
+  h6 {
     margin-right: 45px;
+    margin-top: 15px;
   }
-  input{
+  input {
     background-color: #eaeaea;
     padding: 15px;
     border: none;
-    width: 350px;
+    width: 450px;
     margin-right: 10px;
-  };
+    transition: all 0.3s ease;
+    &:focus,
+    &:active {
+      background-color: rgb(243, 243, 243);
+      border: none;
+      outline: none;
+    }
   }
-  .contact-form{
-  input, textarea{
-    background-color: #eaeaea;
-    padding: 15px;
-    border: none;
-    width: 350px;
-    margin-right: 10px;
-  };
-
 }
-
+.contact-form {
+  margin-top: 100px;
+  input,
+  textarea {
+    background-color: #eaeaea;
+    padding: 15px;
+    border: none;
+    width: 450px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    &:focus,
+    &:active {
+      background-color: rgb(243, 243, 243);
+      border: none;
+      outline: none;
+    }
+    &.checkbox-input {
+      width: fit-content;
+    }
+    &::placeholder {
+      text-transform: uppercase;
+    }
+  }
+  button {
+    cursor: pointer;
+    width: 350px;
+    margin: auto;
+    background-color: #121212;
+    padding: 15px;
+    border: none;
+    p {
+      font-size: 14px;
+      text-transform: uppercase;
+      font-family: 'TT Sans Pro';
+      color: white;
+    }
+    i {
+      font-size: 18px;
+      color: yellow;
+    }
+  }
+}
+.cert-slider-wrapper {
+  background-color: #bcbdb8;
+  padding: 140px 80px 20px;
+  p {
+    margin-top: 10px;
+  }
+}
+.cert-slider {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  i {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    font-size: 20px;
+    color: white;
+    z-index: 9999;
+  }
+  .fa-chevron-left {
+    left: -30px;
+  }
+  .fa-chevron-right {
+    right: -30px;
+  }
+  .item {
+    width: 400px !important;
+    height: 600px;
+    margin-right: 50px;
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+}
+@media (max-width: 991px) {
+  .header-content{
+    padding: 20px 10px;
+    .logo{
+      height: unset;
+    }
+  }
+  .slider-wrapper {
+    padding: 0;
+    .fav-slider {
+      padding: 10px 0;
+      height: unset;
+      .product-item {
+        padding-right: 10px;
+        .img-wrapper {
+          width: 150px;
+          height: 150px;
+        }
+        .product-info {
+          width: unset;
+          margin-left: 20px;
+          .name-w-delete {
+            .fs-4 {
+              font-size: 14px !important;
+            }
+          }
+          .fs-5 {
+            font-size: 12px !important;
+          }
+          .product-price.text-center {
+            text-align: start !important;
+          }
+          .shipment{
+            width: 90%;
+            p{
+              font-size: 12px;
+              text-align: start !important;
+            }
+          }
+          .buy-btn{
+            margin-left: unset !important;
+            margin-right: unset !important;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+@media(min-width: 320px) and (max-width:400px){
+  .fav-slider{
+    padding: 0 !important;
+  }
+}

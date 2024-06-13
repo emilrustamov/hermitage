@@ -10,7 +10,7 @@
                 <div></div>
             </div>
             <div class="col-lg-8 p-0">
-                <div class="slider-wrapper px-5">
+                <div class="slider-wrapper ">
                     <div class=" fav-slider d-flex align-items-center">
                         <div class="product-item d-flex justify-content-center align-items-center">
                             <div class="img-wrapper">

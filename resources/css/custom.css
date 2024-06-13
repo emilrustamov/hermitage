@@ -319,6 +319,7 @@ footer {
 
 .slider-wrapper {
   background-color: white;
+  padding: 0 3rem;
 }
 .slider-wrapper .fav-slider {
   background-color: white;
@@ -406,6 +407,20 @@ footer {
   width: 350px;
   text-align: center;
   font-family: "TT Sans Pro";
+}
+.form-reg .log-a {
+  margin-top: 15px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: #121212 !important;
+  font-size: 13px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.form-reg .log-a:hover {
+  text-decoration-color: white;
 }
 .form-reg .name-w-sur {
   width: 350px;
@@ -740,25 +755,189 @@ footer {
           transform: scale(1);
 }
 
+.left-info {
+  padding: 55px 30px 300px;
+}
+
 .info {
   background-color: white;
   margin-left: 40px;
+  padding-bottom: 80px;
+  border-bottom: 1px solid #333;
 }
 .info h6 {
   margin-right: 45px;
+  margin-top: 15px;
 }
 .info input {
   background-color: #eaeaea;
   padding: 15px;
   border: none;
-  width: 350px;
+  width: 450px;
   margin-right: 10px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.info input:focus, .info input:active {
+  background-color: rgb(243, 243, 243);
+  border: none;
+  outline: none;
 }
 
-.contact-form input, .contact-form textarea {
+.contact-form {
+  margin-top: 100px;
+}
+.contact-form input,
+.contact-form textarea {
   background-color: #eaeaea;
   padding: 15px;
   border: none;
-  width: 350px;
+  width: 450px;
   margin-right: 10px;
+  margin-bottom: 15px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.contact-form input:focus, .contact-form input:active,
+.contact-form textarea:focus,
+.contact-form textarea:active {
+  background-color: rgb(243, 243, 243);
+  border: none;
+  outline: none;
+}
+.contact-form input.checkbox-input,
+.contact-form textarea.checkbox-input {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.contact-form input::-webkit-input-placeholder, .contact-form textarea::-webkit-input-placeholder {
+  text-transform: uppercase;
+}
+.contact-form input::-moz-placeholder, .contact-form textarea::-moz-placeholder {
+  text-transform: uppercase;
+}
+.contact-form input:-ms-input-placeholder, .contact-form textarea:-ms-input-placeholder {
+  text-transform: uppercase;
+}
+.contact-form input::-ms-input-placeholder, .contact-form textarea::-ms-input-placeholder {
+  text-transform: uppercase;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  text-transform: uppercase;
+}
+.contact-form button {
+  cursor: pointer;
+  width: 350px;
+  margin: auto;
+  background-color: #121212;
+  padding: 15px;
+  border: none;
+}
+.contact-form button p {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-family: "TT Sans Pro";
+  color: white;
+}
+.contact-form button i {
+  font-size: 18px;
+  color: yellow;
+}
+
+.cert-slider-wrapper {
+  background-color: #bcbdb8;
+  padding: 140px 80px 20px;
+}
+.cert-slider-wrapper p {
+  margin-top: 10px;
+}
+
+.cert-slider {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.cert-slider i {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  font-size: 20px;
+  color: white;
+  z-index: 9999;
+}
+.cert-slider .fa-chevron-left {
+  left: -30px;
+}
+.cert-slider .fa-chevron-right {
+  right: -30px;
+}
+.cert-slider .item {
+  width: 400px !important;
+  height: 600px;
+  margin-right: 50px;
+}
+.cert-slider .item img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media (max-width: 991px) {
+  .header-content {
+    padding: 20px 10px;
+  }
+  .header-content .logo {
+    height: unset;
+  }
+  .slider-wrapper {
+    padding: 0;
+  }
+  .slider-wrapper .fav-slider {
+    padding: 10px 0;
+    height: unset;
+  }
+  .slider-wrapper .fav-slider .product-item {
+    padding-right: 10px;
+  }
+  .slider-wrapper .fav-slider .product-item .img-wrapper {
+    width: 150px;
+    height: 150px;
+  }
+  .slider-wrapper .fav-slider .product-item .product-info {
+    width: unset;
+    margin-left: 20px;
+  }
+  .slider-wrapper .fav-slider .product-item .product-info .name-w-delete .fs-4 {
+    font-size: 14px !important;
+  }
+  .slider-wrapper .fav-slider .product-item .product-info .fs-5 {
+    font-size: 12px !important;
+  }
+  .slider-wrapper .fav-slider .product-item .product-info .product-price.text-center {
+    text-align: start !important;
+  }
+  .slider-wrapper .fav-slider .product-item .product-info .shipment {
+    width: 90%;
+  }
+  .slider-wrapper .fav-slider .product-item .product-info .shipment p {
+    font-size: 12px;
+    text-align: start !important;
+  }
+  .slider-wrapper .fav-slider .product-item .product-info .buy-btn {
+    margin-left: unset !important;
+    margin-right: unset !important;
+    font-size: 16px;
+  }
+}
+@media (min-width: 320px) and (max-width: 400px) {
+  .fav-slider {
+    padding: 0 !important;
+  }
 }

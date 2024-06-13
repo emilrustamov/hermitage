@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\CertificatesController;
 use App\Http\Controllers\ProjectCalcController;
 use App\Http\Controllers\VacancyController;
 use App\Http\Controllers\BlogController;
@@ -17,9 +19,13 @@ use Illuminate\Support\Facades\Auth;
 //header links
 Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorite');
 Route::get('/register',[RegisterController::class, 'index'])->name('register')->middleware('guest');
+Route::get('/reset',[ResetPasswordController::class, 'index'])->name('reset')->middleware('guest');
 
 //proj
 Route::get('/projectcalc',[ProjectCalcController::class, 'index'])->name('projectcalc');
+
+//cert
+Route::get('/certs',[CertificatesController::class, 'index'])->name('certs');
 
 
 // Маршрут для смены языка

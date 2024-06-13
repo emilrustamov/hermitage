@@ -56,7 +56,7 @@
                             </div>
                         </nav>
                         <div style="display: inline-flex">
-                            <a href="{{ route('home', ['locale' => app()->getLocale()]) }}"><img src="{{ asset('/images/logo.svg') }}" alt="logo" class="logo"></a>
+                            <a href="{{ route('home', ['locale' => app()->getLocale()]) }}"><img src="{{ asset('/images/logo.svg') }}"  style="filter:invert(1)" alt="logo" class="logo"></a>
                         </div>
                     </div>
                     <div class="text-end">
