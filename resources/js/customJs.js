@@ -65,5 +65,24 @@ document.addEventListener('DOMContentLoaded', function () {
     function closeSidebarFunction() {
         sidebar.style.right = '-27%';
     }
+
+
+   //partnersDropdown
+   var partnersDropdownToggle = document.getElementById('partnersDropdown');
+    var partnersDropdownMenu = document.getElementById('partnersMenu');
+
+    partnersDropdownToggle.addEventListener('click', function() {
+        if (partnersDropdownMenu.style.display === 'none') {
+            partnersDropdownMenu.style.display = 'block';
+        } else {
+            partnersDropdownMenu.style.display = 'none';
+        }
+    });
+
+    document.addEventListener('click', function(event) {
+        if (!partnersDropdownToggle.contains(event.target) && !partnersDropdownMenu.contains(event.target)) {
+            partnersDropdownMenu.style.display = 'none';
+        }
+    });
 });
 

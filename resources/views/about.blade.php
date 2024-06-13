@@ -1,86 +1,78 @@
 @include('layouts.header', ['slider' => true])
-<div class="container py-5">
+<div class="container py-5 about-cont">
     <div class="w-100">
         <div class="left-div">
-            <h2>О нас</h2>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate, itaque doloremque animi pariatur
-                mollitia
-                quas id quasi, qui, veniam rem accusantium possimus dolorum harum minima eveniet facilis cumque
-                similique
-                maxime.
+            <h2 class="fw-bold">О нас</h2>
+            <p>HERMITAGE HOME INTERIORS - это компания премиум класса,
+                которая позволяет почувствовать символ безупречного вкуса,
+                синтез современных технологий с традиционными итальянским
+                качеством, эксклюзивный современный дизайн и утонченный стиль,
+                представляющий смесь различных культур и времен.
             <p>
         </div>
         <div class="right-div">
-            <h2>О нас</h2>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate, itaque doloremque animi pariatur
-                mollitia
-                quas id quasi, qui, veniam rem accusantium possimus dolorum harum minima eveniet facilis cumque
-                similique
-                maxime.
+            <h2 class="fw-bold">Наша миссия и видение</h2>
+            <p>Наша миссия состоит в том, чтобы повысить уровень комфорта
+                в каждом доме, создавать и реализовывать самые амбициозные проекты,
+                сочетающие функциональность и последние мировые тенденции
             <p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate, itaque doloremque animi pariatur
-                mollitia
-                quas id quasi, qui, veniam rem accusantium possimus dolorum harum minima eveniet facilis cumque
-                similique
-                maxime.
+            <p>Мы продолжаем использовать наш многолетний профессиональный
+                опыт для создания комфорта, функциональности и атмосфер,
+                которые полностью удовлетворяют требованиям наших клиентов.
             <p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate, itaque doloremque animi pariatur
-                mollitia
-                quas id quasi, qui, veniam rem accusantium possimus dolorum harum minima eveniet facilis cumque
-                similique
-                maxime.
+            <p>Это видение было основной нашей истории и культурной ценности дизайна,
+                которая по-прежнему является главным ключом к нашим перспективам.
             <p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate, itaque doloremque animi pariatur
-                mollitia
-                quas id quasi, qui, veniam rem accusantium possimus dolorum harum minima eveniet facilis cumque
-                similique
-                maxime.
-            <p>
+
         </div>
     </div>
-    <div class="text-center">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet nulla saepe magni similique harum tempore
-        doloribus ex! Illum veritatis animi laboriosam, repellat harum voluptatum facere voluptatibus vel accusamus,
-        aspernatur quas.
+    <div class="text-center fs-4 fw-bold fst-italic my-5">
+        HERMITAGE HOME INTERIORS является официальным представителем
+        ведущих европейских брендов в Туркменистане.
     </div>
     <div class="row">
         <div class="col-lg-6">
-            <img src="{{ asset('/images/2.png') }}">
-            <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti exercitationem unde distinctio veniam
-                quam, in eveniet. Officia laudantium explicabo repudiandae. Iusto tenetur voluptates labore
-                necessitatibus
-                laudantium rem dolor ratione illo.
-            </div>
+            <img class="img-fluid" src="{{ asset('/images/red-bath.jpg') }}">
+            <p class="fs-4 fw-bold">
+                Розничная продажа
+            </p>
+            <p>
+                Компания представлена в 3 шоурумах по следующим направлениям:
+            </p>
+            <ul>
+                <li>Сантехника, Плитка и камень, Напольные покрытия, Спа и Вейнес,
+                    Строительные материалы.</li>
+                <li>Мебель, Кухни и бытовая техника, Освещение, Система "Умный дом",
+                    Декоративные материалы, Камины, Окна и Двери.</li>
+                <li>Система отопления, вентиляции и кондиционирования.</li>
+            </ul>
         </div>
         <div class="col-lg-6">
-            <img src="{{ asset('/images/2.png') }}">
-            <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti exercitationem unde distinctio veniam
-                quam, in eveniet. Officia laudantium explicabo repudiandae. Iusto tenetur voluptates labore
-                necessitatibus
-                laudantium rem dolor ratione illo.
-            </div>
+            <img class="img-fluid" src="{{ asset('/images/bw-proj.jpg') }}">
+            <p class="fs-4 fw-bold">
+                Проекты
+            </p>
+            <p>
+                Мы предлагаем полный спектр услуг: от разработки дизайна интерьера и экстерьера до поставки всех материалов и реализации проектов под ключ.
+            </p>
         </div>
         <div class="col-lg-6">
-            <img src="{{ asset('/images/2.png') }}">
-            <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti exercitationem unde distinctio veniam
-                quam, in eveniet. Officia laudantium explicabo repudiandae. Iusto tenetur voluptates labore
-                necessitatibus
-                laudantium rem dolor ratione illo.
-            </div>
+            <img class="img-fluid" src="{{ asset('/images/two-proj-men.png') }}">
+            <p class="fs-4 fw-bold">
+                Контракты
+            </p>
+            <p>
+                Сотрудничая с международными и местными строительными компаниями, официальными дипломатическими представительствами, мы осуществляем поставку продукции по направлениям: гарантийное обслуживание и полную координацию проектов.
+            </p>
         </div>
         <div class="col-lg-6 align-self-center d-flex flex-column text-center">
             <div>
-                <div class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium vitae sapiente
-                    veniam eos qui, hic non quia dolor inventore voluptate rerum corrupti quisquam facere dolore
-                    cupiditate
-                    ipsam officia nobis error!</div>
+                <div class="fs-3 fst-italic fw-bold">Самый выгодный поставщик:
+                    все и в одном месте.</div>
             </div>
         </div>
         <div class="col-lg-12 text-center">
-            <button>123123<i class="fa fa-download" aria-hidden="true"></i></button>
+            <button class="download-btn">Скачать презентацию<i class="fa fa-download" aria-hidden="true"></i></button>
         </div>
     </div>
 </div>
@@ -98,10 +90,17 @@
 
         margin-left: auto;
     }
+    .right-div p{
+        line-height: normal;
+
+    }
 
     .left-div {
         text-align: left;
 
         margin-right: auto;
+    }
+    .left-div p{
+        line-height: normal;
     }
 </style>

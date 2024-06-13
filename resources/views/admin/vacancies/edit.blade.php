@@ -1,4 +1,4 @@
-@include('layouts.header', ['slider' => true])
+@include('layouts.headerA', ['hasimage' => false])
     <div class="container mt-5">
         <h1>Edit Vacancy</h1>
         <form action="{{ route('admin.vacancies.update', $vacancy->id) }}" method="POST" enctype="multipart/form-data">

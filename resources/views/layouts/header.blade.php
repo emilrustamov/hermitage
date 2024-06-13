@@ -17,23 +17,6 @@
                 @if ($slider)
                     @include('layouts.head_slider')
                 @endif
-                {{-- <div class="regular2">
-                    <div class="slide" style="background-image: url(/images/main.jpg); min-height:900px;background-repeat: no-repeat;background-size: cover;">
-                        <!-- Add content for slide 1 if needed -->
-                    </div>
-                    <div class="slide" style="background-image: url(/images/main1.jpg); min-height:900px;background-repeat: no-repeat;background-size: cover;">
-                        <!-- Add content for slide 2 if needed -->
-                    </div>
-                    <div class="slide" style="background-image: url(/images/main3.jpg); min-height:900px;background-repeat: no-repeat;background-size: cover;">
-                        <!-- Add content for slide 3 if needed -->
-                    </div>
-                    <div class="slide" style="background-image: url(/images/main4.jpg); min-height:900px;background-repeat: no-repeat;background-size: cover;">
-                        <!-- Add content for slide 3 if needed -->
-                    </div>
-                    <div class="slide" style="background-image: url(/images/main5.jpg); min-height:900px;background-repeat: no-repeat;background-size: cover;">
-                        <!-- Add content for slide 3 if needed -->
-                    </div>
-                </div> --}}
                 <div class="header-content">
                     <div class="d-flex">
                         <nav role="navigation">
@@ -48,6 +31,9 @@
                                     </a>
                                     <a class="nav-link" href="{{ route('blogs.index', ['locale' => app()->getLocale()]) }}">
                                         <li>Блог</li>
+                                    </a>
+                                    <a class="nav-link" href="{{ route('projects.index', ['locale' => app()->getLocale()]) }}">
+                                        <li>Проекты</li>
                                     </a>
                                     <a class="nav-link" href="{{ route('about', ['locale' => app()->getLocale()]) }}">
                                         <li>О нас</li>
@@ -77,9 +63,7 @@
                         </div>
                         </header>
                         </div>
-                        {{-- <main class=""> --}}
                             @yield('content')
-                            {{-- </main> --}}
                             </div>
                         @include('components.cart_sidebar')
 

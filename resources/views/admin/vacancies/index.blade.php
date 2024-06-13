@@ -1,8 +1,10 @@
-@include('layouts.header', ['slider' => true])
+@include('layouts.headerA', ['hasimage' => false])
 
-<div class="container mt-5">
-    <h1>Admin - Vacancies</h1>
-    <a href="{{ route('admin.vacancies.create') }}" class="btn btn-primary mb-3">Create New Vacancy</a>
+<div class="vacancies">
+    <div class="d-flex justify-content-between">
+        <h1>Admin - Vacancies</h1>
+        <a href="{{ route('admin.vacancies.create') }}" class="btn btn-primary mb-3">Create New Vacancy</a>
+    </div>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -37,4 +39,4 @@
     </div>
 </div>
 
-@include('layouts.footer')
+@include('layouts.footerA')

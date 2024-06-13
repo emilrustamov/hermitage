@@ -1,4 +1,4 @@
-@include('layouts.app')
+@include('layouts.headerA', ['hasimage' => false])
 
 
     <div class="container mt-5">
