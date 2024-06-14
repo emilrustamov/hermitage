@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\CertificatesController;
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProjectCalcController;
 use App\Http\Controllers\VacancyController;
 use App\Http\Controllers\BlogController;
@@ -24,6 +25,8 @@ Route::get('/register',[RegisterController::class, 'index'])->name('register')->
 //proj
 Route::get('/projectcalc',[ProjectCalcController::class, 'index'])->name('projectcalc');
 
+//catalog
+Route::get('/products',[ProductsController::class, 'index'])->name('products');
 
 // Маршрут для смены языка
 Route::get('change-locale/{locale}', function ($locale) {

@@ -35,6 +35,9 @@
                                     <a class="nav-link" href="{{ route('projects.index', ['locale' => app()->getLocale()]) }}">
                                         <li>Проекты</li>
                                     </a>
+                                    <a class="nav-link" href="{{ route('products', ['locale' => app()->getLocale()]) }}">
+                                        <li>Товары в наличии</li>
+                                    </a>
                                     <a class="nav-link" href="{{ route('about', ['locale' => app()->getLocale()]) }}">
                                         <li>О нас</li>
                                     </a>

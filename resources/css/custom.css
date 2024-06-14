@@ -152,7 +152,7 @@ nav {
   position: absolute;
   width: 300px;
   margin: -100px 0 0 -80px;
-  padding: 125px 80px 50px;
+  padding: 125px 70px 50px;
   background: #242424;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
@@ -173,7 +173,7 @@ nav {
 }
 #menu li {
   padding: 10px 0;
-  font-size: 22px;
+  font-size: 18px;
 }
 
 #menuToggle input:checked ~ ul {
