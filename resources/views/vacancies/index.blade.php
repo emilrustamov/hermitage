@@ -5,7 +5,7 @@
     <div class="row">
         @foreach ($vacancies as $vacancy)
             <div class="col-md-6 col-lg-6 col-12">
-                <div class="mb-4">
+                <div class="mb-4 vacanc-img">
                     @if ($vacancy->image == null)
                         <img src="{{ asset('/images/2.png') }}" class="card-img-top black-photo" alt="{{ $vacancy->title }}" >
                     @else

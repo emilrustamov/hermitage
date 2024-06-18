@@ -903,6 +903,18 @@ footer {
     margin-left: 4px;
   }
 }
+.partners-logo{
+  width: 100px;
+  height: 60px;
+  img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+// .vacanc-img{
+//   width: ;
+// }
 @media (max-width: 991px) {
   .header-content {
     padding: 20px 10px;

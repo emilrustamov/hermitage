@@ -38,8 +38,14 @@
                                     <a class="nav-link" href="{{ route('products', ['locale' => app()->getLocale()]) }}">
                                         <li>Товары в наличии</li>
                                     </a>
+                                    <a class="nav-link" href="{{ route('projectcalc', ['locale' => app()->getLocale()]) }}">
+                                        <li>Заказать проект</li>
+                                    </a>
                                     <a class="nav-link" href="{{ route('about', ['locale' => app()->getLocale()]) }}">
                                         <li>О нас</li>
+                                    </a>
+                                    <a class="nav-link" href="{{ route('partnerslogos', ['locale' => app()->getLocale()]) }}">
+                                        <li>Партнёры</li>
                                     </a>
                                 </ul>
                             </div>
@@ -50,7 +56,9 @@
                     </div>
                     <div class="text-end">
                         <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="languageDropdown">
+                            <button class="dropdown-toggle" type="button" id="languageDropdown" @if ($slider)
+                                style="color: white"
+                            @endif>
                                 {{ strtoupper(app()->getLocale()) }}
                             </button>
                             <div class="dropdown-menu" id="dropdownMenu">

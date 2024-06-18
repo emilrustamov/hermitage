@@ -28,6 +28,10 @@ Route::get('/projectcalc',[ProjectCalcController::class, 'index'])->name('projec
 //catalog
 Route::get('/products',[ProductsController::class, 'index'])->name('products');
 
+//partners
+Route::get('/partnerslogos',[PartnerController::class, 'test'])->name('partnerslogos');
+
+
 // Маршрут для смены языка
 Route::get('change-locale/{locale}', function ($locale) {
     $availableLocales = Config::get('app.available_locales');

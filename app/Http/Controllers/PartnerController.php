@@ -15,6 +15,11 @@ class PartnerController extends Controller
         $partners = Partner::query()->orderBy('created_at', 'desc')->paginate(20);
         return view('admin.partners.index', compact('partners'));
     }
+    public function test()
+    {
+        return view('partners');
+    }
+
 
     // Метод для отображения списка категорий
     public function indexCategory()

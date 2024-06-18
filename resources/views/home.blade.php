@@ -19,8 +19,8 @@
     <div class="row">
         <div class="col-lg-4 d-flex flex-column justify-content-around" style="background-color: #202020;">
             <h2 class=" text-white align-self-center">Направления</h2>
-            <div class=" text-white align-self-center">Ознакомьтесь с нашими направлениями</div>
-            <a href="#" class="text-uppercase  align-self-center">посмотреть все</a>
+            <div class="fs-4 text-white align-self-center">Ознакомьтесь с нашими направлениями</div>
+            <a href="#" class="text-uppercase  align-self-center" style="color: white;">посмотреть все</a>
         </div>
         <div class="col-lg-8 p-0">
             <div class="regular slider">
@@ -71,8 +71,8 @@
     <div class="row">
         <div class="col-lg-4 d-flex flex-column justify-content-around" style="background-color: #202020;">
             <h2 class=" text-white align-self-center">Направления</h2>
-            <div class=" text-white align-self-center">Ознакомьтесь с нашими направлениями</div>
-            <a href="#" class="text-uppercase  align-self-center">посмотреть все</a>
+            <div class="fs-4 text-white align-self-center">Ознакомьтесь с нашими направлениями</div>
+            <a href="#" class="text-uppercase  align-self-center" style="color: white; ">посмотреть все</a>
         </div>
         <div class="col-lg-8 p-0">
             <div class="regular slider">

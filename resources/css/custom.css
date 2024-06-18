@@ -1028,6 +1028,17 @@ footer {
   margin-left: 4px;
 }
 
+.partners-logo {
+  width: 100px;
+  height: 60px;
+}
+.partners-logo img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 @media (max-width: 991px) {
   .header-content {
     padding: 20px 10px;

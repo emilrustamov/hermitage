@@ -221,7 +221,7 @@
                 </button>
                 <ul class="dropdown-menu categories" id="categories" aria-labelledby="categcategDropMenuButton">
                     <li><a class="categ-dropdown-item chandelier" data-id="chandelier" href="#">Люстры</a></li>
-                    <li><a class="categ-dropdown-item" data-id="chair" href="#">Стуля</a></li>
+                    <li><a class="categ-dropdown-item" data-id="chair" href="#">Стулья</a></li>
                     <li><a class="categ-dropdown-item" data-id="armchair" href="#">Кресла</a></li>
                     <li><a class="categ-dropdown-item" data-id="all" href="#">По умолчанию</a></li>
                 </ul>
@@ -244,7 +244,7 @@
                     Сортировать по
                 </button>
                 <ul class="dropdown-menu sorts" aria-labelledby="categcategDropMenuButton">
-                    <li><a class="categ-dropdown-item" href="#" id="sort-asc">Цена по возростанию</a></li>
+                    <li><a class="categ-dropdown-item" href="#" id="sort-asc">Цена по возрастанию</a></li>
                     <li><a class="categ-dropdown-item" href="#" id="sort-desc">Цена по убыванию</a></li>
                 </ul>
             </div>
