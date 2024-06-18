@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.header', ['slider' => false])
 
 @section('content')
 <div class="container">

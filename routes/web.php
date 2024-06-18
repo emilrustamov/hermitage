@@ -18,18 +18,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
-// header links
-Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorite');
-Route::get('/register',[RegisterController::class, 'index'])->name('register')->middleware('guest');
 
-//proj
-Route::get('/projectcalc',[ProjectCalcController::class, 'index'])->name('projectcalc');
-
-//catalog
-Route::get('/products',[ProductsController::class, 'index'])->name('products');
-
-//partners
-Route::get('/partnerslogos',[PartnerController::class, 'test'])->name('partnerslogos');
 
 
 // Маршрут для смены языка
@@ -47,7 +36,7 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 
 Auth::routes();
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware(['web', 'auth'])->group(function () {
     Route::get('/vacancies', [VacancyController::class, 'index'])->name('admin.vacancies.index');
     Route::get('/vacancies/create', [VacancyController::class, 'create'])->name('admin.vacancies.create');
     Route::post('/vacancies', [VacancyController::class, 'store'])->name('admin.vacancies.store');
@@ -109,6 +98,20 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'web'], function () {
     Route::get('/blogs/{id}', [BlogController::class, 'publicShow'])->name('blogs.show');
     Route::get('/projects', [ProjectController::class, 'publicIndex'])->name('projects.index');
     Route::get('/projects/{id}', [ProjectController::class, 'publicShow'])->name('projects.show');
+    // header links
+    Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorite');
+    Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
+
+    //proj
+    Route::get('/projectcalc', [ProjectCalcController::class, 'index'])->name('projectcalc');
+
+    //catalog
+    Route::get('/products', [ProductsController::class, 'index'])->name('products');
+
+    //partners
+    Route::get('/partners', [PartnerController::class, 'showPartners'])->name('partners.index');
+
+
 });
 
 // Route::get('/', [SubscriberController::class, 'subscriber_form'])->name('form');

@@ -10,15 +10,15 @@
             <p class="text-center reg-sub">Пожалуйста,введите свои данные, </br> чтобы войти в свою учётную запись</p>
             <form method="POST" action="{{ route('login') }}">
                 @csrf
-         
 
-                
+
+
                 <div class="d-flex justify-content-center">
                     <div class="required">
                         <input id="email" type="email" class="form-control   @error('email') is-invalid @enderror"
                             name="email" value="{{ old('email') }}" required autocomplete="email"
                             placeholder="Электронная почта">
-                            <div class="required-sign"></div>
+                        <div class="required-sign"></div>
                     </div>
 
                     @error('email')
@@ -32,7 +32,7 @@
                     <div class="required">
                         <input id="password" type="password" class="form-control  @error('password') is-invalid @enderror"
                             name="password" required autocomplete="new-password" placeholder="Пароль">
-                            <div class="required-sign"></div>
+                        <div class="required-sign"></div>
                     </div>
 
                     @error('password')
@@ -44,14 +44,15 @@
 
 
 
-               
+
                 <div class="row mb-0 justify-content-center mx-auto">
-                        <button type="submit" class="reg-btn">
-                           Авторизоваться
-                        </button>
-                        {{-- @if (Route::has('password.request')) --}}
-                        <a href="/" class="log-a">Забыли пароль?</a>
-                        {{-- @endif --}}
+                    <button type="submit" class="reg-btn">
+                        Авторизоваться
+                    </button>
+                    {{-- @if (Route::has('password.request')) --}}
+                    <a href="{{ route('password.request', ['locale' => app()->getLocale()]) }}" class="log-a">Забыли пароль?</a>
+
+                    {{-- @endif --}}
                 </div>
             </form>
         </div>

@@ -41,15 +41,26 @@ class PartnerController extends Controller
             'title_ru' => 'required|string|max:255',
             'title_en' => 'required|string|max:255',
             'title_tk' => 'required|string|max:255',
-            'is_active' => 'required|boolean',
+
         ]);
 
 
 
 
-        dd($request);
-        PartnerCategory::create($request->all());
-        
+
+        // PartnerCategory::create($request->all());
+
+        PartnerCategory::create([
+            'title_ru' => $request->title_ru,
+
+            'title_en' => $request->title_en,
+
+            'title_tk' => $request->title_tk,
+
+
+            'is_active' => true,
+        ]);
+
 
         return redirect()->route('admin.partners.categories.index')->with('success', 'Категория успешно создана.');
     }
@@ -70,24 +81,21 @@ class PartnerController extends Controller
             'category_id' => 'required|exists:partner_categories,id',
             'ordering' => 'required|integer',
             'image' => 'nullable|string|max:255',
-            'is_active' => 'required|boolean',
         ]);
 
-        $imagePath = null;
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('partner_images', 'public');
-        }
+        $partner = new Partner();
+        $partner->title = $request->title;
+        $partner->category_id = $request->category_id;
+        $partner->ordering = $request->ordering;
+        $partner->image = $request->image; // Сохранение URL изображения из текстового поля
+        $partner->is_active = $request->has('is_active');
 
-        Partner::create([
-            'title' => $request->title,
-            'category_id' => $request->category_id,
-            'ordering' => $request->ordering,
-            'image' => $imagePath,
-            'is_active' => $request->is_active,
-        ]);
+        $partner->save();
 
         return redirect()->route('admin.partners.index')->with('success', 'Партнер успешно создан.');
     }
+
+
 
     // Метод для отображения формы редактирования категории
     public function editCategory($id)
@@ -103,14 +111,20 @@ class PartnerController extends Controller
             'title_ru' => 'required|string|max:255',
             'title_en' => 'required|string|max:255',
             'title_tk' => 'required|string|max:255',
-            'is_active' => 'required|boolean',
+
         ]);
 
         $category = PartnerCategory::findOrFail($id);
-        $category->update($request->all());
+        $category->title_ru = $request->title_ru;
+        $category->title_en = $request->title_en;
+        $category->title_tk = $request->title_tk;
+        $category->is_active = $request->has('is_active');
+
+        $category->save();
 
         return redirect()->route('admin.partners.categories.index')->with('success', 'Категория успешно обновлена.');
     }
+
 
     // Метод для отображения формы редактирования партнера
     public function editPartner($id)
@@ -128,30 +142,21 @@ class PartnerController extends Controller
             'category_id' => 'required|exists:partner_categories,id',
             'ordering' => 'required|integer',
             'image' => 'nullable|string|max:255',
-            'is_active' => 'required|boolean',
         ]);
 
         $partner = Partner::findOrFail($id);
+        $partner->title = $request->title;
+        $partner->category_id = $request->category_id;
+        $partner->ordering = $request->ordering;
+        $partner->image = $request->image; // Сохранение URL изображения из текстового поля
+        $partner->is_active = $request->has('is_active');
 
-        if ($request->hasFile('image')) {
-            if ($partner->image) {
-                Storage::disk('public')->delete($partner->image);
-            }
-            $imagePath = $request->file('image')->store('partner_images', 'public');
-        } else {
-            $imagePath = $partner->image;
-        }
-
-        $partner->update([
-            'title' => $request->title,
-            'category_id' => $request->category_id,
-            'ordering' => $request->ordering,
-            'image' => $imagePath,
-            'is_active' => $request->is_active,
-        ]);
+        $partner->save();
 
         return redirect()->route('admin.partners.index')->with('success', 'Партнер успешно обновлен.');
     }
+
+
 
     // Метод для удаления категории
     public function destroyCategory($id)
@@ -180,4 +185,21 @@ class PartnerController extends Controller
 
         return redirect()->route('admin.partners.index')->with('success', 'Партнер успешно удален.');
     }
+
+
+    public function showPartners(Request $request)
+    {
+        $category_id = $request->input('category_id');
+        $query = Partner::query();
+    
+        if ($category_id) {
+            $query->where('category_id', $category_id);
+        }
+    
+        $partners = $query->orderBy('ordering', 'asc')->get();
+        $categories = PartnerCategory::all();
+    
+        return view('partners', compact('partners', 'categories', 'category_id'));
+    }
+    
 }

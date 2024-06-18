@@ -44,10 +44,20 @@
                                 <a class="nav-link <?php if (request()->is('admin/projects*')) echo 'active'; ?>" href="{{ route('admin.projects.index') }}">Проекты</a>
                             </div>
                             <div class="px-2">
-                                <a class="nav-link <?php if (request()->is('admin/partners*')) echo 'active'; ?>" href="{{ route('admin.projects.index') }}">Партнёры</a>
+                                <a class="nav-link <?php if (request()->is('admin/partners*')) echo 'active'; ?>" href="{{ route('admin.partners.index') }}">Партнёры</a>
                             </div>
                             <div class="px-2">
                                 <a class="nav-link <?php if (request()->is('admin/directions*')) echo 'active'; ?>" href="{{ route('admin.projects.index') }}">Направления</a>
+                            </div>
+                            <div class="px-2">
+                                <a href="{{ route('logout', ['locale' => app()->getLocale()]) }}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    Выход</i>
+                                </a>
+                                <form id="logout-form" action="{{ route('logout', ['locale' => app()->getLocale()]) }}"
+                                    method="POST" style="display: none;">
+                                    @csrf
+                                </form>
                             </div>
                         </div>
                         <div class="text-end">
@@ -75,7 +85,15 @@
         </div>
         @yield('content')
     </div>
-
+    <script>
+        document.querySelector('a[href="{{ route('logout', ['locale' => app()->getLocale()]) }}"]').addEventListener('click', function(event) {
+            event.preventDefault();
+            if (confirm('Are you sure you want to log out?')) {
+                document.getElementById('logout-form').submit();
+            }
+        });
+        </script>
+        
 
 
 </body>

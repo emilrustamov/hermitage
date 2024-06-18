@@ -5,6 +5,7 @@
     <div class="container mt-5">
         <h1>Partners</h1>
         <a href="{{ route('admin.partners.create') }}" class="btn btn-primary mb-3">Create Partner</a>
+        <a href="{{ route('admin.partners.categories.index') }}" class="btn btn-primary mb-3">Категории</a>
         <table class="table table-bordered">
             <thead>
                 <tr>

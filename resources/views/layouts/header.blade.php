@@ -26,39 +26,48 @@
                                 <span></span>
                                 <span></span>
                                 <ul id="menu">
-                                    <a class="nav-link" href="{{ route('vacancies.index', ['locale' => app()->getLocale()]) }}">
+                                    <a class="nav-link"
+                                        href="{{ route('vacancies.index', ['locale' => app()->getLocale()]) }}">
                                         <li>Вакансии</li>
                                     </a>
-                                    <a class="nav-link" href="{{ route('blogs.index', ['locale' => app()->getLocale()]) }}">
+                                    <a class="nav-link"
+                                        href="{{ route('blogs.index', ['locale' => app()->getLocale()]) }}">
                                         <li>Блог</li>
                                     </a>
-                                    <a class="nav-link" href="{{ route('projects.index', ['locale' => app()->getLocale()]) }}">
+                                    <a class="nav-link"
+                                        href="{{ route('projects.index', ['locale' => app()->getLocale()]) }}">
                                         <li>Проекты</li>
                                     </a>
-                                    <a class="nav-link" href="{{ route('products', ['locale' => app()->getLocale()]) }}">
+                                    <a class="nav-link"
+                                        href="{{ route('products', ['locale' => app()->getLocale()]) }}">
                                         <li>Товары в наличии</li>
                                     </a>
-                                    <a class="nav-link" href="{{ route('projectcalc', ['locale' => app()->getLocale()]) }}">
+                                    <a class="nav-link"
+                                        href="{{ route('projectcalc', ['locale' => app()->getLocale()]) }}">
                                         <li>Заказать проект</li>
                                     </a>
                                     <a class="nav-link" href="{{ route('about', ['locale' => app()->getLocale()]) }}">
                                         <li>О нас</li>
                                     </a>
-                                    <a class="nav-link" href="{{ route('partnerslogos', ['locale' => app()->getLocale()]) }}">
-                                        <li>Партнёры</li>
+                                    <a class="nav-link"
+                                        href="{{ route('partners.index', ['locale' => app()->getLocale()]) }}">
+
                                     </a>
+
+
                                 </ul>
                             </div>
                         </nav>
                         <div style="display: inline-flex">
-                            <a href="{{ route('home', ['locale' => app()->getLocale()]) }}"><img src="{{ asset('/images/logo.svg') }}"  style="filter:invert(1)" alt="logo" class="logo"></a>
+                            <a href="{{ route('home', ['locale' => app()->getLocale()]) }}"><img
+                                    src="{{ asset('/images/logo.svg') }}" style="filter:invert(1)" alt="logo"
+                                    class="logo"></a>
                         </div>
                     </div>
                     <div class="text-end">
                         <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="languageDropdown" @if ($slider)
-                                style="color: white"
-                            @endif>
+                            <button class="dropdown-toggle" type="button" id="languageDropdown"
+                                @if ($slider) style="color: white" @endif>
                                 {{ strtoupper(app()->getLocale()) }}
                             </button>
                             <div class="dropdown-menu" id="dropdownMenu">
@@ -67,17 +76,40 @@
                                 <a class="dropdown-item" href="#" data-lang="tk">TK</a>
                             </div>
                         </div>
-                        <a href="{{ route('register') }}"><i class="fa fa-user punkt-menu" aria-hidden="true" style="color:white"></i></a>
-                        <i class="fa fa-shopping-cart punkt-menu" aria-hidden="true" style="color:white" id="cartIcon"></i>
-                        <a href="/favorites"><i class="fa fa-heart punkt-menu" aria-hidden="true" style="color:white"></i></a>
-                        </div>
-                        </div>
-                        </header>
-                        </div>
-                            @yield('content')
-                            </div>
-                        @include('components.cart_sidebar')
+                        @auth
+                            <a href="{{ route('logout', ['locale' => app()->getLocale()]) }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="fa fa-sign-out punkt-menu" aria-hidden="true" style="color:white"></i>
+                            </a>
+                            <form id="logout-form" action="{{ route('logout', ['locale' => app()->getLocale()]) }}"
+                                method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        @else
+                            <a href="{{ route('register', ['locale' => app()->getLocale()]) }}">
+                                <i class="fa fa-user punkt-menu" aria-hidden="true" style="color:white"></i>
+                            </a>
+                        @endauth
+                        <script>
+                            document.querySelector('a[href="{{ route('logout', ['locale' => app()->getLocale()]) }}"]').addEventListener('click', function(event) {
+                                event.preventDefault();
+                                if (confirm('Are you sure you want to log out?')) {
+                                    document.getElementById('logout-form').submit();
+                                }
+                            });
+                            </script>
+                            
+                        <a href="/favorites"><i class="fa fa-heart punkt-menu" aria-hidden="true"
+                                style="color:white"></i></a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        @yield('content')
+    </div>
+    @include('components.cart_sidebar')
 
-   
+
 </body>
+
 </html>

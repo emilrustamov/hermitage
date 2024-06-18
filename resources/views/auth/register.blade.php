@@ -7,7 +7,7 @@
 
             <p class="text-center reg-title">Я новый клиент</p>
             <p class="text-center reg-sub">Пожалуйста, зарегистрируйтесь чтобы создать </br> учётную запись</p>
-            <form method="POST" action="{{ route('register') }}">
+            <form method="POST" action="{{ route('register', ['locale' => app()->getLocale()]) }}">
                 @csrf
                 <div class="mx-auto d-flex justify-content-center name-w-sur">
 
