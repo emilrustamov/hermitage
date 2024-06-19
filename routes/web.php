@@ -20,7 +20,9 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\BannerController;
 
 
-
+Route::get('/', function () {
+    return redirect('/ru');
+});
 
 // Маршрут для смены языка
 Route::get('change-locale/{locale}', function ($locale) {
@@ -82,15 +84,20 @@ Route::prefix('admin')->middleware(['web', 'auth'])->group(function () {
     Route::post('/banners', [BannerController::class, 'store'])->name('admin.banners.store');
     Route::get('/banners/{id}/edit', [BannerController::class, 'edit'])->name('admin.banners.edit');
     Route::put('/banners/{id}', [BannerController::class, 'update'])->name('admin.banners.update');
+
+    Route::get('/certificates', [CertificatesController::class, 'index'])->name('admin.certificates.index');
+    Route::get('/certificates/create', [CertificatesController::class, 'create'])->name('admin.certificates.create');
+    Route::post('/certificates', [CertificatesController::class, 'store'])->name('admin.certificates.store');
+    Route::delete('/certificates/{id}', [CertificatesController::class, 'destroy'])->name('admin.certificates.destroy');
+    Route::get('/certificates/{id}/edit', [CertificatesController::class, 'edit'])->name('admin.certificates.edit');
+    Route::put('/certificates/{id}', [CertificatesController::class, 'update'])->name('admin.certificates.update');
 });
 
 Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/', function () {
-    return redirect('/ru');
-});
+
 
 Route::group(['prefix' => '{locale}', 'middleware' => 'web'], function () {
     Route::get('/', function () {
@@ -109,15 +116,13 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'web'], function () {
     Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorite');
     Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
 
-    
     Route::get('/projectcalc', [ProjectCalcController::class, 'index'])->name('projectcalc');
     Route::get('/products', [ProductsController::class, 'index'])->name('products');
-    Route::get('/certificates', [CertificatesController::class, 'index'])->name('certificates');
+    // Route::get('/certificates', [CertificatesController::class, 'index'])->name('certificates');
+    Route::get('/certificates', [CertificatesController::class, 'publicIndex'])->name('certificates.index');
 
     //partners
     Route::get('/partners', [PartnerController::class, 'showPartners'])->name('partners.index');
-
-
 });
 
 // Route::get('/', [SubscriberController::class, 'subscriber_form'])->name('form');

@@ -11,15 +11,19 @@ class SetLocale
 {
     public function handle($request, Closure $next)
     {
-        $locale = $request->segment(1); 
+        // Исключаем маршруты админки и файлового менеджера
+        if ($request->is('admin/*') || $request->is('filemanager*') ||  $request->is('laravel-filemanager*')) {
+            return $next($request);
+        }
+
+        $locale = $request->segment(1);
         $availableLocales = Config::get('app.available_locales');
 
         if (in_array($locale, $availableLocales)) {
             App::setLocale($locale);
             Session::put('locale', $locale);
         } else {
-            $locale = Session::get('locale', Config::get('app.locale'));
-            App::setLocale($locale);
+            return abort(404); // Возвращаем 404, если локаль недопустима
         }
 
         return $next($request);

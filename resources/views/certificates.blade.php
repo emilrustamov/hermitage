@@ -1,36 +1,17 @@
-@include('layouts.header', ['slider' => false])
-{{-- <div class="container"> --}}
-    <div class="cert-slider-wrapper">
-        <div class="cert-slider">
+@php
+    $banner = App\Models\Banner::where('page_identifier', 'about')->first();
+    $certificates = App\Models\Certificate::orderBy('ordering')->get();
+@endphp
+
+@include('layouts.header', ['slider' => false, 'banner' => $banner ? $banner->banner : null, 'show_single_slide' => false])
+<div class="cert-slider-wrapper">
+    <div class="cert-slider">
+        @foreach ($certificates as $certificate)
             <div class="item">
-                <img src="{{ asset('/images/cert-mock.png') }}" alt="">
+                <img src="{{ asset('storage/' . $certificate->image) }}" alt="Certificate Image">
             </div>
-            <div class="item">
-                <img src="{{ asset('/images/cert-mock2.jpg') }}" alt="">
-            </div>
-            <div class="item">
-                <img src="{{ asset('/images/cert-mock.png') }}" alt="">
-            </div>
-            <div class="item">
-                <img src="{{ asset('/images/cert-mock2.jpg') }}" alt="">
-            </div>
-            <div class="item">
-                <img src="{{ asset('/images/cert-mock.png') }}" alt="">
-            </div>
-            <div class="item">
-                <img src="{{ asset('/images/cert-mock2.jpg') }}" alt="">
-            </div>
-            <div class="item">
-                <img src="{{ asset('/images/cert-mock.png') }}" alt="">
-            </div>
-            <div class="item">
-                <img src="{{ asset('/images/cert-mock2.jpg') }}" alt="">
-            </div>
-            <div class="item">
-                <img src="{{ asset('/images/cert-mock.png') }}" alt="">
-            </div>
-        </div>
-        <p class="text-center">Компания HERMITAGE HOME INTERIORS обладает большим количеством сертификатов</p>
+        @endforeach
     </div>
-{{-- </div> --}}
+    <p class="text-center">Компания HERMITAGE HOME INTERIORS обладает большим количеством сертификатов</p>
+</div>
 @include('layouts.footer')

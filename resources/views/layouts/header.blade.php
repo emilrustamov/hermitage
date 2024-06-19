@@ -15,22 +15,28 @@
         <div>
             <header>
                 @if ($slider)
-                @if (isset($banner))
-                    <div class="single-slide" style="background-image: url('{{ asset('storage/' . $banner) }}'); min-height:900px;background-repeat: no-repeat;background-size: cover;">
-                    </div>
+                    @if (isset($banner))
+                        <div class="single-slide"
+                            style="background-image: url('{{ asset('storage/' . $banner) }}'); min-height:900px;background-repeat: no-repeat;background-size: cover;">
+                        </div>
+                    @else
+                        @include('layouts.head_slider')
+                    @endif
                 @else
-                    @include('layouts.head_slider')
+                    @if ($show_single_slide ?? true)
+                        @if (isset($banner))
+                            <div class="single-slide"
+                                style="background-image: url('{{ asset('storage/' . $banner) }}'); min-height:900px;background-repeat: no-repeat;background-size: cover;">
+                            </div>
+                        @else
+                            <div class="single-slide"
+                                style="background-image: url('{{ asset($image) }}'); min-height:900px;background-repeat: no-repeat;background-size: cover;">
+                            </div>
+                        @endif
+                    @endif
                 @endif
-            @else
-                @if (isset($banner))
-                    <div class="single-slide" style="background-image: url('{{ asset('storage/' . $banner) }}'); min-height:900px;background-repeat: no-repeat;background-size: cover;">
-                    </div>
-                @else
-                    <div class="single-slide" style="background-image: url('{{ asset($image) }}'); min-height:900px;background-repeat: no-repeat;background-size: cover;">
-                    </div>
-                @endif
-            @endif
-        
+
+
                 <div class="header-content">
                     <div class="d-flex">
                         <nav role="navigation">

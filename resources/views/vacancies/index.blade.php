@@ -6,14 +6,12 @@
         @foreach ($vacancies as $vacancy)
             <div class="col-md-6 col-lg-6 col-12">
                 <div class="mb-4 vacanc-img">
-                    @if ($vacancy->image == null)
-                        <img src="{{ asset('/images/2.png') }}" class="card-img-top black-photo" alt="{{ $vacancy->title }}" >
-                    @else
-                        <img src="{{ asset($vacancy->image) }}" class="card-img-top black-photo"
-                            alt="{{ $vacancy->title }}" >
-                    @endif
+
+                    <img src="{{ asset($vacancy->image) }}" class="card-img-top black-photo" alt="{{ $vacancy->title }}">
+
                     <div class="card-body" style="margin-top:15px">
-                        <a style="color: black; text-decoration:none" href="{{ route('vacancies.show', ['locale' => app()->getLocale(), 'id' => $vacancy->id]) }}">
+                        <a style="color: black; text-decoration:none"
+                            href="{{ route('vacancies.show', ['locale' => app()->getLocale(), 'id' => $vacancy->id]) }}">
                             <h5 class="card-title">{{ $vacancy->title }}</h5>
                         </a>
 
