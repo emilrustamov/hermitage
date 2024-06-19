@@ -15,8 +15,22 @@
         <div>
             <header>
                 @if ($slider)
+                @if (isset($banner))
+                    <div class="single-slide" style="background-image: url('{{ asset('storage/' . $banner) }}'); min-height:900px;background-repeat: no-repeat;background-size: cover;">
+                    </div>
+                @else
                     @include('layouts.head_slider')
                 @endif
+            @else
+                @if (isset($banner))
+                    <div class="single-slide" style="background-image: url('{{ asset('storage/' . $banner) }}'); min-height:900px;background-repeat: no-repeat;background-size: cover;">
+                    </div>
+                @else
+                    <div class="single-slide" style="background-image: url('{{ asset($image) }}'); min-height:900px;background-repeat: no-repeat;background-size: cover;">
+                    </div>
+                @endif
+            @endif
+        
                 <div class="header-content">
                     <div class="d-flex">
                         <nav role="navigation">
@@ -91,16 +105,19 @@
                             </a>
                         @endauth
                         <script>
-                            document.querySelector('a[href="{{ route('logout', ['locale' => app()->getLocale()]) }}"]').addEventListener('click', function(event) {
-                                event.preventDefault();
-                                if (confirm('Are you sure you want to log out?')) {
-                                    document.getElementById('logout-form').submit();
-                                }
-                            });
-                            </script>
-                            
-                        <a href="/favorites"><i class="fa fa-heart punkt-menu" aria-hidden="true"
-                                style="color:white"></i></a>
+                            document.querySelector('a[href="{{ route('logout', ['locale' => app()->getLocale()]) }}"]').addEventListener(
+                                'click',
+                                function(event) {
+                                    event.preventDefault();
+                                    if (confirm('Are you sure you want to log out?')) {
+                                        document.getElementById('logout-form').submit();
+                                    }
+                                });
+                        </script>
+                        @auth
+                            <a href="/favorites"><i class="fa fa-heart punkt-menu" aria-hidden="true"
+                                    style="color:white"></i></a>
+                        @endauth
                     </div>
                 </div>
             </header>

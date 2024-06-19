@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="form-group">
-                        <textarea id="description_ru" class="form-control" name="description_ru" rows="4" required></textarea>
+                        <textarea id="description_ru" class="form-control" name="description_ru" rows="4" required>123</textarea>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="en" role="tabpanel" aria-labelledby="en-tab">
@@ -44,7 +44,7 @@
                         <input type="text" class="form-control" id="title_en" name="title_en" required>
                     </div>
                     <div class="form-group">
-                        <textarea id="description_en" class="form-control" name="description_en" rows="4" required></textarea>
+                        <textarea id="description_en" class="form-control" name="description_en" rows="4" required>123</textarea>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="tk" role="tabpanel" aria-labelledby="tk-tab">
@@ -52,13 +52,16 @@
                         <label for="title_tk">Title (TK)</label>
                         <input type="text" class="form-control" id="title_tk" name="title_tk" required>
                     </div>
-
                     <div class="form-group">
-
-                        <textarea id="description_tk" class="form-control" name="description_tk" rows="4" required></textarea>
-
+                        <textarea id="description_tk" class="form-control" name="description_tk" rows="4" required>123</textarea>
                     </div>
                 </div>
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="year">Year</label>
+                <input id="year" name="year" width="276" />
+                
             </div>
             <div class="form-group mt-3">
                 <label for="image">Image</label>
@@ -74,6 +77,22 @@
                 <img id="holder" style="margin-top:15px;max-height:100px;">
             </div>
 
+            <div class="form-group mt-3">
+                <label for="image">Video</label>
+                <div class="input-group">
+                    <input id="video" class="form-control" type="text" name="video">
+                    <span class="input-group-append">
+                        <button id="lfm1" data-input="video" data-preview="holder" class="btn btn-primary"
+                            type="button">
+                            <i class="fa fa-picture-o"></i> Choose
+                        </button>
+                    </span>
+                </div>
+            </div>
+
+
+
+
             <div class="form-group form-check mt-3">
                 <input type="checkbox" class="form-check-input" id="is_active" name="is_active" checked>
                 <label class="form-check-label" for="is_active">Active</label>
@@ -86,9 +105,11 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
+    <script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     <script>
         tinymce.init({
-            selector: 'textarea', // change this value according to your HTML
+            selector: 'textarea',
             menu: {
                 edit: {
                     title: 'Edit',
@@ -100,6 +121,14 @@
     <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
     <script>
         $('#lfm').filemanager('image');
+    </script>
+    <script>
+        $('#lfm1').filemanager('video');
+    </script>
+    <script>
+        $('#year').datepicker({
+            uiLibrary: 'bootstrap4',  format: 'yyyy-mm-dd'
+        });
     </script>
 </body>
 

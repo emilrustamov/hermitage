@@ -12,6 +12,6 @@ class Project extends Model
         'title_ru', 'description_ru', 
         'title_en', 'description_en', 
         'title_tk', 'description_tk', 
-        'image', 'is_active'
+        'image', 'is_active', 'year', 'video' 
     ];
 }

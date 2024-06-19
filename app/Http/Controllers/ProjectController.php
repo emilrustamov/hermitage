@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\project;
 use Illuminate\Support\Facades\Storage;
 use App\Events\NewprojectPost;
+use Carbon\Carbon;
 
 class ProjectController extends Controller
 {
@@ -28,9 +29,10 @@ class ProjectController extends Controller
         return view('projects.index', compact('projects'));
     }
 
+
+
     public function publicShow($locale, $id)
     {
-
         $project = Project::findOrFail($id);
         $title = 'title_' . $locale;
         $description = 'description_' . $locale;
@@ -39,10 +41,15 @@ class ProjectController extends Controller
             'title' => $project->$title,
             'description' => $project->$description,
             'image' => $project->image,
+            'created_at' => Carbon::parse($project->created_at)->format('d.m.Y'), // Форматируем дату
         ];
 
-        return view('projects.show', compact('data'));
+        return view('projects.show', [
+            'data' => $data,
+            'image' => $project->image
+        ]);
     }
+
 
 
     public function create()
@@ -61,11 +68,20 @@ class ProjectController extends Controller
             'title_tk' => 'required|string|max:255',
             'description_tk' => 'required|string',
             'image' => 'nullable|string',
+            'year' => 'required|date_format:Y-m-d',
+            'video' => 'nullable|string',
         ]);
 
-        $imagePath = null;
+
+        $imagePath = $request->image;
+        $videoPath = $request->video;
+
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('project_images', 'public');
+        }
+
+        if ($request->hasFile('video')) {
+            $videoPath = $request->file('video')->store('project_videos', 'public');
         }
 
         $project = Project::create([
@@ -76,12 +92,15 @@ class ProjectController extends Controller
             'title_tk' => $request->title_tk,
             'description_tk' => $request->description_tk,
             'image' => $imagePath,
-            'is_active' => true,
+            'year' => $request->year,
+            'video' => $videoPath,
+            'is_active' => $request->has('is_active'),
         ]);
-      
 
-        return redirect()->route('admin.projects.index')->with('success', 'project created successfully.');
+        return redirect()->route('admin.projects.index')->with('success', 'Project created successfully.');
     }
+
+
 
     /**
      * Display the specified resource.

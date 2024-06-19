@@ -29,7 +29,6 @@ class VacancyController extends Controller
 
     public function publicShow($locale, $id)
     {
-
         $vacancy = Vacancy::findOrFail($id);
         $title = 'title_' . $locale;
         $description = 'description_' . $locale;
@@ -39,9 +38,13 @@ class VacancyController extends Controller
             'description' => $vacancy->$description,
             'image' => $vacancy->image,
         ];
-
-        return view('vacancies.show', compact('data'));
+    
+        return view('vacancies.show', [
+            'data' => $data,
+            'image' => $vacancy->image // Передаем переменную image
+        ]);
     }
+    
 
 
     public function create()
@@ -102,36 +105,36 @@ class VacancyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-   public function update(Request $request, $id)
-{
-    $request->validate([
-        'title_ru' => 'required|string|max:255',
-        'description_ru' => 'required|string',
-        'title_en' => 'required|string|max:255',
-        'description_en' => 'required|string',
-        'title_tk' => 'required|string|max:255',
-        'description_tk' => 'required|string',
-        'image' => 'nullable|string', // Изменено для приема строки URL
-    ]);
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'title_ru' => 'required|string|max:255',
+            'description_ru' => 'required|string',
+            'title_en' => 'required|string|max:255',
+            'description_en' => 'required|string',
+            'title_tk' => 'required|string|max:255',
+            'description_tk' => 'required|string',
+            'image' => 'nullable|string', // Изменено для приема строки URL
+        ]);
 
-    $vacancy = Vacancy::findOrFail($id);
+        $vacancy = Vacancy::findOrFail($id);
 
-    // Получите путь к изображению из входных данных
-    $imagePath = $request->input('image');
+        // Получите путь к изображению из входных данных
+        $imagePath = $request->input('image');
 
-    $vacancy->title_ru = $request->title_ru;
-    $vacancy->description_ru = $request->description_ru;
-    $vacancy->title_en = $request->title_en;
-    $vacancy->description_en = $request->description_en;
-    $vacancy->title_tk = $request->title_tk;
-    $vacancy->description_tk = $request->description_tk;
-    $vacancy->image = $imagePath; // Сохраните путь к изображению
-    $vacancy->is_active = $request->has('is_active');
+        $vacancy->title_ru = $request->title_ru;
+        $vacancy->description_ru = $request->description_ru;
+        $vacancy->title_en = $request->title_en;
+        $vacancy->description_en = $request->description_en;
+        $vacancy->title_tk = $request->title_tk;
+        $vacancy->description_tk = $request->description_tk;
+        $vacancy->image = $imagePath; // Сохраните путь к изображению
+        $vacancy->is_active = $request->has('is_active');
 
-    $vacancy->save();
+        $vacancy->save();
 
-    return redirect()->route('admin.vacancies.index')->with('success', 'Vacancy updated successfully.');
-}
+        return redirect()->route('admin.vacancies.index')->with('success', 'Vacancy updated successfully.');
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -148,4 +151,5 @@ class VacancyController extends Controller
 
         return redirect()->route('admin.vacancies.index')->with('success', 'Vacancy deleted successfully.');
     }
+    
 }

@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\BannerController;
 
 
 
@@ -75,6 +76,12 @@ Route::prefix('admin')->middleware(['web', 'auth'])->group(function () {
     Route::get('/partners/{id}/edit', [PartnerController::class, 'editPartner'])->name('admin.partners.edit');
     Route::put('/partners/{id}', [PartnerController::class, 'updatePartner'])->name('admin.partners.update');
     Route::delete('/partners/{id}', [PartnerController::class, 'destroyPartner'])->name('admin.partners.destroy');
+
+    Route::get('/banners', [BannerController::class, 'index'])->name('admin.banners.index');
+    Route::get('/banners/create', [BannerController::class, 'create'])->name('admin.banners.create');
+    Route::post('/banners', [BannerController::class, 'store'])->name('admin.banners.store');
+    Route::get('/banners/{id}/edit', [BannerController::class, 'edit'])->name('admin.banners.edit');
+    Route::put('/banners/{id}', [BannerController::class, 'update'])->name('admin.banners.update');
 });
 
 Route::get('/welcome', function () {
@@ -102,11 +109,10 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'web'], function () {
     Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorite');
     Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
 
-    //proj
+    
     Route::get('/projectcalc', [ProjectCalcController::class, 'index'])->name('projectcalc');
-
-    //catalog
     Route::get('/products', [ProductsController::class, 'index'])->name('products');
+    Route::get('/certificates', [CertificatesController::class, 'index'])->name('certificates');
 
     //partners
     Route::get('/partners', [PartnerController::class, 'showPartners'])->name('partners.index');
