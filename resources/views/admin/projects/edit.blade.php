@@ -65,6 +65,10 @@
                 </div>
             </div>
             <div class="form-group mt-3">
+                <label for="year">Year</label>
+                <input id="year" name="year" width="276"  value="{{ $project->year }}"/>
+            </div>
+            <div class="form-group mt-3">
                 <label for="image">Image</label>
                 <div class="input-group">
                     <input id="image" class="form-control" type="text" name="image"

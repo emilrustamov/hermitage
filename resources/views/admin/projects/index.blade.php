@@ -8,6 +8,7 @@
             <tr>
                 <th>Title (RU)</th>
                 <th>Status</th>
+                <th>Image</th>
                 <th>Created At</th>
                 <th>Updated At</th>
                 <th>Actions</th>
@@ -18,6 +19,12 @@
             <tr>
                 <td>{{ $project->title_ru }}</td>
                 <td>{{ $project->is_active ? 'Active' : 'Inactive' }}</td>
+                <td>
+                    @if ($project->image)
+                        <img src="{{ asset( $project->image) }}" alt="image"
+                            style="max-height: 50px;">
+                    @endif
+                </td>
                 <td>{{ $project->created_at }}</td>
                 <td>{{ $project->updated_at }}</td>
                 <td>

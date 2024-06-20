@@ -1,7 +1,16 @@
-@extends('layouts.header', ['slider' => false])
+@php
+    $banner = App\Models\Banner::where('page_identifier', 'about')->first();
+    $certificates = App\Models\Certificate::orderBy('ordering')->get();
+@endphp
+
+@include('layouts.header', [
+    'slider' => false,
+    'banner' => $banner ? $banner->banner : null,
+    'show_single_slide' => false,
+])
 
 
-@section('content')
+
     <div class="d-flex my-auto reg-content">
         <img class="photo-for-reg" src="{{ asset('/images/register-photo.jpg') }}" alt="reg">
         <div class=" form-reg w-50 my-auto justify-content-center">
@@ -57,4 +66,3 @@
             </form>
         </div>
     </div>
-@endsection

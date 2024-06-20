@@ -1,4 +1,3 @@
-
 @include('layouts.headerA', ['hasimage' => false])
 
 <body>
@@ -9,29 +8,27 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Title</th>
+                    <th>Active</th>
+                    <th>Image</th>
                     <th>Category</th>
                     <th>Ordering</th>
-                    <th>Image</th>
-                    <th>Active</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($partners as $partner)
                     <tr>
-                        <td>{{ $partner->id }}</td>
                         <td>{{ $partner->title }}</td>
-                        <td>{{ $partner->category->title_ru }}</td>
-                        <td>{{ $partner->ordering }}</td>
+                        <td>{{ $partner->is_active ? 'Yes' : 'No' }}</td>
                         <td>
                             @if ($partner->image)
-                                <img src="{{ asset('storage/' . $partner->image) }}" alt="image"
-                                    style="max-height: 50px;">
+                                <img src="{{ asset($partner->image) }}" alt="image" style="max-height: 50px;">
                             @endif
                         </td>
-                        <td>{{ $partner->is_active ? 'Yes' : 'No' }}</td>
+                        <td>{{ $partner->category->title_ru }}</td>
+                        <td>{{ $partner->ordering }}</td>
+
                         <td>
                             <a href="{{ route('admin.partners.edit', $partner->id) }}"
                                 class="btn btn-warning btn-sm">Edit</a>

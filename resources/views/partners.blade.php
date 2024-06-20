@@ -1,4 +1,8 @@
-@include('layouts.header', ['slider' => true])
+@php
+    $banner = App\Models\Banner::where('page_identifier', 'partners')->first();
+@endphp
+
+@include('layouts.header', ['slider' => false, 'banner' => $banner ? $banner->banner : null])
 
 <div class="mt-5 container">
     <form action="{{ route('partners.index', ['locale' => app()->getLocale()]) }}" method="GET" class="mb-4">
@@ -16,17 +20,17 @@
         <button type="submit" class="btn btn-primary">Filter</button>
     </form>
 
-    <div class="d-flex flex-wrap">
+    <div class="row">
         @foreach ($partners as $partner)
-            <div class="partners-logo p-3">
+            <div class="partners-logo p-3 col-lg-2">
                 @if ($partner->image)
-                    <img src="{{ Storage::url($partner->image) }}" alt="{{ $partner->title }}">
-                @else
-                    <img src="{{ asset('/images/default-partner.png') }}" alt="Default Image">
+                    <img src="{{ asset($partner->image) }}" alt="{{ $partner->title }}">
+               
                 @endif
             </div>
         @endforeach
     </div>
 </div>
+
 
 @include('layouts.footer')

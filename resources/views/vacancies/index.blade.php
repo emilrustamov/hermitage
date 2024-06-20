@@ -1,4 +1,8 @@
-@include('layouts.header', ['slider' => true])
+@php
+    $banner = App\Models\Banner::where('page_identifier', 'about')->first();
+@endphp
+
+@include('layouts.header', ['slider' => false, 'banner' => $banner ? $banner->banner : null])
 
 <div class="mt-5 px-5">
     {{-- <h1>Vacancies1</h1> --}}

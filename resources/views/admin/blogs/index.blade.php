@@ -9,6 +9,7 @@
             <tr>
                 <th>Title (RU)</th>
                 <th>Status</th>
+                <th>Image</th>
                 <th>Created At</th>
                 <th>Updated At</th>
                 <th>Actions</th>
@@ -19,6 +20,12 @@
             <tr>
                 <td>{{ $blog->title_ru }}</td>
                 <td>{{ $blog->is_active ? 'Active' : 'Inactive' }}</td>
+                <td>
+                    @if ($blog->image)
+                        <img src="{{ asset( $blog->image) }}" alt="image"
+                            style="max-height: 50px;">
+                    @endif
+                </td>
                 <td>{{ $blog->created_at }}</td>
                 <td>{{ $blog->updated_at }}</td>
                 <td>

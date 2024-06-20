@@ -28,26 +28,47 @@
                         <div style="display: inline-flex">
                             <a href="{{ route('home', ['locale' => app()->getLocale()]) }}"><img
                                     src="{{ asset('/images/logo.svg') }}" alt="logo" class="logo"
-                                    @if ($hasimage) style="filter:invert(1)" @endif ></a>
+                                    @if ($hasimage) style="filter:invert(1)" @endif></a>
                         </div>
                     </div>
                     <div class="d-flex align-items-center">
 
-                        <div @if (!$hasimage) class="d-flex with-black-links" @else class="d-flex" @endif>
+                        <div
+                            @if (!$hasimage) class="d-flex with-black-links" @else class="d-flex" @endif>
                             <div class="px-2">
-                                <a class="nav-link <?php if (request()->is('admin/vacancies*')) echo 'active'; ?>" href="{{ route('admin.vacancies.index') }}">Вакансии</a>
+                                <a class="nav-link <?php if (request()->is('admin/vacancies*')) {
+                                    echo 'active';
+                                } ?>"
+                                    href="{{ route('admin.vacancies.index') }}">Вакансии</a>
                             </div>
                             <div class="px-2">
-                                <a class="nav-link <?php if (request()->is('admin/blogs*')) echo 'active'; ?>" href="{{ route('admin.blogs.index') }}">Блог</a>
+                                <a class="nav-link <?php if (request()->is('admin/blogs*')) {
+                                    echo 'active';
+                                } ?>" href="{{ route('admin.blogs.index') }}">Блог</a>
                             </div>
                             <div class="px-2">
-                                <a class="nav-link <?php if (request()->is('admin/projects*')) echo 'active'; ?>" href="{{ route('admin.projects.index') }}">Проекты</a>
+                                <a class="nav-link <?php if (request()->is('admin/projects*')) {
+                                    echo 'active';
+                                } ?>"
+                                    href="{{ route('admin.projects.index') }}">Проекты</a>
                             </div>
                             <div class="px-2">
-                                <a class="nav-link <?php if (request()->is('admin/partners*')) echo 'active'; ?>" href="{{ route('admin.partners.index') }}">Партнёры</a>
+                                <a class="nav-link <?php if (request()->is('admin/partners*')) {
+                                    echo 'active';
+                                } ?>"
+                                    href="{{ route('admin.partners.index') }}">Партнёры</a>
                             </div>
                             <div class="px-2">
-                                <a class="nav-link <?php if (request()->is('admin/directions*')) echo 'active'; ?>" href="{{ route('admin.projects.index') }}">Направления</a>
+                                <a class="nav-link <?php if (request()->is('admin/directions*')) {
+                                    echo 'active';
+                                } ?>"
+                                    href="{{ route('admin.projects.index') }}">Направления</a>
+                            </div>
+                            <div class="px-2">
+                                <a class="nav-link <?php if (request()->is('admin/directions*')) {
+                                    echo 'active';
+                                } ?>"
+                                    href="{{ route('admin.certificates.index') }}">Сертификаты</a>
                             </div>
                             <div class="px-2">
                                 <a href="{{ route('logout', ['locale' => app()->getLocale()]) }}"
@@ -63,12 +84,9 @@
                         <div class="text-end">
                             <div class="dropdown">
                                 <button class="dropdown-toggle" type="button" id="languageDropdown"
-                                   @if ($hasimage)
-                                       style="color: white"
+                                    @if ($hasimage) style="color: white"
                                        @else
-                                       style="color: black"
-                                       
-                                   @endif >
+                                       style="color: black" @endif>
                                     {{ strtoupper(app()->getLocale()) }}
                                 </button>
                                 <div class="dropdown-menu" id="dropdownMenu">
@@ -86,14 +104,16 @@
         @yield('content')
     </div>
     <script>
-        document.querySelector('a[href="{{ route('logout', ['locale' => app()->getLocale()]) }}"]').addEventListener('click', function(event) {
-            event.preventDefault();
-            if (confirm('Are you sure you want to log out?')) {
-                document.getElementById('logout-form').submit();
-            }
-        });
-        </script>
-        
+        document.querySelector('a[href="{{ route('logout', ['locale' => app()->getLocale()]) }}"]').addEventListener(
+            'click',
+            function(event) {
+                event.preventDefault();
+                if (confirm('Are you sure you want to log out?')) {
+                    document.getElementById('logout-form').submit();
+                }
+            });
+    </script>
+
 
 
 </body>

@@ -3,7 +3,11 @@
     $certificates = App\Models\Certificate::orderBy('ordering')->get();
 @endphp
 
-@include('layouts.header', ['slider' => false, 'banner' => $banner ? $banner->banner : null, 'show_single_slide' => false])
+@include('layouts.header', [
+    'slider' => false,
+    'banner' => $banner ? $banner->banner : null,
+    'show_single_slide' => false,
+])
 <div class="cert-slider-wrapper">
     <div class="cert-slider">
         @foreach ($certificates as $certificate)

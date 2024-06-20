@@ -16,8 +16,8 @@
             <header>
                 @if ($slider)
                     @if (isset($banner))
-                        <div class="single-slide"
-                            style="background-image: url('{{ asset('storage/' . $banner) }}'); min-height:900px;background-repeat: no-repeat;background-size: cover;">
+                        <div class="single-slide slider-item"
+                            style="background-image: url('{{ asset('storage/' . $banner) }}');">
                         </div>
                     @else
                         @include('layouts.head_slider')
@@ -25,12 +25,12 @@
                 @else
                     @if ($show_single_slide ?? true)
                         @if (isset($banner))
-                            <div class="single-slide"
-                                style="background-image: url('{{ asset('storage/' . $banner) }}'); min-height:900px;background-repeat: no-repeat;background-size: cover;">
+                            <div class="single-slide slider-item" 
+                                style="background-image: url('{{ asset('storage/' . $banner) }}'); ">
                             </div>
                         @else
-                            <div class="single-slide"
-                                style="background-image: url('{{ asset($image) }}'); min-height:900px;background-repeat: no-repeat;background-size: cover;">
+                            <div class="single-slide slider-item"
+                                style="background-image: url('{{ asset($image) }}');">
                             </div>
                         @endif
                     @endif
@@ -71,10 +71,13 @@
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('partners.index', ['locale' => app()->getLocale()]) }}">
-
+                                        <li>Партнеры</li>
                                     </a>
-
-
+                                    <a class="nav-link"
+                                        href="{{ route('certificates.index', ['locale' => app()->getLocale()]) }}">
+                                        <li>Сертификаты</li>
+                                    </a>
+                                    
                                 </ul>
                             </div>
                         </nav>

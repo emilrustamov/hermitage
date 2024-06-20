@@ -21,15 +21,21 @@ class ProjectController extends Controller
     public function publicIndex()
     {
         $projects = Project::where('is_active', 1)
-
-            ->select('id', 'title_' . app()->getLocale() . ' as title', 'image')
-            ->orderBy('created_at')
-            ->paginate(6);
-
+            ->select('id', 'title_' . app()->getLocale() . ' as title', 'image', 'year')
+            ->orderBy('year', 'desc')
+            ->orderBy('created_at', 'desc')
+            ->get();
+    
+       
+        foreach ($projects as $project) {
+            $project->year = \Carbon\Carbon::parse($project->year)->format('Y');
+        }
+    
+        $projects = $projects->groupBy('year');
+    
         return view('projects.index', compact('projects'));
     }
-
-
+    
 
     public function publicShow($locale, $id)
     {

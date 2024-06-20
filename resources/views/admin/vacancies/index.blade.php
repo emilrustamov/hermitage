@@ -10,6 +10,7 @@
             <tr>
                 <th>Title (RU)</th>
                 <th>Status</th>
+                <th>Image</th>
                 <th>Created At</th>
                 <th>Updated At</th>
                 <th>Actions</th>
@@ -20,6 +21,12 @@
             <tr>
                 <td>{{ $vacancy->title_ru }}</td>
                 <td>{{ $vacancy->is_active ? 'Active' : 'Inactive' }}</td>
+                <td>
+                    @if ($vacancy->image)
+                        <img src="{{ asset( $vacancy->image) }}" alt="image"
+                            style="max-height: 50px;">
+                    @endif
+                </td>
                 <td>{{ $vacancy->created_at }}</td>
                 <td>{{ $vacancy->updated_at }}</td>
                 <td>
