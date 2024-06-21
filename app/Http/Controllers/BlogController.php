@@ -28,9 +28,9 @@ class BlogController extends Controller
         return view('blogs.index', compact('blogs'));
     }
 
+
     public function publicShow($locale, $id)
     {
-
         $blog = Blog::findOrFail($id);
         $title = 'title_' . $locale;
         $description = 'description_' . $locale;
@@ -39,11 +39,14 @@ class BlogController extends Controller
             'title' => $blog->$title,
             'description' => $blog->$description,
             'image' => $blog->image,
+            'created_at' =>  $blog->created_at,
         ];
 
-        return view('blogs.show', compact('data'));
+        return view('blogs.show', [
+            'data' => $data,
+            'image' => $blog->image
+        ]);
     }
-
 
     public function create()
     {

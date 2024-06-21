@@ -57,11 +57,9 @@
                     </div>
                 </div>
             </div>
-
             <div class="form-group mt-3">
                 <label for="year">Year</label>
                 <input id="year" name="year" width="276" />
-                
             </div>
             <div class="form-group mt-3">
                 <label for="image">Image</label>
@@ -76,7 +74,6 @@
                 </div>
                 <img id="holder" style="margin-top:15px;max-height:100px;">
             </div>
-
             <div class="form-group mt-3">
                 <label for="image">Video</label>
                 <div class="input-group">
@@ -89,10 +86,6 @@
                     </span>
                 </div>
             </div>
-
-
-
-
             <div class="form-group form-check mt-3">
                 <input type="checkbox" class="form-check-input" id="is_active" name="is_active" checked>
                 <label class="form-check-label" for="is_active">Active</label>
@@ -127,7 +120,8 @@
     </script>
     <script>
         $('#year').datepicker({
-            uiLibrary: 'bootstrap4',  format: 'yyyy-mm-dd'
+            uiLibrary: 'bootstrap4',
+            format: 'yyyy-mm-dd'
         });
     </script>
 </body>

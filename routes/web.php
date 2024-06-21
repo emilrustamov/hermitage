@@ -18,13 +18,12 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\BannerController;
-
+use App\Http\Controllers\ModelsController;
 
 Route::get('/', function () {
     return redirect('/ru');
 });
 
-// Маршрут для смены языка
 Route::get('change-locale/{locale}', function ($locale) {
     $availableLocales = Config::get('app.available_locales');
     if (in_array($locale, $availableLocales)) {
@@ -64,7 +63,6 @@ Route::prefix('admin')->middleware(['web', 'auth'])->group(function () {
     Route::put('/projects/{id}', [ProjectController::class, 'update'])->name('admin.projects.update');
     Route::delete('/projects/{id}', [ProjectController::class, 'destroy'])->name('admin.projects.destroy');
 
-    // Routes for Partners and Categories
     Route::get('/partners/categories', [PartnerController::class, 'indexCategory'])->name('admin.partners.categories.index');
     Route::get('/partners/categories/create', [PartnerController::class, 'createCategory'])->name('admin.partners.categories.create');
     Route::post('/partners/categories', [PartnerController::class, 'storeCategory'])->name('admin.partners.categories.store');
@@ -91,6 +89,13 @@ Route::prefix('admin')->middleware(['web', 'auth'])->group(function () {
     Route::delete('/certificates/{id}', [CertificatesController::class, 'destroy'])->name('admin.certificates.destroy');
     Route::get('/certificates/{id}/edit', [CertificatesController::class, 'edit'])->name('admin.certificates.edit');
     Route::put('/certificates/{id}', [CertificatesController::class, 'update'])->name('admin.certificates.update');
+
+    Route::get('/models', [ModelsController::class, 'index'])->name('admin.models.index');
+    Route::get('/models/create', [CertificatesController::class, 'create'])->name('admin.models.create');
+    Route::post('/models', [CertificatesController::class, 'store'])->name('admin.models.store');
+    Route::delete('/models/{id}', [CertificatesController::class, 'destroy'])->name('admin.models.destroy');
+    Route::get('/models/{id}/edit', [CertificatesController::class, 'edit'])->name('admin.models.edit');
+    Route::put('/models/{id}', [CertificatesController::class, 'update'])->name('admin.models.update');
 });
 
 Route::get('/welcome', function () {
@@ -112,16 +117,12 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'web'], function () {
     Route::get('/blogs/{id}', [BlogController::class, 'publicShow'])->name('blogs.show');
     Route::get('/projects', [ProjectController::class, 'publicIndex'])->name('projects.index');
     Route::get('/projects/{id}', [ProjectController::class, 'publicShow'])->name('projects.show');
-    // header links
+
     Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorite');
     Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
-
     Route::get('/projectcalc', [ProjectCalcController::class, 'index'])->name('projectcalc');
     Route::get('/products', [ProductsController::class, 'index'])->name('products');
-    // Route::get('/certificates', [CertificatesController::class, 'index'])->name('certificates');
     Route::get('/certificates', [CertificatesController::class, 'publicIndex'])->name('certificates.index');
-
-    //partners
     Route::get('/partners', [PartnerController::class, 'showPartners'])->name('partners.index');
 });
 

@@ -8,13 +8,13 @@ use Illuminate\Support\Facades\Storage;
 
 class CertificatesController extends Controller
 {
-    // Метод для публичной страницы
+   
     public function publicIndex()
     {
         $certificates = Certificate::orderBy('ordering')->get();
         return view('certificates', compact('certificates'));
     }
-    
+
 
     // Метод для админки
     public function index()

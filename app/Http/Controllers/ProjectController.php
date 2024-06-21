@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\project;
 use Illuminate\Support\Facades\Storage;
-use App\Events\NewprojectPost;
 use Carbon\Carbon;
 
 class ProjectController extends Controller
