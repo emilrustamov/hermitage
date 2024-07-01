@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AreasController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\CertificatesController;
@@ -124,6 +125,7 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'web'], function () {
     Route::get('/products', [ProductsController::class, 'index'])->name('products');
     Route::get('/certificates', [CertificatesController::class, 'publicIndex'])->name('certificates.index');
     Route::get('/partners', [PartnerController::class, 'showPartners'])->name('partners.index');
+    Route::get('/areas', [AreasController::class, 'index'])->name('areas');
 });
 
 // Route::get('/', [SubscriberController::class, 'subscriber_form'])->name('form');

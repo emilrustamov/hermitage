@@ -1,15 +1,17 @@
 @php
-    $banner = App\Models\Banner::where('page_identifier', 'about')->first();
+    $banner = App\Models\Banner::where('page_identifier', 'vacancies')->first();
 @endphp
 
 @include('layouts.header', ['slider' => false, 'banner' => $banner ? $banner->banner : null])
+{{-- @include('layouts.header', ['slider' => false, 'banner' => $banner ? $banner->banner : null]) --}}
 
 <div class="mt-5 px-5">
     {{-- <h1>Vacancies1</h1> --}}
     <div class="row">
         @foreach ($vacancies as $vacancy)
-            <div class="col-md-6 col-lg-6 col-12">
-                <div class="mb-4 vacanc-img">
+            <div class=" vacanc-img">
+            {{-- <div class="col-md-6 col-lg-6 col-12 vacanc-img"> --}}
+                <div class="mb-4 ">
 
                     <img src="{{ asset($vacancy->image) }}" class="card-img-top black-photo" alt="{{ $vacancy->title }}">
 

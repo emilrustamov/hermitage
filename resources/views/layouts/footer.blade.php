@@ -28,37 +28,41 @@
 <footer class="container">
     <div class="row">
         <div class="col-lg-3 col-6  py-3">
+            <p class="ul-title">О нас</p>
             <ul class="unstyle p-0">
-                <li> О нас
-                <li> Сертификаты
-                <li> Направления
-                <li> Партнерам???
-                <li> Контракты
-                <li> Проекты
-                <li> Новости
-                <li> Вакансии
+                <li> О нас</li>
+                <li> <a href="{{ route('areas', ['locale' => app()->getLocale()]) }}">Направления</a></li>
+                <li> Партнеры</li>
+                <li> Контракты</li>
+                <li> Проекты</li>
+                <li> Сертификаты</li>
+                <li> Новости</li>
+                <li> Вакансии</li>
             </ul>
         </div>
         <div class="col-lg-3 col-6  py-3">
+            <p class="ul-title">Товары</p>
             <ul class="unstyle p-0">
                 <li> В наличии
                 <li> Новые поступления
             </ul>
         </div>
         <div class="col-lg-3 col-6  py-3">
+            <p class="ul-title">Заказать проект</p>
             <ul class="unstyle p-0">
                 <li> Расчет стоимости индивидуального проекта
                 <li> 3D модели
             </ul>
         </div>
         <div class="col-lg-3 col-6 py-3">
-            <div>Ул. С. Сейди, 27<br>
+            <p class="ul-title">Контакты</p>
+            <div class="footer-address">Ул. С. Сейди, 27<br>
                 Торговый центр "DÜRDÄNELI", 1 этаж<br>
                 шоурум HERMITAGE HOME INTERIORS<br>
                 <a>+99365 56-41-59</a><br>
                 <a>+99365 41-59-02</a>
             </div><br>
-            <div>Ул. С. Сейди, 27<br>
+            <div class="footer-address">Ул. С. Сейди, 27<br>
                 Торговый центр "DÜRDÄNELI", 1 этаж<br>
                 шоурум HERMITAGE HOME INTERIORS<br>
                 <a>+99365 56-41-59</a><br>

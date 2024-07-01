@@ -52,7 +52,7 @@
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('blogs.index', ['locale' => app()->getLocale()]) }}">
-                                        <li>Блог</li>
+                                        <li>Новости</li>
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('projects.index', ['locale' => app()->getLocale()]) }}">
@@ -124,9 +124,10 @@
                                 });
                         </script>
                         @auth
-                            <a href="/favorites"><i class="fa fa-heart punkt-menu" aria-hidden="true"
+                            <a href="{{ route('favorite', ['locale' => app()->getLocale()]) }}"><i class="fa fa-heart punkt-menu" aria-hidden="true"
                                     style="color:white"></i></a>
                         @endauth
+                        <i class="fa fa-shopping-cart punkt-menu" aria-hidden="true" style="color:white" id="cartIcon"></i>
                     </div>
                 </div>
             </header>

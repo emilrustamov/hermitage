@@ -1,5 +1,5 @@
 @include('layouts.headerA', ['hasimage' => false])
-<div class=" blogs ">
+<div class=" admin-index ">
     <div class="d-flex align-items-center justify-content-between mb-3">
         <h1>Admin - Blogs</h1>
         <a href="{{ route('admin.blogs.create') }}" class="btn btn-primary mb-3">Create New blog</a>

@@ -1,6 +1,6 @@
 @include('layouts.headerA', ['hasimage' => false])
 
-<div class="vacancies">
+<div class="admin-index">
     <div class="d-flex justify-content-between">
         <h1>Admin - Vacancies</h1>
         <a href="{{ route('admin.vacancies.create') }}" class="btn btn-primary mb-3">Create New Vacancy</a>

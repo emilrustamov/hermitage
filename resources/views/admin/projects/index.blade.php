@@ -1,6 +1,6 @@
 @include('layouts.headerA', ['hasimage' => false])
 
-<div class="projects">
+<div class="admin-index">
     <h1>Admin - projects</h1>
     <a href="{{ route('admin.projects.create') }}" class="btn btn-primary mb-3">Create New Project</a>
     <table class="table table-bordered">

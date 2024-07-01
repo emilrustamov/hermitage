@@ -220,6 +220,20 @@ footer {
           flex: 0 0 auto;
   background-color: #eaeaea;
 }
+footer .footer-address {
+  line-height: 28px;
+}
+footer .ul-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+footer ul li {
+  margin-bottom: 7px;
+}
+footer ul li a {
+  color: #212529;
+  text-decoration: none !important;
+}
 
 .textImageC {
   position: absolute;
@@ -278,10 +292,20 @@ footer {
   transition: all 1s;
 }
 
+.less-brightness {
+  -webkit-filter: brightness(0.6) contrast(0.6);
+          filter: brightness(0.6) contrast(0.6);
+}
+
 .aboutSctn {
   background-color: #eaeaea;
-  max-width: 1300px;
+  max-width: 1800px;
   margin: 0 auto;
+  height: 100vh;
+}
+.aboutSctn img {
+  height: 80vh;
+  margin-top: 35px;
 }
 
 .dropdown {
@@ -340,6 +364,7 @@ footer {
 }
 
 .logo {
+  margin-left: 60px;
   width: 200px;
   height: -webkit-fill-available;
 }
@@ -561,16 +586,19 @@ footer {
 .cart-sidebar {
   position: fixed;
   top: 0;
-  right: -27%; /* начальное положение сайдбара за пределами экрана */
+  right: -27%;
+  /* начальное положение сайдбара за пределами экрана */
   width: 27%;
   height: 100%;
   background-color: #121212;
   -webkit-transition: right 0.5s ease;
-  transition: right 0.5s ease; /* анимация для плавного появления сайдбара */
+  transition: right 0.5s ease;
+  /* анимация для плавного появления сайдбара */
   padding: 20px 10px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  z-index: 999; /* убедитесь, что сайдбар находится выше других элементов */
+  z-index: 999;
+  /* убедитесь, что сайдбар находится выше других элементов */
 }
 .cart-sidebar .cart-header {
   padding: 0 20px;
@@ -719,6 +747,54 @@ footer {
 .radio-options {
   background-color: white;
   padding: 58px 40px 20px;
+}
+
+.tabs-wrapper {
+  margin-left: 40px;
+  margin-top: 80px;
+}
+
+.tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+}
+
+.tab {
+  padding: 10px 35px;
+  background-color: #f1f1f1;
+  margin-right: 5px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.tab.active {
+  background-color: #fff;
+  border: 1px black solid;
+}
+
+.tab-pane {
+  display: none;
+  padding: 10px;
+}
+.tab-pane.active {
+  display: block;
+}
+
+.arc-proj,
+.design-proj {
+  margin-right: 20px;
+  width: 250px;
+}
+.arc-proj p,
+.design-proj p {
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-bottom: 0 !important;
+  line-height: normal;
 }
 
 .radio-title {
@@ -936,34 +1012,41 @@ footer {
   position: absolute;
   left: 0;
   right: 0;
-  top: 40%; /* Переносим в центр по вертикали */
+  top: 40%;
+  /* Переносим в центр по вертикали */
   -webkit-transform: translateY(10%);
       -ms-transform: translateY(10%);
-          transform: translateY(10%); /* Центрирование по вертикали */
+          transform: translateY(10%);
+  /* Центрирование по вертикали */
   text-align: center;
 }
 .admin-img .text-container p {
   color: white;
   font-size: 32px;
-  opacity: 0; /* Начальная прозрачность для анимации появления */
+  opacity: 0;
+  /* Начальная прозрачность для анимации появления */
   -webkit-animation: slide-up 0.5s ease forwards;
-          animation: slide-up 0.5s ease forwards; /* Анимация снизу вверх */
+          animation: slide-up 0.5s ease forwards;
+  /* Анимация снизу вверх */
 }
 .admin-img .text-container p:nth-child(2) {
   font-size: 24px;
   -webkit-animation-delay: 0.3s;
-          animation-delay: 0.3s; /* Задержка для второй строки */
+          animation-delay: 0.3s;
+  /* Задержка для второй строки */
 }
 
 @-webkit-keyframes slide-up {
   from {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%); /* Начальное положение вне экрана */
+            transform: translateY(100%);
+    /* Начальное положение вне экрана */
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(0);
-            transform: translateY(0); /* Конечное положение в центре */
+            transform: translateY(0);
+    /* Конечное положение в центре */
     opacity: 1;
   }
 }
@@ -971,16 +1054,18 @@ footer {
 @keyframes slide-up {
   from {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%); /* Начальное положение вне экрана */
+            transform: translateY(100%);
+    /* Начальное положение вне экрана */
     opacity: 0;
   }
   to {
     -webkit-transform: translateY(0);
-            transform: translateY(0); /* Конечное положение в центре */
+            transform: translateY(0);
+    /* Конечное положение в центре */
     opacity: 1;
   }
 }
-.blogs, .projects, .vacancies {
+.admin-index {
   margin: 100px 50px;
 }
 
@@ -1012,7 +1097,7 @@ footer {
 }
 
 .card-img-top {
-  height: 240px;
+  height: 450px;
 }
 
 .all-v-link {
@@ -1039,7 +1124,126 @@ footer {
      object-fit: cover;
 }
 
+.our-areas {
+  font-size: 20px;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.areas-block .area-wrap {
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: 100%;
+  height: 300px;
+}
+.areas-block .area-wrap img {
+  -webkit-filter: brightness(0.6) contrast(0.6);
+          filter: brightness(0.6) contrast(0.6);
+  position: relative;
+  width: 100%;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.areas-block .area-wrap img:hover {
+  -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+          transform: scale(1.2);
+}
+.areas-block .area-wrap .area-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.inspire-block {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+.inspire-block img {
+  -webkit-filter: brightness(0.6) contrast(0.6);
+          filter: brightness(0.6) contrast(0.6);
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.inspire-block .inspire-text {
+  margin: 30px 0;
+  height: 95vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.inspire-block .inspire-text .inspire-title {
+  color: white;
+  font-size: 32px;
+}
+.inspire-block .inspire-text .inspire-sub {
+  color: white;
+  font-size: 24px;
+}
+.inspire-block .inspire-text .insp-proj {
+  color: white;
+  font-size: 28px;
+}
+
+.contacts-block {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+.contacts-block img {
+  -webkit-filter: brightness(0.6) contrast(0.6);
+          filter: brightness(0.6) contrast(0.6);
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.contacts-block .contracts-text {
+  margin: 30px 0;
+  height: 94vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.contacts-block .contracts-text .contr-proj {
+  color: white;
+  font-size: 28px;
+}
+
+@media (min-width: 992px) {
+  .vacanc-img {
+    width: 49%;
+  }
+  .vacanc-img:nth-of-type(odd) {
+    margin-right: 30px;
+  }
+}
 @media (max-width: 991px) {
+  .vacanc-img {
+    width: 100%;
+  }
   .header-content {
     padding: 20px 10px;
   }
@@ -1086,8 +1290,37 @@ footer {
     font-size: 16px;
   }
 }
-@media (min-width: 320px) and (max-width: 400px) {
+@media (min-width: 1000px) and (max-width: 1440px) {
+  .vacanc-img {
+    width: 48%;
+  }
+  .vacanc-img .card-img-top {
+    height: 250px;
+  }
+}
+@media (min-width: 769px) and (max-width: 991px) {
+  .vacanc-img {
+    width: 50%;
+  }
+  .vacanc-img .card-img-top {
+    height: 250px;
+  }
+}
+@media (min-width: 320px) and (max-width: 768px) {
+  .vacanc-img .card-img-top {
+    height: 250px;
+  }
+}
+@media (min-width: 320px) and (max-width: 426px) {
   .fav-slider {
     padding: 0 !important;
   }
+  .slider-item {
+    min-height: 400px !important;
+  }
+}
+.slider-item {
+  min-height: 900px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

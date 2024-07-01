@@ -1,6 +1,6 @@
 @include('layouts.headerA', ['hasimage' => false])
 
-
+<div class="admin-index">
     <div class="container">
         <h1>Manage Certificates</h1>
 
@@ -44,4 +44,5 @@
             </tbody>
         </table>
     </div>
+</div>
 

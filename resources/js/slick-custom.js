@@ -4,9 +4,10 @@ $(function(){
     $(".regular").slick({
         dots: false,
         arrows:false,
+        autoplay: true,
         infinite: true,
         slidesToShow: 2,
-        slidesToScroll: 2,
+        slidesToScroll: 1,
     });
 });
 $(function(){

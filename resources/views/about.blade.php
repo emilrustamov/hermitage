@@ -2,7 +2,7 @@
     $banner = App\Models\Banner::where('page_identifier', 'about')->first();
 @endphp
 
-@include('layouts.header', ['slider' => false, 'banner' => $banner ? $banner->banner : null])
+@include('layouts.header', ['slider' => false, 'banner' => $banner ? $banner->banner : "images/forabout.jpg"])
 <div class="container py-5 about-cont">
     <div class="w-100">
         <div class="left-div">
@@ -30,8 +30,8 @@
 
         </div>
     </div>
-    <div class="text-center fs-4 fw-bold fst-italic my-5">
-        HERMITAGE HOME INTERIORS является официальным представителем
+    <div class="text-center fs-4 fw-bold my-5">
+        HERMITAGE HOME INTERIORS является официальным партнёром
         ведущих европейских брендов в Туркменистане.
     </div>
     <div class="row">

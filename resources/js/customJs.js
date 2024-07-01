@@ -25,7 +25,36 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
+    //custom tabs
+    document.querySelector('.tab-pane').classList.add('active');
 
+    document.querySelectorAll('.tab').forEach(function (tab) {
+        tab.addEventListener('click', function () {
+            document.querySelectorAll('.tab').forEach(function (t) {
+                t.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-pane').forEach(function (tp) {
+                tp.classList.remove('active');
+            });
+
+            this.classList.add('active');
+
+            var tabId = this.getAttribute('data-tab');
+            document.getElementById(tabId).classList.add('active');
+            // Показать или скрыть нужные секции
+            if (tabId === 'tab1') {
+                document.getElementById('architectureProj').classList.remove('d-none');
+                document.getElementById('architectureProj').classList.add('d-flex');
+                document.getElementById('designProj').classList.remove('d-flex');
+                document.getElementById('designProj').classList.add('d-none');
+            } else if (tabId === 'tab2') {
+                document.getElementById('architectureProj').classList.remove('d-flex');
+                document.getElementById('architectureProj').classList.add('d-none');
+                document.getElementById('designProj').classList.remove('d-none');
+                document.getElementById('designProj').classList.add('d-flex');
+            }
+        });
+    });
 
 
 
@@ -67,11 +96,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-   //partnersDropdown
-   var partnersDropdownToggle = document.getElementById('partnersDropdown');
+    //partnersDropdown
+    var partnersDropdownToggle = document.getElementById('partnersDropdown');
     var partnersDropdownMenu = document.getElementById('partnersMenu');
 
-    partnersDropdownToggle.addEventListener('click', function() {
+    partnersDropdownToggle.addEventListener('click', function () {
         if (partnersDropdownMenu.style.display === 'none') {
             partnersDropdownMenu.style.display = 'block';
         } else {
@@ -79,10 +108,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
         if (!partnersDropdownToggle.contains(event.target) && !partnersDropdownMenu.contains(event.target)) {
             partnersDropdownMenu.style.display = 'none';
         }
     });
+
+
+
 });
 

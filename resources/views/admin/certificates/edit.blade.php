@@ -1,7 +1,9 @@
 @include('layouts.headerA', ['hasimage' => false])
 
 
-<div class="container">
+
+<div class="admin-index">
+    <div class="container">
     <h1>Edit Certificate</h1>
 
     <form action="{{ route('admin.certificates.update', $certificate->id) }}" method="POST" enctype="multipart/form-data">
@@ -24,4 +26,5 @@
         <button type="submit" class="btn btn-primary">Update Certificate</button>
     </form>
 </div>
+    </div>
 
