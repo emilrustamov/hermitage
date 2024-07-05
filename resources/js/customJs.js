@@ -24,7 +24,22 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // fadein items
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.intersectionRatio > 0.3) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.3  // задаем порог в 20% высоты элемента
+    });
 
+    const fadeElements = document.querySelectorAll('.scroll-fade-in');
+    fadeElements.forEach(element => {
+        observer.observe(element);
+    });
     //custom tabs
     document.querySelector('.tab-pane').classList.add('active');
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\CertificatesController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProjectCalcController;
+use App\Http\Controllers\ThreedController;
 use App\Http\Controllers\VacancyController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProjectController;
@@ -147,6 +148,7 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'web'], function () {
     Route::get('/certificates', [CertificatesController::class, 'publicIndex'])->name('certificates.index');
     Route::get('/partners', [PartnerController::class, 'showPartners'])->name('partners.index');
     Route::get('/areas', [AreasController::class, 'index'])->name('areas');
+    Route::get('/threed', [ThreedController::class, 'index'])->name('threed');
 });
 
 // Route::get('/', [SubscriberController::class, 'subscriber_form'])->name('form');

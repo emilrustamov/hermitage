@@ -3,7 +3,9 @@
 * {
   box-sizing: border-box;
 }
-
+.admin-content{
+  min-height: 70vh;
+}
 nav {
   display: block;
   top: 50px;
@@ -38,12 +40,12 @@ nav {
 }
 
 .nav-link {
-  color: white;
+  color: #272727;
   transition: all 0.3s ease;
   border-bottom: 1px solid transparent;
 
   &:hover {
-    color: white;
+    color: gray;
     border-bottom: 1px solid white;
   }
 
@@ -197,7 +199,7 @@ main {
 footer {
   flex: 0 0 auto;
   background-color: #eaeaea;
-  .footer-address{
+  .footer-address {
     line-height: 28px;
   }
   .ul-title {
@@ -344,6 +346,9 @@ footer {
   margin-left: 60px;
   width: 200px;
   height: -webkit-fill-available;
+  &.admin-logo{
+    margin-left: 0;
+  }
 }
 
 .cstmbtn {
@@ -1043,6 +1048,7 @@ footer {
 }
 
 .admin-index {
+  min-height: 55vh;
   margin: 100px 50px;
 }
 
@@ -1056,11 +1062,43 @@ footer {
 }
 
 .about-cont {
-  img {
-    height: 250px;
-    object-fit: contain;
+  a{
+    transition: all 0.3s ease;
+    &:hover{
+      color: #636363;
+    }
   }
-
+  .img-wrapper{
+    cursor: pointer;
+    width: 550px;
+    height: 300px;
+    display: inline-block;
+    overflow: hidden;
+    img {
+      width: 550px;
+      height: 300px;
+      object-fit: cover;
+      transition: all 0.3s ease;
+      &:hover{
+        transform: scale(1.2);
+      }
+    }
+  }
+  .p-sxtn{
+    font-size: 16px;
+     text-decoration: none !important;
+    color: #212529;
+  }
+  .p-eitn{
+    font-size: 18px;
+    text-decoration: none !important;
+    color: #212529;
+  }
+  .p-twntw{
+    font-size: 22px;
+    text-decoration: none !important;
+    color: #212529;
+  }
   .download-btn {
     cursor: pointer;
     padding: 15px 50px;
@@ -1070,15 +1108,87 @@ footer {
     border: none;
     outline: none;
     color: white;
-
+    transition: all 0.5s ease;
+    &:hover{
+      opacity: 0.7;
+    }
     i {
       margin-left: 30px;
     }
   }
 }
+.scroll-fade-in {
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  &.visible {
+    opacity: 1;
+  }
+}
+.proj-wrapper, .blog-wrapper{
+  cursor: pointer;
+  height: 370px;
+  width: fit-content;
+  display: inline-block;
+  overflow: hidden;
+  .card-img-top{
+    transition: all 0.5s ease;
+    &:hover{
+      transform: scale(1.2);
+    }
+  }
+}
+/* Общие стили */
+.thr-model {
+  position: relative;
+  z-index: 1;
+  transition: all 0.4s ease;
+  .threed-wrapper {
+    position: relative;
 
+    .hover-content {
+      background-color: white;
+      opacity: 0;
+      position: absolute;
+      bottom: -80px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      left: 0;
+      width: 100%;
+      height: 80px;
+      transition: opacity 0.3s ease;
+      svg{
+        width: 100%;
+        height: 100%;
+        visibility: hidden;
+      }
+      .model-name{
+        font-size: 16px;
+        color: #212529;
+        margin-left: 50px;
+        margin-top: 15px;
+      }
+    }
+  }
+
+  &:hover {
+      z-index: 99999;
+      transform: scale(1.05);
+      .threed-wrapper {
+        z-index: 99999;
+        .hover-content {
+          z-index: 99999;
+          opacity: 1;
+        }
+      }
+  }
+}
+
+.proj-a, .blog-a{
+  color: #212529;
+  text-decoration: none !important;
+}
 .card-img-top {
-  height: 450px;
+  height: 370px;
+  object-fit: cover;
 }
 
 .all-v-link {
@@ -1097,9 +1207,8 @@ footer {
 }
 
 .partners-logo {
-  width: 100px;
-  height: 60px;
-
+  margin-right: 20px;
+  align-self: center;
   img {
     width: 100%;
     height: auto;
@@ -1197,13 +1306,27 @@ footer {
     }
   }
 }
-
+.thr-model{
+  margin-bottom: 25px;
+  img{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+  }
+}
+.btn-wrapper{
+  overflow: hidden;
+}
+.download-button{
+  cursor: pointer;
+  
+}
 // .vacanc-img{
 //   width: ;
 // }
 @media (min-width: 992px) {
   .vacanc-img {
-    width: 49%;
+    width: 47%;
     &:nth-of-type(odd) {
       margin-right: 30px;
     }

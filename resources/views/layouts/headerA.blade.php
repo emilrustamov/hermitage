@@ -27,7 +27,7 @@
 
                         <div style="display: inline-flex">
                             <a href="{{ route('home', ['locale' => app()->getLocale()]) }}"><img
-                                    src="{{ asset('/images/logo.svg') }}" alt="logo" class="logo"
+                                    src="{{ asset('/images/logo.svg') }}" alt="logo" class="logo admin-logo"
                                     @if ($hasimage) style="filter:invert(1)" @endif></a>
                         </div>
                     </div>
@@ -65,10 +65,16 @@
                                     href="{{ route('admin.projects.index') }}">Направления</a>
                             </div>
                             <div class="px-2">
-                                <a class="nav-link <?php if (request()->is('admin/directions*')) {
+                                <a class="nav-link <?php if (request()->is('admin/certificates*')) {
                                     echo 'active';
                                 } ?>"
                                     href="{{ route('admin.certificates.index') }}">Сертификаты</a>
+                            </div>
+                            <div class="px-2">
+                                <a class="nav-link <?php if (request()->is('admin/banners*')) {
+                                    echo 'active';
+                                } ?>"
+                                    href="{{ route('admin.banners.index') }}">Баннеры</a>
                             </div>
                             <div class="px-2">
                                 <a href="{{ route('logout', ['locale' => app()->getLocale()]) }}"

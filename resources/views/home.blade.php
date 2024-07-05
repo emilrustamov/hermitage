@@ -56,7 +56,7 @@
         {{ session('message') }}
     </div>
 @endif
-<section class="aboutSctn">
+<section class="aboutSctn scroll-fade-in">
     <div class="row py-5">
         <div class="col-lg-8 text-center">
             <img src="{{ asset('/images/main-reception.jpg') }}" class="mx-auto img-fluid ">
@@ -72,7 +72,7 @@
         </div>
     </div>
 </section>
-<section>
+<section class="scroll-fade-in">
     {{-- <div class="row">
         <div class="col-lg-4 d-flex flex-column justify-content-around" style="background-color: #202020;">
             <h2 class=" text-white align-self-center">Направления</h2>
@@ -114,7 +114,7 @@
         </div>
     </div>
 </section>
-<section>
+<section class="scroll-fade-in">
     <div class="inspire-block">
         <img src="{{ asset('/images/fullkuhnya.jpg') }}" alt="">
         <div class="inspire-text d-flex flex-column justify-content-between text-center">
@@ -148,7 +148,7 @@
         </div>
     </div> --}}
 </section>
-<section>
+<section class="scroll-fade-in">
     {{-- <div class="row">
         <div class="col-lg-4 d-flex flex-column justify-content-around" style="background-color: #202020;">
             <h2 class=" text-white align-self-center">Вдохновение</h2>
