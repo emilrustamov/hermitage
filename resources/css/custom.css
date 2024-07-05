@@ -4,6 +4,10 @@
           box-sizing: border-box;
 }
 
+.admin-content {
+  min-height: 70vh;
+}
+
 nav {
   display: block;
   top: 50px;
@@ -34,13 +38,13 @@ nav {
 }
 
 .nav-link {
-  color: white;
+  color: #272727;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   border-bottom: 1px solid transparent;
 }
 .nav-link:hover {
-  color: white;
+  color: gray;
   border-bottom: 1px solid white;
 }
 .nav-link.active {
@@ -367,6 +371,9 @@ footer ul li a {
   margin-left: 60px;
   width: 200px;
   height: -webkit-fill-available;
+}
+.logo.admin-logo {
+  margin-left: 0;
 }
 
 .cstmbtn {
@@ -1066,6 +1073,7 @@ footer ul li a {
   }
 }
 .admin-index {
+  min-height: 55vh;
   margin: 100px 50px;
 }
 
@@ -1077,10 +1085,47 @@ footer ul li a {
   background-color: #555;
 }
 
-.about-cont img {
-  height: 250px;
-  -o-object-fit: contain;
-     object-fit: contain;
+.about-cont a {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.about-cont a:hover {
+  color: #636363;
+}
+.about-cont .img-wrapper {
+  cursor: pointer;
+  width: 550px;
+  height: 300px;
+  display: inline-block;
+  overflow: hidden;
+}
+.about-cont .img-wrapper img {
+  width: 550px;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.about-cont .img-wrapper img:hover {
+  -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+          transform: scale(1.2);
+}
+.about-cont .p-sxtn {
+  font-size: 16px;
+  text-decoration: none !important;
+  color: #212529;
+}
+.about-cont .p-eitn {
+  font-size: 18px;
+  text-decoration: none !important;
+  color: #212529;
+}
+.about-cont .p-twntw {
+  font-size: 22px;
+  text-decoration: none !important;
+  color: #212529;
 }
 .about-cont .download-btn {
   cursor: pointer;
@@ -1091,13 +1136,101 @@ footer ul li a {
   border: none;
   outline: none;
   color: white;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.about-cont .download-btn:hover {
+  opacity: 0.7;
 }
 .about-cont .download-btn i {
   margin-left: 30px;
 }
 
+.scroll-fade-in {
+  opacity: 0;
+  -webkit-transition: opacity 0.7s ease;
+  transition: opacity 0.7s ease;
+}
+.scroll-fade-in.visible {
+  opacity: 1;
+}
+
+.proj-wrapper, .blog-wrapper {
+  cursor: pointer;
+  height: 370px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: inline-block;
+  overflow: hidden;
+}
+.proj-wrapper .card-img-top, .blog-wrapper .card-img-top {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.proj-wrapper .card-img-top:hover, .blog-wrapper .card-img-top:hover {
+  -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+/* Общие стили */
+.thr-model {
+  position: relative;
+  z-index: 1;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.thr-model .threed-wrapper {
+  position: relative;
+}
+.thr-model .threed-wrapper .hover-content {
+  background-color: white;
+  opacity: 0;
+  position: absolute;
+  bottom: -80px;
+  -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  left: 0;
+  width: 100%;
+  height: 80px;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+.thr-model .threed-wrapper .hover-content svg {
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+}
+.thr-model .threed-wrapper .hover-content .model-name {
+  font-size: 16px;
+  color: #212529;
+  margin-left: 50px;
+  margin-top: 15px;
+}
+.thr-model:hover {
+  z-index: 99999;
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
+}
+.thr-model:hover .threed-wrapper {
+  z-index: 99999;
+}
+.thr-model:hover .threed-wrapper .hover-content {
+  z-index: 99999;
+  opacity: 1;
+}
+
+.proj-a, .blog-a {
+  color: #212529;
+  text-decoration: none !important;
+}
+
 .card-img-top {
-  height: 450px;
+  height: 370px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .all-v-link {
@@ -1114,8 +1247,9 @@ footer ul li a {
 }
 
 .partners-logo {
-  width: 100px;
-  height: 60px;
+  margin-right: 20px;
+  -ms-flex-item-align: center;
+      align-self: center;
 }
 .partners-logo img {
   width: 100%;
@@ -1232,9 +1366,27 @@ footer ul li a {
   font-size: 28px;
 }
 
+.thr-model {
+  margin-bottom: 25px;
+}
+.thr-model img {
+  width: 100%;
+  height: 500px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.btn-wrapper {
+  overflow: hidden;
+}
+
+.download-button {
+  cursor: pointer;
+}
+
 @media (min-width: 992px) {
   .vacanc-img {
-    width: 49%;
+    width: 47%;
   }
   .vacanc-img:nth-of-type(odd) {
     margin-right: 30px;

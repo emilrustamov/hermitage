@@ -9,13 +9,17 @@
     .content-appearance {
         display: none;
     }
-
-    .col-sm-3 {
+    .products-grid{
+        display: grid;
+        grid-template-columns: repeat(4, 350px);
+        width: fit-content;
+        margin: auto;
+    }
+    .col-lg-3 {
         position: relative;
         transition: all 0.3s ease;
         cursor: pointer;
-
-
+        width: 100%;
     }
 
     .right-align {
@@ -23,7 +27,7 @@
         margin-right: 0;
     }
 
-    .container .row .col-sm-3 {
+    .container .row .col-lg-3 {
         display: none;
     }
 
@@ -52,13 +56,14 @@
     text-decoration: none;
   } */
 
-    .col-sm-3:hover {
+    .col-lg-3:hover {
         box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.427);
         transform: scale(1.05);
+        padding: 20px 0;
         z-index: 2;
     }
 
-    .col-sm-3:hover .product-desc {
+    .col-lg-3:hover .product-desc {
         opacity: 1;
     }
 
@@ -121,9 +126,9 @@
     }
 
     .product-img {
-        width: 80%;
-        height: 250px;
-        object-fit: contain;
+        width: 85%;
+        height: 300px;
+        object-fit: cover;
         margin-bottom: 30px;
     }
 
@@ -261,329 +266,332 @@
 
 <div class="purchases" style="background-color: #E9E9E9;">
     <div class="container" style="padding-top: 35px;">
-        <div class="row gy-4" id="nav">
+        <div class="row gy-1" id="nav">
             <!-- start -->
-            <div class="content-appearance col-sm-3 p-0 chandelier istikbal" id="content-price" data-sort="3">
-                <div class="d-flex flex-column align-items-center">
-                    <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
-                    <div class="product-desc">
-                        <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
-                            voluptatum
-                            <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-favorite">
-                            cumque omnis? Aut facere quia
-                            cupiditate rerum, reprehenderit aliquam eos, ipsam in
-                        </p>
-                        <p class="product-price">300TMT
-                        </p>
+            <div class="products-grid">
+
+                <div class="content-appearance col-lg-3 p-0 chandelier istikbal" id="content-price" data-sort="3">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
+                        <div class="product-desc">
+                            <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
+                                voluptatum
+                                <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-favorite">
+                                cumque omnis? Aut facere quia
+                                cupiditate rerum, reprehenderit aliquam eos, ipsam in
+                            </p>
+                            <p class="product-price">300TMT
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="content-appearance col-sm-3 p-0 chair ikea" id="content-price" data-sort="4">
-                <div class="d-flex flex-column align-items-center">
-                    <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
-                    <div class="product-desc">
-                        <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
-                            voluptatum
-                            <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-favorite">
-                            cumque omnis? Aut facere quia
-                            cupiditate rerum, reprehenderit aliquam eos, ipsam in
-                        </p>
-                        <p class="product-price">400TMT
-                        </p>
+                <div class="content-appearance col-lg-3 p-0 chair ikea" id="content-price" data-sort="4">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
+                        <div class="product-desc">
+                            <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
+                                voluptatum
+                                <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-favorite">
+                                cumque omnis? Aut facere quia
+                                cupiditate rerum, reprehenderit aliquam eos, ipsam in
+                            </p>
+                            <p class="product-price">400TMT
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="content-appearance col-sm-3 p-0 armchair mebel" id="content-price" data-sort="1">
-                <div class="d-flex flex-column align-items-center">
-                    <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
-                    <div class="product-desc">
-                        <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
-                            voluptatum
-                            <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
-                                class="product-favorite">
-                            cumque omnis? Aut facere quia
-                            cupiditate rerum, reprehenderit aliquam eos, ipsam in
-                        </p>
-                        <p class="product-price">100TMT
-                        </p>
+                <div class="content-appearance col-lg-3 p-0 armchair mebel" id="content-price" data-sort="1">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
+                        <div class="product-desc">
+                            <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
+                                voluptatum
+                                <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
+                                    class="product-favorite">
+                                cumque omnis? Aut facere quia
+                                cupiditate rerum, reprehenderit aliquam eos, ipsam in
+                            </p>
+                            <p class="product-price">100TMT
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="content-appearance col-sm-3 p-0 chandelier istikbal" id="content-price" data-sort="2">
-                <div class="d-flex flex-column align-items-center">
-                    <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
-                    <div class="product-desc">
-                        <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
-                            voluptatum
-                            <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
-                                class="product-favorite">
-                            cumque omnis? Aut facere quia
-                            cupiditate rerum, reprehenderit aliquam eos, ipsam in
-                        </p>
-                        <p class="product-price">200TMT
-                        </p>
+                <div class="content-appearance col-lg-3 p-0 chandelier istikbal" id="content-price" data-sort="2">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
+                        <div class="product-desc">
+                            <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
+                                voluptatum
+                                <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
+                                    class="product-favorite">
+                                cumque omnis? Aut facere quia
+                                cupiditate rerum, reprehenderit aliquam eos, ipsam in
+                            </p>
+                            <p class="product-price">200TMT
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="content-appearance col-sm-3 p-0 chair ikea" id="content-price" data-sort="5">
-                <div class="d-flex flex-column align-items-center">
-                    <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
-                    <div class="product-desc">
-                        <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
-                            voluptatum
-                            <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
-                                class="product-favorite">
-                            cumque omnis? Aut facere quia
-                            cupiditate rerum, reprehenderit aliquam eos, ipsam in
-                        </p>
-                        <p class="product-price">500TMT
-                        </p>
+                <div class="content-appearance col-lg-3 p-0 chair ikea" id="content-price" data-sort="5">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
+                        <div class="product-desc">
+                            <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
+                                voluptatum
+                                <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
+                                    class="product-favorite">
+                                cumque omnis? Aut facere quia
+                                cupiditate rerum, reprehenderit aliquam eos, ipsam in
+                            </p>
+                            <p class="product-price">500TMT
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="content-appearance col-sm-3 p-0 armchair mebel" id="content-price" data-sort="6">
-                <div class="d-flex flex-column align-items-center">
-                    <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
-                    <div class="product-desc">
-                        <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
-                            voluptatum
-                            <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
-                                class="product-favorite">
-                            cumque omnis? Aut facere quia
-                            cupiditate rerum, reprehenderit aliquam eos, ipsam in
-                        </p>
-                        <p class="product-price">600TMT
-                        </p>
+                <div class="content-appearance col-lg-3 p-0 armchair mebel" id="content-price" data-sort="6">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
+                        <div class="product-desc">
+                            <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
+                                voluptatum
+                                <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
+                                    class="product-favorite">
+                                cumque omnis? Aut facere quia
+                                cupiditate rerum, reprehenderit aliquam eos, ipsam in
+                            </p>
+                            <p class="product-price">600TMT
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="content-appearance col-sm-3 p-0 chandelier istikbal" id="content-price" data-sort="7">
-                <div class="d-flex flex-column align-items-center">
-                    <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
-                    <div class="product-desc">
-                        <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
-                            voluptatum
-                            <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
-                                class="product-favorite">
-                            cumque omnis? Aut facere quia
-                            cupiditate rerum, reprehenderit aliquam eos, ipsam in
-                        </p>
-                        <p class="product-price">700TMT
-                        </p>
+                <div class="content-appearance col-lg-3 p-0 chandelier istikbal" id="content-price" data-sort="7">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
+                        <div class="product-desc">
+                            <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
+                                voluptatum
+                                <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
+                                    class="product-favorite">
+                                cumque omnis? Aut facere quia
+                                cupiditate rerum, reprehenderit aliquam eos, ipsam in
+                            </p>
+                            <p class="product-price">700TMT
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="content-appearance col-sm-3 p-0 chair ikea" id="content-price" data-sort="8">
-                <div class="d-flex flex-column align-items-center">
-                    <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
-                    <div class="product-desc">
-                        <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
-                            voluptatum
-                            <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
-                                class="product-favorite">
-                            cumque omnis? Aut facere quia
-                            cupiditate rerum, reprehenderit aliquam eos, ipsam in
-                        </p>
-                        <p class="product-price">800TMT
-                        </p>
+                <div class="content-appearance col-lg-3 p-0 chair ikea" id="content-price" data-sort="8">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
+                        <div class="product-desc">
+                            <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
+                                voluptatum
+                                <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
+                                    class="product-favorite">
+                                cumque omnis? Aut facere quia
+                                cupiditate rerum, reprehenderit aliquam eos, ipsam in
+                            </p>
+                            <p class="product-price">800TMT
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="content-appearance col-sm-3 p-0 armchair mebel" id="content-price" data-sort="9">
-                <div class="d-flex flex-column align-items-center">
-                    <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
-                    <div class="product-desc">
-                        <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
-                            voluptatum
-                            <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
-                                class="product-favorite">
-                            cumque omnis? Aut facere quia
-                            cupiditate rerum, reprehenderit aliquam eos, ipsam in
-                        </p>
-                        <p class="product-price">900TMT
-                        </p>
+                <div class="content-appearance col-lg-3 p-0 armchair mebel" id="content-price" data-sort="9">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
+                        <div class="product-desc">
+                            <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
+                                voluptatum
+                                <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
+                                    class="product-favorite">
+                                cumque omnis? Aut facere quia
+                                cupiditate rerum, reprehenderit aliquam eos, ipsam in
+                            </p>
+                            <p class="product-price">900TMT
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="content-appearance col-sm-3 p-0 chandelier istikbal" id="content-price" data-sort="10">
-                <div class="d-flex flex-column align-items-center">
-                    <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
-                    <div class="product-desc">
-                        <p class="product-text">illo minima culpa officiis, velit pariatur iste eligendi
-                            voluptatum
-                            <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
-                                class="product-favorite">
-                            cumque omnis? Aut facere quia
-                            cupiditate rerum, reprehenderit aliquam eos, ipsam in
-                        </p>
-                        <p class="product-price">1000TMT
-                        </p>
+                <div class="content-appearance col-lg-3 p-0 chandelier istikbal" id="content-price" data-sort="10">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
+                        <div class="product-desc">
+                            <p class="product-text">illo minima culpa officiis, velit pariatur iste eligendi
+                                voluptatum
+                                <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
+                                    class="product-favorite">
+                                cumque omnis? Aut facere quia
+                                cupiditate rerum, reprehenderit aliquam eos, ipsam in
+                            </p>
+                            <p class="product-price">1000TMT
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="content-appearance col-sm-3 p-0 chair ikea " id="content-price" data-sort="11">
-                <div class="d-flex flex-column align-items-center">
-                    <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
-                    <div class="product-desc">
-                        <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
-                            voluptatum
-                            <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
-                                class="product-favorite">
-                            cumque omnis? Aut facere quia
-                            cupiditate rerum, reprehenderit aliquam eos, ipsam in
-                        </p>
-                        <p class="product-price">1100TMT
-                        </p>
+                <div class="content-appearance col-lg-3 p-0 chair ikea " id="content-price" data-sort="11">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
+                        <div class="product-desc">
+                            <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
+                                voluptatum
+                                <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
+                                    class="product-favorite">
+                                cumque omnis? Aut facere quia
+                                cupiditate rerum, reprehenderit aliquam eos, ipsam in
+                            </p>
+                            <p class="product-price">1100TMT
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="content-appearance col-sm-3 p-0 armchair mebel" id="content-price" data-sort="12">
-                <div class="d-flex flex-column align-items-center">
-                    <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
-                    <div class="product-desc">
-                        <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
-                            voluptatum
-                            <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
-                                class="product-favorite">
-                            cumque omnis? Aut facere quia
-                            cupiditate rerum, reprehenderit aliquam eos, ipsam in
-                        </p>
-                        <p class="product-price">1200TMT
-                        </p>
+                <div class="content-appearance col-lg-3 p-0 armchair mebel" id="content-price" data-sort="12">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
+                        <div class="product-desc">
+                            <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
+                                voluptatum
+                                <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
+                                    class="product-favorite">
+                                cumque omnis? Aut facere quia
+                                cupiditate rerum, reprehenderit aliquam eos, ipsam in
+                            </p>
+                            <p class="product-price">1200TMT
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- End -->
-            <!-- start -->
-            <div class="content-appearance col-sm-3 p-0 chandelier istikbal" id="content-price" data-sort="13">
-                <div class="d-flex flex-column align-items-center">
-                    <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
-                    <div class="product-desc">
-                        <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
-                            voluptatum
-                            <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
-                                class="product-favorite">
-                            cumque omnis? Aut facere quia
-                            cupiditate rerum, reprehenderit aliquam eos, ipsam in
-                        </p>
-                        <p class="product-price">1300TMT
-                        </p>
+                <!-- End -->
+                <!-- start -->
+                <div class="content-appearance col-lg-3 p-0 chandelier istikbal" id="content-price" data-sort="13">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
+                        <div class="product-desc">
+                            <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
+                                voluptatum
+                                <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
+                                    class="product-favorite">
+                                cumque omnis? Aut facere quia
+                                cupiditate rerum, reprehenderit aliquam eos, ipsam in
+                            </p>
+                            <p class="product-price">1300TMT
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="content-appearance col-sm-3 p-0 chair ikea" id="content-price" data-sort="14">
-                <div class="d-flex flex-column align-items-center">
-                    <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
-                    <div class="product-desc">
-                        <p class="product-text">illo minima culpa officiis, velit pariatur iste eligendi
-                            voluptatum
-                            <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
-                                class="product-favorite">
-                            cumque omnis? Aut facere quia
-                            cupiditate rerum, reprehenderit aliquam eos, ipsam in
-                        </p>
-                        <p class="product-price">1400TMT
-                        </p>
+                <div class="content-appearance col-lg-3 p-0 chair ikea" id="content-price" data-sort="14">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
+                        <div class="product-desc">
+                            <p class="product-text">illo minima culpa officiis, velit pariatur iste eligendi
+                                voluptatum
+                                <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
+                                    class="product-favorite">
+                                cumque omnis? Aut facere quia
+                                cupiditate rerum, reprehenderit aliquam eos, ipsam in
+                            </p>
+                            <p class="product-price">1400TMT
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="content-appearance col-sm-3 p-0 armchair mebel" id="content-price" data-sort="15">
-                <div class="d-flex flex-column align-items-center">
-                    <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
-                    <div class="product-desc">
-                        <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
-                            voluptatum
-                            <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
-                                class="product-favorite">
-                            cumque omnis? Aut facere quia
-                            cupiditate rerum, reprehenderit aliquam eos, ipsam in
-                        </p>
-                        <p class="product-price">1500TMT
-                        </p>
+                <div class="content-appearance col-lg-3 p-0 armchair mebel" id="content-price" data-sort="15">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
+                        <div class="product-desc">
+                            <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
+                                voluptatum
+                                <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
+                                    class="product-favorite">
+                                cumque omnis? Aut facere quia
+                                cupiditate rerum, reprehenderit aliquam eos, ipsam in
+                            </p>
+                            <p class="product-price">1500TMT
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="content-appearance col-sm-3 p-0 chandelier istikbal" id="content-price" data-sort="16">
-                <div class="d-flex flex-column align-items-center">
-                    <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
-                    <div class="product-desc">
-                        <p class="product-text">illo minima culpa officiis, velit pariatur iste eligendi
-                            voluptatum
-                            <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
-                                class="product-favorite">
-                            cumque omnis? Aut facere quia
-                            cupiditate rerum, reprehenderit aliquam eos, ipsam in
-                        </p>
-                        <p class="product-price">1600TMT
-                        </p>
+                <div class="content-appearance col-lg-3 p-0 chandelier istikbal" id="content-price" data-sort="16">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
+                        <div class="product-desc">
+                            <p class="product-text">illo minima culpa officiis, velit pariatur iste eligendi
+                                voluptatum
+                                <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
+                                    class="product-favorite">
+                                cumque omnis? Aut facere quia
+                                cupiditate rerum, reprehenderit aliquam eos, ipsam in
+                            </p>
+                            <p class="product-price">1600TMT
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="content-appearance col-sm-3 p-0 chair ikea" id="content-price" data-sort="17">
-                <div class="d-flex flex-column align-items-center">
-                    <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
-                    <div class="product-desc">
-                        <p class="product-text">illo minima culpa officiis, velit pariatur iste eligendi
-                            voluptatum
-                            <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
-                                class="product-favorite">
-                            cumque omnis? Aut facere quia
-                            cupiditate rerum, reprehenderit aliquam eos, ipsam in
-                        </p>
-                        <p class="product-price">1700TMT
-                        </p>
+                <div class="content-appearance col-lg-3 p-0 chair ikea" id="content-price" data-sort="17">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
+                        <div class="product-desc">
+                            <p class="product-text">illo minima culpa officiis, velit pariatur iste eligendi
+                                voluptatum
+                                <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
+                                    class="product-favorite">
+                                cumque omnis? Aut facere quia
+                                cupiditate rerum, reprehenderit aliquam eos, ipsam in
+                            </p>
+                            <p class="product-price">1700TMT
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="content-appearance col-sm-3 p-0 armchair mebel" id="content-price" data-sort="18">
-                <div class="d-flex flex-column align-items-center">
-                    <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
-                    <div class="product-desc">
-                        <p class="product-text">illo minima culpa officiis, velit pariatur iste eligendi
-                            voluptatum
-                            <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
-                                class="product-favorite">
-                            cumque omnis? Aut facere quia
-                            cupiditate rerum, reprehenderit aliquam eos, ipsam in
-                        </p>
-                        <p class="product-price">1800TMT
-                        </p>
+                <div class="content-appearance col-lg-3 p-0 armchair mebel" id="content-price" data-sort="18">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
+                        <div class="product-desc">
+                            <p class="product-text">illo minima culpa officiis, velit pariatur iste eligendi
+                                voluptatum
+                                <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
+                                    class="product-favorite">
+                                cumque omnis? Aut facere quia
+                                cupiditate rerum, reprehenderit aliquam eos, ipsam in
+                            </p>
+                            <p class="product-price">1800TMT
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="content-appearance col-sm-3 p-0 chandelier istikbal" id="content-price" data-sort="19">
-                <div class="d-flex flex-column align-items-center">
-                    <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
-                    <div class="product-desc">
-                        <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
-                            voluptatum
-                            <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
-                                class="product-favorite">
-                            cumque omnis? Aut facere quia
-                            cupiditate rerum, reprehenderit aliquam eos, ipsam in
-                        </p>
-                        <p class="product-price">1900TMT
-                        </p>
+                <div class="content-appearance col-lg-3 p-0 chandelier istikbal" id="content-price" data-sort="19">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
+                        <div class="product-desc">
+                            <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
+                                voluptatum
+                                <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
+                                    class="product-favorite">
+                                cumque omnis? Aut facere quia
+                                cupiditate rerum, reprehenderit aliquam eos, ipsam in
+                            </p>
+                            <p class="product-price">1900TMT
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="content-appearance col-sm-3 p-0 chair ikea" id="content-price" data-sort="20">
-                <div class="d-flex flex-column align-items-center">
-                    <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
-                    <div class="product-desc">
-                        <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
-                            voluptatum
-                            <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
-                                class="product-favorite">
-                            cumque omnis? Aut facere quia
-                            cupiditate rerum, reprehenderit aliquam eos, ipsam in
-                        </p>
-                        <p class="product-price">2000TMT
-                        </p>
+                <div class="content-appearance col-lg-3 p-0 chair ikea" id="content-price" data-sort="20">
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre" class="product-img">
+                        <div class="product-desc">
+                            <p class="product-text"> illo minima culpa officiis, velit pariatur iste eligendi
+                                voluptatum
+                                <img src="{{ asset('/images/product1.jpg') }}" alt="Cinque Terre"
+                                    class="product-favorite">
+                                cumque omnis? Aut facere quia
+                                cupiditate rerum, reprehenderit aliquam eos, ipsam in
+                            </p>
+                            <p class="product-price">2000TMT
+                            </p>
+                        </div>
                     </div>
                 </div>
+                <!-- End -->
             </div>
-            <!-- End -->
         </div>
         <a href="#" id="loadMore"> Загрузить еще </a>
     </div>

@@ -52,3 +52,15 @@ $(function(){
         slidesToScroll: 1,
     });
 });
+$(function(){
+    $(".logo-slider").slick({
+        dots: false,
+        arrows:false,
+        // variableWidth: true,
+        autoplay: true,
+        infinite: true,
+        slidesToShow: 7,
+        slidesToScroll: 1,
+        centerMode: true
+    });
+});
