@@ -19,10 +19,11 @@ class ModelsController extends Controller
     public function publicIndex()
     {
         $models = Models::where('is_active', 1)
-            ->select('id', 'title', 'image',)
+            ->select('id', 'title', 'image', 'file')
             ->orderBy('ordering')
             ->get();
-        return view('models.index', compact('models'));
+
+        return view('models', compact('models'));
     }
 
 
@@ -35,12 +36,14 @@ class ModelsController extends Controller
             'id' => $model->id,
             'title' => $model->$title,
             'image' => $model->image,
+            'file' => $model->file,
             'created_at' => Carbon::parse($model->created_at)->format('d.m.Y'),
         ];
 
         return view('models.show', [
             'data' => $data,
-            'image' => $model->image
+            'image' => $model->image,
+            'file' => $model->file,
         ]);
     }
 
@@ -53,32 +56,29 @@ class ModelsController extends Controller
 
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'ordering' => 'required|integer',
-            'image' => 'nullable|string',
+{
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'ordering' => 'required|integer',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'file' => 'nullable|file|mimes:pdf,zip,rar,doc,docx|max:10000',
+    ]);
 
-        ]);
+    $imagePath = $request->file('image') ? $request->file('image')->store('model_images', 'public') : null;
+    $filePath = $request->file('file') ? $request->file('file')->store('model_files', 'public') : null;
 
-        $imagePath = $request->image;
+    Models::create([
+        'title' => $request->title,
+        'ordering' => $request->ordering,
+        'image' => $imagePath,
+        'file' => $filePath, // Добавляем это
+        'is_active' => $request->has('is_active'),
+    ]);
+
+    return redirect()->route('admin.models.index')->with('success', 'Model created successfully.');
+}
 
 
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('model_images', 'public');
-        }
-
-
-
-        $model = Models::create([
-            'title' => $request->title,
-            'ordering' => $request->ordering,
-            'image' => $imagePath,
-            'is_active' => $request->has('is_active'),
-        ]);
-
-        return redirect()->route('admin.models.index')->with('success', 'Models created successfully.');
-    }
 
     public function show(string $id)
     {
@@ -97,20 +97,37 @@ class ModelsController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'ordering' => 'required|integer',
-            'image' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'file' => 'nullable|file|mimes:pdf,zip,rar,doc,docx|max:10000',
         ]);
 
         $model = Models::findOrFail($id);
-        $imagePath = $request->input('image');
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('model_images', 'public');
+            if ($model->image) {
+                Storage::disk('public')->delete($model->image);
+            }
+            $model->image = $imagePath;
+        }
+
+        if ($request->hasFile('file')) {
+            $filePath = $request->file('file')->store('model_files', 'public');
+            if ($model->file) {
+                Storage::disk('public')->delete($model->file);
+            }
+            $model->file = $filePath;
+        }
+
         $model->title = $request->title;
         $model->ordering = $request->ordering;
-        $model->image = $imagePath;
         $model->is_active = $request->has('is_active');
 
         $model->save();
 
-        return redirect()->route('admin.models.index')->with('success', 'model updated successfully.');
+        return redirect()->route('admin.models.index')->with('success', 'Model updated successfully.');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -123,8 +140,12 @@ class ModelsController extends Controller
             Storage::disk('public')->delete($model->image);
         }
 
+        if ($model->file) {
+            Storage::disk('public')->delete($model->file);
+        }
+
         $model->delete();
 
-        return redirect()->route('admin.models.index')->with('success', 'model deleted successfully.');
+        return redirect()->route('admin.models.index')->with('success', 'Model deleted successfully.');
     }
 }
