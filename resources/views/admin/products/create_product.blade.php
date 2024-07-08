@@ -3,8 +3,8 @@
 <body>
     <div class="admin-index">
         <div class="container mt-5">
-            <h1>Create Vacancy</h1>
-            <form action="{{ route('admin.blogs.store') }}" method="POST" enctype="multipart/form-data">
+            <h1>Create Product</h1>
+            <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <ul class="nav nav-tabs" id="languageTabs" role="tablist">
                     <li class="nav-item">
@@ -26,30 +26,17 @@
                             <label for="title_ru">Title (RU)</label>
                             <input type="text" class="form-control" id="title_ru" name="title_ru" required>
                         </div>
-
-                        <div class="form-group">
-                            <textarea id="description_ru" class="form-control" name="description_ru" rows="4" required>A simple menubar change.</textarea>
-                        </div>
                     </div>
                     <div class="tab-pane fade" id="en" role="tabpanel" aria-labelledby="en-tab">
                         <div class="form-group mt-3">
                             <label for="title_en">Title (EN)</label>
                             <input type="text" class="form-control" id="title_en" name="title_en" required>
                         </div>
-                        <div class="form-group">
-                            <textarea id="description_en" class="form-control" name="description_en" rows="4" required>A simple menubar change.</textarea>
-                        </div>
                     </div>
                     <div class="tab-pane fade" id="tk" role="tabpanel" aria-labelledby="tk-tab">
                         <div class="form-group mt-3">
                             <label for="title_tk">Title (TK)</label>
                             <input type="text" class="form-control" id="title_tk" name="title_tk" required>
-                        </div>
-
-                        <div class="form-group">
-
-                            <textarea id="description_tk" class="form-control" name="description_tk" rows="4" required>A simple menubar change.</textarea>
-
                         </div>
                     </div>
                 </div>
@@ -58,16 +45,38 @@
                     <div class="input-group">
                         <input id="image" class="form-control" type="text" name="image">
                         <span class="input-group-append">
-                            <button id="lfm" data-input="image" data-preview="holder" class="btn btn-primary"
-                                type="button">
+                            <button id="lfm" data-input="image" data-preview="holder" class="btn btn-primary" type="button">
                                 <i class="fa fa-picture-o"></i> Choose
                             </button>
                         </span>
                     </div>
                     <img id="holder" style="margin-top:15px;max-height:100px;">
                 </div>
-
-                <div class="form-group form-check mt-3">
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="text" class="form-control" id="price" name="price" required>
+                </div>
+                <div class="form-group">
+                    <label for="order">Order</label>
+                    <input type="number" class="form-control" id="order" name="order" required>
+                </div>
+                <div class="form-group">
+                    <label for="category_id">Category</label>
+                    <select name="category_id" class="form-control" required>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->title_ru }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="brand_id">Brand</label>
+                    <select name="brand_id" class="form-control" required>
+                        @foreach ($brands as $brand)
+                            <option value="{{ $brand->id }}">{{ $brand->title_ru }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" id="is_active" name="is_active" checked>
                     <label class="form-check-label" for="is_active">Active</label>
                 </div>
@@ -81,52 +90,21 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
     <script>
-       tinymce.init({
-    selector: 'textarea',
-    plugins: 'image code',
-    toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code',
-    /* enable title field in the Image dialog*/
-    image_title: true,
-    /* enable automatic uploads of images represented by blob or data URIs*/
-    automatic_uploads: true,
-    file_picker_types: 'image',
-    /* and here's our custom image picker*/
-    file_picker_callback: (cb, value, meta) => {
-        const input = document.createElement('input');
-        input.setAttribute('type', 'file');
-        input.setAttribute('accept', 'image/*');
-
-        input.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-
-            const reader = new FileReader();
-            reader.addEventListener('load', () => {
-                const id = 'blobid' + (new Date()).getTime();
-                const blobCache = tinymce.activeEditor.editorUpload.blobCache;
-                const base64 = reader.result.split(',')[1];
-                const blobInfo = blobCache.create(id, file, base64);
-                blobCache.add(blobInfo);
-
-                cb(blobInfo.blobUri(), { title: file.name });
-            });
-            reader.readAsDataURL(file);
+        tinymce.init({
+            selector: 'textarea', // change this value according to your HTML
+            menu: {
+                edit: {
+                    title: 'Edit',
+                    items: 'undo, redo, selectall'
+                }
+            }
         });
-
-        input.click();
-    },
-    menu: {
-        edit: { title: 'Edit', items: 'undo redo selectall' },
-        insert: { title: 'Insert', items: 'link image' },
-        view: { title: 'View', items: 'code' }
-    },
-    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
-});
-
     </script>
     <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
     <script>
         $('#lfm').filemanager('image');
     </script>
+
 </body>
 
 </html>
