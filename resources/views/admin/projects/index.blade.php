@@ -1,7 +1,7 @@
 @include('layouts.headerA', ['hasimage' => false])
 
 <div class="admin-index">
-    <h1>Admin - projects</h1>
+    <h1>Admin - Projects</h1>
     <a href="{{ route('admin.projects.create') }}" class="btn btn-primary mb-3">Create New Project</a>
     <table class="table table-bordered">
         <thead>
@@ -9,6 +9,7 @@
                 <th>Title (RU)</th>
                 <th>Status</th>
                 <th>Image</th>
+                <th>Plan Image</th>
                 <th>Created At</th>
                 <th>Updated At</th>
                 <th>Actions</th>
@@ -21,8 +22,12 @@
                 <td>{{ $project->is_active ? 'Active' : 'Inactive' }}</td>
                 <td>
                     @if ($project->image)
-                        <img src="{{ asset( $project->image) }}" alt="image"
-                            style="max-height: 50px;">
+                        <img src="{{ asset('storage/' . $project->image) }}" alt="image" style="max-height: 50px;">
+                    @endif
+                </td>
+                <td>
+                    @if ($project->plan_image)
+                        <img src="{{ asset('storage/' . $project->plan_image) }}" alt="plan image" style="max-height: 50px;">
                     @endif
                 </td>
                 <td>{{ $project->created_at }}</td>

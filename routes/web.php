@@ -96,11 +96,11 @@ Route::prefix('admin')->middleware(['web', 'auth', 'admin.access'])->group(funct
     Route::put('/certificates/{id}', [CertificatesController::class, 'update'])->name('admin.certificates.update');
 
     Route::get('/models', [ModelsController::class, 'index'])->name('admin.models.index');
-    Route::get('/models/create', [CertificatesController::class, 'create'])->name('admin.models.create');
-    Route::post('/models', [CertificatesController::class, 'store'])->name('admin.models.store');
-    Route::delete('/models/{id}', [CertificatesController::class, 'destroy'])->name('admin.models.destroy');
-    Route::get('/models/{id}/edit', [CertificatesController::class, 'edit'])->name('admin.models.edit');
-    Route::put('/models/{id}', [CertificatesController::class, 'update'])->name('admin.models.update');
+    Route::get('/models/create', [ModelsController::class, 'create'])->name('admin.models.create');
+    Route::post('/models', [ModelsController::class, 'store'])->name('admin.models.store');
+    Route::delete('/models/{id}', [ModelsController::class, 'destroy'])->name('admin.models.destroy');
+    Route::get('/models/{id}/edit', [ModelsController::class, 'edit'])->name('admin.models.edit');
+    Route::put('/models/{id}', [ModelsController::class, 'update'])->name('admin.models.update');
 
 
     Route::get('/users', [UserController::class, 'index'])->name('admin.users.index');
@@ -134,7 +134,9 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'web'], function () {
     Route::get('/blogs/{id}', [BlogController::class, 'publicShow'])->name('blogs.show');
     Route::get('/projects', [ProjectController::class, 'publicIndex'])->name('projects.index');
     Route::get('/projects/{id}', [ProjectController::class, 'publicShow'])->name('projects.show');
-    Route::get('/models', [ModelsController::class, 'index'])->name('models.index')->middleware('check.status');
+    Route::get('/models', [ModelsController::class, 'publicIndex'])->name('models.public.index')->middleware('auth', 'check.status');
+    Route::get('/models/{id}', [ModelsController::class, 'publicShow'])->name('models.public.show')->middleware('auth', 'check.status');
+
     Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorite');
 
     Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register')->middleware('guest');
@@ -148,7 +150,7 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'web'], function () {
     Route::get('/certificates', [CertificatesController::class, 'publicIndex'])->name('certificates.index');
     Route::get('/partners', [PartnerController::class, 'showPartners'])->name('partners.index');
     Route::get('/areas', [AreasController::class, 'index'])->name('areas');
-    Route::get('/threed', [ThreedController::class, 'index'])->name('threed');
+    // Route::get('/threed', [ThreedController::class, 'index'])->name('threed');
 });
 
 // Route::get('/', [SubscriberController::class, 'subscriber_form'])->name('form');
