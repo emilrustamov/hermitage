@@ -102,7 +102,7 @@
                         </div>
                         @auth
                             <a href="{{ route('logout', ['locale' => app()->getLocale()]) }}"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="logout-a">
                                 <i class="fa fa-sign-out punkt-menu" aria-hidden="true" style="color:white"></i>
                             </a>
                             <form id="logout-form" action="{{ route('logout', ['locale' => app()->getLocale()]) }}"
