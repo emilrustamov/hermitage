@@ -51,6 +51,11 @@
         ],
     ];
 @endphp
+@if (session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+@endif
 <section class="aboutSctn scroll-fade-in">
     <div class="row py-5">
         <div class="col-lg-8 text-center">

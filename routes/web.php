@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ModelsController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return redirect('/ru');
@@ -38,9 +39,11 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
     Lfm::routes();
 });
 
+
+
 Auth::routes();
 
-Route::prefix('admin')->middleware(['web', 'auth'])->group(function () {
+Route::prefix('admin')->middleware(['web', 'auth', 'admin.access'])->group(function () {
     Route::get('/vacancies', [VacancyController::class, 'index'])->name('admin.vacancies.index');
     Route::get('/vacancies/create', [VacancyController::class, 'create'])->name('admin.vacancies.create');
     Route::post('/vacancies', [VacancyController::class, 'store'])->name('admin.vacancies.store');
@@ -98,6 +101,17 @@ Route::prefix('admin')->middleware(['web', 'auth'])->group(function () {
     Route::delete('/models/{id}', [CertificatesController::class, 'destroy'])->name('admin.models.destroy');
     Route::get('/models/{id}/edit', [CertificatesController::class, 'edit'])->name('admin.models.edit');
     Route::put('/models/{id}', [CertificatesController::class, 'update'])->name('admin.models.update');
+
+
+    Route::get('/users', [UserController::class, 'index'])->name('admin.users.index');
+    Route::get('/users/create', [UserController::class, 'create'])->name('admin.users.create');
+    Route::post('/users', [UserController::class, 'store'])->name('admin.users.store');
+    Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('admin.users.edit');
+    Route::put('/users/{id}', [UserController::class, 'update'])->name('admin.users.update');
+    Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('admin.users.destroy');
+    Route::put('/users/{id}/status', [UserController::class, 'updateStatus'])->name('admin.users.updateStatus');
+    Route::put('/users/{id}/make-admin', [UserController::class, 'makeAdmin'])->name('admin.users.makeAdmin');
+    Route::put('/users/{id}/unmake-admin', [UserController::class, 'unmakeAdmin'])->name('admin.users.unmakeAdmin');
 });
 
 Route::get('/welcome', function () {
@@ -107,7 +121,8 @@ Route::get('/welcome', function () {
 
 
 Route::group(['prefix' => '{locale}', 'middleware' => 'web'], function () {
-    Route::get('/', function () {
+    Route::get('/', function ($locale) {
+        app()->setLocale($locale);
         return view('home');
     })->name('home');
     Route::get('/about', function () {
@@ -119,9 +134,15 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'web'], function () {
     Route::get('/blogs/{id}', [BlogController::class, 'publicShow'])->name('blogs.show');
     Route::get('/projects', [ProjectController::class, 'publicIndex'])->name('projects.index');
     Route::get('/projects/{id}', [ProjectController::class, 'publicShow'])->name('projects.show');
-
+    Route::get('/models', [ModelsController::class, 'index'])->name('models.index')->middleware('check.status');
     Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorite');
-    Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
+
+    Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register')->middleware('guest');
+    Route::post('/register', [RegisterController::class, 'register'])->name('register.post')->middleware('guest');
+
+
+    // Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
+    // Route::post('/register', [RegisterController::class, 'register'])->name('register.post')->middleware('guest');
     Route::get('/projectcalc', [ProjectCalcController::class, 'index'])->name('projectcalc');
     Route::get('/products', [ProductsController::class, 'index'])->name('products');
     Route::get('/certificates', [CertificatesController::class, 'publicIndex'])->name('certificates.index');

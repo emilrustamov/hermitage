@@ -12,7 +12,7 @@ class SetLocale
     public function handle($request, Closure $next)
     {
         // Исключаем маршруты админки и файлового менеджера
-        if ($request->is('admin/*') || $request->is('filemanager*') ||  $request->is('laravel-filemanager*') ||  $request->is('logout*') |  $request->is('login*')) {
+        if ($request->is('admin/*') || $request->is('filemanager*') || $request->is('laravel-filemanager*') || $request->is('logout*') || $request->is('login*')) {
             return $next($request);
         }
 
@@ -23,7 +23,8 @@ class SetLocale
             App::setLocale($locale);
             Session::put('locale', $locale);
         } else {
-            return abort(404); // Возвращаем 404, если локаль недопустима
+            $fallbackLocale = Config::get('app.fallback_locale');
+            return redirect($fallbackLocale);
         }
 
         return $next($request);

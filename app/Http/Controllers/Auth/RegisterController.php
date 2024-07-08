@@ -2,81 +2,66 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
+    use RegistersUsers {
+        register as protected originalRegister;
+    }
 
-    use RegistersUsers;
+    protected $redirectTo = '/ru';
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('guest');
     }
-    public function index()
+
+    public function showRegistrationForm()
     {
         return view('auth.register');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
     protected function validator(array $data)
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
-            'company' => ['required', 'string', 'max:255'],
-            'contacts' => ['required', 'string', 'max:255'],
+            'company_name' => ['nullable', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'contact' => ['required', 'string', 'max:255'],
+            'subscribe_to_blog' => ['boolean'],
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\Models\User
-     */
     protected function create(array $data)
     {
         return User::create([
             'name' => $data['name'],
             'surname' => $data['surname'],
-            'company' => $data['company'],
+            'company_name' => $data['company_name'] ?? null,
             'email' => $data['email'],
-            'contacts' => $data['contacts'],
             'password' => Hash::make($data['password']),
+            'contact' => $data['contact'],
+            'subscribe_to_blog' => isset($data['subscribe_to_blog']) ? true : false,
+            'status' => 'pending',
+            'is_admin' => false,
         ]);
+    }
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        return redirect('/')->with('message', 'Спасибо за регистрацию, ожидайте, пока Вас примет модератор.');
     }
 }
