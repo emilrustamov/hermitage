@@ -112,7 +112,31 @@ Route::prefix('admin')->middleware(['web', 'auth', 'admin.access'])->group(funct
     Route::put('/users/{id}/status', [UserController::class, 'updateStatus'])->name('admin.users.updateStatus');
     Route::put('/users/{id}/make-admin', [UserController::class, 'makeAdmin'])->name('admin.users.makeAdmin');
     Route::put('/users/{id}/unmake-admin', [UserController::class, 'unmakeAdmin'])->name('admin.users.unmakeAdmin');
+
+
+    Route::get('/products', [ProductsController::class, 'index'])->name('admin.products.index');
+    Route::get('/products/create', [ProductsController::class, 'createProduct'])->name('admin.products.create');
+    Route::post('/products', [ProductsController::class, 'storeProduct'])->name('admin.products.store');
+    Route::get('/products/{id}/edit', [ProductsController::class, 'editProduct'])->name('admin.products.edit');
+    Route::put('/products/{id}', [ProductsController::class, 'updateProduct'])->name('admin.products.update');
+    Route::delete('/products/{id}', [ProductsController::class, 'destroyProduct'])->name('admin.products.destroy');
+
+    Route::get('/products/categories', [ProductsController::class, 'indexCategory'])->name('admin.products.categories.index');
+    Route::get('/products/categories/create', [ProductsController::class, 'createCategory'])->name('admin.products.categories.create');
+    Route::post('/products/categories', [ProductsController::class, 'storeCategory'])->name('admin.products.categories.store');
+    Route::get('/products/categories/{id}/edit', [ProductsController::class, 'editCategory'])->name('admin.products.categories.edit');
+    Route::put('/products/categories/{id}', [ProductsController::class, 'updateCategory'])->name('admin.products.categories.update');
+    Route::delete('/products/categories/{id}', [ProductsController::class, 'destroyCategory'])->name('admin.products.categories.destroy');
+
+    Route::get('/products/brands', [ProductsController::class, 'indexBrand'])->name('admin.products.brands.index');
+    Route::get('/products/brands/create', [ProductsController::class, 'createBrand'])->name('admin.products.brands.create');
+    Route::post('/products/brands', [ProductsController::class, 'storeBrand'])->name('admin.products.brands.store');
+    Route::get('/products/brands/{id}/edit', [ProductsController::class, 'editBrand'])->name('admin.products.brands.edit');
+    Route::put('/products/brands/{id}', [ProductsController::class, 'updateBrand'])->name('admin.products.brands.update');
+    Route::delete('/products/brands/{id}', [ProductsController::class, 'destroyBrand'])->name('admin.products.brands.destroy');
 });
+
+
 
 Route::get('/welcome', function () {
     return view('welcome');
