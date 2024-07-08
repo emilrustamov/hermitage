@@ -1,4 +1,13 @@
-@include('layouts.header', ['slider' => false])
+@php
+    $banner = App\Models\Banner::where('page_identifier', 'about')->first();
+    $certificates = App\Models\Certificate::orderBy('ordering')->get();
+@endphp
+
+@include('layouts.header', [
+    'slider' => false,
+    'banner' => $banner ? $banner->banner : null,
+    'show_single_slide' => false,
+])
 
 <div class="d-flex reg-content">
     <img class="photo-for-reg" src="{{ asset('/images/register-photo.jpg') }}" alt="reg">
