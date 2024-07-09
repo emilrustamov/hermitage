@@ -11,12 +11,12 @@
                 <thead>
                     <tr>
                         <th>Title</th>
-                        <th>Price</th>
                         <th>Active</th>
                         <th>Image</th>
+                        <th>Order</th>
+                        <th>Price</th>
                         <th>Category</th>
                         <th>Brand</th>
-                        <th>Order</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -24,16 +24,16 @@
                     @foreach ($products as $product)
                         <tr>
                             <td>{{ $product->title_ru }}</td>
-                            <td>{{ $product->price }}</td>
                             <td>{{ $product->is_active ? 'Yes' : 'No' }}</td>
                             <td>
                                 @if ($product->image)
                                     <img src="{{ asset($product->image) }}" alt="image" style="max-height: 50px;">
                                 @endif
                             </td>
+                            <td>{{ $product->order }}</td>
+                            <td>{{ $product->price }}</td>
                             <td>{{ $product->category->title_ru }}</td>
                             <td>{{ $product->brand->title_ru }}</td>
-                            <td>{{ $product->order }}</td>
                             <td>
                                 <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                 <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST" style="display:inline-block;">

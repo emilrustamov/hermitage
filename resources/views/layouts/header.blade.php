@@ -59,7 +59,7 @@
                                         <li>Проекты</li>
                                     </a>
                                     <a class="nav-link"
-                                        href="{{ route('products', ['locale' => app()->getLocale()]) }}">
+                                        href="{{ route('products.index', ['locale' => app()->getLocale()]) }}">
                                         <li>Товары в наличии</li>
                                     </a>
                                     <a class="nav-link"

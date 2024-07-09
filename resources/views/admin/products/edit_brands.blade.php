@@ -3,10 +3,17 @@
 <body>
     <div class="admin-index">
         <div class="container mt-5">
-            <h1>Edit Brand</h1>
-            <form action="{{ route('admin.products.brands.update', $brand->id) }}" method="POST">
+            @error('title')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+            <h1>{{ isset($brand) ? 'Edit Brand' : 'Create Brand' }}</h1>
+            <form action="{{ isset($brand) ? route('admin.products.brands.update', $brand->id) : route('admin.products.brands.store') }}" method="POST">
                 @csrf
-                @method('PUT')
+                @if(isset($brand))
+                    @method('PUT')
+                @endif
                 <ul class="nav nav-tabs" id="languageTabs" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="ru-tab" data-toggle="tab" href="#ru" role="tab"
@@ -25,34 +32,34 @@
                     <div class="tab-pane fade show active" id="ru" role="tabpanel" aria-labelledby="ru-tab">
                         <div class="form-group mt-3">
                             <label for="title_ru">Title (RU)</label>
-                            <input type="text" class="form-control" id="title_ru" name="title_ru" value="{{ $brand->title_ru }}" required>
+                            <input type="text" class="form-control" id="title_ru" name="title_ru" value="{{ $brand->title_ru ?? '' }}" required>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="en" role="tabpanel" aria-labelledby="en-tab">
                         <div class="form-group mt-3">
                             <label for="title_en">Title (EN)</label>
-                            <input type="text" class="form-control" id="title_en" name="title_en" value="{{ $brand->title_en }}" required>
+                            <input type="text" class="form-control" id="title_en" name="title_en" value="{{ $brand->title_en ?? '' }}" required>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tk" role="tabpanel" aria-labelledby="tk-tab">
                         <div class="form-group mt-3">
                             <label for="title_tk">Title (TK)</label>
-                            <input type="text" class="form-control" id="title_tk" name="title_tk" value="{{ $brand->title_tk }}" required>
+                            <input type="text" class="form-control" id="title_tk" name="title_tk" value="{{ $brand->title_tk ?? '' }}" required>
                         </div>
                     </div>
                 </div>
                 <div class="form-group form-check mt-3">
-                    <input type="checkbox" class="form-check-input" id="is_active" name="is_active" {{ $brand->is_active ? 'checked' : '' }}>
+                    <input type="checkbox" class="form-check-input" id="is_active" name="is_active" {{ isset($brand) && $brand->is_active ? 'checked' : '' }}>
                     <label class="form-check-label" for="is_active">Active</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary">{{ isset($brand) ? 'Update' : 'Create' }}</button>
             </form>
         </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.amazonaws.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>

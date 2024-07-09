@@ -28,6 +28,41 @@ class ProductsController extends Controller
         return view('admin.products.index_brands', compact('brands'));
     }
 
+    public function publicIndex(Request $request)
+    {
+        $query = Product::query();
+
+        // Фильтрация по категории
+        if ($request->has('category_id') && $request->category_id != 'all') {
+            $query->where('category_id', $request->category_id);
+        }
+
+        // Фильтрация по бренду
+        if ($request->has('brand_id') && $request->brand_id != 'all') {
+            $query->where('brand_id', $request->brand_id);
+        }
+
+        // Сортировка
+        if ($request->has('sort_by')) {
+            if ($request->sort_by == 'title') {
+                $query->orderBy('title_ru', 'asc');
+            } elseif ($request->sort_by == 'price_asc') {
+                $query->orderBy('price', 'asc');
+            } elseif ($request->sort_by == 'price_desc') {
+                $query->orderBy('price', 'desc');
+            }
+        } else {
+            $query->orderBy('created_at', 'desc');
+        }
+
+        $products = $query->paginate(20);
+        $categories = ProductCategory::all();
+        $brands = ProductBrand::all();
+
+        return view('products', compact('products', 'categories', 'brands'));
+    }
+
+
     public function createCategory()
     {
         return view('admin.products.create_category');
@@ -35,7 +70,7 @@ class ProductsController extends Controller
 
     public function createBrand()
     {
-        return view('admin.products.create_brand');
+        return view('admin.products.create_brands');
     }
 
     public function createProduct()
@@ -122,7 +157,7 @@ class ProductsController extends Controller
     public function editBrand($id)
     {
         $brand = ProductBrand::findOrFail($id);
-        return view('admin.products.edit_brand', compact('brand'));
+        return view('admin.products.edit_brands', compact('brand'));
     }
 
     public function editProduct($id)
@@ -213,7 +248,7 @@ class ProductsController extends Controller
 
         $category->delete();
 
-        return redirect()->route('admin.products.categories.index')->with('success', 'Категория успешно удалена.');
+        return redirect()->route('admin.products.index_categories')->with('success', 'Категория успешно удалена.');
     }
 
     public function destroyBrand($id)
@@ -221,12 +256,12 @@ class ProductsController extends Controller
         $brand = ProductBrand::findOrFail($id);
 
         if ($brand->products()->count() > 0) {
-            return redirect()->route('admin.products.brands.index')->withErrors('Невозможно удалить бренд, так как к нему привязаны товары.');
+            return redirect()->route('admin.products.brands')->withErrors('Невозможно удалить бренд, так как к нему привязаны товары.');
         }
 
         $brand->delete();
 
-        return redirect()->route('admin.products.brands.index')->with('success', 'Бренд успешно удален.');
+        return redirect()->route('admin.products.index_brands')->with('success', 'Бренд успешно удален.');
     }
 
     public function destroyProduct($id)

@@ -166,11 +166,14 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'web'], function () {
     Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register')->middleware('guest');
     Route::post('/register', [RegisterController::class, 'register'])->name('register.post')->middleware('guest');
 
+    Route::get('/products', [ProductsController::class, 'publicIndex'])->name('products.index');
+
+
 
     // Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
     // Route::post('/register', [RegisterController::class, 'register'])->name('register.post')->middleware('guest');
     Route::get('/projectcalc', [ProjectCalcController::class, 'index'])->name('projectcalc');
-    Route::get('/products', [ProductsController::class, 'index'])->name('products');
+    // Route::get('/products', [ProductsController::class, 'index'])->name('products');
     Route::get('/certificates', [CertificatesController::class, 'publicIndex'])->name('certificates.index');
     Route::get('/partners', [PartnerController::class, 'showPartners'])->name('partners.index');
     Route::get('/areas', [AreasController::class, 'index'])->name('areas');

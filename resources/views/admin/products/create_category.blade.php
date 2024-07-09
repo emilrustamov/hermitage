@@ -3,37 +3,52 @@
 <body>
     <div class="admin-index">
         <div class="container mt-5">
-            <h1>Product Categories</h1>
-            <a href="{{ route('admin.products.categories.create') }}" class="btn btn-primary mb-3">Create Category</a>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Active</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($categories as $category)
-                        <tr>
-                            <td>{{ $category->title_ru }}</td>
-                            <td>{{ $category->is_active ? 'Yes' : 'No' }}</td>
-                            <td>
-                                <a href="{{ route('admin.products.categories.edit', $category->id) }}"
-                                    class="btn btn-warning btn-sm">Edit</a>
-                                <form action="{{ route('admin.products.categories.destroy', $category->id) }}" method="POST"
-                                    style="display:inline-block;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm"
-                                        onclick="return confirm('Are you sure?')">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-            {{ $categories->links() }}
+            <h1>{{ isset($category) ? 'Edit Category' : 'Create Category' }}</h1>
+            <form action="{{ isset($category) ? route('admin.products.categories.update', $category->id) : route('admin.products.categories.store') }}" method="POST">
+                @csrf
+                @if(isset($category))
+                    @method('PUT')
+                @endif
+                <ul class="nav nav-tabs" id="languageTabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="ru-tab" data-toggle="tab" href="#ru" role="tab"
+                            aria-controls="ru" aria-selected="true">Русский</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="en-tab" data-toggle="tab" href="#en" role="tab"
+                            aria-controls="en" aria-selected="false">English</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tk-tab" data-toggle="tab" href="#tk" role="tab"
+                            aria-controls="tk" aria-selected="false">Türkmençe</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="languageTabsContent">
+                    <div class="tab-pane fade show active" id="ru" role="tabpanel" aria-labelledby="ru-tab">
+                        <div class="form-group mt-3">
+                            <label for="title_ru">Title (RU)</label>
+                            <input type="text" class="form-control" id="title_ru" name="title_ru" value="{{ $category->title_ru ?? '' }}" required>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="en" role="tabpanel" aria-labelledby="en-tab">
+                        <div class="form-group mt-3">
+                            <label for="title_en">Title (EN)</label>
+                            <input type="text" class="form-control" id="title_en" name="title_en" value="{{ $category->title_en ?? '' }}" required>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tk" role="tabpanel" aria-labelledby="tk-tab">
+                        <div class="form-group mt-3">
+                            <label for="title_tk">Title (TK)</label>
+                            <input type="text" class="form-control" id="title_tk" name="title_tk" value="{{ $category->title_tk ?? '' }}" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group form-check mt-3">
+                    <input type="checkbox" class="form-check-input" id="is_active" name="is_active" {{ isset($category) && $category->is_active ? 'checked' : '' }}>
+                    <label class="form-check-label" for="is_active">Active</label>
+                </div>
+                <button type="submit" class="btn btn-primary">{{ isset($category) ? 'Update' : 'Create' }}</button>
+            </form>
         </div>
     </div>
 

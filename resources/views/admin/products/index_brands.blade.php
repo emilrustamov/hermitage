@@ -3,7 +3,7 @@
 <body>
     <div class="admin-index">
         <div class="container mt-5">
-            <h1>Product Brands</h1>
+            <h1>Brands</h1>
             <a href="{{ route('admin.products.brands.create') }}" class="btn btn-primary mb-3">Create Brand</a>
             <table class="table table-bordered">
                 <thead>

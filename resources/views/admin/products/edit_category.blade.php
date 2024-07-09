@@ -3,10 +3,12 @@
 <body>
     <div class="admin-index">
         <div class="container mt-5">
-            <h1>Edit Category</h1>
-            <form action="{{ route('admin.products.categories.update', $category->id) }}" method="POST">
+            <h1>{{ isset($category) ? 'Edit Category' : 'Create Category' }}</h1>
+            <form action="{{ isset($category) ? route('admin.products.categories.update', $category->id) : route('admin.products.categories.store') }}" method="POST">
                 @csrf
-                @method('PUT')
+                @if(isset($category))
+                    @method('PUT')
+                @endif
                 <ul class="nav nav-tabs" id="languageTabs" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="ru-tab" data-toggle="tab" href="#ru" role="tab"
@@ -25,27 +27,27 @@
                     <div class="tab-pane fade show active" id="ru" role="tabpanel" aria-labelledby="ru-tab">
                         <div class="form-group mt-3">
                             <label for="title_ru">Title (RU)</label>
-                            <input type="text" class="form-control" id="title_ru" name="title_ru" value="{{ $category->title_ru }}" required>
+                            <input type="text" class="form-control" id="title_ru" name="title_ru" value="{{ $category->title_ru ?? '' }}" required>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="en" role="tabpanel" aria-labelledby="en-tab">
                         <div class="form-group mt-3">
                             <label for="title_en">Title (EN)</label>
-                            <input type="text" class="form-control" id="title_en" name="title_en" value="{{ $category->title_en }}" required>
+                            <input type="text" class="form-control" id="title_en" name="title_en" value="{{ $category->title_en ?? '' }}" required>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tk" role="tabpanel" aria-labelledby="tk-tab">
                         <div class="form-group mt-3">
                             <label for="title_tk">Title (TK)</label>
-                            <input type="text" class="form-control" id="title_tk" name="title_tk" value="{{ $category->title_tk }}" required>
+                            <input type="text" class="form-control" id="title_tk" name="title_tk" value="{{ $category->title_tk ?? '' }}" required>
                         </div>
                     </div>
                 </div>
                 <div class="form-group form-check mt-3">
-                    <input type="checkbox" class="form-check-input" id="is_active" name="is_active" {{ $category->is_active ? 'checked' : '' }}>
+                    <input type="checkbox" class="form-check-input" id="is_active" name="is_active" {{ isset($category) && $category->is_active ? 'checked' : '' }}>
                     <label class="form-check-label" for="is_active">Active</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary">{{ isset($category) ? 'Update' : 'Create' }}</button>
             </form>
         </div>
     </div>
