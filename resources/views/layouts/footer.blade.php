@@ -30,21 +30,21 @@
         <div class="col-lg-3 col-6  py-3">
             <p class="ul-title">О нас</p>
             <ul class="unstyle p-0">
-                <li> О нас</li>
+                <li><a href="{{ route('about', ['locale' => app()->getLocale()]) }}"> О нас</a></li>
                 <li> <a href="{{ route('areas', ['locale' => app()->getLocale()]) }}">Направления</a></li>
-                <li> Партнеры</li>
-                <li> Контракты</li>
-                <li> Проекты</li>
-                <li> Сертификаты</li>
-                <li> Новости</li>
-                <li> Вакансии</li>
+                <li><a href="{{ route('partners.index', ['locale' => app()->getLocale()]) }}"> Партнеры</a></li>
+                <li><a href="{{ route('about', ['locale' => app()->getLocale()]) }}"> Контракты</a></li>
+                <li><a href="{{ route('projects.index', ['locale' => app()->getLocale()]) }}"> Проекты</a></li>
+                <li><a href="{{ route('certificates.index', ['locale' => app()->getLocale()]) }}"> Сертификаты</a></li>
+                <li><a href="{{ route('blogs.index', ['locale' => app()->getLocale()]) }}"> Новости</a></li>
+                <li><a href="{{ route('vacancies.index', ['locale' => app()->getLocale()]) }}"> Вакансии</a></li>
             </ul>
         </div>
         <div class="col-lg-3 col-6  py-3">
             <p class="ul-title">Товары</p>
             <ul class="unstyle p-0">
-                <li> В наличии
-                <li> Новые поступления
+                <li><a href="{{ route('products', ['locale' => app()->getLocale()]) }}"> В наличии</a> </li>
+                <li><a href="{{ route('products', ['locale' => app()->getLocale()]) }}"> Новые поступления </a></li>
             </ul>
         </div>
         <div class="col-lg-3 col-6  py-3">
