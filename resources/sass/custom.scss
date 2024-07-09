@@ -3,6 +3,9 @@
 * {
   box-sizing: border-box;
 }
+p{
+  margin-block-end: 10px;
+}
 .admin-content{
   min-height: 70vh;
 }
@@ -1126,19 +1129,7 @@ footer {
     opacity: 1;
   }
 }
-.proj-wrapper, .blog-wrapper{
-  cursor: pointer;
-  height: 370px;
-  width: fit-content;
-  display: inline-block;
-  overflow: hidden;
-  .card-img-top{
-    transition: all 0.5s ease;
-    &:hover{
-      transform: scale(1.2);
-    }
-  }
-}
+
 /* Общие стили */
 .thr-model {
   position: relative;
@@ -1183,7 +1174,20 @@ footer {
       }
   }
 }
-
+.proj-wrapper, .blog-wrapper{
+  cursor: pointer;
+  height: 350px;
+  width: fit-content;
+  display: inline-block;
+  overflow: hidden;
+  .card-img-top{
+    transition: all 0.5s ease;
+    height: 350px;
+    &:hover{
+      transform: scale(1.2);
+    }
+  }
+}
 .proj-a, .blog-a{
   color: #212529;
   text-decoration: none !important;

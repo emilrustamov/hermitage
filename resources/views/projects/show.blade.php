@@ -1,22 +1,22 @@
 @include('layouts.header', ['slider' => false, 'image' => $image])
 
 <div class="container mt-5">
-    <h1>{{ $data['title'] }}</h1>
+    <h3 class="text-uppercase fw-bold">{{ $data['title'] }}</h3>
     
-    <div>
-        <strong>Дизайнер:</strong> {{ $data['designer'] }}
+    <div class="d-flex">
+        <p>Дизайнер:</p> {{ $data['designer'] }}
     </div>
-    <div>
-        <strong>Архитектор:</strong> {{ $data['architect'] }}
+    <div class="d-flex">
+        <p>Архитектор:</p> {{ $data['architect'] }}
     </div>
-    <div>
-        <strong>Площадь:</strong> {{ $data['area'] }} м²
+    <div class="d-flex">
+        <p>Площадь:</p> {{ $data['area'] }} м²
     </div>
-    <div>
-        <strong>Локация:</strong> {{ $data['location'] }}
+    <div class="d-flex">
+        <p>Локация:</p> {{ $data['location'] }}
     </div>
-    <div>
-        <strong>Год:</strong> {{ $data['year'] }}
+    <div class="d-flex">
+        <p>Год:</p> {{ $data['year'] }}
     </div>
     {{-- <div>{{ $data['created_at'] }}</div> --}}
     
@@ -26,7 +26,7 @@
         <img src="{{ asset('/images/placeholder.png') }}" class="img-fluid mb-4" alt="{{ $data['title'] }}">
     @endif --}}
 
-    <p>{!! $data['description'] !!}</p>
+    <p class="fs-3">{!! $data['description'] !!}</p>
 
     @if ($data['video'])
         <div class="embed-responsive embed-responsive-16by9 mb-4">

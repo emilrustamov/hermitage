@@ -4,6 +4,11 @@
           box-sizing: border-box;
 }
 
+p {
+  -webkit-margin-after: 10px;
+          margin-block-end: 10px;
+}
+
 .admin-content {
   min-height: 70vh;
 }
@@ -1159,25 +1164,6 @@ footer ul li a {
   opacity: 1;
 }
 
-.proj-wrapper, .blog-wrapper {
-  cursor: pointer;
-  height: 370px;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  display: inline-block;
-  overflow: hidden;
-}
-.proj-wrapper .card-img-top, .blog-wrapper .card-img-top {
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-.proj-wrapper .card-img-top:hover, .blog-wrapper .card-img-top:hover {
-  -webkit-transform: scale(1.2);
-      -ms-transform: scale(1.2);
-          transform: scale(1.2);
-}
-
 /* Общие стили */
 .thr-model {
   position: relative;
@@ -1224,6 +1210,26 @@ footer ul li a {
 .thr-model:hover .threed-wrapper .hover-content {
   z-index: 99999;
   opacity: 1;
+}
+
+.proj-wrapper, .blog-wrapper {
+  cursor: pointer;
+  height: 350px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: inline-block;
+  overflow: hidden;
+}
+.proj-wrapper .card-img-top, .blog-wrapper .card-img-top {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  height: 350px;
+}
+.proj-wrapper .card-img-top:hover, .blog-wrapper .card-img-top:hover {
+  -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 .proj-a, .blog-a {
