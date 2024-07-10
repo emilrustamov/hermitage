@@ -43,8 +43,8 @@
         <div class="col-lg-3 col-6  py-3">
             <p class="ul-title">Товары</p>
             <ul class="unstyle p-0">
-                <li><a href="{{ route('products', ['locale' => app()->getLocale()]) }}"> В наличии</a> </li>
-                <li><a href="{{ route('products', ['locale' => app()->getLocale()]) }}"> Новые поступления </a></li>
+                {{-- <li><a href="{{ route('products', ['locale' => app()->getLocale()]) }}"> В наличии</a> </li>
+                <li><a href="{{ route('products', ['locale' => app()->getLocale()]) }}"> Новые поступления </a></li> --}}
             </ul>
         </div>
         <div class="col-lg-3 col-6  py-3">

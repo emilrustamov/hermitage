@@ -165,7 +165,8 @@
     <p class="col-lg-11 mx-auto text">Не уверены, какой предмет подойдет для вашего дома или проекта? Наша команда профессионалов в области дизайна интерьера всегда готова помочь вам найти идеальный предмет...</p>
 
     <div class="container mt-5">
-        <form method="GET" action="{{ route('products.index') }}" class="row">
+        <form method="GET" action="{{ route('products.index', ['locale' => app()->getLocale()])  }}" class="row">
+            
             <div class="col-md-2">
                 <select name="category_id" class="form-control">
                     <option value="all">Все категории</option>
@@ -196,7 +197,7 @@
             </div>
             <div class="col-md-2">
                 <button type="submit" class="btn btn-primary">Применить</button>
-                <a href="{{ route('products.index') }}" class="btn btn-secondary">Сбросить</a>
+                <a href="{{ route('products.index', ['locale' => app()->getLocale()])  }}" class="btn btn-secondary">Сбросить</a>
             </div>
         </form>
     </div>

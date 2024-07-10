@@ -86,7 +86,7 @@ class ProductsController extends Controller
             'title_ru' => 'required|string|max:255',
             'title_en' => 'required|string|max:255',
             'title_tk' => 'required|string|max:255',
-            'is_active' => 'boolean',
+           
         ]);
 
         ProductCategory::create([
@@ -105,14 +105,14 @@ class ProductsController extends Controller
             'title_ru' => 'required|string|max:255',
             'title_en' => 'required|string|max:255',
             'title_tk' => 'required|string|max:255',
-            'is_active' => 'boolean',
+           
         ]);
 
         ProductBrand::create([
             'title_ru' => $request->title_ru,
             'title_en' => $request->title_en,
             'title_tk' => $request->title_tk,
-            'is_active' => $request->has('is_active'),
+            'is_active' => true,
         ]);
 
         return redirect()->route('admin.products.brands.index')->with('success', 'Brand created successfully.');
@@ -126,7 +126,7 @@ class ProductsController extends Controller
             'title_tk' => 'required|string|max:255',
             'image' => 'nullable|string|max:255',
             'order' => 'required|integer',
-            'is_active' => 'boolean',
+            
             'price' => 'required|numeric',
             'category_id' => 'required|exists:product_categories,id',
             'brand_id' => 'required|exists:product_brands,id',
@@ -174,7 +174,7 @@ class ProductsController extends Controller
             'title_ru' => 'required|string|max:255',
             'title_en' => 'required|string|max:255',
             'title_tk' => 'required|string|max:255',
-            'is_active' => 'boolean',
+        
         ]);
 
         $category = ProductCategory::findOrFail($id);
@@ -194,7 +194,7 @@ class ProductsController extends Controller
             'title_ru' => 'required|string|max:255',
             'title_en' => 'required|string|max:255',
             'title_tk' => 'required|string|max:255',
-            'is_active' => 'boolean',
+          
         ]);
 
         $brand = ProductBrand::findOrFail($id);
@@ -216,7 +216,7 @@ class ProductsController extends Controller
             'title_tk' => 'required|string|max:255',
             'image' => 'nullable|string|max:255',
             'order' => 'required|integer',
-            'is_active' => 'boolean',
+         
             'price' => 'required|numeric',
             'category_id' => 'required|exists:product_categories,id',
             'brand_id' => 'required|exists:product_brands,id',

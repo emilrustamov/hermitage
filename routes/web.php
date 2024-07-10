@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ModelsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrderController;
 
 Route::get('/', function () {
     return redirect('/ru');
@@ -134,10 +135,13 @@ Route::prefix('admin')->middleware(['web', 'auth', 'admin.access'])->group(funct
     Route::get('/products/brands/{id}/edit', [ProductsController::class, 'editBrand'])->name('admin.products.brands.edit');
     Route::put('/products/brands/{id}', [ProductsController::class, 'updateBrand'])->name('admin.products.brands.update');
     Route::delete('/products/brands/{id}', [ProductsController::class, 'destroyBrand'])->name('admin.products.brands.destroy');
+
+    Route::get('/orders', [OrderController::class, 'index'])->name('admin.orders.index');
+    Route::put('/orders/{id}/status', [OrderController::class, 'updateStatus'])->name('admin.orders.updateStatus');
 });
 
 
-
+Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
 Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');

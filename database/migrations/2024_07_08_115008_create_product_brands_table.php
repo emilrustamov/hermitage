@@ -1,32 +1,28 @@
 <?php
 
+// database/migrations/xxxx_xx_xx_create_orders_table.php
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateOrdersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up()
     {
-        Schema::create('product_brands', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('title_ru');
-            $table->string('title_en');
-            $table->string('title_tk');
-            $table->boolean('is_active')->default(true);
+            $table->json('products');
+            $table->decimal('total', 10, 2);
+            $table->string('status')->default('pending');
+            $table->string('name');
+            $table->string('phone');
+            $table->string('email')->nullable();
             $table->timestamps();
         });
     }
-    
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('product_brands');
+        Schema::dropIfExists('orders');
     }
-};
+}
