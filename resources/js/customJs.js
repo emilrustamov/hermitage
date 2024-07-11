@@ -1,4 +1,41 @@
 document.addEventListener('DOMContentLoaded', function () {
+    //sidebar
+    var cartIcon = document.getElementById('cartIcon');
+    var sidebar = document.getElementById('sidebar');
+    var closeSidebar = document.getElementById('closeSidebar');
+
+    // Открываем/закрываем сайдбар при клике на иконку корзины
+    cartIcon.addEventListener('click', function () {
+        toggleSidebar();
+    });
+
+    // Закрываем сайдбар при клике на крестик
+    closeSidebar.addEventListener('click', function () {
+        closeSidebarFunction();
+    });
+
+    // Закрываем сайдбар при клике вне него
+    window.addEventListener('click', function (event) {
+        if (event.target !== cartIcon && event.target !== sidebar && !sidebar.contains(event.target)) {
+            closeSidebarFunction();
+        }
+    });
+
+    function toggleSidebar() {
+        var sidebarStyle = window.getComputedStyle(sidebar);
+        var sidebarRight = sidebarStyle.getPropertyValue('right');
+
+        if (sidebarRight === '0px' || sidebarRight === '0') {
+            sidebar.style.right = '-27%';
+        } else {
+            sidebar.style.right = '0';
+        }
+    }
+
+    function closeSidebarFunction() {
+        sidebar.style.right = '-27%';
+    }
+
     const dropdownToggle = document.getElementById('languageDropdown');
     const dropdownMenu = document.getElementById('dropdownMenu');
     const dropdownItems = document.querySelectorAll('.dropdown-item');
@@ -73,42 +110,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    //sidebar
-    var cartIcon = document.getElementById('cartIcon');
-    var sidebar = document.getElementById('sidebar');
-    var closeSidebar = document.getElementById('closeSidebar');
-
-    // Открываем/закрываем сайдбар при клике на иконку корзины
-    cartIcon.addEventListener('click', function () {
-        toggleSidebar();
-    });
-
-    // Закрываем сайдбар при клике на крестик
-    closeSidebar.addEventListener('click', function () {
-        closeSidebarFunction();
-    });
-
-    // Закрываем сайдбар при клике вне него
-    window.addEventListener('click', function (event) {
-        if (event.target !== cartIcon && event.target !== sidebar && !sidebar.contains(event.target)) {
-            closeSidebarFunction();
-        }
-    });
-
-    function toggleSidebar() {
-        var sidebarStyle = window.getComputedStyle(sidebar);
-        var sidebarRight = sidebarStyle.getPropertyValue('right');
-
-        if (sidebarRight === '0px' || sidebarRight === '0') {
-            sidebar.style.right = '-27%';
-        } else {
-            sidebar.style.right = '0';
-        }
-    }
-
-    function closeSidebarFunction() {
-        sidebar.style.right = '-27%';
-    }
 
 
     //partnersDropdown
