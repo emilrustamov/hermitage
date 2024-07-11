@@ -1,6 +1,5 @@
 @include('layouts.headerA', ['hasimage' => false])
 
-
 <div class="container mt-5">
     <h1>Заказы</h1>
     <table class="table table-bordered">
@@ -23,12 +22,15 @@
                 <td>{{ $order->id }}</td>
                 <td>
                     <ul>
-                        @foreach ($order->products as $product)
-                        <li>{{ $product['name'] }} - {{ $product['quantity'] }} шт. ({{ $product['price'] }})</li>
+                        @php
+                            $products = json_decode($order->products, true);
+                        @endphp
+                        @foreach ($products as $product)
+                        <li>{{ $product['title'] }} - {{ $product['quantity'] }} шт. ({{ $product['price'] }} TMT)</li>
                         @endforeach
                     </ul>
                 </td>
-                <td>{{ $order->total }}</td>
+                <td>{{ $order->total }} TMT</td>
                 <td>{{ $order->status }}</td>
                 <td>{{ $order->name }}</td>
                 <td>{{ $order->phone }}</td>

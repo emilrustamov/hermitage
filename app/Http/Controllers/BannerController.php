@@ -25,7 +25,7 @@ class BannerController extends Controller
 
         $request->validate([
             'page_identifier' => 'required|string|unique:banners,page_identifier,' . $banner->id,
-            'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'banner' => 'nullable|string',
         ]);
 
         if ($request->hasFile('banner')) {
@@ -48,7 +48,7 @@ class BannerController extends Controller
     {
         $request->validate([
             'page_identifier' => 'required|string|unique:banners',
-            'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'banner' => 'nullable|string',
         ]);
 
         $bannerPath = null;
