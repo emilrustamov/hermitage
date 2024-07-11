@@ -141,7 +141,8 @@ Route::prefix('admin')->middleware(['web', 'auth', 'admin.access'])->group(funct
 });
 
 
-Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
+
+
 Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
@@ -173,7 +174,7 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'web'], function () {
     Route::get('/products', [ProductsController::class, 'publicIndex'])->name('products.index');
 
 
-
+    Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
     // Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
     // Route::post('/register', [RegisterController::class, 'register'])->name('register.post')->middleware('guest');
     Route::get('/projectcalc', [ProjectCalcController::class, 'index'])->name('projectcalc');
