@@ -23,9 +23,10 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ModelsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ContractController;
 
 Route::get('/', function () {
-    return redirect('/ru');
+    return redirect('/en');
 });
 
 Route::get('change-locale/{locale}', function ($locale) {
@@ -51,9 +52,10 @@ Route::prefix('admin')->middleware(['web', 'auth', 'admin.access'])->group(funct
     Route::get('/vacancies/{id}/edit', [VacancyController::class, 'edit'])->name('admin.vacancies.edit');
     Route::put('/vacancies/{id}', [VacancyController::class, 'update'])->name('admin.vacancies.update');
     Route::delete('/vacancies/{id}', [VacancyController::class, 'destroy'])->name('admin.vacancies.destroy');
-    Route::get('/', function () {
-        return view('admin.admin');
+    Route::get('/admin', function () {
+        return view('admin.orders.index');
     })->name('admin');
+
 
     Route::get('/blogs', [BlogController::class, 'index'])->name('admin.blogs.index');
     Route::get('/blogs/create', [BlogController::class, 'create'])->name('admin.blogs.create');
@@ -68,6 +70,13 @@ Route::prefix('admin')->middleware(['web', 'auth', 'admin.access'])->group(funct
     Route::get('/projects/{id}/edit', [ProjectController::class, 'edit'])->name('admin.projects.edit');
     Route::put('/projects/{id}', [ProjectController::class, 'update'])->name('admin.projects.update');
     Route::delete('/projects/{id}', [ProjectController::class, 'destroy'])->name('admin.projects.destroy');
+
+    Route::get('/contracts', [ContractController::class, 'index'])->name('admin.contracts.index');
+    Route::get('/contracts/create', [ContractController::class, 'create'])->name('admin.contracts.create');
+    Route::post('/contracts', [ContractController::class, 'store'])->name('admin.contracts.store');
+    Route::get('/contracts/{id}/edit', [ContractController::class, 'edit'])->name('admin.contracts.edit');
+    Route::put('/contracts/{id}', [ContractController::class, 'update'])->name('admin.contracts.update');
+    Route::delete('/contracts/{id}', [ContractController::class, 'destroy'])->name('admin.contracts.destroy');
 
     Route::get('/partners/categories', [PartnerController::class, 'indexCategory'])->name('admin.partners.categories.index');
     Route::get('/partners/categories/create', [PartnerController::class, 'createCategory'])->name('admin.partners.categories.create');
@@ -103,7 +112,6 @@ Route::prefix('admin')->middleware(['web', 'auth', 'admin.access'])->group(funct
     Route::get('/models/{id}/edit', [ModelsController::class, 'edit'])->name('admin.models.edit');
     Route::put('/models/{id}', [ModelsController::class, 'update'])->name('admin.models.update');
 
-
     Route::get('/users', [UserController::class, 'index'])->name('admin.users.index');
     Route::get('/users/create', [UserController::class, 'create'])->name('admin.users.create');
     Route::post('/users', [UserController::class, 'store'])->name('admin.users.store');
@@ -113,7 +121,6 @@ Route::prefix('admin')->middleware(['web', 'auth', 'admin.access'])->group(funct
     Route::put('/users/{id}/status', [UserController::class, 'updateStatus'])->name('admin.users.updateStatus');
     Route::put('/users/{id}/make-admin', [UserController::class, 'makeAdmin'])->name('admin.users.makeAdmin');
     Route::put('/users/{id}/unmake-admin', [UserController::class, 'unmakeAdmin'])->name('admin.users.unmakeAdmin');
-
 
     Route::get('/products', [ProductsController::class, 'index'])->name('admin.products.index');
     Route::get('/products/create', [ProductsController::class, 'createProduct'])->name('admin.products.create');
@@ -142,10 +149,9 @@ Route::prefix('admin')->middleware(['web', 'auth', 'admin.access'])->group(funct
 
 
 
-
-Route::get('/welcome', function () {
-    return view('welcome');
-})->name('welcome');
+// Route::get('/welcome', function () {
+//     return view('welcome');
+// })->name('welcome');
 
 
 
@@ -159,21 +165,20 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'web'], function () {
     })->name('about');
     Route::get('/vacancies', [VacancyController::class, 'publicIndex'])->name('vacancies.index');
     Route::get('/vacancies/{id}', [VacancyController::class, 'publicShow'])->name('vacancies.show');
+
     Route::get('/blogs', [BlogController::class, 'publicIndex'])->name('blogs.index');
     Route::get('/blogs/{id}', [BlogController::class, 'publicShow'])->name('blogs.show');
+
     Route::get('/projects', [ProjectController::class, 'publicIndex'])->name('projects.index');
     Route::get('/projects/{id}', [ProjectController::class, 'publicShow'])->name('projects.show');
+
     Route::get('/models', [ModelsController::class, 'publicIndex'])->name('models.public.index')->middleware('auth', 'check.status');
     Route::get('/models/{id}', [ModelsController::class, 'publicShow'])->name('models.public.show')->middleware('auth', 'check.status');
-
+    
     Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorite');
-
     Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register')->middleware('guest');
     Route::post('/register', [RegisterController::class, 'register'])->name('register.post')->middleware('guest');
-
     Route::get('/products', [ProductsController::class, 'publicIndex'])->name('products.index');
-
-
     Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
     // Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
     // Route::post('/register', [RegisterController::class, 'register'])->name('register.post')->middleware('guest');

@@ -1,14 +1,53 @@
 @include('layouts.header', ['slider' => true])
 
 <div style="padding: 25px 80px; background-color: #BCBDB8;">
-    <!-- Описание и фильтры -->
+    <p class="col-lg-11 mx-auto text">Ознакомьтесь с нашим ассортиментом дизайнерской мебели, освещения, декора и сантехники, которые есть в наличии и готовы к быстрой доставке...</p>
+    <br>
+    <p class="col-lg-11 mx-auto text">Не уверены, какой предмет подойдет для вашего дома или проекта? Наша команда профессионалов в области дизайна интерьера всегда готова помочь вам найти идеальный предмет...</p>
+
+    <div class="container mt-5">
+        <form method="GET" action="{{ route('products.index', ['locale' => app()->getLocale()]) }}" class="row">
+            <div class="col-md-2">
+                <select name="category_id" class="form-control">
+                    <option value="all">Все категории</option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>
+                            {{ $category->title_ru }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select name="brand_id" class="form-control">
+                    <option value="all">Все бренды</option>
+                    @foreach($brands as $brand)
+                        <option value="{{ $brand->id }}" {{ request('brand_id') == $brand->id ? 'selected' : '' }}>
+                            {{ $brand->title_ru }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select name="sort_by" class="form-control">
+                    <option value="created_at">По умолчанию</option>
+                    <option value="title" {{ request('sort_by') == 'title' ? 'selected' : '' }}>Название</option>
+                    <option value="price_asc" {{ request('sort_by') == 'price_asc' ? 'selected' : '' }}>Цена по возрастанию</option>
+                    <option value="price_desc" {{ request('sort_by') == 'price_desc' ? 'selected' : '' }}>Цена по убыванию</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary">Применить</button>
+                <a href="{{ route('products.index', ['locale' => app()->getLocale()]) }}" class="btn btn-secondary">Сбросить</a>
+            </div>
+        </form>
+    </div>
 </div>
 
 <div class="purchases" style="background-color: #E9E9E9;">
     <div class="container" style="padding-top: 35px;">
         <div class="row gy-1" id="nav">
             <!-- Display Products -->
-            <div class="products-grid">
+            <div class="products-grid row">
                 @foreach ($products as $product)
                     <div class="content-appearance col-lg-3 p-0" id="content-price" data-sort="{{ $product->price }}">
                         <div class="d-flex flex-column align-items-center">
