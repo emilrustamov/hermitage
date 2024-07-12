@@ -5,11 +5,11 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrdersTable extends Migration
+class CreatePrudctBrandsTable extends Migration
 {
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('product_brands', function (Blueprint $table) {
             $table->id();
             $table->json('products');
             $table->decimal('total', 10, 2);

@@ -18,6 +18,13 @@
     <div class="d-flex">
         <p>Год:</p> {{ $data['year'] }}
     </div>
+    {{-- <div>{{ $data['created_at'] }}</div> --}}
+    
+    {{-- @if ($data['image'])
+        <img src="{{ asset($data['image']) }}" class="img-fluid mb-4" alt="{{ $data['title'] }}">
+    @else
+        <img src="{{ asset('/images/placeholder.png') }}" class="img-fluid mb-4" alt="{{ $data['title'] }}">
+    @endif --}}
 
     <p class="fs-3">{!! $data['description'] !!}</p>
 
@@ -34,18 +41,16 @@
     @endif
 
     @if (!empty($data['photos']))
-        <div class="gallery row">
+        <div class="gallery">
             @foreach ($data['photos'] as $photo)
-                <div class="gallery-item col-lg-3 mb-4">
-                    <a href="{{ asset($photo) }}" data-lightbox="gallery" data-title="Photo">
-                        <img src="{{ asset($photo) }}" class="img-fluid" alt="Photo">
-                    </a>
+                <div class="gallery-item">
+                    <img src="{{ asset($photo) }}" class="img-fluid" alt="Photo">
                 </div>
             @endforeach
         </div>
     @endif
 
-    <a href="{{ route('projects.index', ['locale' => app()->getLocale()]) }}">Все проекты</a>
+    <a href="{{ route('contracts.index', ['locale' => app()->getLocale()]) }}">Все проекты</a>
 </div>
 
 @include('layouts.footer')
