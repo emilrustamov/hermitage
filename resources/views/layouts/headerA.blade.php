@@ -63,7 +63,25 @@
                                 <a class="nav-link <?php if (request()->is('admin/directions*')) {
                                     echo 'active';
                                 } ?>"
-                                    href="{{ route('admin.projects.index') }}">Направления</a>
+                                    href="{{ route('admin.users.index') }}">Пользователи</a>
+                            </div>
+                            <div class="px-2">
+                                <a class="nav-link <?php if (request()->is('admin/directions*')) {
+                                    echo 'active';
+                                } ?>"
+                                    href="{{ route('admin.products.index') }}">Товары</a>
+                            </div>
+                            <div class="px-2">
+                                <a class="nav-link <?php if (request()->is('admin/directions*')) {
+                                    echo 'active';
+                                } ?>"
+                                    href="{{ route('admin.orders.index') }}">Заказы</a>
+                            </div>
+                            <div class="px-2">
+                                <a class="nav-link <?php if (request()->is('admin/directions*')) {
+                                    echo 'active';
+                                } ?>"
+                                    href="{{ route('admin.models.index') }}">Модели</a>
                             </div>
                             <div class="px-2">
                                 <a class="nav-link <?php if (request()->is('admin/certificates*')) {
@@ -89,7 +107,7 @@
                             </div>
                         </div>
                         <div class="text-end">
-                            <div class="dropdown">
+                            {{-- <div class="dropdown">
                                 <button class="dropdown-toggle" type="button" id="languageDropdown"
                                     @if ($hasimage) style="color: white"
                                        @else
@@ -101,7 +119,7 @@
                                     <a class="dropdown-item" href="#" data-lang="en">EN</a>
                                     <a class="dropdown-item" href="#" data-lang="tk">TK</a>
                                 </div>
-                            </div>
+                            </div> --}}
 
                         </div>
                     </div>
