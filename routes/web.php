@@ -24,6 +24,7 @@ use App\Http\Controllers\ModelsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ContractController;
+use App\Models\Contract;
 
 Route::get('/', function () {
     return redirect('/en');
@@ -171,6 +172,9 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'web'], function () {
 
     Route::get('/projects', [ProjectController::class, 'publicIndex'])->name('projects.index');
     Route::get('/projects/{id}', [ProjectController::class, 'publicShow'])->name('projects.show');
+
+    Route::get('/contracts', [ContractController::class, 'publicIndex'])->name('contracts.index');
+    Route::get('/contracts/{id}', [ContractController::class, 'publicShow'])->name('contracts.show');
 
     Route::get('/models', [ModelsController::class, 'publicIndex'])->name('models.public.index')->middleware('auth', 'check.status');
     Route::get('/models/{id}', [ModelsController::class, 'publicShow'])->name('models.public.show')->middleware('auth', 'check.status');
