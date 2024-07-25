@@ -59,6 +59,10 @@
                                         <li>Проекты</li>
                                     </a>
                                     <a class="nav-link"
+                                        href="{{ route('contracts.index', ['locale' => app()->getLocale()]) }}">
+                                        <li>Контракты</li>
+                                    </a>
+                                    <a class="nav-link"
                                         href="{{ route('products.index', ['locale' => app()->getLocale()]) }}">
                                         <li>Товары в наличии</li>
                                     </a>

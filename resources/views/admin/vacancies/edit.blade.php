@@ -82,21 +82,12 @@
     </div>
 </div>
 
+@include('layouts.footerA')
     <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
-    <script>
-        tinymce.init({
-            selector: 'textarea',
-            menu: {
-                edit: {
-                    title: 'Edit',
-                    items: 'undo, redo, selectall'
-                }
-            }
-        });
-    </script>
+    @include('components.forms.tinymce-editor')
+
     <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
     <script>
         $('#lfm').filemanager('image');
     </script>
-@include('layouts.footerA')
 

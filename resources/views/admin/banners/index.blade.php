@@ -2,9 +2,11 @@
 
 <div class="admin-index">
     <div class="container">
-        <h1>Manage Banners</h1>
-    
-        <a href="{{ route('admin.banners.create') }}" class="btn btn-primary mb-3">Add New Banner</a>
+        <div class="d-flex justify-content-between">
+            <h1>Manage Banners</h1>
+        
+            <a href="{{ route('admin.banners.create') }}" class="btn btn-primary mb-3">Add New Banner</a>
+        </div>
     
         <table class="table table-bordered">
             <thead>

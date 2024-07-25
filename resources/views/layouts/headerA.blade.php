@@ -60,25 +60,25 @@
                                     href="{{ route('admin.partners.index') }}">Партнёры</a>
                             </div>
                             <div class="px-2">
-                                <a class="nav-link <?php if (request()->is('admin/directions*')) {
+                                <a class="nav-link <?php if (request()->is('admin/users*')) {
                                     echo 'active';
                                 } ?>"
                                     href="{{ route('admin.users.index') }}">Пользователи</a>
                             </div>
                             <div class="px-2">
-                                <a class="nav-link <?php if (request()->is('admin/directions*')) {
+                                <a class="nav-link <?php if (request()->is('admin/products*')) {
                                     echo 'active';
                                 } ?>"
                                     href="{{ route('admin.products.index') }}">Товары</a>
                             </div>
                             <div class="px-2">
-                                <a class="nav-link <?php if (request()->is('admin/directions*')) {
+                                <a class="nav-link <?php if (request()->is('admin/orders*')) {
                                     echo 'active';
                                 } ?>"
                                     href="{{ route('admin.orders.index') }}">Заказы</a>
                             </div>
                             <div class="px-2">
-                                <a class="nav-link <?php if (request()->is('admin/directions*')) {
+                                <a class="nav-link <?php if (request()->is('admin/models*')) {
                                     echo 'active';
                                 } ?>"
                                     href="{{ route('admin.models.index') }}">Модели</a>

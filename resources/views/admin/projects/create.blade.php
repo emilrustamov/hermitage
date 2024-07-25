@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    @include('layouts.headerA',  ['hasimage' => false])
     <div class="admin-index">
         <div class="container mt-5">
             <h1>Create Project</h1>
@@ -291,35 +292,17 @@
     </div>
 
 
-    {{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
+    @include('layouts.footerA')
     <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
-    <script>
-        tinymce.init({
-            selector: 'textarea',
-            menu: {
-                edit: {
-                    title: 'Edit',
-                    items: 'undo, redo, selectall'
-                }
-            }
-        });
-    </script>
+    @include('components.forms.tinymce-editor')
+
     <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
     <script>
         $('#lfm').filemanager('image');
         $('#lfm1').filemanager('file');
         $('#lfm2').filemanager('image');
-        $('#lfm3').filemanager('image'); // используем image для файлового менеджера фотографий
+        $('#lfm3').filemanager('image'); 
     </script>
-    {{-- <script>
-        $('#year').datepicker({
-            uiLibrary: 'bootstrap4',
-            format: 'yyyy-mm-dd'
-        });
-    </script> --}}
-@include('layouts.footerA')
 
 </body>
 

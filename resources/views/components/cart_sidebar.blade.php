@@ -1,4 +1,55 @@
 <!-- resources/views/cart.blade.php -->
+<style>
+    .cart-sidebar .cart-footer .checkout-btn {
+        margin-left: unset !important;
+        margin-right: unset !important;
+        margin-top: 20px !important;
+    }
+
+    .order-form .form-group label {
+        color: white;
+        margin: 10px 0 15px;
+    }
+
+
+
+    .product-item {
+        /* display: flex; */
+        color: white;
+        margin: 0 40px;
+    }
+
+    .quantity-control {
+        display: flex;
+        width: fit-content;
+        align-items: center;
+        border: 1px solid white;
+        padding: 5px;
+    }
+
+    .quant {
+        color: white;
+        font-size: 16px;
+        margin: 0 20px;
+    }
+
+    .decrease-quantity,
+    .increase-quantity {
+        background-color: transparent !important;
+        outline: none;
+        border: none;
+        color: white;
+        padding-bottom: 2px;
+    }
+
+    .product-price-info {
+        opacity: 0.7;
+        width: 60px;
+    }
+    .clear-cart{
+        margin:0 40px;
+    }
+</style>
 <div class="cart-sidebar" id="sidebar">
     <div class="cart-header">
         <div class="d-flex align-items-center justify-content-between">
@@ -20,9 +71,13 @@
             <img src="{{ asset('/images/icons/shipment.png') }}" alt="">
             <p class="my-auto">Доставка осуществляется в течении 3-5 дней</p>
         </div>
+        <!-- Кнопка для очистки корзины -->
+        <div class="clear-cart">
+            <button id="clearCart" class="btn btn-danger w-100 mt-3">Очистить корзину</button>
+        </div>
 
         <!-- Форма для оформления заказа -->
-        <form id="orderForm">
+        <form id="orderForm" class="order-form">
             <div class="form-group">
                 <label for="name">Имя</label>
                 <input type="text" id="name" name="name" class="form-control" required>
@@ -42,8 +97,6 @@
         </form>
 
 
-        <!-- Кнопка для очистки корзины -->
-        <button id="clearCart" class="btn btn-danger w-100 mt-3">Очистить корзину</button>
     </div>
 </div>
 <script>
@@ -61,13 +114,21 @@
             cart.forEach(item => {
                 const itemHtml = `
                     <div class="product-item" data-id="${item.id}">
-                        <p>${item.title}</p>
-                        <div class="quantity-control">
-                            <button class="decrease-quantity" data-id="${item.id}">-</button>
-                            <p class="quant">${item.quantity}</p>
-                            <button class="increase-quantity" data-id="${item.id}">+</button>
-                        </div>
-                        <p class="product-price">${item.price} TMT</p>
+                        <div class="product">
+                            <img src="${item.image}" alt="">
+                            <p class="product-cart-title">${item.title}</p>
+                            <div class="d-flex justify-content-between">
+                                <div class="d-flex flex-column">
+                                    <p class="product-price-info">Цена за единицу товара:</p>
+                                    <div class="quantity-control">
+                                        <button class="decrease-quantity my-auto" data-id="${item.id}">-</button>
+                                        <p class="quant my-auto">${item.quantity}</p>
+                                        <button class="increase-quantity my-auto" data-id="${item.id}">+</button>
+                                    </div>
+                                    </div>
+                                <p class="product-price">${item.price} TMT</p>
+                            </div>
+                            </div>
                     </div>
                 `;
                 cartItems.insertAdjacentHTML('beforeend', itemHtml);

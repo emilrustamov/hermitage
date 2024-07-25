@@ -13,12 +13,12 @@
                 <input type="number" class="form-control" id="ordering" name="ordering" required>
             </div>
     
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <label for="image">Image</label>
                 <input type="file" class="form-control-file" id="image" name="image" required>
             </div>
     
-            <button type="submit" class="btn btn-primary">Add Certificate</button>
+            <button type="submit" class="btn btn-primary mt-3">Add Certificate</button>
         </form>
     </div>
 </div>

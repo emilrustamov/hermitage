@@ -115,6 +115,7 @@
     </div>
 </section>
 <section class="scroll-fade-in">
+    <a href="{{ route('projects.index', ['locale' => app()->getLocale()]) }}">
     <div class="inspire-block">
         <img src="{{ asset('/images/fullkuhnya.jpg') }}" alt="">
         <div class="inspire-text d-flex flex-column justify-content-between text-center">
@@ -124,7 +125,7 @@
             </div>
             <p class="text-uppercase insp-proj">Проекты</p>
         </div>
-    </div>
+    </div></a>
     {{-- <div class="row">
         <div class="col-lg-3 prdct p-0" style="background-color: white">
             <img src="{{ asset('/images/product1.jpg') }}" class="w-100 h-100">
@@ -180,12 +181,13 @@
             </div>
         </div>
     </div> --}}
+   <a href="{{ route('contracts.index', ['locale' => app()->getLocale()]) }}">
     <div class="contacts-block">
         <img src="{{ asset('/images/yyldyz.jpg') }}" alt="">
         <div class="contracts-text d-flex flex-column justify-content-end text-center">
             <p class="text-uppercase contr-proj">Контракты</p>
         </div>
-    </div>
+    </div></a>
 </section>
 {{-- <section>
     <div class="row">
