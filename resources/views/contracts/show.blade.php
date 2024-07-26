@@ -41,11 +41,13 @@
     @endif
 
     @if (!empty($data['photos']))
-        <div class="gallery">
+        <div class="gallery row">
             @foreach ($data['photos'] as $photo)
-                <div class="gallery-item">
+            <div class="gallery-item col-lg-3 mb-4">
+                <a href="{{ asset($photo) }}" data-lightbox="gallery" data-title="Photo">
                     <img src="{{ asset($photo) }}" class="img-fluid" alt="Photo">
-                </div>
+                </a>
+            </div>
             @endforeach
         </div>
     @endif
