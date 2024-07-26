@@ -89,6 +89,10 @@
                     <input type="checkbox" class="form-check-input" id="is_active" name="is_active" {{ isset($product) && $product->is_active ? 'checked' : '' }}>
                     <label class="form-check-label" for="is_active">Active</label>
                 </div>
+                <div class="form-group form-check mt-3">
+                    <input type="checkbox" class="form-check-input" id="is_new" name="is_new" {{ isset($product) && $product->is_new ? 'checked' : '' }}>
+                    <label class="form-check-label" for="is_new">New</label>
+                </div>
                 <button type="submit" class="btn btn-primary">{{ isset($product) ? 'Update' : 'Create' }}</button>
             </form>
         </div>

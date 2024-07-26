@@ -15,7 +15,8 @@ class Partner extends Model
         'category_id',
         'ordering',
         'image',
-        'is_active'
+        'is_active',
+        'link'
     ];
 
     public function category()

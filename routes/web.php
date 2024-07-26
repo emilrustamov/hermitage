@@ -179,19 +179,21 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'web'], function () {
     Route::get('/models', [ModelsController::class, 'publicIndex'])->name('models.public.index')->middleware('auth', 'check.status');
     Route::get('/models/{id}', [ModelsController::class, 'publicShow'])->name('models.public.show')->middleware('auth', 'check.status');
     
-    Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorite');
     Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register')->middleware('guest');
     Route::post('/register', [RegisterController::class, 'register'])->name('register.post')->middleware('guest');
     Route::get('/products', [ProductsController::class, 'publicIndex'])->name('products.index');
+    Route::get('/products_new', [ProductsController::class, 'publicIndexNew'])->name('productsnew.index');
+
+    Route::post('/favorite/add', [ProductsController::class, 'addToFavorites'])->name('favorite.add')->middleware('auth', 'check.status');
+    Route::post('/favorite/remove', [ProductsController::class, 'removeFromFavorites'])->name('favorite.remove')->middleware('auth' , 'check.status');
+    Route::get('/favorite', [ProductsController::class, 'showFavorites'])->name('favorite.show')->middleware('auth' , 'check.status');
+    
     Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
-    // Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
-    // Route::post('/register', [RegisterController::class, 'register'])->name('register.post')->middleware('guest');
     Route::get('/projectcalc', [ProjectCalcController::class, 'index'])->name('projectcalc');
-    // Route::get('/products', [ProductsController::class, 'index'])->name('products');
     Route::get('/certificates', [CertificatesController::class, 'publicIndex'])->name('certificates.index');
     Route::get('/partners', [PartnerController::class, 'showPartners'])->name('partners.index');
     Route::get('/areas', [AreasController::class, 'index'])->name('areas');
-    // Route::get('/threed', [ThreedController::class, 'index'])->name('threed');
+
 });
 
 // Route::get('/', [SubscriberController::class, 'subscriber_form'])->name('form');

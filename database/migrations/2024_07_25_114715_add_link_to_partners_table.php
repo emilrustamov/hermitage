@@ -9,20 +9,17 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::table('partners', function (Blueprint $table) {
-            //
+            $table->string('link')->nullable();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::table('partners', function (Blueprint $table) {
-            //
+            $table->dropColumn('link');
         });
     }
 };

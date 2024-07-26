@@ -46,8 +46,9 @@
         opacity: 0.7;
         width: 60px;
     }
-    .clear-cart{
-        margin:0 40px;
+
+    .clear-cart {
+        margin: 0 40px;
     }
 </style>
 <div class="cart-sidebar" id="sidebar">
@@ -113,24 +114,26 @@
 
             cart.forEach(item => {
                 const itemHtml = `
-                    <div class="product-item" data-id="${item.id}">
-                        <div class="product">
-                            <img src="${item.image}" alt="">
-                            <p class="product-cart-title">${item.title}</p>
-                            <div class="d-flex justify-content-between">
-                                <div class="d-flex flex-column">
-                                    <p class="product-price-info">Цена за единицу товара:</p>
-                                    <div class="quantity-control">
-                                        <button class="decrease-quantity my-auto" data-id="${item.id}">-</button>
-                                        <p class="quant my-auto">${item.quantity}</p>
-                                        <button class="increase-quantity my-auto" data-id="${item.id}">+</button>
-                                    </div>
-                                    </div>
-                                <p class="product-price">${item.price} TMT</p>
+            <div class="product-item" data-id="${item.id}">
+                <div class="product">
+                    <img src="${item.image}" alt="Product Image" width="40px" height="40px">
+                    <p class="product-cart-title">${item.title}</p>
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-column">
+                            <p class="product-price-info">Цена за единицу товара:</p>
+                            <div class="quantity-control">
+                                <button class="decrease-quantity my-auto" data-id="${item.id}">-</button>
+                                <p class="quant my-auto">${item.quantity}</p>
+                                <button class="increase-quantity my-auto" data-id="${item.id}">+</button>
                             </div>
-                            </div>
+                        </div>
+                        <p class="product-price">${item.price} TMT</p>
                     </div>
-                `;
+                </div>
+                <button class="remove-item btn btn-danger my-auto" data-id="${item.id}">Удалить</button>
+            </div>
+            
+        `;
                 cartItems.insertAdjacentHTML('beforeend', itemHtml);
                 total += item.price * item.quantity;
             });
@@ -149,6 +152,7 @@
                 let productId = this.dataset.id;
                 let productTitle = this.dataset.title;
                 let productPrice = parseFloat(this.dataset.price);
+                let productImage = this.dataset.image; // Получаем изображение
 
                 const cart = JSON.parse(localStorage.getItem('cart')) || [];
                 const existingItem = cart.find(item => item.id === productId);
@@ -160,7 +164,8 @@
                         id: productId,
                         title: productTitle,
                         quantity: 1,
-                        price: productPrice
+                        price: productPrice,
+                        image: productImage,
                     });
                 }
 
@@ -196,6 +201,17 @@
                 } else if (item && item.quantity === 1) {
                     const index = cart.indexOf(item);
                     cart.splice(index, 1);
+                    saveCart(cart);
+                    loadCart();
+                }
+            }
+            if (event.target.classList.contains('remove-item')) {
+                event.stopPropagation(); // Предотвращаем закрытие корзины
+                let productId = event.target.dataset.id;
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const itemIndex = cart.findIndex(item => item.id === productId);
+                if (itemIndex > -1) {
+                    cart.splice(itemIndex, 1);
                     saveCart(cart);
                     loadCart();
                 }
@@ -256,6 +272,46 @@
         });
 
     });
+    document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.favorite-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            let productId = this.dataset.id;
+
+            fetch(`/${locale}/favorite/add`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ product_id: productId })
+            })
+            .then(response => {
+                console.log('Ответ от сервера:', response);
+                if (!response.ok) {
+                    return response.text().then(text => {
+                        throw new Error(text);
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Полученные данные:', data);
+                if (data.message === 'Product added to favorites') {
+                    alert('Товар добавлен в избранное');
+                } else {
+                    alert('Ошибка при добавлении в избранное');
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
+                alert('Ошибка при добавлении в избранное: ' + error.message);
+            });
+        });
+    });
+});
+
+
+
 
     // Функции для работы с сайдбаром
     var cartIcon = document.getElementById('cartIcon');

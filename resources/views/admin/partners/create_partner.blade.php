@@ -39,6 +39,10 @@
                     <input type="checkbox" class="form-check-input" id="is_active" name="is_active" checked>
                     <label class="form-check-label" for="is_active">Active</label>
                 </div>
+                <div class="form-group">
+                    <label for="link">Link</label>
+                    <input type="text" class="form-control" id="link" name="link" required>
+                </div>
                 <button type="submit" class="btn btn-primary">Create</button>
             </form>
         </div>

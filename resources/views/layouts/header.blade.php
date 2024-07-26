@@ -142,7 +142,7 @@
                                 });
                         </script>
                         @auth
-                            <a href="{{ route('favorite', ['locale' => app()->getLocale()]) }}"><i
+                            <a href="{{ route('favorite.show', ['locale' => app()->getLocale()]) }}"><i
                                     class="fa fa-heart punkt-menu {{ request()->routeIs(['register', 'login']) ? 'black-imp' : 'white-imp' }}" aria-hidden="true" style="color:white"></i></a>
                         @endauth
                         <i class="fa fa-shopping-cart punkt-menu {{ request()->routeIs(['register', 'login']) ? 'black-imp' : 'white-imp' }}" aria-hidden="true" style="color:white"

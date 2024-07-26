@@ -36,6 +36,10 @@
                     </div>
                     <img id="holder" style="margin-top:15px;max-height:100px;" src="{{ $partner->image ? Storage::url($partner->image) : '' }}">
                 </div>
+                <div class="form-group">
+                    <label for="link">link</label>
+                    <input type="text" class="form-control" id="link" name="link" value="{{ old('link', $partner->link) }}" required>
+                </div>
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" id="is_active" name="is_active" {{ $partner->is_active ? 'checked' : '' }}>
                     <label class="form-check-label" for="is_active">Active</label>
