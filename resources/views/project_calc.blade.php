@@ -65,37 +65,37 @@
                             </div>
                         </div> --}}
                         <div class="d-flex type-job">
-                            <h6 class="text-uppercase   radio-title">Выберите состав работы</h6>
+                            <h6 class="text-uppercase radio-title">Выберите состав работы</h6>
                             <div class="d-flex flex-column">
-                                <div class="radio-btn-wrap">
-                                    <input class="input-radio" id="type3" name="radio-group112312" type="radio" checked>
-                                    <label for="type3" class="label-radio">Архитектурно-планировочная концепция</label>
-                                    <span class="radio-inner"></span>
+                                <div class="checkbox-btn-wrap">
+                                    <input class="input-checkbox" id="type3" name="checkbox-group" type="checkbox">
+                                    <label for="type3" class="label-checkbox">Архитектурно-планировочная концепция</label>
+                                    <span class="checkbox-inner"></span>
                                 </div>
-                                <div class="radio-btn-wrap">
-                                    <input class="input-radio" id="type123" name="radio-group2123323" type="radio" checked>
-                                    <label for="type123" class="label-radio">Визуализация</label>
-                                    <span class="radio-inner"></span>
+                                <div class="checkbox-btn-wrap">
+                                    <input class="input-checkbox" id="type123" name="checkbox-group" type="checkbox">
+                                    <label for="type123" class="label-checkbox">Визуализация</label>
+                                    <span class="checkbox-inner"></span>
                                 </div>
-                                <div class="radio-btn-wrap">
-                                    <input class="input-radio" id="type5" name="radio-group3" type="radio">
-                                    <label for="type5" class="label-radio">Строительный проект (КЖ)</label>
-                                    <span class="radio-inner"></span>
+                                <div class="checkbox-btn-wrap">
+                                    <input class="input-checkbox" id="type5" name="checkbox-group" type="checkbox">
+                                    <label for="type5" class="label-checkbox">Строительный проект (КЖ)</label>
+                                    <span class="checkbox-inner"></span>
                                 </div>
-                                <div class="radio-btn-wrap">
-                                    <input class="input-radio" id="type6" name="radio-group4" type="radio">
-                                    <label for="type6" class="label-radio">Инженерные сети (ВК, ОВС, ЭС)</label>
-                                    <span class="radio-inner"></span>
+                                <div class="checkbox-btn-wrap">
+                                    <input class="input-checkbox" id="type6" name="checkbox-group" type="checkbox">
+                                    <label for="type6" class="label-checkbox">Инженерные сети (ВК, ОВС, ЭС)</label>
+                                    <span class="checkbox-inner"></span>
                                 </div>
-                                <div class="radio-btn-wrap">
-                                    <input class="input-radio" id="type7" name="radio-group5" type="radio">
-                                    <label for="type7" class="label-radio">Разработка системы "Умный дом" на базе KNX</label>
-                                    <span class="radio-inner"></span>
+                                <div class="checkbox-btn-wrap">
+                                    <input class="input-checkbox" id="type7" name="checkbox-group" type="checkbox">
+                                    <label for="type7" class="label-checkbox">Разработка системы "Умный дом" на базе KNX</label>
+                                    <span class="checkbox-inner"></span>
                                 </div>
-                                <div class="radio-btn-wrap">
-                                    <input class="input-radio" id="type8" name="radio-group6" type="radio">
-                                    <label for="type8" class="label-radio">Авторское сопровождение</label>
-                                    <span class="radio-inner"></span>
+                                <div class="checkbox-btn-wrap">
+                                    <input class="input-checkbox" id="type8" name="checkbox-group" type="checkbox">
+                                    <label for="type8" class="label-checkbox">Авторское сопровождение</label>
+                                    <span class="checkbox-inner"></span>
                                 </div>
                             </div>
                         </div>
@@ -134,64 +134,49 @@
                             <h6 class="text-uppercase   radio-title" style="margin-right:80px; ">Выберите тип объекта</h6>
                             <div class="d-flex flex-column">
                                 <div class="radio-btn-wrap">
-                                    <input class="input-radio" id="type3" name="radio-group123123" type="radio" checked>
+                                    <input class="input-radio" id="type3" name="radio-group" type="radio" checked>
                                     <label for="type3" class="label-radio">Частный проект (дом, квартира, апартаменты)</label>
                                     <span class="radio-inner"></span>
                                 </div>
                                 <div class="radio-btn-wrap">
-                                    <input class="input-radio" id="type4" name="radio-group1231231" type="radio">
+                                    <input class="input-radio" id="type4" name="radio-group" type="radio">
                                     <label for="type4" class="label-radio">Коммерческий проект(офис, шоурум, салон)</label>
                                     <span class="radio-inner"></span>
                                 </div>
                             </div>
                         </div>
                         <div class="d-flex type-job">
-                            <h6 class="text-uppercase   radio-title">Выберите состав работы</h6>
+                            <h6 class="text-uppercase radio-title">Выберите состав работы</h6>
                             <div class="d-flex flex-column">
-                                <div class="radio-btn-wrap">
-                                    <input class="input-radio" id="type3" name="radio-group1" type="radio" checked>
-                                    <label for="type3" class="label-radio">Сбор общих данных</label>
-                                    <span class="radio-inner"></span>
+                                <div class="checkbox-btn-wrap">
+                                    <input class="input-checkbox" id="type3_2" name="checkbox-group2" type="checkbox">
+                                    <label for="type3_2" class="label-checkbox">Архитектурно-планировочная концепция</label>
+                                    <span class="checkbox-inner"></span>
                                 </div>
-                                <div class="radio-btn-wrap">
-                                    <input class="input-radio" id="type123" name="radio-group2" type="radio" checked>
-                                    <label for="type123" class="label-radio">Планировочное решение</label>
-                                    <span class="radio-inner"></span>
+                                <div class="checkbox-btn-wrap">
+                                    <input class="input-checkbox" id="type123_2" name="checkbox-group2" type="checkbox">
+                                    <label for="type123_2" class="label-checkbox">Визуализация</label>
+                                    <span class="checkbox-inner"></span>
                                 </div>
-                                <div class="radio-btn-wrap">
-                                    <input class="input-radio" id="type5" name="radio-group3" type="radio">
-                                    <label for="type5" class="label-radio">Концептуальное решение</label>
-                                    <span class="radio-inner"></span>
+                                <div class="checkbox-btn-wrap">
+                                    <input class="input-checkbox" id="type5_2" name="checkbox-group2" type="checkbox">
+                                    <label for="type5_2" class="label-checkbox">Строительный проект (КЖ)</label>
+                                    <span class="checkbox-inner"></span>
                                 </div>
-                                <div class="radio-btn-wrap">
-                                    <input class="input-radio" id="type6" name="radio-group4" type="radio">
-                                    <label for="type6" class="label-radio">Фотореалистичная визуализация</label>
-                                    <span class="radio-inner"></span>
+                                <div class="checkbox-btn-wrap">
+                                    <input class="input-checkbox" id="type6_2" name="checkbox-group2" type="checkbox">
+                                    <label for="type6_2" class="label-checkbox">Инженерные сети (ВК, ОВС, ЭС)</label>
+                                    <span class="checkbox-inner"></span>
                                 </div>
-                                <div class="radio-btn-wrap">
-                                    <input class="input-radio" id="type7" name="radio-group5" type="radio">
-                                    <label for="type7" class="label-radio">Техническая документация</label>
-                                    <span class="radio-inner"></span>
+                                <div class="checkbox-btn-wrap">
+                                    <input class="input-checkbox" id="type7_2" name="checkbox-group2" type="checkbox">
+                                    <label for="type7_2" class="label-checkbox">Разработка системы "Умный дом" на базе KNX</label>
+                                    <span class="checkbox-inner"></span>
                                 </div>
-                                <div class="radio-btn-wrap">
-                                    <input class="input-radio" id="type8" name="radio-group6" type="radio">
-                                    <label for="type8" class="label-radio">Сметная стоимость</label>
-                                    <span class="radio-inner"></span>
-                                </div>
-                                <div class="radio-btn-wrap">
-                                    <input class="input-radio" id="type8" name="radio-group6" type="radio">
-                                    <label for="type8" class="label-radio">Комплектация</label>
-                                    <span class="radio-inner"></span>
-                                </div>
-                                <div class="radio-btn-wrap">
-                                    <input class="input-radio" id="type8" name="radio-group6" type="radio">
-                                    <label for="type8" class="label-radio">Разработка умного дома на базе KNX</label>
-                                    <span class="radio-inner"></span>
-                                </div>
-                                <div class="radio-btn-wrap">
-                                    <input class="input-radio" id="type8" name="radio-group6" type="radio">
-                                    <label for="type8" class="label-radio">Авторское сопровождение</label>
-                                    <span class="radio-inner"></span>
+                                <div class="checkbox-btn-wrap">
+                                    <input class="input-checkbox" id="type8_2" name="checkbox-group2" type="checkbox">
+                                    <label for="type8_2" class="label-checkbox">Авторское сопровождение</label>
+                                    <span class="checkbox-inner"></span>
                                 </div>
                             </div>
                         </div>
@@ -203,3 +188,13 @@
         </div>
 </section>
 @include('layouts.footer')
+<script>
+    function toggleRadio(radio) {
+    // Если радиокнопка уже выбрана, снимаем выбор
+    if (radio.wasChecked) {
+        radio.checked = false;
+    }
+    // Обновляем состояние wasChecked
+    radio.wasChecked = radio.checked;
+}
+</script>

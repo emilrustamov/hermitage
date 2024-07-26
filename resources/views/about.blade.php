@@ -10,7 +10,7 @@
     <div class="left-div">
         <h2 class="fw-bold">О нас</h2>
     </div>
-    <div class="w-50 mx-auto text-center p-sxtn fw-bold my-5 scroll-fade-in">
+    <div class="w-50 mx-auto text-center p-twntw fw-bold my-5 scroll-fade-in">
         HERMITAGE HOME INTERIORS</br> является официальным партнёром </br>
         ведущих европейских брендов в Туркменистане.
     </div>

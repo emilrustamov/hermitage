@@ -58,6 +58,9 @@
                                     <a class="nav-link" href="{{ route('about', ['locale' => app()->getLocale()]) }}">
                                         <li>О нас</li>
                                     </a>
+                                    <a class="nav-link" href="{{ route('areas', ['locale' => app()->getLocale()]) }}">
+                                        <li>Наши направления</li>
+                                    </a>
                                     <a class="nav-link"
                                         href="{{ route('partners.index', ['locale' => app()->getLocale()]) }}">
                                         <li>Партнеры</li>
@@ -104,7 +107,7 @@
                     <div class="text-end">
                         <div class="dropdown">
                             <button class="dropdown-toggle" type="button" id="languageDropdown"
-                                @if ($slider) style="color: white" @endif>
+                               style="{{ request()->routeIs(['register', 'login']) ? 'color: black;' : 'color: white;' }}">
                                 {{ strtoupper(app()->getLocale()) }}
                             </button>
                             <div class="dropdown-menu" id="dropdownMenu">
@@ -117,15 +120,15 @@
                             <a href="{{ route('logout', ['locale' => app()->getLocale()]) }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                                 class="logout-a">
-                                <i class="fa fa-sign-out punkt-menu" aria-hidden="true" style="color:white"></i>
+                                <i class="fa fa-sign-out punkt-menu {{ request()->routeIs(['register', 'login']) ? 'black-imp' : 'white-imp' }}" aria-hidden="true"  ></i>
                             </a>
                             <form id="logout-form" action="{{ route('logout', ['locale' => app()->getLocale()]) }}"
                                 method="POST" style="display: none;">
                                 @csrf
                             </form>
                         @else
-                            <a href="{{ route('register', ['locale' => app()->getLocale()]) }}">
-                                <i class="fa fa-user punkt-menu" aria-hidden="true" style="color:white"></i>
+                            <a href="{{ route('register', ['locale' => app()->getLocale()]) }}" style="color: transparent">
+                                <i class="fa fa-user punkt-menu {{ request()->routeIs(['register', 'login']) ? 'black-imp' : 'white-imp' }}" aria-hidden="true"></i>
                             </a>
                         @endauth
                         <script>
@@ -140,9 +143,9 @@
                         </script>
                         @auth
                             <a href="{{ route('favorite', ['locale' => app()->getLocale()]) }}"><i
-                                    class="fa fa-heart punkt-menu" aria-hidden="true" style="color:white"></i></a>
+                                    class="fa fa-heart punkt-menu {{ request()->routeIs(['register', 'login']) ? 'black-imp' : 'white-imp' }}" aria-hidden="true" style="color:white"></i></a>
                         @endauth
-                        <i class="fa fa-shopping-cart punkt-menu" aria-hidden="true" style="color:white"
+                        <i class="fa fa-shopping-cart punkt-menu {{ request()->routeIs(['register', 'login']) ? 'black-imp' : 'white-imp' }}" aria-hidden="true" style="color:white"
                             id="cartIcon"></i>
                     </div>
                 </div>
