@@ -4,7 +4,7 @@
 
 @include('layouts.header', [
     'slider' => false,
-    'banner' => $banner ? $banner->banner : 'images/forabout.jpg',
+    'banner' => $banner ? $banner->banner : null,
 ])
 <div class="container p-5 about-cont">
     <div class="left-div">

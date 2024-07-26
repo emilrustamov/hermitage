@@ -33,7 +33,7 @@
                 <li><a href="{{ route('about', ['locale' => app()->getLocale()]) }}"> О нас</a></li>
                 <li> <a href="{{ route('areas', ['locale' => app()->getLocale()]) }}">Направления</a></li>
                 <li><a href="{{ route('partners.index', ['locale' => app()->getLocale()]) }}"> Партнеры</a></li>
-                <li><a href="{{ route('about', ['locale' => app()->getLocale()]) }}"> Контракты</a></li>
+                <li><a href="{{ route('contracts.index', ['locale' => app()->getLocale()]) }}"> Контракты</a></li>
                 <li><a href="{{ route('projects.index', ['locale' => app()->getLocale()]) }}"> Проекты</a></li>
                 <li><a href="{{ route('certificates.index', ['locale' => app()->getLocale()]) }}"> Сертификаты</a></li>
                 <li><a href="{{ route('blogs.index', ['locale' => app()->getLocale()]) }}"> Новости</a></li>

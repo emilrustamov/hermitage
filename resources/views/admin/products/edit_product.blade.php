@@ -89,26 +89,18 @@
                     <input type="checkbox" class="form-check-input" id="is_active" name="is_active" {{ isset($product) && $product->is_active ? 'checked' : '' }}>
                     <label class="form-check-label" for="is_active">Active</label>
                 </div>
+                <div class="form-group form-check mt-3">
+                    <input type="checkbox" class="form-check-input" id="is_new" name="is_new" {{ isset($product) && $product->is_new ? 'checked' : '' }}>
+                    <label class="form-check-label" for="is_new">New</label>
+                </div>
                 <button type="submit" class="btn btn-primary">{{ isset($product) ? 'Update' : 'Create' }}</button>
             </form>
         </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    @include('layouts.footerA')
     <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
-    <script>
-        tinymce.init({
-            selector: 'textarea', // change this value according to your HTML
-            menu: {
-                edit: {
-                    title: 'Edit',
-                    items: 'undo, redo, selectall'
-                }
-            }
-        });
-    </script>
+    @include('components.forms.tinymce-editor')
+
     <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
     <script>
         $('#lfm').filemanager('image');

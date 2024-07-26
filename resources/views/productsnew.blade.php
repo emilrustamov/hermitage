@@ -8,7 +8,7 @@
         профессионалов в области дизайна интерьера всегда готова помочь вам найти идеальный предмет...</p>
 
     <div class="container mt-5">
-        <form method="GET" action="{{ route('products.index', ['locale' => app()->getLocale()]) }}" class="row">
+        <form method="GET" action="{{ route('productsnew.index', ['locale' => app()->getLocale()]) }}" class="row">
             <div class="col-md-2">
                 <select name="category_id" class="form-control">
                     <option value="all">Все категории</option>
@@ -59,14 +59,10 @@
                         data-sort="{{ $product->price }}">
                         <div class="product-image-container">
                             @if ($product->is_new)
-                                <span class="badge badge-secondary">New</span>
+                            <span class="badge badge-secondary">New</span>
                             @endif
-                            @auth
-                                <button class="favorite-btn" data-id="{{ $product->id }}">
-                                    <i class="fa fa-heart"></i>
-                                </button>
-                            @endauth
-                            <img src="{{ asset($product->image) }}" alt="Product Image" class="product-img">
+                            <img src="{{ asset($product->image ?? '/images/product1.jpg') }}" alt="Product Image"
+                                class="product-img">
                         </div>
                         <div class="hover-content">
                             <div class="d-flex justify-content-between">
@@ -75,7 +71,7 @@
                             </div>
                             <button class="add-to-cart" data-id="{{ $product->id }}"
                                 data-title="{{ $product->title_ru }}" data-price="{{ $product->price }}"
-                                data-image="{{ asset($product->image) }}">Добавить в
+                                data-image="{{ asset($product->image ?? '/images/product1.jpg') }}">Добавить в
                                 корзину</button>
                         </div>
                     </div>

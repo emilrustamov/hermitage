@@ -19,7 +19,7 @@
                 <label for="banner">Banner</label>
                 <input id="image" class="form-control" type="text" name="image" value="{{ $banner->image }}">
                 <span class="input-group-append">
-                    <button id="lfm" data-input="image" data-preview="holder" class="btn btn-primary"
+                    <button id="lfm" data-input="image" data-preview="holder" class="btn btn-primary mt-3"
                         type="button">
                         <i class="fa fa-picture-o"></i> Choose
                     </button>
@@ -32,14 +32,12 @@
 
 
 
-    <button type="submit" class="btn btn-primary">Update Banner</button>
+    <button type="submit" class="btn btn-primary mt-3">Update Banner</button>
     </form>
 </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
+@include('layouts.footerA')
+
 <script>
     $('#lfm').filemanager('image');
 </script>

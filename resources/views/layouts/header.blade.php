@@ -9,6 +9,16 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" rel="stylesheet" />
     @vite(['resources/sass/app.scss', 'resources/css/app.css', 'resources/js/app.js'])
 </head>
+<style>
+    #menu {
+        height: 100vh !important;
+        width: 370px !important;
+    }
+
+    ::-webkit-scrollbar {
+        background-color: white !important;
+    }
+</style>
 
 <body>
     <div class="wrapper p-0">
@@ -25,12 +35,11 @@
                 @else
                     @if ($show_single_slide ?? true)
                         @if (isset($banner))
-                            <div class="single-slide slider-item" 
+                            <div class="single-slide slider-item"
                                 style="background-image: url('{{ asset('storage/' . $banner) }}'); ">
                             </div>
                         @else
-                            <div class="single-slide slider-item"
-                                style="background-image: url('{{ asset($image) }}');">
+                            <div class="single-slide slider-item" style="background-image: url('{{ asset($image) }}');">
                             </div>
                         @endif
                     @endif
@@ -46,13 +55,16 @@
                                 <span></span>
                                 <span></span>
                                 <ul id="menu">
-                                    <a class="nav-link"
-                                        href="{{ route('vacancies.index', ['locale' => app()->getLocale()]) }}">
-                                        <li>Вакансии</li>
+                                    <a class="nav-link" href="{{ route('about', ['locale' => app()->getLocale()]) }}">
+                                        <li>О нас</li>
                                     </a>
                                     <a class="nav-link"
-                                        href="{{ route('blogs.index', ['locale' => app()->getLocale()]) }}">
-                                        <li>Новости</li>
+                                        href="{{ route('partners.index', ['locale' => app()->getLocale()]) }}">
+                                        <li>Партнеры</li>
+                                    </a>
+                                    <a class="nav-link"
+                                        href="{{ route('contracts.index', ['locale' => app()->getLocale()]) }}">
+                                        <li>Контракты</li>
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('projects.index', ['locale' => app()->getLocale()]) }}">
@@ -63,22 +75,23 @@
                                         <li>Товары в наличии</li>
                                     </a>
                                     <a class="nav-link"
-                                        href="{{ route('projectcalc', ['locale' => app()->getLocale()]) }}">
-                                        <li>Заказать проект</li>
-                                    </a>
-                                    <a class="nav-link" href="{{ route('about', ['locale' => app()->getLocale()]) }}">
-                                        <li>О нас</li>
+                                        href="{{ route('blogs.index', ['locale' => app()->getLocale()]) }}">
+                                        <li>Новости</li>
                                     </a>
                                     <a class="nav-link"
-                                        href="{{ route('partners.index', ['locale' => app()->getLocale()]) }}">
-                                        <li>Партнеры</li>
+                                        href="{{ route('vacancies.index', ['locale' => app()->getLocale()]) }}">
+                                        <li>Вакансии</li>
+                                    </a>
+                                    <a class="nav-link"
+                                        href="{{ route('projectcalc', ['locale' => app()->getLocale()]) }}">
+                                        <li>Заказать проект</li>
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('certificates.index', ['locale' => app()->getLocale()]) }}">
                                         <li>Сертификаты</li>
                                     </a>
-                                    
-                                    
+
+
                                 </ul>
                             </div>
                         </nav>
@@ -102,7 +115,8 @@
                         </div>
                         @auth
                             <a href="{{ route('logout', ['locale' => app()->getLocale()]) }}"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="logout-a">
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                class="logout-a">
                                 <i class="fa fa-sign-out punkt-menu" aria-hidden="true" style="color:white"></i>
                             </a>
                             <form id="logout-form" action="{{ route('logout', ['locale' => app()->getLocale()]) }}"
@@ -125,10 +139,11 @@
                                 });
                         </script>
                         @auth
-                            <a href="{{ route('favorite', ['locale' => app()->getLocale()]) }}"><i class="fa fa-heart punkt-menu" aria-hidden="true"
-                                    style="color:white"></i></a>
+                            <a href="{{ route('favorite.show', ['locale' => app()->getLocale()]) }}"><i
+                                    class="fa fa-heart punkt-menu" aria-hidden="true" style="color:white"></i></a>
                         @endauth
-                        <i class="fa fa-shopping-cart punkt-menu" aria-hidden="true" style="color:white" id="cartIcon"></i>
+                        <i class="fa fa-shopping-cart punkt-menu" aria-hidden="true" style="color:white"
+                            id="cartIcon"></i>
                     </div>
                 </div>
             </header>

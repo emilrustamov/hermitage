@@ -49,6 +49,7 @@ class PartnerController extends Controller
             'title_en' => $request->title_en,
             'title_tk' => $request->title_tk,
             'is_active' => true,
+
         ]);
 
         return redirect()->route('admin.partners.categories.index')->with('success', 'Категория успешно создана.');
@@ -68,6 +69,7 @@ class PartnerController extends Controller
             'category_id' => 'required|exists:partner_categories,id',
             'ordering' => 'required|integer',
             'image' => 'nullable|string|max:255',
+            'link' => 'required|string|max:255',
         ]);
 
         $partner = new Partner();
@@ -76,7 +78,7 @@ class PartnerController extends Controller
         $partner->ordering = $request->ordering;
         $partner->image = $request->image;
         $partner->is_active = $request->has('is_active');
-
+        $partner->link = $request->link;
         $partner->save();
 
         return redirect()->route('admin.partners.index')->with('success', 'Партнер успешно создан.');
@@ -125,6 +127,7 @@ class PartnerController extends Controller
             'category_id' => 'required|exists:partner_categories,id',
             'ordering' => 'required|integer',
             'image' => 'nullable|string|max:255',
+            'link' => 'required|string|max:255',
         ]);
 
         $partner = Partner::findOrFail($id);
@@ -133,7 +136,7 @@ class PartnerController extends Controller
         $partner->ordering = $request->ordering;
         $partner->image = $request->image;
         $partner->is_active = $request->has('is_active');
-
+        $partner->link = $request->link;
         $partner->save();
 
         return redirect()->route('admin.partners.index')->with('success', 'Партнер успешно обновлен.');
