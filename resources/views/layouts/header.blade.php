@@ -108,7 +108,6 @@
                         <div class="dropdown">
                             <button class="dropdown-toggle" type="button" id="languageDropdown"
                                style="{{ request()->routeIs(['register', 'login']) ? 'color: black;' : 'color: white;' }}">
-                               style="{{ request()->routeIs(['register', 'login']) ? 'color: black;' : 'color: white;' }}">
                                 {{ strtoupper(app()->getLocale()) }}
                             </button>
                             <div class="dropdown-menu" id="dropdownMenu">
