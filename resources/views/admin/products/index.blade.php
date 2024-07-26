@@ -3,10 +3,15 @@
 <body>
     <div class="admin-index">
         <div class="container mt-5">
-            <h1>Products</h1>
-            <a href="{{ route('admin.products.create') }}" class="btn btn-primary mb-3">Create Product</a>
-            <a href="{{ route('admin.products.categories.index') }}" class="btn btn-primary mb-3">Categories</a>
-            <a href="{{ route('admin.products.brands.index') }}" class="btn btn-primary mb-3">Brands</a>
+            <div class="d-flex justify-content-between mb-5">
+                <h1>Products</h1>
+                <div class="d-flex">
+
+                    <a href="{{ route('admin.products.create') }}" class="btn btn-primary mb-3">Create Product</a>
+                    <a href="{{ route('admin.products.categories.index') }}" class="btn btn-primary mb-3">Categories</a>
+                    <a href="{{ route('admin.products.brands.index') }}" class="btn btn-primary mb-3">Brands</a>
+                </div>
+            </div>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -49,10 +54,7 @@
             {{ $products->links() }}
         </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
 </body>
 
 </html>

@@ -20,6 +20,8 @@
         "@popperjs/bundle": "^1.0.2",
         "font-awesome": "^4.7.0",
         "jquery": "^3.7.1",
+        "jquery-slim": "^3.0.0",
+        "lightbox2": "^2.11.4",
         "slick-carousel": "^1.8.1"
     }
 }

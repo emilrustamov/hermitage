@@ -1,4 +1,56 @@
 <!-- resources/views/cart.blade.php -->
+<style>
+    .cart-sidebar .cart-footer .checkout-btn {
+        margin-left: unset !important;
+        margin-right: unset !important;
+        margin-top: 20px !important;
+    }
+
+    .order-form .form-group label {
+        color: white;
+        margin: 10px 0 15px;
+    }
+
+
+
+    .product-item {
+        /* display: flex; */
+        color: white;
+        margin: 0 40px;
+    }
+
+    .quantity-control {
+        display: flex;
+        width: fit-content;
+        align-items: center;
+        border: 1px solid white;
+        padding: 5px;
+    }
+
+    .quant {
+        color: white;
+        font-size: 16px;
+        margin: 0 20px;
+    }
+
+    .decrease-quantity,
+    .increase-quantity {
+        background-color: transparent !important;
+        outline: none;
+        border: none;
+        color: white;
+        padding-bottom: 2px;
+    }
+
+    .product-price-info {
+        opacity: 0.7;
+        width: 60px;
+    }
+
+    .clear-cart {
+        margin: 0 40px;
+    }
+</style>
 <div class="cart-sidebar" id="sidebar">
     <div class="cart-header">
         <div class="d-flex align-items-center justify-content-between">
@@ -20,9 +72,13 @@
             <img src="{{ asset('/images/icons/shipment.png') }}" alt="">
             <p class="my-auto">Доставка осуществляется в течении 3-5 дней</p>
         </div>
+        <!-- Кнопка для очистки корзины -->
+        <div class="clear-cart">
+            <button id="clearCart" class="btn btn-danger w-100 mt-3">Очистить корзину</button>
+        </div>
 
         <!-- Форма для оформления заказа -->
-        <form id="orderForm">
+        <form id="orderForm" class="order-form">
             <div class="form-group">
                 <label for="name">Имя</label>
                 <input type="text" id="name" name="name" class="form-control" required>
@@ -42,8 +98,6 @@
         </form>
 
 
-        <!-- Кнопка для очистки корзины -->
-        <button id="clearCart" class="btn btn-danger w-100 mt-3">Очистить корзину</button>
     </div>
 </div>
 <script>
@@ -60,16 +114,26 @@
 
             cart.forEach(item => {
                 const itemHtml = `
-                    <div class="product-item" data-id="${item.id}">
-                        <p>${item.title}</p>
-                        <div class="quantity-control">
-                            <button class="decrease-quantity" data-id="${item.id}">-</button>
-                            <p class="quant">${item.quantity}</p>
-                            <button class="increase-quantity" data-id="${item.id}">+</button>
+            <div class="product-item" data-id="${item.id}">
+                <div class="product">
+                    <img src="${item.image}" alt="Product Image" width="40px" height="40px">
+                    <p class="product-cart-title">${item.title}</p>
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-column">
+                            <p class="product-price-info">Цена за единицу товара:</p>
+                            <div class="quantity-control">
+                                <button class="decrease-quantity my-auto" data-id="${item.id}">-</button>
+                                <p class="quant my-auto">${item.quantity}</p>
+                                <button class="increase-quantity my-auto" data-id="${item.id}">+</button>
+                            </div>
                         </div>
                         <p class="product-price">${item.price} TMT</p>
                     </div>
-                `;
+                </div>
+                <button class="remove-item btn btn-danger my-auto" data-id="${item.id}">Удалить</button>
+            </div>
+            
+        `;
                 cartItems.insertAdjacentHTML('beforeend', itemHtml);
                 total += item.price * item.quantity;
             });
@@ -88,6 +152,7 @@
                 let productId = this.dataset.id;
                 let productTitle = this.dataset.title;
                 let productPrice = parseFloat(this.dataset.price);
+                let productImage = this.dataset.image; // Получаем изображение
 
                 const cart = JSON.parse(localStorage.getItem('cart')) || [];
                 const existingItem = cart.find(item => item.id === productId);
@@ -99,7 +164,8 @@
                         id: productId,
                         title: productTitle,
                         quantity: 1,
-                        price: productPrice
+                        price: productPrice,
+                        image: productImage,
                     });
                 }
 
@@ -135,6 +201,17 @@
                 } else if (item && item.quantity === 1) {
                     const index = cart.indexOf(item);
                     cart.splice(index, 1);
+                    saveCart(cart);
+                    loadCart();
+                }
+            }
+            if (event.target.classList.contains('remove-item')) {
+                event.stopPropagation(); // Предотвращаем закрытие корзины
+                let productId = event.target.dataset.id;
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const itemIndex = cart.findIndex(item => item.id === productId);
+                if (itemIndex > -1) {
+                    cart.splice(itemIndex, 1);
                     saveCart(cart);
                     loadCart();
                 }
@@ -195,6 +272,46 @@
         });
 
     });
+    document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.favorite-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            let productId = this.dataset.id;
+
+            fetch(`/${locale}/favorite/add`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ product_id: productId })
+            })
+            .then(response => {
+                console.log('Ответ от сервера:', response);
+                if (!response.ok) {
+                    return response.text().then(text => {
+                        throw new Error(text);
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Полученные данные:', data);
+                if (data.message === 'Product added to favorites') {
+                    alert('Товар добавлен в избранное');
+                } else {
+                    alert('Ошибка при добавлении в избранное');
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
+                alert('Ошибка при добавлении в избранное: ' + error.message);
+            });
+        });
+    });
+});
+
+
+
 
     // Функции для работы с сайдбаром
     var cartIcon = document.getElementById('cartIcon');

@@ -2,9 +2,11 @@
 
 <div class="admin-index">
     <div class="container">
-        <h1>Manage Certificates</h1>
-
-        <a href="{{ route('admin.certificates.create') }}" class="btn btn-primary mb-3">Add New Certificate</a>
+        <div class="d-flex justify-content-between">
+            <h1>Manage Certificates</h1>
+    
+            <a href="{{ route('admin.certificates.create') }}" class="btn btn-primary mb-3">Add New Certificate</a>
+        </div>
 
         @if (session('success'))
             <div class="alert alert-success">

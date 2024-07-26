@@ -17,7 +17,7 @@
                     @foreach ($partners as $partner)
                         <div class="partners-logo p-3 col-lg-8">
                             @if ($partner->image)
-                                <img src="{{ asset($partner->image) }}" alt="{{ $partner->title }}">
+                               <a href='{{$partner->link}}'> <img src="{{ asset($partner->image) }}" alt="{{ $partner->title }}"></a>
                             @endif
                         </div>
                     @endforeach

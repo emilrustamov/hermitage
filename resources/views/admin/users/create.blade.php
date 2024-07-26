@@ -1,5 +1,5 @@
 @include('layouts.headerA', ['hasimage' => false])
-
+<div class="admin-index">
     <div class="container">
         <h1>Create User</h1>
         <form action="{{ route('admin.users.store') }}" method="POST">
@@ -34,4 +34,5 @@
             <button type="submit" class="btn btn-primary">Create</button>
         </form>
     </div>
+</div>
 

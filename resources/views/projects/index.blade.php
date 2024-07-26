@@ -14,11 +14,10 @@
                     <div class="mb-4">
                         <a href="{{ route('projects.show', ['locale' => app()->getLocale(), 'id' => $project->id]) }}">
                             <div class="proj-wrapper">
-                                <img
-                                    src="{{ asset($project->image) }}" class="card-img-top black-photo"
-                                    alt="{{ $project->title }}"> 
+                                <img src="{{ asset($project->image) }}" class="card-img-top black-photo"
+                                    alt="{{ $project->title }}">
                             </div>
-                            </a>
+                        </a>
                         <div class="card-body mt-3">
                             <a class="proj-a text-center "
                                 href="{{ route('projects.show', ['locale' => app()->getLocale(), 'id' => $project->id]) }}">

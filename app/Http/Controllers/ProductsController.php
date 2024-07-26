@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductBrand;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Favorite;
+use Illuminate\Support\Facades\Auth;
+
+
 
 class ProductsController extends Controller
 {
@@ -30,7 +35,7 @@ class ProductsController extends Controller
 
     public function publicIndex(Request $request)
     {
-        $query = Product::query();
+        $query = Product::query()->where('is_active', 1);
 
         // Фильтрация по категории
         if ($request->has('category_id') && $request->category_id != 'all') {
@@ -63,6 +68,41 @@ class ProductsController extends Controller
     }
 
 
+    public function publicIndexNew(Request $request)
+    {
+        $query = Product::query()->where([['is_active', 1], ['is_new', 1],]);
+
+        // Фильтрация по категории
+        if ($request->has('category_id') && $request->category_id != 'all') {
+            $query->where('category_id', $request->category_id);
+        }
+
+        // Фильтрация по бренду
+        if ($request->has('brand_id') && $request->brand_id != 'all') {
+            $query->where('brand_id', $request->brand_id);
+        }
+
+        // Сортировка
+        if ($request->has('sort_by')) {
+            if ($request->sort_by == 'title') {
+                $query->orderBy('title_ru', 'asc');
+            } elseif ($request->sort_by == 'price_asc') {
+                $query->orderBy('price', 'asc');
+            } elseif ($request->sort_by == 'price_desc') {
+                $query->orderBy('price', 'desc');
+            }
+        } else {
+            $query->orderBy('created_at', 'desc');
+        }
+
+        $products = $query->paginate(20);
+        $categories = ProductCategory::all();
+        $brands = ProductBrand::all();
+
+        return view('productsnew', compact('products', 'categories', 'brands'));
+    }
+
+
     public function createCategory()
     {
         return view('admin.products.create_category');
@@ -86,7 +126,7 @@ class ProductsController extends Controller
             'title_ru' => 'required|string|max:255',
             'title_en' => 'required|string|max:255',
             'title_tk' => 'required|string|max:255',
-           
+
         ]);
 
         ProductCategory::create([
@@ -94,6 +134,7 @@ class ProductsController extends Controller
             'title_en' => $request->title_en,
             'title_tk' => $request->title_tk,
             'is_active' => $request->has('is_active'),
+            'is_new' => $request->has('is_new'),
         ]);
 
         return redirect()->route('admin.products.categories.index')->with('success', 'Category created successfully.');
@@ -105,7 +146,7 @@ class ProductsController extends Controller
             'title_ru' => 'required|string|max:255',
             'title_en' => 'required|string|max:255',
             'title_tk' => 'required|string|max:255',
-           
+
         ]);
 
         ProductBrand::create([
@@ -126,7 +167,6 @@ class ProductsController extends Controller
             'title_tk' => 'required|string|max:255',
             'image' => 'nullable|string|max:255',
             'order' => 'required|integer',
-            
             'price' => 'required|numeric',
             'category_id' => 'required|exists:product_categories,id',
             'brand_id' => 'required|exists:product_brands,id',
@@ -142,7 +182,7 @@ class ProductsController extends Controller
         $product->price = $request->price;
         $product->category_id = $request->category_id;
         $product->brand_id = $request->brand_id;
-
+        $product->is_new = $request->has('is_new');
         $product->save();
 
         return redirect()->route('admin.products.index')->with('success', 'Product created successfully.');
@@ -174,7 +214,7 @@ class ProductsController extends Controller
             'title_ru' => 'required|string|max:255',
             'title_en' => 'required|string|max:255',
             'title_tk' => 'required|string|max:255',
-        
+
         ]);
 
         $category = ProductCategory::findOrFail($id);
@@ -182,7 +222,6 @@ class ProductsController extends Controller
         $category->title_en = $request->title_en;
         $category->title_tk = $request->title_tk;
         $category->is_active = $request->has('is_active');
-
         $category->save();
 
         return redirect()->route('admin.products.categories.index')->with('success', 'Category updated successfully.');
@@ -194,7 +233,6 @@ class ProductsController extends Controller
             'title_ru' => 'required|string|max:255',
             'title_en' => 'required|string|max:255',
             'title_tk' => 'required|string|max:255',
-          
         ]);
 
         $brand = ProductBrand::findOrFail($id);
@@ -216,7 +254,6 @@ class ProductsController extends Controller
             'title_tk' => 'required|string|max:255',
             'image' => 'nullable|string|max:255',
             'order' => 'required|integer',
-         
             'price' => 'required|numeric',
             'category_id' => 'required|exists:product_categories,id',
             'brand_id' => 'required|exists:product_brands,id',
@@ -232,7 +269,7 @@ class ProductsController extends Controller
         $product->price = $request->price;
         $product->category_id = $request->category_id;
         $product->brand_id = $request->brand_id;
-
+        $product->is_new = $request->has('is_new');
         $product->save();
 
         return redirect()->route('admin.products.index')->with('success', 'Product updated successfully.');
@@ -272,4 +309,35 @@ class ProductsController extends Controller
 
         return redirect()->route('admin.products.index')->with('success', 'Product deleted successfully.');
     }
-}
+
+    public function addToFavorites(Request $request)
+    {
+        $user = Auth::user();
+        $productId = $request->input('product_id');
+
+        if (!$user->favorites->contains($productId)) {
+            $user->favorites()->attach($productId);
+        }
+
+        return response()->json(['message' => 'Product added to favorites']);
+    }
+
+    public function removeFromFavorites(Request $request)
+    {
+        $user = Auth::user();
+        $productId = $request->input('product_id');
+
+        if ($user->favorites->contains($productId)) {
+            $user->favorites()->detach($productId);
+        }
+
+        return response()->json(['message' => 'Product removed from favorites']);
+    }
+
+    public function showFavorites()
+    {
+        $user = auth()->user();
+        $favorites = $user->favorites()->get();
+        return view('favorite', compact('favorites'));
+    }
+};
