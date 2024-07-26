@@ -29,13 +29,13 @@
     <p class="fs-3">{!! $data['description'] !!}</p>
 
     @if ($data['video'])
-        <div class="embed-responsive embed-responsive-16by9 mb-4">
+        <div class="embed-responsive embed-responsive-16by9 mb-4 d-flex justify-content-center">
             <iframe class="embed-responsive-item" src="{{ $data['video'] }}" allowfullscreen></iframe>
         </div>
     @endif
 
     @if ($data['plan_image'])
-        <div class="mb-4">
+        <div class="mb-4  d-flex justify-content-center">
             <img src="{{ asset($data['plan_image']) }}" class="img-fluid" alt="Plan Image">
         </div>
     @endif

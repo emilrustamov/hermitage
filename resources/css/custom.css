@@ -886,6 +886,65 @@ footer ul li a {
           transform: scale(1);
 }
 
+.checkbox-btn-wrap {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.checkbox-btn-wrap input[type=checkbox] {
+  position: absolute;
+  left: -9999px;
+}
+.checkbox-btn-wrap input[type=checkbox] + label {
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  line-height: 20px;
+  font-size: 13px;
+  display: inline-block;
+  color: #333;
+}
+.checkbox-btn-wrap input[type=checkbox] + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #121212;
+  border-radius: 100%;
+}
+.checkbox-btn-wrap input[type=checkbox] + label:after {
+  content: "✔";
+  color: white;
+  font-size: 11px;
+  text-align: center;
+  width: 17px;
+  height: 17px;
+  background: #000;
+  position: absolute;
+  left: 0px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+}
+.checkbox-btn-wrap input[type=checkbox]:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+}
+.checkbox-btn-wrap input[type=checkbox]:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+
 .left-info {
   padding: 55px 30px 300px;
 }
@@ -1637,4 +1696,30 @@ footer ul li a {
 .description {
   background-color: red;
   font-size: 16px;
+}
+
+.see-more-btn {
+  cursor: pointer;
+  padding: 10px;
+  margin: auto;
+  border: none;
+  outline: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #333;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: white;
+  color: white;
+  font-size: 14px;
+}
+
+.black-imp {
+  color: black !important;
+}
+
+.white-imp {
+  color: white !important;
 }

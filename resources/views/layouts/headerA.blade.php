@@ -26,102 +26,66 @@
                 <div class="header-content ">
                     <div class="d-flex">
 
-                        <div style="display: inline-flex">
+                        <div style="display: flex">
+                            <nav role="navigation">
+                                <div id="menuToggle">
+                                    <input type="checkbox" />
+                                    <span style="background-color: #000 !important"></span>
+                                    <span style="background-color: #000 !important"></span>
+                                    <span style="background-color: #000 !important"></span>
+                                    <ul id="menu">
+                                        <a class="nav-link <?php if (request()->is('admin/vacancies*')) { echo 'active'; } ?>" href="{{ route('admin.vacancies.index') }}">
+                                            <li>Вакансии</li>
+                                        </a>
+                                        <a class="nav-link <?php if (request()->is('admin/blogs*')) { echo 'active'; } ?>" href="{{ route('admin.blogs.index') }}">
+                                            <li>Блог</li>
+                                        </a>
+                                        <a class="nav-link <?php if (request()->is('admin/projects*')) { echo 'active'; } ?>" href="{{ route('admin.projects.index') }}">
+                                            <li>Проекты</li>
+                                        </a>
+                                        <a class="nav-link <?php if (request()->is('admin/partners*')) { echo 'active'; } ?>" href="{{ route('admin.partners.index') }}">
+                                            <li>Партнёры</li>
+                                        </a>
+                                        <a class="nav-link <?php if (request()->is('admin/users*')) { echo 'active'; } ?>" href="{{ route('admin.users.index') }}">
+                                            <li>Пользователи</li>
+                                        </a>
+                                        <a class="nav-link <?php if (request()->is('admin/products*')) { echo 'active'; } ?>" href="{{ route('admin.products.index') }}">
+                                            <li>Товары</li>
+                                        </a>
+                                        <a class="nav-link <?php if (request()->is('admin/orders*')) { echo 'active'; } ?>" href="{{ route('admin.orders.index') }}">
+                                            <li>Заказы</li>
+                                        </a>
+                                        <a class="nav-link <?php if (request()->is('admin/models*')) { echo 'active'; } ?>" href="{{ route('admin.models.index') }}">
+                                            <li>Модели</li>
+                                        </a>
+                                        <a class="nav-link <?php if (request()->is('admin/certificates*')) { echo 'active'; } ?>" href="{{ route('admin.certificates.index') }}">
+                                            <li>Сертификаты</li>
+                                        </a>
+                                        <a class="nav-link <?php if (request()->is('admin/banners*')) { echo 'active'; } ?>" href="{{ route('admin.banners.index') }}">
+                                            <li>Баннеры</li>
+                                        </a>
+                                        <a class="nav-link <?php if (request()->is('admin/contracts*')) { echo 'active'; } ?>" href="{{ route('admin.contracts.index') }}">
+                                            <li>Контракты</li>
+                                        </a>
+                                        
+    
+                                    </ul>
+                                </div>
+                            </nav>
                             <a href="{{ route('home', ['locale' => app()->getLocale()]) }}"><img
                                     src="{{ asset('/images/logo.svg') }}" alt="logo" class="logo admin-logo"
                                     @if ($hasimage) style="filter:invert(1)" @endif></a>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center">
-
-                        <div
-                            @if (!$hasimage) class="d-flex with-black-links" @else class="d-flex" @endif>
-                            <div class="px-2">
-                                <a class="nav-link <?php if (request()->is('admin/vacancies*')) {
-                                    echo 'active';
-                                } ?>"
-                                    href="{{ route('admin.vacancies.index') }}">Вакансии</a>
-                            </div>
-                            <div class="px-2">
-                                <a class="nav-link <?php if (request()->is('admin/blogs*')) {
-                                    echo 'active';
-                                } ?>" href="{{ route('admin.blogs.index') }}">Блог</a>
-                            </div>
-                            <div class="px-2">
-                                <a class="nav-link <?php if (request()->is('admin/projects*')) {
-                                    echo 'active';
-                                } ?>"
-                                    href="{{ route('admin.projects.index') }}">Проекты</a>
-                            </div>
-                            <div class="px-2">
-                                <a class="nav-link <?php if (request()->is('admin/partners*')) {
-                                    echo 'active';
-                                } ?>"
-                                    href="{{ route('admin.partners.index') }}">Партнёры</a>
-                            </div>
-                            <div class="px-2">
-                                <a class="nav-link <?php if (request()->is('admin/users*')) {
-                                    echo 'active';
-                                } ?>"
-                                    href="{{ route('admin.users.index') }}">Пользователи</a>
-                            </div>
-                            <div class="px-2">
-                                <a class="nav-link <?php if (request()->is('admin/products*')) {
-                                    echo 'active';
-                                } ?>"
-                                    href="{{ route('admin.products.index') }}">Товары</a>
-                            </div>
-                            <div class="px-2">
-                                <a class="nav-link <?php if (request()->is('admin/orders*')) {
-                                    echo 'active';
-                                } ?>"
-                                    href="{{ route('admin.orders.index') }}">Заказы</a>
-                            </div>
-                            <div class="px-2">
-                                <a class="nav-link <?php if (request()->is('admin/models*')) {
-                                    echo 'active';
-                                } ?>"
-                                    href="{{ route('admin.models.index') }}">Модели</a>
-                            </div>
-                            <div class="px-2">
-                                <a class="nav-link <?php if (request()->is('admin/certificates*')) {
-                                    echo 'active';
-                                } ?>"
-                                    href="{{ route('admin.certificates.index') }}">Сертификаты</a>
-                            </div>
-                            <div class="px-2">
-                                <a class="nav-link <?php if (request()->is('admin/banners*')) {
-                                    echo 'active';
-                                } ?>"
-                                    href="{{ route('admin.banners.index') }}">Баннеры</a>
-                            </div>
-                            <div class="px-2">
-                                <a href="{{ route('logout', ['locale' => app()->getLocale()]) }}"
-                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    Выход</i>
-                                </a>
-                                <form id="logout-form" action="{{ route('logout', ['locale' => app()->getLocale()]) }}"
-                                    method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                        </div>
-                        <div class="text-end">
-                            {{-- <div class="dropdown">
-                                <button class="dropdown-toggle" type="button" id="languageDropdown"
-                                    @if ($hasimage) style="color: white"
-                                       @else
-                                       style="color: black" @endif>
-                                    {{ strtoupper(app()->getLocale()) }}
-                                </button>
-                                <div class="dropdown-menu" id="dropdownMenu">
-                                    <a class="dropdown-item" href="#" data-lang="ru">RU</a>
-                                    <a class="dropdown-item" href="#" data-lang="en">EN</a>
-                                    <a class="dropdown-item" href="#" data-lang="tk">TK</a>
-                                </div>
-                            </div> --}}
-
-                        </div>
+                    <div class="px-2">
+                        <a href="{{ route('logout', ['locale' => app()->getLocale()]) }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Выход</i>
+                        </a>
+                        <form id="logout-form" action="{{ route('logout', ['locale' => app()->getLocale()]) }}"
+                            method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </div>
                 </div>
             </header>
