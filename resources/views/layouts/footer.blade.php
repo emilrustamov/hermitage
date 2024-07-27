@@ -7,9 +7,8 @@
         </p>
     </div>
     <div class="col-lg-6  align-self-center d-flex flex-column">
-        <form action="{{ route('subscribe') }}" method="post" class="row">
+        <form action="{{ route('subscribe', ['locale' => app()->getLocale()]) }}" method="post" class="row">
             @csrf
-
             <div class="form-group mb-3 col-lg-9 col-6  align-self-center d-flex flex-column">
                 <input type="text" name="email" class="form-control" placeholder="Email Address">
 

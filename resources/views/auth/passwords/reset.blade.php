@@ -1,6 +1,11 @@
-@extends('layouts.header', ['slider' => false])
+@php
+    $banner = App\Models\Banner::where('page_identifier', 'about')->first();
+@endphp
 
-@section('content')
+@include('layouts.header', [
+    'slider' => false,
+    'banner' => $banner ? $banner->banner : null,
+])
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -62,4 +67,3 @@
         </div>
     </div>
 </div>
-@endsection

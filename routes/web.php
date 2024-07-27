@@ -196,11 +196,21 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'web'], function () {
     Route::get('/certificates', [CertificatesController::class, 'publicIndex'])->name('certificates.index');
     Route::get('/partners', [PartnerController::class, 'showPartners'])->name('partners.index');
     Route::get('/areas', [AreasController::class, 'index'])->name('areas');
+
+    Route::post('/subscriber', [SubscriberController::class, 'index'])->name('subscribe');
+    Route::get('/subscriber/verify/{token}/{email}', [SubscriberController::class, 'verify'])->name('subscriber_verify');
+
+    Route::post('/subscriber/send-newsletter/{id}', [AdminSubscriberController::class, 'sendVacancyNewsletter'])->name('subscriber_send_newsletter');
+    Route::post('/subscriber/send-newsletter/project/{id}', [AdminSubscriberController::class, 'sendProjectNewsletter'])->name('subscriber_send_project_newsletter');
+    Route::post('/admin/subscriber/send-newsletter/blog/{id}', [AdminSubscriberController::class, 'sendBlogNewsletter'])->name('subscriber_send_blog_newsletter');
+
+
+
 });
 
-// Route::get('/', [SubscriberController::class, 'subscriber_form'])->name('form');
-Route::post('/subscriber', [SubscriberController::class, 'index'])->name('subscribe');
-Route::get('/subscriber/verify/{token}/{email}', [SubscriberController::class, 'verify'])->name('subscriber_verify');
+
+
+
 
 // Message to All Subscribers
 Route::get('/subscriber/all', [AdminSubscriberController::class, 'show_all'])->name('admin_subscribers');

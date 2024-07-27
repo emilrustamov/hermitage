@@ -25,13 +25,11 @@
                 <td>
                     @if ($project->image)
                         <img src="{{ asset($project->image) }}" alt="image" style="max-height: 50px;">
-                        {{-- <img src="{{ asset('storage/' . $project->image) }}" alt="image" style="max-height: 50px;"> --}}
                     @endif
                 </td>
                 <td>
                     @if ($project->plan_image)
                         <img src="{{ asset($project->plan_image) }}" alt="plan image" style="max-height: 50px;">
-                        {{-- <img src="{{ asset('storage/' . $project->plan_image) }}" alt="plan image" style="max-height: 50px;"> --}}
                     @endif
                 </td>
                 <td>{{ $project->created_at }}</td>
@@ -43,6 +41,7 @@
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this project?');">Delete</button>
                     </form>
+                    <button class="btn btn-info btn-sm send-newsletter" data-id="{{ $project->id }}">Send Newsletter</button>
                 </td>
             </tr>
             @endforeach
@@ -54,3 +53,29 @@
 </div>
 
 @include('layouts.footerA')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.send-newsletter').forEach(button => {
+            button.addEventListener('click', function() {
+                let projectId = this.dataset.id;
+
+                fetch(`/admin/subscriber/send-newsletter/project/${projectId}`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Newsletter sent successfully');
+                    } else {
+                        alert('Error sending newsletter: ' + data.message);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        });
+    });
+</script>

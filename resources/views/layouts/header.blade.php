@@ -107,7 +107,7 @@
                     <div class="text-end">
                         <div class="dropdown">
                             <button class="dropdown-toggle" type="button" id="languageDropdown"
-                               style="{{ request()->routeIs(['register', 'login']) ? 'color: black;' : 'color: white;' }}">
+                                style="{{ request()->routeIs(['register', 'login']) ? 'color: black;' : 'color: white;' }}">
                                 {{ strtoupper(app()->getLocale()) }}
                             </button>
                             <div class="dropdown-menu" id="dropdownMenu">
@@ -120,37 +120,41 @@
                             <a href="{{ route('logout', ['locale' => app()->getLocale()]) }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                                 class="logout-a">
-                                <i class="fa fa-sign-out punkt-menu {{ request()->routeIs(['register', 'login']) ? 'black-imp' : 'white-imp' }}" aria-hidden="true"  ></i>
+                                <i class="fa fa-sign-out punkt-menu {{ request()->routeIs(['register', 'login']) ? 'black-imp' : 'white-imp' }}"
+                                    aria-hidden="true"></i>
                             </a>
+                            <script>
+                                document.querySelector('a[href="{{ route('logout', ['locale' => app()->getLocale()]) }}"]').addEventListener(
+                                    'click',
+                                    function(event) {
+                                        event.preventDefault();
+                                        if (confirm('Are you sure you want to log out?')) {
+                                            document.getElementById('logout-form').submit();
+                                        }
+                                    });
+                            </script>
                             <form id="logout-form" action="{{ route('logout', ['locale' => app()->getLocale()]) }}"
-                                  method="POST" style="display: none;">
+                                method="POST" style="display: none;">
                                 @csrf
                             </form>
                         @else
                             <a href="{{ route('register', ['locale' => app()->getLocale()]) }}" style="color: transparent">
-                                <i class="fa fa-user punkt-menu {{ request()->routeIs(['register', 'login']) ? 'black-imp' : 'white-imp' }}" aria-hidden="true"></i>
+                                <i class="fa fa-user punkt-menu {{ request()->routeIs(['register', 'login']) ? 'black-imp' : 'white-imp' }}"
+                                    aria-hidden="true"></i>
                             </a>
                         @endauth
-                        <i class="fa fa-shopping-cart punkt-menu" style="{{ request()->routeIs(['register', 'login']) ? 'color: black;' : 'color: white;' }}" aria-hidden="true" id="cartIcon"></i>
-                    
-                        
-                        <script>
-                            document.querySelector('a[href="{{ route('logout', ['locale' => app()->getLocale()]) }}"]').addEventListener(
-                                'click',
-                                function(event) {
-                                    event.preventDefault();
-                                    if (confirm('Are you sure you want to log out?')) {
-                                        document.getElementById('logout-form').submit();
-                                    }
-                                });
-                        </script>
-                        
+                        <i class="fa fa-shopping-cart punkt-menu"
+                            style="{{ request()->routeIs(['register', 'login']) ? 'color: black;' : 'color: white;' }}"
+                            aria-hidden="true" id="cartIcon"></i>
+
+
                         @auth
                             <a href="{{ route('favorite.show', ['locale' => app()->getLocale()]) }}"><i
-                                    class="fa fa-heart punkt-menu {{ request()->routeIs(['register', 'login']) ? 'black-imp' : 'white-imp' }}" aria-hidden="true" style="color:white"></i></a>
+                                    class="fa fa-heart punkt-menu {{ request()->routeIs(['register', 'login']) ? 'black-imp' : 'white-imp' }}"
+                                    aria-hidden="true" style="color:white"></i></a>
                         @endauth
-                        <i class="fa fa-shopping-cart punkt-menu {{ request()->routeIs(['register', 'login']) ? 'black-imp' : 'white-imp' }}" aria-hidden="true" style="color:white"
-                            id="cartIcon"></i>
+                        <i class="fa fa-shopping-cart punkt-menu {{ request()->routeIs(['register', 'login']) ? 'black-imp' : 'white-imp' }}"
+                            aria-hidden="true" style="color:white" id="cartIcon"></i>
                     </div>
                 </div>
             </header>
