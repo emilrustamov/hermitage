@@ -1,0 +1,27 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "@popperjs/core": "^2.11.8",
+        "@vitejs/plugin-legacy": "^5.4.0",
+        "axios": "^1.6.4",
+        "bootstrap": "^5.3.3",
+        "laravel-vite-plugin": "^1.0.3",
+        "sass": "^1.77.2",
+        "vite": "^5.0.0"
+    },
+    "dependencies": {
+        "@floating-ui/dom": "^1.6.5",
+        "@fortawesome/fontawesome-free": "^6.5.2",
+        "@popperjs/bundle": "^1.0.2",
+        "font-awesome": "^4.7.0",
+        "jquery": "^3.7.1",
+        "jquery-slim": "^3.0.0",
+        "lightbox2": "^2.11.4",
+        "slick-carousel": "^1.8.1"
+    }
+}
