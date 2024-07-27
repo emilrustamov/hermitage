@@ -86,7 +86,7 @@
                                         <li>Вакансии</li>
                                     </a>
                                     <a class="nav-link"
-                                        href="{{ route('projectcalc', ['locale' => app()->getLocale()]) }}">
+                                        href="{{ route('requests.index', ['locale' => app()->getLocale()]) }}">
                                         <li>Заказать проект</li>
                                     </a>
                                     <a class="nav-link"
