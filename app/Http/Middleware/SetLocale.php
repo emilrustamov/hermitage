@@ -12,7 +12,7 @@ class SetLocale
     public function handle($request, Closure $next)
     {
         // Исключаем маршруты админки и файлового менеджера
-        if ($request->is('admin/*') || $request->is('filemanager*') || $request->is('laravel-filemanager*') || $request->is('logout*') || $request->is('login*') || $request->is('reset*')) {
+        if ($request->is('admin/*') || $request->is('filemanager*') || $request->is('laravel-filemanager*') || $request->is('logout*') || $request->is('login*') || $request->is('reset*')  || $request->is('password*'))  {
             return $next($request);
         }
 

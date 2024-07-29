@@ -1672,3 +1672,23 @@ footer {
 .white-imp{
   color: white !important;
 }
+
+.new-badge-abs{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: red;
+}
+
+.remove-item{
+  color: white;
+}
+
+.cart-prod-img{
+  margin: 0 10px;
+}
+
+#clearCart{
+  border-radius: 0;
+  padding: 14px 0;
+}

@@ -22,10 +22,6 @@ class Websitemail extends Mailable
     public function build()
     {
         return $this->subject($this->subject)
-                    ->view('email.new_blog_post')
-                    ->with([
-                        'body' => $this->body,
-                        // 'link' => $this->link
-                    ]);
+                    ->html($this->body);
     }
 }

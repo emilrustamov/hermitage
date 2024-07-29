@@ -7,9 +7,8 @@
         </p>
     </div>
     <div class="col-lg-6  align-self-center d-flex flex-column">
-        <form action="{{ route('subscribe') }}" method="post" class="row">
+        <form action="{{ route('subscribe', ['locale' => app()->getLocale()]) }}" method="post" class="row">
             @csrf
-
             <div class="form-group mb-3 col-lg-9 col-6  align-self-center d-flex flex-column">
                 <input type="text" name="email" class="form-control" placeholder="Email Address">
 
@@ -50,7 +49,7 @@
         <div class="col-lg-3 col-6  py-3">
             <p class="ul-title">Заказать проект</p>
             <ul class="unstyle p-0">
-                <li> <a href="{{ route('projectcalc', ['locale' => app()->getLocale()]) }}">Расчет стоимости индивидуального проекта </a>
+                <li> <a href="{{ route('requests.index', ['locale' => app()->getLocale()]) }}">Расчет стоимости индивидуального проекта </a>
                 <li> <a href="{{ route('models.public.index', ['locale' => app()->getLocale()]) }}">3D модели</a>
             </ul>
         </div>

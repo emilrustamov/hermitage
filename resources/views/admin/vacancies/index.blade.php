@@ -14,6 +14,7 @@
                 <th>Created At</th>
                 <th>Updated At</th>
                 <th>Actions</th>
+                <th>Newsletter</th>
             </tr>
         </thead>
         <tbody>
@@ -37,6 +38,9 @@
                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this vacancy?');">Delete</button>
                     </form>
                 </td>
+                <td>
+                    <button class="btn btn-primary btn-sm send-newsletter" data-id="{{ $vacancy->id }}">Send Newsletter</button>
+                </td>
             </tr>
             @endforeach
         </tbody>
@@ -47,3 +51,30 @@
 </div>
 
 @include('layouts.footerA')
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.send-newsletter').forEach(button => {
+            button.addEventListener('click', function() {
+                let vacancyId = this.dataset.id;
+
+                fetch(`/admin/subscriber/send-newsletter/${vacancyId}`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Newsletter sent successfully');
+                    } else {
+                        alert('Error sending newsletter');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        });
+    });
+</script>

@@ -1,8 +1,10 @@
 @include('layouts.headerA', ['hasimage' => false])
 
 <div class="admin-index">
-    <h1>Admin - Contracts</h1>
-    <a href="{{ route('admin.contracts.create') }}" class="btn btn-primary mb-3">Create New Contract</a>
+    <div class="d-flex justify-content-between">
+        <h1>Admin - Contracts</h1>
+        <a href="{{ route('admin.contracts.create') }}" class="btn btn-primary mb-3">Create New Contract</a>
+    </div>
     <table class="table table-bordered">
         <thead>
             <tr>

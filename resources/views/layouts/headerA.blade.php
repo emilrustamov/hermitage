@@ -67,6 +67,9 @@
                                         <a class="nav-link <?php if (request()->is('admin/contracts*')) { echo 'active'; } ?>" href="{{ route('admin.contracts.index') }}">
                                             <li>Контракты</li>
                                         </a>
+                                        <a class="nav-link <?php if (request()->is('admin/requests*')) { echo 'active'; } ?>" href="{{ route('admin.requests.index') }}">
+                                            <li>Заявки на расчёт</li>
+                                        </a>
                                         
     
                                     </ul>
