@@ -116,8 +116,10 @@
                 const itemHtml = `
             <div class="product-item" data-id="${item.id}">
                 <div class="product">
-                    <img src="${item.image}" alt="Product Image" width="40px" height="40px">
-                    <p class="product-cart-title">${item.title}</p>
+                    <div class="d-flex">
+                        <img src="${item.image}" alt="Product Image" width="40px" height="40px">
+                        <p class="product-cart-title">${item.title}</p>
+                    </div>
                     <div class="d-flex justify-content-between">
                         <div class="d-flex flex-column">
                             <p class="product-price-info">Цена за единицу товара:</p>
