@@ -107,7 +107,7 @@
                     <div class="text-end">
                         <div class="dropdown">
                             <button class="dropdown-toggle" type="button" id="languageDropdown"
-                                style="{{ request()->routeIs(['register', 'login']) ? 'color: black;' : 'color: white;' }}">
+                                style="{{ request()->routeIs(['register', 'login', 'password.request']) ? 'color: black;' : 'color: white;' }}">
                                 {{ strtoupper(app()->getLocale()) }}
                             </button>
                             <div class="dropdown-menu" id="dropdownMenu">
@@ -120,7 +120,7 @@
                             <a href="{{ route('logout', ['locale' => app()->getLocale()]) }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                                 class="logout-a">
-                                <i class="fa fa-sign-out punkt-menu {{ request()->routeIs(['register', 'login']) ? 'black-imp' : 'white-imp' }}"
+                                <i class="fa fa-sign-out punkt-menu {{ request()->routeIs(['register', 'login', 'password.request']) ? 'black-imp' : 'white-imp' }}"
                                     aria-hidden="true"></i>
                             </a>
                             <script>
@@ -139,22 +139,20 @@
                             </form>
                         @else
                             <a href="{{ route('register', ['locale' => app()->getLocale()]) }}" style="color: transparent">
-                                <i class="fa fa-user punkt-menu {{ request()->routeIs(['register', 'login']) ? 'black-imp' : 'white-imp' }}"
+                                <i class="fa fa-user punkt-menu {{ request()->routeIs(['register', 'login', 'password.request']) ? 'black-imp' : 'white-imp' }}"
                                     aria-hidden="true"></i>
                             </a>
                         @endauth
                         <i class="fa fa-shopping-cart punkt-menu"
-                            style="{{ request()->routeIs(['register', 'login']) ? 'color: black;' : 'color: white;' }}"
+                            style="{{ request()->routeIs(['register', 'login', 'password.request']) ? 'color: black;' : 'color: white;' }}"
                             aria-hidden="true" id="cartIcon"></i>
 
 
                         @auth
                             <a href="{{ route('favorite.show', ['locale' => app()->getLocale()]) }}"><i
-                                    class="fa fa-heart punkt-menu {{ request()->routeIs(['register', 'login']) ? 'black-imp' : 'white-imp' }}"
+                                    class="fa fa-heart punkt-menu {{ request()->routeIs(['register', 'login', 'password.request']) ? 'black-imp' : 'white-imp' }}"
                                     aria-hidden="true" style="color:white"></i></a>
                         @endauth
-                        <i class="fa fa-shopping-cart punkt-menu {{ request()->routeIs(['register', 'login']) ? 'black-imp' : 'white-imp' }}"
-                            aria-hidden="true" style="color:white" id="cartIcon"></i>
                     </div>
                 </div>
             </header>

@@ -115,23 +115,37 @@
             cart.forEach(item => {
                 const itemHtml = `
             <div class="product-item" data-id="${item.id}">
-                <div class="product">
-                    <img src="${item.image}" alt="Product Image" width="40px" height="40px">
-                    <p class="product-cart-title">${item.title}</p>
-                    <div class="d-flex justify-content-between">
-                        <div class="d-flex flex-column">
-                            <p class="product-price-info">Цена за единицу товара:</p>
-                            <div class="quantity-control">
-                                <button class="decrease-quantity my-auto" data-id="${item.id}">-</button>
-                                <p class="quant my-auto">${item.quantity}</p>
-                                <button class="increase-quantity my-auto" data-id="${item.id}">+</button>
-                            </div>
-                        </div>
-                        <p class="product-price">${item.price} TMT</p>
+  <div class="product">
+        <div class="d-flex justify-content-between">
+            <div class="d-flex">
+                 <button class="remove-item btn my-auto" data-id="${item.id}">
+    <i class="fa-regular fa-trash-can"></i>
+  </button>
+                <img src="${item.image}" alt="Product Image" width="40px" height="40px" class="align-self-center cart-prod-img"/>
+                <div>
+                  <p class="product-cart-title">${item.title}</p>
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-column">
+                      <p class="product-price-info">Цена за единицу товара:</p>
+                      <div class="quantity-control">
+                        <button class="decrease-quantity my-auto" data-id="${item.id}">
+                          -
+                        </button>
+                        <p class="quant my-auto">${item.quantity}</p>
+                        <button class="increase-quantity my-auto" data-id="${item.id}">
+                          +
+                        </button>
+                      </div>
                     </div>
-                </div>
-                <button class="remove-item btn btn-danger my-auto" data-id="${item.id}">Удалить</button>
             </div>
+            </div>
+                </div>
+        <p class="product-price">${item.price} TMT</p>
+      </div>
+  </div>
+ 
+</div>
+
             
         `;
                 cartItems.insertAdjacentHTML('beforeend', itemHtml);

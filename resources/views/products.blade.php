@@ -63,7 +63,7 @@
                         data-sort="{{ $product->price }}">
                         <div class="product-image-container">
                             @if ($product->is_new)
-                                <span class="badge badge-secondary">New</span>
+                                <span class="badge badge-secondary new-badge-abs">New</span>
                             @endif
                             @auth
                                 <button class="favorite-btn" data-id="{{ $product->id }}">
