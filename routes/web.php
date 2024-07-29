@@ -206,6 +206,7 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'web'], function () {
 
 
 
+
 });
 
 

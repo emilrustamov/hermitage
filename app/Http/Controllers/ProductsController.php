@@ -55,6 +55,10 @@ class ProductsController extends Controller
                 $query->orderBy('price', 'asc');
             } elseif ($request->sort_by == 'price_desc') {
                 $query->orderBy('price', 'desc');
+            } elseif ($request->sort_by == 'newest_asc') {
+                $query->orderBy('created_at', 'asc');
+            } elseif ($request->sort_by == 'newest_desc') {
+                $query->orderBy('created_at', 'desc');
             }
         } else {
             $query->orderBy('created_at', 'desc');
@@ -90,6 +94,10 @@ class ProductsController extends Controller
                 $query->orderBy('price', 'asc');
             } elseif ($request->sort_by == 'price_desc') {
                 $query->orderBy('price', 'desc');
+            } elseif ($request->sort_by == 'newest_asc') {
+                $query->orderBy('created_at', 'asc');
+            } elseif ($request->sort_by == 'newest_desc') {
+                $query->orderBy('created_at', 'desc');
             }
         } else {
             $query->orderBy('created_at', 'desc');
@@ -334,6 +342,7 @@ class ProductsController extends Controller
         return response()->json(['message' => 'Product removed from favorites']);
     }
 
+    
     public function showFavorites()
     {
         $user = auth()->user();
