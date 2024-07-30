@@ -11,8 +11,6 @@
         margin: 10px 0 15px;
     }
 
-
-
     .product-item {
         /* display: flex; */
         color: white;
@@ -51,7 +49,7 @@
         margin: 0 40px;
     }
 </style>
-<div class="cart-sidebar" id="sidebar">
+<div class="cart-sidebar closed" id="sidebar" >
     <div class="cart-header">
         <div class="d-flex align-items-center justify-content-between">
             <img src="{{ asset('/images/icons/close.png') }}" id="closeSidebar" alt="">
@@ -143,11 +141,7 @@
         <p class="product-price">${item.price} TMT</p>
       </div>
   </div>
- 
-</div>
-
-            
-        `;
+</div>`;
                 cartItems.insertAdjacentHTML('beforeend', itemHtml);
                 total += item.price * item.quantity;
             });
@@ -186,8 +180,7 @@
                 saveCart(cart);
                 loadCart();
 
-                openSidebar();
-            });
+                        });
         });
 
         document.querySelector('.cart-items').addEventListener('click', function(event) {
@@ -286,92 +279,38 @@
         });
 
     });
-    // document.addEventListener('DOMContentLoaded', function() {
-    //     document.querySelectorAll('.favorite-btn').forEach(button => {
-    //         button.addEventListener('click', function() {
-    //             let productId = this.dataset.id;
-
-    //             fetch(`/${locale}/favorite/add`, {
-    //                     method: 'POST',
-    //                     headers: {
-    //                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
-    //                         'Content-Type': 'application/json'
-    //                     },
-    //                     body: JSON.stringify({
-    //                         product_id: productId
-    //                     })
-    //                 })
-    //                 .then(response => {
-    //                     console.log('Ответ от сервера:', response);
-    //                     if (!response.ok) {
-    //                         return response.text().then(text => {
-    //                             throw new Error(text);
-    //                         });
-    //                     }
-    //                     return response.json();
-    //                 })
-    //                 .then(data => {
-    //                     console.log('Полученные данные:', data);
-    //                     if (data.message === 'Product added to favorites') {
-    //                         alert('Товар добавлен в избранное');
-    //                     } else {
-    //                         alert('Ошибка при добавлении в избранное');
-    //                     }
-    //                 })
-    //                 .catch(error => {
-    //                     console.error('Ошибка:', error);
-    //                     alert('Ошибка при добавлении в избранное: ' + error.message);
-    //                 });
-    //         });
-    //     });
-    // });
-
 
 
 
     // Функции для работы с сайдбаром
+    document.addEventListener('DOMContentLoaded', function() {
     var cartIcon = document.getElementById('cartIcon');
     var sidebar = document.getElementById('sidebar');
     var closeSidebar = document.getElementById('closeSidebar');
 
-    // Открываем/закрываем сайдбар при клике на иконку корзины
     cartIcon.addEventListener('click', function() {
-        toggleSidebar();
+        sidebar.classList.toggle('closed');
     });
 
-    // Закрываем сайдбар при клике на крестик
     closeSidebar.addEventListener('click', function() {
-        closeSidebarFunction();
+        sidebar.classList.add('closed');
     });
 
-    // Закрываем сайдбар при клике вне него
     window.addEventListener('click', function(event) {
         if (event.target !== cartIcon && event.target !== sidebar && !sidebar.contains(event.target)) {
-            closeSidebarFunction();
+            sidebar.classList.add('closed');
         }
     });
 
     function openSidebar() {
-        var sidebarStyle = window.getComputedStyle(sidebar);
-        var sidebarRight = sidebarStyle.getPropertyValue('right');
+        sidebar.classList.remove('closed');
+    }
 
-        if (sidebarRight !== '0px' && sidebarRight !== '0') {
-            sidebar.style.right = '0';
+    document.querySelector('.cart-items').addEventListener('click', function(event) {
+        if (event.target.classList.contains('increase-quantity') || event.target.classList.contains('decrease-quantity') || event.target.classList.contains('remove-item')) {
+            event.stopPropagation(); // Предотвращаем закрытие корзины
         }
-    }
+    });
+});
 
-    function toggleSidebar() {
-        var sidebarStyle = window.getComputedStyle(sidebar);
-        var sidebarRight = sidebarStyle.getPropertyValue('right');
-
-        if (sidebarRight === '0px' || sidebarRight === '0') {
-            sidebar.style.right = '-27%';
-        } else {
-            sidebar.style.right = '0';
-        }
-    }
-
-    function closeSidebarFunction() {
-        sidebar.style.right = '-27%';
-    }
 </script>

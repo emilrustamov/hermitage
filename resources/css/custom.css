@@ -602,11 +602,12 @@ footer ul li a {
   width: 350px;
   color: #333;
 }
-
+.cart-sidebar.closed {
+  right: -27%;
+}
 .cart-sidebar {
   position: fixed;
   top: 0;
-  right: -27%;
   /* начальное положение сайдбара за пределами экрана */
   width: 27%;
   height: 100%;

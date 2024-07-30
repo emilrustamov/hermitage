@@ -131,51 +131,50 @@
             originalOrder.sort((a, b) => a.index - b.index);
             originalOrder.forEach(item => nav.appendChild(item.element));
         }
+    });
+    $(document).ready(function() {
+        $(".content-appearance").slice(0, 12).show();
+        $("#loadMore").on("click", function(e) {
+            e.preventDefault();
+            $(".content-appearance:hidden").slice(0, 4).slideDown();
+            if ($(".content-appearance:hidden").length == 0) {
+                $("#loadMore").text("Нет элементов").addClass("noContent");
+            }
+        });
 
-        $(document).ready(function() {
-            $(".content-appearance").slice(0, 12).show();
-            $("#loadMore").on("click", function(e) {
-                e.preventDefault();
-                $(".content-appearance:hidden").slice(0, 4).slideDown();
-                if ($(".content-appearance:hidden").length == 0) {
-                    $("#loadMore").text("Нет элементов").addClass("noContent");
-                }
-            });
+        document.querySelectorAll('.favorite-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                let productId = this.dataset.id;
+                let button = this;
 
-            document.querySelectorAll('.favorite-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    let productId = this.dataset.id;
-                    let button = this;
+                let url = `/${locale}/favorite/` + (button.querySelector('i')
+                    .classList.contains('fa-regular') ? 'add' : 'remove');
 
-                    let url = `/${locale}/favorite/` + (button.querySelector('i')
-                        .classList.contains('fa-regular') ? 'add' : 'remove');
-
-                    fetch(url, {
-                            method: 'POST',
-                            headers: {
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({
-                                product_id: productId
-                            })
+                fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            product_id: productId
                         })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.message === 'Product added to favorites') {
-                                button.querySelector('i').classList.add('fa-solid');
-                                button.querySelector('i').classList.remove(
-                                    'fa-regular');
-                            } else if (data.message ===
-                                'Product removed from favorites') {
-                                button.querySelector('i').classList.add(
-                                    'fa-regular');
-                                button.querySelector('i').classList.remove(
-                                    'fa-solid');
-                            }
-                        })
-                        .catch(error => console.error('Error:', error));
-                });
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.message === 'Product added to favorites') {
+                            button.querySelector('i').classList.add('fa-solid');
+                            button.querySelector('i').classList.remove(
+                                'fa-regular');
+                        } else if (data.message ===
+                            'Product removed from favorites') {
+                            button.querySelector('i').classList.add(
+                                'fa-regular');
+                            button.querySelector('i').classList.remove(
+                                'fa-solid');
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
             });
         });
     });
