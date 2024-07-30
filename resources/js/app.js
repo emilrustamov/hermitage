@@ -12,5 +12,5 @@ import './slick-custom';
 import './customJs';
 import 'lightbox2';
 import "@fancyapps/fancybox/dist/jquery.fancybox.min.js";
-import "@fancyapps/fancybox/dist/jquery.fancybox.min.css";
+
 
