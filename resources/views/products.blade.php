@@ -57,7 +57,7 @@
                 @foreach ($products as $product)
                     <div class="content-appearance col-lg-3 p-0 product-card" id="content-price"
                         data-sort="{{ $product->price }}">
-                        <div class="product-image-container">
+                        <div class="product-image-container" style="background-image: url('{{ $product->image }}'); background-size: cover">
                             @if ($product->is_new)
                                 <span class="badge badge-secondary new-badge-abs">New</span>
                             @endif
@@ -66,7 +66,7 @@
                                     <i class="fa fa-heart"></i>
                                 </button>
                             @endauth
-                            <img src="{{ asset($product->image) }}" alt="Product Image" class="product-img">
+                            {{-- <img src="{{ asset($product->image) }}" alt="Product Image" class="product-img"> --}}
                         </div>
                         <div class="hover-content">
                             <div class="d-flex justify-content-between">
