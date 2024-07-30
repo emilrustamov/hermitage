@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //     }
     // });
 
-   
+
 
     // function closeSidebarFunction() {
     //     sidebar.style.right = '-27%';
@@ -69,14 +69,13 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.observe(element);
     });
    
+});
 
+// Проверяем, существует ли элемент с id 'partnersDropdown'
+var partnersDropdownToggle = document.getElementById('partnersDropdown');
+var partnersDropdownMenu = document.getElementById('partnersMenu');
 
-
-
-    //partnersDropdown
-    var partnersDropdownToggle = document.getElementById('partnersDropdown');
-    var partnersDropdownMenu = document.getElementById('partnersMenu');
-
+if (partnersDropdownToggle && partnersDropdownMenu) {
     partnersDropdownToggle.addEventListener('click', function () {
         if (partnersDropdownMenu.style.display === 'none') {
             partnersDropdownMenu.style.display = 'block';
@@ -90,8 +89,4 @@ document.addEventListener('DOMContentLoaded', function () {
             partnersDropdownMenu.style.display = 'none';
         }
     });
-
-});
-
-
-
+}

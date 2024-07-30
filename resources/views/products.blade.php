@@ -61,7 +61,8 @@
                 @foreach ($products as $product)
                     <div class="content-appearance col-lg-3 p-0 product-card" id="content-price"
                         data-sort="{{ $product->price }}">
-                        <div class="product-image-container">
+                        <div class="product-image-container"
+                            style="background-image: url('{{ $product->image }}'); background-size: cover">
                             @if ($product->is_new)
                                 <span class="badge badge-secondary new-badge-abs">New</span>
                             @endif
@@ -72,7 +73,7 @@
                                 </button>
 
                             @endauth
-                            <img src="{{ asset($product->image) }}" alt="Product Image" class="product-img">
+                            {{-- <img src="{{ asset($product->image) }}" alt="Product Image" class="product-img"> --}}
                         </div>
                         <div class="hover-content">
                             <div class="d-flex justify-content-between">
@@ -90,7 +91,27 @@
         {{ $products->links() }}
     </div>
 </div>
-
+<div id="toast-container" class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">Уведомление</strong>
+        </div>
+        <div class="toast-body">
+            Товар добавлен в корзину
+        </div>
+    </div>
+</div>
+<div id="toast-favorite-container" class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToastFavorite" class="toast" role="alert" aria-live="assertive" aria-atomic="true"
+        style="display: none;">
+        <div class="toast-header">
+            <strong class="me-auto">Уведомление</strong>
+        </div>
+        <div class="toast-body">
+            <!-- Сообщение будет обновлено в JavaScript -->
+        </div>
+    </div>
+</div>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const originalOrder = [];
@@ -132,33 +153,32 @@
             originalOrder.forEach(item => nav.appendChild(item.element));
         }
     });
-    $(document).ready(function() {
-        $(".content-appearance").slice(0, 12).show();
-        $("#loadMore").on("click", function(e) {
-            e.preventDefault();
-            $(".content-appearance:hidden").slice(0, 4).slideDown();
-            if ($(".content-appearance:hidden").length == 0) {
-                $("#loadMore").text("Нет элементов").addClass("noContent");
-            }
-        });
+    // $(document).ready(function() {
+    //     $(".content-appearance").slice(0, 12).show();
+    //     $("#loadMore").on("click", function(e) {
+    //         e.preventDefault();
+    //         $(".content-appearance:hidden").slice(0, 4).slideDown();
+    //         if ($(".content-appearance:hidden").length == 0) {
+    //             $("#loadMore").text("Нет элементов").addClass("noContent");
+    //         }
+    //     });
 
-        document.querySelectorAll('.favorite-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                let productId = this.dataset.id;
-                let button = this;
+    document.querySelectorAll('.favorite-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            let productId = this.dataset.id;
+            let button = this;
 
-                let url = `/${locale}/favorite/` + (button.querySelector('i')
-                    .classList.contains('fa-regular') ? 'add' : 'remove');
+            let url = `/${locale}/favorite/` + (button.querySelector('i')
+                .classList.contains('fa-regular') ? 'add' : 'remove');
 
-                fetch(url, {
-                        method: 'POST',
-                        headers: {
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            product_id: productId
-                        })
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                        product_id: productId
                     })
                     .then(response => response.json())
                     .then(data => {
@@ -166,18 +186,36 @@
                             button.querySelector('i').classList.add('fa-solid');
                             button.querySelector('i').classList.remove(
                                 'fa-regular');
+                            showFavoriteToast('Товар добавлен в избранное');
                         } else if (data.message ===
                             'Product removed from favorites') {
                             button.querySelector('i').classList.add(
                                 'fa-regular');
                             button.querySelector('i').classList.remove(
                                 'fa-solid');
+                            showFavoriteToast('Товар удален из избранного');
                         }
                     })
-                    .catch(error => console.error('Error:', error));
+                    .catch(error => console.error('Error:', error))
             });
         });
     });
+
+
+    function showFavoriteToast(message) {
+        let toastEl = $('#liveToastFavorite');
+
+        // Изменить сообщение Toast
+        toastEl.find('.toast-body').text(message);
+
+        // Показать Toast с использованием jQuery fadeIn
+        toastEl.fadeIn(500, function() {
+            setTimeout(function() {
+                // Скрыть Toast с использованием jQuery fadeOut
+                toastEl.fadeOut(500);
+            }, 2000); // Длительность показа Toast перед скрытием
+        });
+    }
 </script>
 
 

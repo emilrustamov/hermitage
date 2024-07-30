@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    @include('layouts.headerA',  ['hasimage' => false])
+    @include('layouts.headerA', ['hasimage' => false])
     <div class="admin-index">
         <div class="container mt-5">
             <h1>Create Project</h1>
@@ -266,9 +266,11 @@
                 <div class="form-group mt-3">
                     <label for="photos">Photos</label>
                     <div class="input-group">
-                        <input id="photos" class="form-control @error('photos') is-invalid @enderror" type="text" name="photos">
+                        <input id="photos" class="form-control @error('photos') is-invalid @enderror"
+                            type="text" name="photos">
                         <span class="input-group-append">
-                            <button id="lfm3" data-input="photos" data-preview="holder3" class="btn btn-primary" type="button">
+                            <button id="lfm3" data-input="photos" data-preview="holder3"
+                                class="btn btn-primary" type="button">
                                 <i class="fa fa-picture-o"></i> Choose
                             </button>
                         </span>
@@ -280,7 +282,7 @@
                         </span>
                     @enderror
                 </div>
-                
+
 
                 <div class="form-group form-check mt-3">
                     <input type="checkbox" class="form-check-input" id="is_active" name="is_active" checked>
@@ -301,7 +303,7 @@
         $('#lfm').filemanager('image');
         $('#lfm1').filemanager('file');
         $('#lfm2').filemanager('image');
-        $('#lfm3').filemanager('image'); 
+        $('#lfm3').filemanager('image');
     </script>
 
 </body>
