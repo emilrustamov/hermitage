@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\CertificatesController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\RequestsController;
 use App\Http\Controllers\ProjectCalcController;
 use App\Http\Controllers\ThreedController;
 use App\Http\Controllers\VacancyController;
@@ -146,6 +147,8 @@ Route::prefix('admin')->middleware(['web', 'auth', 'admin.access'])->group(funct
 
     Route::get('/orders', [OrderController::class, 'index'])->name('admin.orders.index');
     Route::put('/orders/{id}/status', [OrderController::class, 'updateStatus'])->name('admin.orders.updateStatus');
+
+    Route::get('/requests', [RequestsController::class, 'adminIndex'])->name('admin.requests.index');
 });
 
 
@@ -178,22 +181,22 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'web'], function () {
 
     Route::get('/models', [ModelsController::class, 'publicIndex'])->name('models.public.index')->middleware('auth', 'check.status');
     Route::get('/models/{id}', [ModelsController::class, 'publicShow'])->name('models.public.show')->middleware('auth', 'check.status');
-    
+
     Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register')->middleware('guest');
     Route::post('/register', [RegisterController::class, 'register'])->name('register.post')->middleware('guest');
     Route::get('/products', [ProductsController::class, 'publicIndex'])->name('products.index');
     Route::get('/products_new', [ProductsController::class, 'publicIndexNew'])->name('productsnew.index');
 
     Route::post('/favorite/add', [ProductsController::class, 'addToFavorites'])->name('favorite.add')->middleware('auth', 'check.status');
-    Route::post('/favorite/remove', [ProductsController::class, 'removeFromFavorites'])->name('favorite.remove')->middleware('auth' , 'check.status');
-    Route::get('/favorite', [ProductsController::class, 'showFavorites'])->name('favorite.show')->middleware('auth' , 'check.status');
-    
+    Route::post('/favorite/remove', [ProductsController::class, 'removeFromFavorites'])->name('favorite.remove')->middleware('auth', 'check.status');
+    Route::get('/favorite', [ProductsController::class, 'showFavorites'])->name('favorite.show')->middleware('auth', 'check.status');
+
     Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
-    Route::get('/projectcalc', [ProjectCalcController::class, 'index'])->name('projectcalc');
+    Route::post('/requests/store', [RequestsController::class, 'store'])->name('requests.store');
+    Route::get('/requests', [RequestsController::class, 'index'])->name('requests.index');
     Route::get('/certificates', [CertificatesController::class, 'publicIndex'])->name('certificates.index');
     Route::get('/partners', [PartnerController::class, 'showPartners'])->name('partners.index');
     Route::get('/areas', [AreasController::class, 'index'])->name('areas');
-
 });
 
 // Route::get('/', [SubscriberController::class, 'subscriber_form'])->name('form');

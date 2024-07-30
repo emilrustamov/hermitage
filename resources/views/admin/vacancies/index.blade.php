@@ -2,18 +2,18 @@
 
 <div class="admin-index">
     <div class="d-flex justify-content-between">
-        <h1>Admin - Vacancies</h1>
-        <a href="{{ route('admin.vacancies.create') }}" class="btn btn-primary mb-3">Create New Vacancy</a>
+        <h1>Вакансии Админа</h1>
+        <a href="{{ route('admin.vacancies.create') }}" class="btn btn-primary mb-3">Создать новую вакансию</a>
     </div>
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Title (RU)</th>
-                <th>Status</th>
-                <th>Image</th>
-                <th>Created At</th>
-                <th>Updated At</th>
-                <th>Actions</th>
+                <th>Название (RU)</th>
+                <th>Статус</th>
+                <th>Фото</th>
+                <th>Создать</th>
+                <th>Обновить</th>
+                <th>Действия</th>
             </tr>
         </thead>
         <tbody>
@@ -30,11 +30,11 @@
                 <td>{{ $vacancy->created_at }}</td>
                 <td>{{ $vacancy->updated_at }}</td>
                 <td>
-                    <a href="{{ route('admin.vacancies.edit', $vacancy->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{{ route('admin.vacancies.edit', $vacancy->id) }}" class="btn btn-warning btn-sm">Изменить</a>
                     <form action="{{ route('admin.vacancies.destroy', $vacancy->id) }}" method="POST" style="display:inline-block;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this vacancy?');">Delete</button>
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this vacancy?');">Удалить</button>
                     </form>
                 </td>
             </tr>

@@ -3,15 +3,15 @@
 <body>
     <div class="admin-index">
         <div class="container mt-5">
-            <h1>Create Partner</h1>
+            <h1>Создать Партнера</h1>
             <form action="{{ route('admin.partners.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <label for="title">Title</label>
+                    <label for="title">Название</label>
                     <input type="text" class="form-control" id="title" name="title" required>
                 </div>
                 <div class="form-group">
-                    <label for="category_id">Category</label>
+                    <label for="category_id">Категории</label>
                     <select name="category_id" class="form-control" required>
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->title_ru }}</option>
@@ -19,17 +19,17 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="ordering">Ordering</label>
+                    <label for="ordering">Заказы</label>
                     <input type="number" class="form-control" id="ordering" name="ordering" required>
                 </div>
                 <div class="form-group mt-3">
-                    <label for="image">Image</label>
+                    <label for="image">Фото</label>
                     <div class="input-group">
                         <input id="image" class="form-control" type="text" name="image">
                         <span class="input-group-append">
                             <button id="lfm" data-input="image" data-preview="holder" class="btn btn-primary"
                                 type="button">
-                                <i class="fa fa-picture-o"></i> Choose
+                                <i class="fa fa-picture-o"></i> Выбрать
                             </button>
                         </span>
                     </div>
@@ -37,13 +37,13 @@
                 </div>
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" id="is_active" name="is_active" checked>
-                    <label class="form-check-label" for="is_active">Active</label>
+                    <label class="form-check-label" for="is_active">Действие</label>
                 </div>
                 <div class="form-group">
                     <label for="link">Link</label>
                     <input type="text" class="form-control" id="link" name="link" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Create</button>
+                <button type="submit" class="btn btn-primary">Создать</button>
             </form>
         </div>
     </div>

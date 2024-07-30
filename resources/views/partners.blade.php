@@ -26,7 +26,7 @@
     @endforeach
 
     @if ($categories->isEmpty())
-        <p>No partner categories found.</p>
+        <p>{{ __('translation.partner_title')}}</p>
     @endif
 
     {{-- <div class="mt-5">

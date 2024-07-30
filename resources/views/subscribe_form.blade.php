@@ -8,14 +8,14 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Hello, Subscriber!</title>
+    <title>{{ __('translation.sub_title')}}</title>
   </head>
   <body>
       <div class="text-center">
         <h1>Blog Portal</h1> <br>
         {{-- <p>This is a simple CRUD application.</p> --}}
         {{-- <a href="{{ route('blog_index') }}"> --}}
-          <button class="btn btn-md btn-success"> Show All Blog</button>
+          <button class="btn btn-md btn-success"> {{ __('translation.sub_btn')}}</button>
         </a>
       </div>
 
@@ -33,9 +33,9 @@
         {{-- <div class="form-group mb-3"></div> --}}
       <div class="col-md-6">
         <div class="item">
-            <h2 class="heading">Subscribe/Newsletter</h2>
+            <h2 class="heading">{{ __('translation.sub_h2')}}</h2>
             <p>
-                In order to get the latest news and other great items, please subscribe us here: 
+              {{ __('translation.sub_p1')}} 
             </p>
 
             <form action="{{ route('subscribe') }}" method="post">
@@ -49,17 +49,17 @@
                     @enderror
 
                 </div>
-                <button type="submit" class="btn btn-primary">Subscribe Now</button>
+                <button type="submit" class="btn btn-primary">{{ __('translation.sub_btn_now')}}</button>
             </form>
         </div>
     </div>
 </div>
 </div><br><br><br>
 <div class="text-center">
-    <h1>Blog User</h1>
-    <p>All Subscribe Send Message.</p>
+    <h1>{{ __('translation.sub_user')}}</h1>
+    <p>{{ __('translation.sub_send')}}</p>
     <a href="{{ route('admin_subscribers') }}">
-      <button class="btn btn-md btn-success"> Message</button>
+      <button class="btn btn-md btn-success"> {{ __('translation.sub_btn_message')}}</button>
     </a>
   </div>
 

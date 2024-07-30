@@ -1,18 +1,18 @@
 @include('layouts.headerA', ['hasimage' => false])
 
 <div class="admin-index">
-    <h1>Admin - Contracts</h1>
+    <h1>Админ-контракт</h1>
     <a href="{{ route('admin.contracts.create') }}" class="btn btn-primary mb-3">Create New Contract</a>
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Title (RU)</th>
-                <th>Status</th>
-                <th>Image</th>
-                <th>Plan Image</th>
-                <th>Created At</th>
-                <th>Updated At</th>
-                <th>Actions</th>
+                <th>Название (RU)</th>
+                <th>Статус</th>
+                <th>Фото</th>
+                <th>План фото</th>
+                <th>Создать</th>
+                <th>Обновить</th>
+                <th>Действия</th>
             </tr>
         </thead>
         <tbody>
@@ -33,7 +33,7 @@
                 <td>{{ $contract->created_at }}</td>
                 <td>{{ $contract->updated_at }}</td>
                 <td>
-                    <a href="{{ route('admin.contracts.edit', $contract->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{{ route('admin.contracts.edit', $contract->id) }}" class="btn btn-warning btn-sm">Изменить</a>
                     <form action="{{ route('admin.contracts.destroy', $contract->id) }}" method="POST" style="display:inline-block;">
                         @csrf
                         @method('DELETE')

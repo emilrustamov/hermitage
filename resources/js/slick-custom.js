@@ -56,11 +56,18 @@ $(function(){
     $(".logo-slider").slick({
         dots: false,
         arrows:false,
+        speed: 1000,
+        swipe: false,
+        // autoplaySpeed: 4000,
         // variableWidth: true,
+        pauseOnHover: false,
+        pauseOnFocus: false,
+        // draggable: false,
+        // easing: ''
         autoplay: true,
         infinite: true,
         slidesToShow: 7,
-        slidesToScroll: 1,
+        slidesToScroll: 7,
         centerMode: true
     });
 });

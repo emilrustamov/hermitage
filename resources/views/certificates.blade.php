@@ -16,6 +16,6 @@
             </div>
         @endforeach
     </div>
-    <p class="text-center">Компания HERMITAGE HOME INTERIORS обладает большим количеством сертификатов</p>
+    <p class="text-center">{{ __("translation.certificate") }}</p>
 </div>
 @include('layouts.footer')

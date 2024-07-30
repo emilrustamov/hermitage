@@ -29,23 +29,25 @@
     <p class="fs-3">{!! $data['description'] !!}</p>
 
     @if ($data['video'])
-        <div class="embed-responsive embed-responsive-16by9 mb-4">
+        <div class="embed-responsive embed-responsive-16by9 mb-4 d-flex justify-content-center">
             <iframe class="embed-responsive-item" src="{{ $data['video'] }}" allowfullscreen></iframe>
         </div>
     @endif
 
     @if ($data['plan_image'])
-        <div class="mb-4">
+        <div class="mb-4  d-flex justify-content-center">
             <img src="{{ asset($data['plan_image']) }}" class="img-fluid" alt="Plan Image">
         </div>
     @endif
 
     @if (!empty($data['photos']))
-        <div class="gallery">
+        <div class="gallery row">
             @foreach ($data['photos'] as $photo)
-                <div class="gallery-item">
+            <div class="gallery-item col-lg-3 mb-4">
+                <a href="{{ asset($photo) }}" data-lightbox="gallery" data-title="Photo">
                     <img src="{{ asset($photo) }}" class="img-fluid" alt="Photo">
-                </div>
+                </a>
+            </div>
             @endforeach
         </div>
     @endif

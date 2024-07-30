@@ -63,12 +63,9 @@
         </div>
         <div class="col-lg-4 align-self-center d-flex flex-column">
             <h1>{{ __('translation.about') }}</h1>
-            <div class="mb-4 fs-5">HERMITAGE HOME INTERIORS - это компания премиум класса, которая позволяет
-                почувствовать символ безупречного вкуса, синтеза современных технологий с традиционным итальянским
-                качеством, эксклюзивный современный дизайн и утончённый стиль , представляющий смесь различных культур и
-                времён.
+            <div class="mb-4 fs-5">{{ __('translation.home_title') }}
             </div>
-            <button>Узнать больше</button>
+            <button class="see-more-btn">{{ __('translation.home_btn')}}</button>
         </div>
     </div>
 </section>
@@ -100,7 +97,7 @@
             </div>
         </div>
     </div> --}}
-    <p class="text-center our-areas">Наши направления</p>
+    <p class="text-center our-areas">{{ __('translation.home_partners')}}</p>
     <div class="container">
         <div class="row areas-block">
             @foreach ($areas as $area)
@@ -120,10 +117,10 @@
         <img src="{{ asset('/images/fullkuhnya.jpg') }}" alt="">
         <div class="inspire-text d-flex flex-column justify-content-between text-center">
             <div class="d-flex flex-column">
-                <p class="inspire-title">Вдохновение</p>
-                <p class="inspire-sub">Ознакомьтесь с нашими последними жилыми и коммерческими проектами</p>
+                <p class="inspire-title">{{ __('translation.home_title_p1')}}</p>
+                <p class="inspire-sub">{{ __('translation.home_title_p2')}}</p>
             </div>
-            <p class="text-uppercase insp-proj">Проекты</p>
+            <p class="text-uppercase insp-proj">{{ __('translation.home_title_p3')}}</p>
         </div>
     </div></a>
     {{-- <div class="row">
@@ -185,7 +182,7 @@
     <div class="contacts-block">
         <img src="{{ asset('/images/yyldyz.jpg') }}" alt="">
         <div class="contracts-text d-flex flex-column justify-content-end text-center">
-            <p class="text-uppercase contr-proj">Контракты</p>
+            <p class="text-uppercase contr-proj">{{ __('translation.home_title_p4')}}</p>
         </div>
     </div></a>
 </section>

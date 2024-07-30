@@ -5,7 +5,7 @@
 
     <p>{!! $data['description'] !!}</p>
 
-    <a href="{{ route('blogs.index', ['locale' => app()->getLocale()]) }}" >Все блоги</a>
+    <a href="{{ route('blogs.index', ['locale' => app()->getLocale()]) }}" >{{ __('translation.blog_a')}}</a>
 </div>
 
 @include('layouts.footer')

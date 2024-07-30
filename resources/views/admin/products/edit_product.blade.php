@@ -26,19 +26,19 @@
                 <div class="tab-content" id="languageTabsContent">
                     <div class="tab-pane fade show active" id="ru" role="tabpanel" aria-labelledby="ru-tab">
                         <div class="form-group mt-3">
-                            <label for="title_ru">Title (RU)</label>
+                            <label for="title_ru">Название (RU)</label>
                             <input type="text" class="form-control" id="title_ru" name="title_ru" value="{{ $product->title_ru ?? '' }}" required>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="en" role="tabpanel" aria-labelledby="en-tab">
                         <div class="form-group mt-3">
-                            <label for="title_en">Title (EN)</label>
+                            <label for="title_en">Название (EN)</label>
                             <input type="text" class="form-control" id="title_en" name="title_en" value="{{ $product->title_en ?? '' }}" required>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tk" role="tabpanel" aria-labelledby="tk-tab">
                         <div class="form-group mt-3">
-                            <label for="title_tk">Title (TK)</label>
+                            <label for="title_tk">Название (TK)</label>
                             <input type="text" class="form-control" id="title_tk" name="title_tk" value="{{ $product->title_tk ?? '' }}" required>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                         <input id="image" class="form-control" type="text" name="image" value="{{ $product->image ?? '' }}">
                         <span class="input-group-append">
                             <button id="lfm" data-input="image" data-preview="holder" class="btn btn-primary" type="button">
-                                <i class="fa fa-picture-o"></i> Choose
+                                <i class="fa fa-picture-o"></i> Выбрать
                             </button>
                         </span>
                     </div>
@@ -58,15 +58,15 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <label for="order">Order</label>
+                    <label for="order">Порядок</label>
                     <input type="number" class="form-control" id="order" name="order" value="{{ $product->order ?? '' }}" required>
                 </div>
                 <div class="form-group">
-                    <label for="price">Price</label>
+                    <label for="price">Цена</label>
                     <input type="text" class="form-control" id="price" name="price" value="{{ $product->price ?? '' }}" required>
                 </div>
                 <div class="form-group">
-                    <label for="category_id">Category</label>
+                    <label for="category_id">Категории</label>
                     <select name="category_id" class="form-control" required>
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}" {{ isset($product) && $product->category_id == $category->id ? 'selected' : '' }}>
@@ -76,7 +76,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="brand_id">Brand</label>
+                    <label for="brand_id">Бренд</label>
                     <select name="brand_id" class="form-control" required>
                         @foreach ($brands as $brand)
                             <option value="{{ $brand->id }}" {{ isset($product) && $product->brand_id == $brand->id ? 'selected' : '' }}>
@@ -87,11 +87,11 @@
                 </div>
                 <div class="form-group form-check mt-3">
                     <input type="checkbox" class="form-check-input" id="is_active" name="is_active" {{ isset($product) && $product->is_active ? 'checked' : '' }}>
-                    <label class="form-check-label" for="is_active">Active</label>
+                    <label class="form-check-label" for="is_active">Активный</label>
                 </div>
                 <div class="form-group form-check mt-3">
                     <input type="checkbox" class="form-check-input" id="is_new" name="is_new" {{ isset($product) && $product->is_new ? 'checked' : '' }}>
-                    <label class="form-check-label" for="is_new">New</label>
+                    <label class="form-check-label" for="is_new">Новый</label>
                 </div>
                 <button type="submit" class="btn btn-primary">{{ isset($product) ? 'Update' : 'Create' }}</button>
             </form>

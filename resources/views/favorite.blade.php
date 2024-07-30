@@ -3,8 +3,8 @@
     <div class="row">
         <div class="col-lg-4 d-flex flex-column justify-content-around" style="background-color: #202020;">
             <div class="d-flex flex-column">
-                <h1 class="mb-5 text-white align-self-center">Избранные товары</h1>
-                <div class="mt-5 text-white fs-3 text-center align-self-center">Сохраняйте понравившиеся товары и просматривайте их в любое время</div>
+                <h1 class="mb-5 text-white align-self-center">{{ __("translation.favorite_h1") }}</h1>
+                <div class="mt-5 text-white fs-3 text-center align-self-center">{{ __("translation.favorite_title")}}</div>
             </div>
             <div></div>
         </div>
@@ -23,10 +23,10 @@
                                         <img src="{{ asset('/images/icons/bin.png') }}" alt="Удалить из избранного">
                                     </button>
                                 </div>
-                                <p class="fs-5 product-price text-center mt-2">{{ $favorite->price }} TMT</p>
+                                <p class="fs-5 product-price text-center mt-2">{{ $favorite->price }} {{ __('translation.price_p')}}</p>
                                 <div class="d-flex align-items-center shipment">
                                     <img src="{{ asset('/images/icons/shipment.png') }}" alt="">
-                                    <p class="my-auto text-center">Доставка осуществляется в течении 3-5 дней</p>
+                                    <p class="my-auto text-center">{{ __("translation.favorite_p") }}</p>
                                 </div>
                                 <button class="mx-auto buy-btn add-to-cart" data-id="{{ $favorite->id }}" data-title="{{ $favorite->title_ru }}" data-price="{{ $favorite->price }}" data-image="{{ asset($favorite->image) }}">Добавить в корзину</button>
                             </div>
