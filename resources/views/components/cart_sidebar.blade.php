@@ -286,45 +286,45 @@
         });
 
     });
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('.favorite-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                let productId = this.dataset.id;
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     document.querySelectorAll('.favorite-btn').forEach(button => {
+    //         button.addEventListener('click', function() {
+    //             let productId = this.dataset.id;
 
-                fetch(`/${locale}/favorite/add`, {
-                        method: 'POST',
-                        headers: {
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            product_id: productId
-                        })
-                    })
-                    .then(response => {
-                        console.log('Ответ от сервера:', response);
-                        if (!response.ok) {
-                            return response.text().then(text => {
-                                throw new Error(text);
-                            });
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        console.log('Полученные данные:', data);
-                        if (data.message === 'Product added to favorites') {
-                            alert('Товар добавлен в избранное');
-                        } else {
-                            alert('Ошибка при добавлении в избранное');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Ошибка:', error);
-                        alert('Ошибка при добавлении в избранное: ' + error.message);
-                    });
-            });
-        });
-    });
+    //             fetch(`/${locale}/favorite/add`, {
+    //                     method: 'POST',
+    //                     headers: {
+    //                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
+    //                         'Content-Type': 'application/json'
+    //                     },
+    //                     body: JSON.stringify({
+    //                         product_id: productId
+    //                     })
+    //                 })
+    //                 .then(response => {
+    //                     console.log('Ответ от сервера:', response);
+    //                     if (!response.ok) {
+    //                         return response.text().then(text => {
+    //                             throw new Error(text);
+    //                         });
+    //                     }
+    //                     return response.json();
+    //                 })
+    //                 .then(data => {
+    //                     console.log('Полученные данные:', data);
+    //                     if (data.message === 'Product added to favorites') {
+    //                         alert('Товар добавлен в избранное');
+    //                     } else {
+    //                         alert('Ошибка при добавлении в избранное');
+    //                     }
+    //                 })
+    //                 .catch(error => {
+    //                     console.error('Ошибка:', error);
+    //                     alert('Ошибка при добавлении в избранное: ' + error.message);
+    //                 });
+    //         });
+    //     });
+    // });
 
 
 

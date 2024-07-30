@@ -38,6 +38,10 @@
                         возрастанию</option>
                     <option value="price_desc" {{ request('sort_by') == 'price_desc' ? 'selected' : '' }}>Цена по
                         убыванию</option>
+                    <option value="newest_asc" {{ request('sort_by') == 'newest_asc' ? 'selected' : '' }}>Новизна по
+                        возрастанию</option>
+                    <option value="newest_desc" {{ request('sort_by') == 'newest_desc' ? 'selected' : '' }}>Новизна по
+                        убыванию</option>
                 </select>
             </div>
             <div class="col-md-2">
@@ -63,8 +67,10 @@
                             @endif
                             @auth
                                 <button class="favorite-btn" data-id="{{ $product->id }}">
-                                    <i class="fa fa-heart"></i>
+                                    <i
+                                        class="fa-heart {{ Auth::user()->favorites->contains($product->id) ? 'fa-solid' : 'fa-regular' }}"></i>
                                 </button>
+
                             @endauth
                             {{-- <img src="{{ asset($product->image) }}" alt="Product Image" class="product-img"> --}}
                         </div>
@@ -75,8 +81,7 @@
                             </div>
                             <button class="add-to-cart" data-id="{{ $product->id }}"
                                 data-title="{{ $product->title_ru }}" data-price="{{ $product->price }}"
-                                data-image="{{ asset($product->image) }}">Добавить в
-                                корзину</button>
+                                data-image="{{ asset($product->image) }}">Добавить в корзину</button>
                         </div>
                     </div>
                 @endforeach
@@ -90,6 +95,7 @@
     document.addEventListener('DOMContentLoaded', () => {
         const originalOrder = [];
         const nav = document.querySelector('#nav');
+        const locale = '{{ app()->getLocale() }}';
 
         document.querySelectorAll('#nav > div').forEach((element, index) => {
             originalOrder.push({
@@ -125,18 +131,55 @@
             originalOrder.sort((a, b) => a.index - b.index);
             originalOrder.forEach(item => nav.appendChild(item.element));
         }
-    });
 
-    $(document).ready(function() {
-        $(".content-appearance").slice(0, 12).show();
-        $("#loadMore").on("click", function(e) {
-            e.preventDefault();
-            $(".content-appearance:hidden").slice(0, 4).slideDown();
-            if ($(".content-appearance:hidden").length == 0) {
-                $("#loadMore").text("Нет элементов").addClass("noContent");
-            }
+        $(document).ready(function() {
+            $(".content-appearance").slice(0, 12).show();
+            $("#loadMore").on("click", function(e) {
+                e.preventDefault();
+                $(".content-appearance:hidden").slice(0, 4).slideDown();
+                if ($(".content-appearance:hidden").length == 0) {
+                    $("#loadMore").text("Нет элементов").addClass("noContent");
+                }
+            });
+
+            document.querySelectorAll('.favorite-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    let productId = this.dataset.id;
+                    let button = this;
+
+                    let url = `/${locale}/favorite/` + (button.querySelector('i')
+                        .classList.contains('fa-regular') ? 'add' : 'remove');
+
+                    fetch(url, {
+                            method: 'POST',
+                            headers: {
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                product_id: productId
+                            })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.message === 'Product added to favorites') {
+                                button.querySelector('i').classList.add('fa-solid');
+                                button.querySelector('i').classList.remove(
+                                    'fa-regular');
+                            } else if (data.message ===
+                                'Product removed from favorites') {
+                                button.querySelector('i').classList.add(
+                                    'fa-regular');
+                                button.querySelector('i').classList.remove(
+                                    'fa-solid');
+                            }
+                        })
+                        .catch(error => console.error('Error:', error));
+                });
+            });
         });
     });
 </script>
+
 
 @include('layouts.footer')
