@@ -61,7 +61,8 @@
                 @foreach ($products as $product)
                     <div class="content-appearance col-lg-3 p-0 product-card" id="content-price"
                         data-sort="{{ $product->price }}">
-                        <div class="product-image-container" style="background-image: url('{{ $product->image }}'); background-size: cover">
+                        <div class="product-image-container"
+                            style="background-image: url('{{ $product->image }}'); background-size: cover">
                             @if ($product->is_new)
                                 <span class="badge badge-secondary new-badge-abs">New</span>
                             @endif
@@ -90,7 +91,27 @@
         {{ $products->links() }}
     </div>
 </div>
-
+<div id="toast-container" class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">Уведомление</strong>
+        </div>
+        <div class="toast-body">
+            Товар добавлен в корзину
+        </div>
+    </div>
+</div>
+<div id="toast-favorite-container" class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToastFavorite" class="toast" role="alert" aria-live="assertive" aria-atomic="true"
+        style="display: none;">
+        <div class="toast-header">
+            <strong class="me-auto">Уведомление</strong>
+        </div>
+        <div class="toast-body">
+            <!-- Сообщение будет обновлено в JavaScript -->
+        </div>
+    </div>
+</div>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const originalOrder = [];
@@ -166,12 +187,14 @@
                                 button.querySelector('i').classList.add('fa-solid');
                                 button.querySelector('i').classList.remove(
                                     'fa-regular');
+                                showFavoriteToast('Товар добавлен в избранное');
                             } else if (data.message ===
                                 'Product removed from favorites') {
                                 button.querySelector('i').classList.add(
                                     'fa-regular');
                                 button.querySelector('i').classList.remove(
                                     'fa-solid');
+                                showFavoriteToast('Товар удален из избранного');
                             }
                         })
                         .catch(error => console.error('Error:', error));
@@ -179,6 +202,21 @@
             });
         });
     });
+
+    function showFavoriteToast(message) {
+        let toastEl = $('#liveToastFavorite');
+
+        // Изменить сообщение Toast
+        toastEl.find('.toast-body').text(message);
+
+        // Показать Toast с использованием jQuery fadeIn
+        toastEl.fadeIn(500, function() {
+            setTimeout(function() {
+                // Скрыть Toast с использованием jQuery fadeOut
+                toastEl.fadeOut(500);
+            }, 2000); // Длительность показа Toast перед скрытием
+        });
+    }
 </script>
 
 

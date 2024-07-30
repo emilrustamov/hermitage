@@ -187,6 +187,8 @@
                 loadCart();
 
                 openSidebar();
+
+                showToast('Товар добавлен в корзину');
             });
         });
 
@@ -219,9 +221,10 @@
                     loadCart();
                 }
             }
-            if (event.target.classList.contains('remove-item')) {
+            if (event.target.classList.contains('fa-trash-can')) {
                 event.stopPropagation(); // Предотвращаем закрытие корзины
-                let productId = event.target.dataset.id;
+                let button = event.target.closest('.remove-item');
+                let productId = button.dataset.id;
                 const cart = JSON.parse(localStorage.getItem('cart')) || [];
                 const itemIndex = cart.findIndex(item => item.id === productId);
                 if (itemIndex > -1) {
@@ -230,6 +233,17 @@
                     loadCart();
                 }
             }
+            // if (event.target.classList.contains('remove-item')) {
+            //     event.stopPropagation(); // Предотвращаем закрытие корзины
+            //     let productId = event.target.dataset.id;
+            //     const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            //     const itemIndex = cart.findIndex(item => item.id === productId);
+            //     if (itemIndex > -1) {
+            //         cart.splice(itemIndex, 1);
+            //         saveCart(cart);
+            //         loadCart();
+            //     }
+            // }
         });
 
         document.getElementById('clearCart').addEventListener('click', function() {
@@ -374,4 +388,19 @@
     function closeSidebarFunction() {
         sidebar.style.right = '-27%';
     }
+
+    function showToast(message) {
+    let toastEl = $('#liveToast');
+
+    // Изменить сообщение Toast
+    toastEl.find('.toast-body').text(message);
+
+    // Показать Toast с использованием jQuery fadeIn
+    toastEl.fadeIn(500, function() {
+        setTimeout(function() {
+            // Скрыть Toast с использованием jQuery fadeOut
+            toastEl.fadeOut(500);
+        }, 2000); // Длительность показа Toast перед скрытием
+    });
+}
 </script>
