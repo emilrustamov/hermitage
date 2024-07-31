@@ -1,4 +1,13 @@
-@include('layouts.header', ['slider' => true])
+@php
+    $banners = App\Models\Banner::where('page_identifier', 'about')->get();
+@endphp
+
+@include('layouts.header', [
+    'slider' => $banners->count() > 1,
+    'banner' => $banners->count() == 1 ? $banners->first()->banner : null,
+    'banners' => $banners,
+    'show_single_slide' => $banners->count() <= 1,
+])
 
 <div style="padding: 25px 80px; background-color: #BCBDB8;">
     <p class="col-lg-11 mx-auto text">{{ __('translation.productsnew_title')}}</p>

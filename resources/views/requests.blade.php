@@ -1,8 +1,13 @@
 @php
-    $banner = App\Models\Banner::where('page_identifier', 'projectcalc')->first();
+    $banners = App\Models\Banner::where('page_identifier', 'projectscalc')->get();
 @endphp
 
-@include('layouts.header', ['slider' => false, 'banner' => $banner ? $banner->banner : null])
+@include('layouts.header', [
+    'slider' => $banners->count() > 1,
+    'banner' => $banners->count() == 1 ? $banners->first()->banner : null,
+    'banners' => $banners,
+    'show_single_slide' => $banners->count() <= 1,
+])
 <section style="background: white">
     <div class="row">
         <div class="col-lg-4 d-flex flex-column" style="padding-right: 0">

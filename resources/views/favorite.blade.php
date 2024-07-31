@@ -1,4 +1,13 @@
-@include('layouts.header', ['slider' => true])
+@php
+    $banners = App\Models\Banner::where('page_identifier', 'about')->get();
+@endphp
+
+@include('layouts.header', [
+    'slider' => $banners->count() > 1,
+    'banner' => $banners->count() == 1 ? $banners->first()->banner : null,
+    'banners' => $banners,
+    'show_single_slide' => $banners->count() <= 1,
+])
 <section class="fav-sect">
     <div class="row">
         <div class="col-lg-4 d-flex flex-column justify-content-around" style="background-color: #202020;">
