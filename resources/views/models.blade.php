@@ -12,7 +12,7 @@
                     <div class="hover-content">
                         <div class="d-flex justify-content-between">
                             <p class="model-name">{{ $model->title }}</p>
-                            <div class="mt-5 btn-wrapper">
+                            <div class="btn-wrapper">
                                 @if($model->file)
                                     <a href="{{ asset('storage/' . $model->file) }}" class="btn btn-primary" download>Download</a>
                                 @else

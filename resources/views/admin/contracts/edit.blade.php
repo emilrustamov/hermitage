@@ -1,6 +1,5 @@
 @include('layouts.headerA', ['hasimage' => false])
 
-<body>
     <div class="admin-index">
         <div class="container mt-5">
             <h1>Edit Contract</h1>
@@ -326,4 +325,3 @@
             format: 'yyyy-mm-dd'
         });
     </script>
-</body>

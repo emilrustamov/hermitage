@@ -1540,6 +1540,8 @@ footer ul li a {
 
 .btn-wrapper {
   overflow: hidden;
+  margin-top: 35px;
+  margin-right: 10px;
 }
 
 .download-button {
@@ -1880,6 +1882,7 @@ footer ul li a {
 }
 
 .footer-link {
+  cursor: pointer;
   text-decoration: underline !important;
   text-decoration-color: transparent !important;
   text-underline-offset: 4px !important;
@@ -1909,4 +1912,75 @@ footer ul li a {
 }
 .send-request-btn:hover i {
   right: 30px;
+}
+
+.show-all-a {
+  line-height: 64px;
+  color: #333;
+  text-decoration-color: #333 !important;
+  text-underline-offset: 3px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.show-all-a:hover {
+  text-decoration-color: transparent !important;
+}
+
+@-webkit-keyframes bounce2 {
+  0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  10% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  25% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
+}
+
+@keyframes bounce2 {
+  0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  10% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  25% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
+}
+.icon-wrapper {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+.icon-wrapper i {
+  font-size: 22px;
+}
+.icon-wrapper:hover {
+  -webkit-animation: bounce2 2s ease infinite;
+          animation: bounce2 2s ease infinite;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 50px;
+  right: 30px;
+  background-color: #000;
+  color: #ffff00;
+  border: none;
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  font-size: 24px;
+  cursor: pointer;
+  opacity: 1;
+  display: none; /* Скрыта по умолчанию */
+  z-index: 1000; /* Чтобы кнопка была выше остальных элементов */
 }

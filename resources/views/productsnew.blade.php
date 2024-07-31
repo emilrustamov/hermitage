@@ -55,27 +55,33 @@
             <!-- Display Products -->
             <div class="products-grid row">
                 @foreach ($products as $product)
-                    <div class="content-appearance col-lg-3 p-0 product-card" id="content-price"
-                        data-sort="{{ $product->price }}">
-                        <div class="product-image-container">
-                            @if ($product->is_new)
-                            <span class="badge badge-secondary">New</span>
-                            @endif
-                            <img src="{{ asset($product->image ?? '/images/product1.jpg') }}" alt="Product Image"
-                                class="product-img">
-                        </div>
-                        <div class="hover-content">
-                            <div class="d-flex justify-content-between">
-                                <p class="product-text">{{ $product->title_ru }}</p>
-                                <p class="product-price">{{ $product->price }} TMT</p>
-                            </div>
-                            <button class="add-to-cart" data-id="{{ $product->id }}"
-                                data-title="{{ $product->title_ru }}" data-price="{{ $product->price }}"
-                                data-image="{{ asset($product->image ?? '/images/product1.jpg') }}">Добавить в
-                                корзину</button>
-                        </div>
+                <div class="content-appearance col-lg-3 p-0 product-card" id="content-price"
+                    data-sort="{{ $product->price }}">
+                    <div class="product-image-container"
+                        style="background-image: url('{{ $product->image }}'); background-size: cover">
+                        @if ($product->is_new)
+                            <span class="badge badge-secondary new-badge-abs">New</span>
+                        @endif
+                        @auth
+                            <button class="favorite-btn" data-id="{{ $product->id }}">
+                                <i
+                                    class="fa-heart {{ Auth::user()->favorites->contains($product->id) ? 'fa-solid' : 'fa-regular' }}"></i>
+                            </button>
+
+                        @endauth
+                        {{-- <img src="{{ asset($product->image) }}" alt="Product Image" class="product-img"> --}}
                     </div>
-                @endforeach
+                    <div class="hover-content">
+                        <div class="d-flex justify-content-between">
+                            <p class="product-text">{{ $product->title_ru }}</p>
+                            <p class="product-price">{{ $product->price }} TMT</p>
+                        </div>
+                        <button class="add-to-cart" data-id="{{ $product->id }}"
+                            data-title="{{ $product->title_ru }}" data-price="{{ $product->price }}"
+                            data-image="{{ asset($product->image) }}">Добавить в корзину</button>
+                    </div>
+                </div>
+            @endforeach
             </div>
         </div>
         {{ $products->links() }}

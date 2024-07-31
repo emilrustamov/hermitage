@@ -131,8 +131,13 @@
                 <button type="submit" class="reg-btn">
                     Зарегистрироваться
                 </button>
-                <a href="/login" class="log-a">Уже есть аккаунт?</a>
+                <a href="{{ route('login', ['locale' => app()->getLocale()]) }}   " class="log-a">Уже есть аккаунт?</a>
             </div>
         </form>
     </div>
 </div>
+@include('layouts.footer')
+
+
+
+

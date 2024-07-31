@@ -52,7 +52,7 @@
         </div>
     @endif
 
-    <a href="{{ route('contracts.index', ['locale' => app()->getLocale()]) }}">Все проекты</a>
+    <a class="show-all-a" href="{{ route('contracts.index', ['locale' => app()->getLocale()]) }}">Все проекты</a>
 </div>
 
 @include('layouts.footer')

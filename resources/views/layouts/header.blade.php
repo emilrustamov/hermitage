@@ -78,6 +78,10 @@
                                         <li>Товары в наличии</li>
                                     </a>
                                     <a class="nav-link"
+                                        href="{{ route('productsnew.index', ['locale' => app()->getLocale()]) }}">
+                                        <li>Новые поступления</li>
+                                    </a>
+                                    <a class="nav-link"
                                         href="{{ route('blogs.index', ['locale' => app()->getLocale()]) }}">
                                         <li>Новости</li>
                                     </a>

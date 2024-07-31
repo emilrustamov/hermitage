@@ -1,3 +1,4 @@
+
 <div class="row align-items-center px-5 py-5" style="background-color: white">
     <div class="col-lg-4  align-self-center d-flex flex-column">
         <h2 class="heading">Подписывайтесь на нашу новостную рассылку</h2>
@@ -64,9 +65,17 @@
         </div>
 
         <div class="col-lg-6 col-6  py-3">
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-linkedin-in"></i>
+            <div class="col-lg-2 d-flex justify-content-between">
+                <div class="icon-wrapper">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+                <div class="icon-wrapper">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div class="icon-wrapper">
+                    <i class="fab fa-linkedin-in"></i>
+                </div>
+            </div>
 
 
         </div>
@@ -76,11 +85,11 @@
 
         </div>
     </div>
-    <script src="{{ asset('js/jquery.js') }}"></script>
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
-    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/DrawSVGPlugin.min.js"></script>
-    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/GSDevTools.min.js"></script> --}}
+    <button id="scrollToTopButton" class="scroll-to-top"><i class="fa fa-chevron-up"></i></button>
+
 </footer>
 </div>
+<script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('resources/js/scrolltotop.js') }}"></script>
 </body>
 <html>
