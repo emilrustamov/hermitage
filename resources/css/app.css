@@ -8,12 +8,12 @@
 
 @font-face {
     font-family: 'TT Sans Pro';
-    src: url(./fonts/normsproregular.otf);
+    src: url('./fonts/normsproregular.otf');
 }
 
 @font-face {
     font-family: 'TT Sans Pro';
-    src: url(./fonts/normsprobold.otf);
+    src: url('./fonts/normsprobold.otf');
     font-weight: bold;
 }
 

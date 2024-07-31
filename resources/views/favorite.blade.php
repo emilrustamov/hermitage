@@ -37,7 +37,27 @@
         </div>
     </div>
 </section>
-
+<div id="toast-container" class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">Уведомление</strong>
+        </div>
+        <div class="toast-body">
+            Товар добавлен в корзину
+        </div>
+    </div>
+</div>
+<div id="toast-favorite-container" class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToastFavorite" class="toast" role="alert" aria-live="assertive" aria-atomic="true"
+        style="display: none;">
+        <div class="toast-header">
+            <strong class="me-auto">Уведомление</strong>
+        </div>
+        <div class="toast-body">
+            <!-- Сообщение будет обновлено в JavaScript -->
+        </div>
+    </div>
+</div>
 @include('layouts.footer')
 
 <script>
@@ -59,10 +79,10 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.message === 'Product removed from favorites') {
-                        alert('Товар удалён из избранного');
+                        showFavoriteToast('Товар удалён из избранного');
                         this.closest('.product-item').remove();
                     } else {
-                        alert('Ошибка при удалении из избранного');
+                        showFavoriteToast('Ошибка при удалении из избранного');
                     }
                 })
                 .catch(error => console.error('Ошибка:', error));
@@ -70,7 +90,20 @@
         });
     });
 
-      
+    function showFavoriteToast(message) {
+        let toastEl = $('#liveToastFavorite');
+
+        // Изменить сообщение Toast
+        toastEl.find('.toast-body').text(message);
+
+        // Показать Toast с использованием jQuery fadeIn
+        toastEl.fadeIn(500, function() {
+            setTimeout(function() {
+                // Скрыть Toast с использованием jQuery fadeOut
+                toastEl.fadeOut(500);
+            }, 2000); // Длительность показа Toast перед скрытием
+        });
+    }
        
        
 

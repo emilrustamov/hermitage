@@ -91,7 +91,7 @@
                                         <input type="checkbox" class="my-auto checkbox-input" name="agreement" required>
                                         <label for="agreement" class="agr-lab">{{ __('translation.calc_agree')}}</label>
                                     </div>
-                                    <button type="submit" class="d-flex align-items-center justify-content-center">
+                                    <button type="submit" class="send-request-btn d-flex align-items-center justify-content-center">
                                         <p class="m-auto">{{ __('translation.calc_sendbtn')}}</p>
                                         <i class="fa fa-long-arrow-right"></i>
                                     </button>
@@ -176,7 +176,7 @@
                                         <input type="checkbox" class="my-auto checkbox-input" name="agreement" required>
                                         <label for="agreement" class="agr-lab">{{ __('translation.calc_agree')}}</label>
                                     </div>
-                                    <button type="submit" class="d-flex align-items-center justify-content-center">
+                                    <button type="submit" class="send-request-btn d-flex align-items-center justify-content-center">
                                         <p class="m-auto">{{ __('translation.calc_sendbtn')}}</p>
                                         <i class="fa fa-long-arrow-right"></i>
                                     </button>

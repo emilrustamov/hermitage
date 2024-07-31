@@ -1,4 +1,17 @@
 @charset "UTF-8";
+@font-face {
+  font-family: "TT Sans Pro";
+  src: url("/fonts/normsproregular.otf");
+}
+@font-face {
+  font-family: "TT Sans Pro";
+  src: url("/fonts/normsprobold.otf");
+  font-weight: bold;
+}
+body {
+  font-family: "TT Sans Pro";
+}
+
 ::-webkit-scrollbar {
   background-color: white;
 }
@@ -68,6 +81,11 @@ nav {
 .punkt-menu {
   cursor: pointer;
   padding: 10px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.punkt-menu:hover {
+  color: #ffff00 !important;
 }
 
 .header-content {
@@ -137,6 +155,9 @@ nav {
   -webkit-transform-origin: 0% 100%;
       -ms-transform-origin: 0% 100%;
           transform-origin: 0% 100%;
+}
+#menuToggle span:hover {
+  background-color: #ffff00;
 }
 #menuToggle input:checked ~ span {
   opacity: 1;
@@ -392,6 +413,7 @@ footer ul li a {
 .cstmbtn {
   background-color: #272727;
   color: white;
+  border-radius: 0px;
 }
 .cstmbtn:hover {
   background-color: #000;
@@ -602,12 +624,15 @@ footer ul li a {
   width: 350px;
   color: #333;
 }
+
 .cart-sidebar.closed {
-  right: -27%;
+  right: -27% !important;
 }
+
 .cart-sidebar {
   position: fixed;
   top: 0;
+  right: 0;
   /* начальное положение сайдбара за пределами экрана */
   width: 27%;
   height: 100%;
@@ -754,15 +779,32 @@ footer ul li a {
 }
 .cart-sidebar .cart-footer .checkout-btn {
   cursor: pointer;
+  position: relative;
   width: -webkit-fill-available;
   padding: 15px 60px;
   margin-top: 20px;
   border: none;
   background-color: #bcbdb8;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
-.cart-sidebar .cart-footer .checkout-btn p {
+.cart-sidebar .cart-footer .checkout-btn .checkout-btn-p {
   font-size: 15px;
   font-family: "TT Sans Pro";
+  margin-right: 40px;
+}
+.cart-sidebar .cart-footer .checkout-btn i {
+  position: absolute;
+  top: 20px;
+  right: 60px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.cart-sidebar .cart-footer .checkout-btn:hover {
+  background-color: #a1a19e;
+}
+.cart-sidebar .cart-footer .checkout-btn:hover i {
+  right: 50px;
 }
 
 .radio-options {
@@ -1413,6 +1455,27 @@ footer ul li a {
 .inspire-block .inspire-text .insp-proj {
   color: white;
   font-size: 28px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+}
+.inspire-block .inspire-text .insp-proj::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px; /* Расположение underline под текстом */
+  width: 0;
+  height: 1px; /* Толщина underline */
+  background-color: #fff; /* Цвет underline */
+  -webkit-transition: width 0.3s ease;
+  transition: width 0.3s ease; /* Анимация изменения ширины */
+}
+.inspire-block .inspire-text .insp-proj:hover::after {
+  width: 100%;
 }
 
 .contacts-block {
@@ -1442,6 +1505,27 @@ footer ul li a {
 .contacts-block .contracts-text .contr-proj {
   color: white;
   font-size: 28px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+}
+.contacts-block .contracts-text .contr-proj::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px; /* Расположение underline под текстом */
+  width: 0;
+  height: 1px; /* Толщина underline */
+  background-color: #fff; /* Цвет underline */
+  -webkit-transition: width 0.3s ease;
+  transition: width 0.3s ease; /* Анимация изменения ширины */
+}
+.contacts-block .contracts-text .contr-proj:hover::after {
+  width: 100%;
 }
 
 .thr-model {
@@ -1721,6 +1805,12 @@ footer ul li a {
   text-decoration-color: white;
   color: white;
   font-size: 14px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.see-more-btn:hover {
+  background-color: #000 !important;
+  text-decoration-color: #000 !important;
 }
 
 .black-imp {
@@ -1787,4 +1877,36 @@ footer ul li a {
 }
 .favorite-btn i {
   font-size: 24px;
+}
+
+.footer-link {
+  text-decoration: underline !important;
+  text-decoration-color: transparent !important;
+  text-underline-offset: 4px !important;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  color: #212529 !important;
+}
+.footer-link:hover {
+  text-decoration-color: #000 !important;
+}
+
+.subscr-input {
+  border-radius: 0 !important;
+  background-color: #eaeaea;
+}
+
+.send-request-btn {
+  position: relative;
+  cursor: pointer;
+}
+.send-request-btn i {
+  position: absolute;
+  top: 17px;
+  right: 40px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.send-request-btn:hover i {
+  right: 30px;
 }

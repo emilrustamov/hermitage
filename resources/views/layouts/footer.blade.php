@@ -2,12 +2,10 @@
     <div class="col-lg-3  align-self-center d-flex flex-column">
         <h2 class="heading">{{ __('translation.foot')}}</h2>
     </div>
-    <div class="col-lg-3  align-self-center d-flex flex-column">
-        <p>
+    <div class="col-lg-4  mt-2 align-self-center d-flex flex-column">
         {{ __('translation.foot_p1')}}
-        </p>
     </div>
-    <div class="col-lg-6  align-self-center d-flex flex-column">
+    <div class="col-lg-4  align-self-center d-flex flex-column">
         <form action="{{ route('subscribe', ['locale' => app()->getLocale()]) }}" method="post" class="row">
             @csrf
             <div class="form-group mb-3 col-lg-9 col-6  align-self-center d-flex flex-column">
@@ -18,7 +16,7 @@
                 @enderror
 
             </div>
-            <div class="col-lg-3 col-6 ">
+            <div class="col-lg-3 col-6 text-end">
                 <button type="submit" class="btn cstmbtn">{{ __('translation.foot_btn')}}</button>
             </div>
         </form>
@@ -30,28 +28,28 @@
         <div class="col-lg-3 col-6  py-3">
             <p class="ul-title">{{ __('translation.head_li1')}}</p>
             <ul class="unstyle p-0">
-                <li><a href="{{ route('about', ['locale' => app()->getLocale()]) }}"> {{ __('translation.head_li1')}}</a></li>
-                <li> <a href="{{ route('areas', ['locale' => app()->getLocale()]) }}">{{ __('translation.head_li2')}}</a></li>
-                <li><a href="{{ route('partners.index', ['locale' => app()->getLocale()]) }}"> {{ __('translation.head_li3')}}</a></li>
-                <li><a href="{{ route('contracts.index', ['locale' => app()->getLocale()]) }}"> {{ __('translation.head_li4')}}</a></li>
-                <li><a href="{{ route('projects.index', ['locale' => app()->getLocale()]) }}"> {{ __('translation.head_li5')}}</a></li>
-                <li><a href="{{ route('certificates.index', ['locale' => app()->getLocale()]) }}"> {{ __('translation.head_li10')}}</a></li>
-                <li><a href="{{ route('blogs.index', ['locale' => app()->getLocale()]) }}"> {{ __('translation.head_li7')}}</a></li>
-                <li><a href="{{ route('vacancies.index', ['locale' => app()->getLocale()]) }}"> {{ __('translation.head_li8')}}</a></li>
+                <li><a class="footer-link" href="{{ route('about', ['locale' => app()->getLocale()]) }}"> {{ __('translation.head_li1')}}</a></li>
+                <li><a class="footer-link" href="{{ route('areas', ['locale' => app()->getLocale()]) }}">{{ __('translation.head_li2')}}</a></li>
+                <li><a class="footer-link" href="{{ route('partners.index', ['locale' => app()->getLocale()]) }}"> {{ __('translation.head_li3')}}</a></li>
+                <li><a class="footer-link" href="{{ route('contracts.index', ['locale' => app()->getLocale()]) }}"> {{ __('translation.head_li4')}}</a></li>
+                <li><a class="footer-link" href="{{ route('projects.index', ['locale' => app()->getLocale()]) }}"> {{ __('translation.head_li5')}}</a></li>
+                <li><a class="footer-link" href="{{ route('certificates.index', ['locale' => app()->getLocale()]) }}"> {{ __('translation.head_li10')}}</a></li>
+                <li><a class="footer-link" href="{{ route('blogs.index', ['locale' => app()->getLocale()]) }}"> {{ __('translation.head_li7')}}</a></li>
+                <li><a class="footer-link" href="{{ route('vacancies.index', ['locale' => app()->getLocale()]) }}"> {{ __('translation.head_li8')}}</a></li>
             </ul>
         </div>
         <div class="col-lg-3 col-6  py-3">
             <p class="ul-title">{{ __('translation.foot_prod')}}</p>
             <ul class="unstyle p-0">
-               <li><a href="{{ route('products.index', ['locale' => app()->getLocale()]) }}"> {{ __('translation.foot_li1')}}</a> </li>
-                <li><a href="{{ route('products.index', ['locale' => app()->getLocale()]) }}"> {{ __('translation.foot_li2')}}</a></li>
+               <li><a class="footer-link" href="{{ route('products.index', ['locale' => app()->getLocale()]) }}"> {{ __('translation.foot_li1')}}</a> </li>
+                <li><a class="footer-link" href="{{ route('products.index', ['locale' => app()->getLocale()]) }}"> {{ __('translation.foot_li2')}}</a></li>
             </ul>
         </div>
         <div class="col-lg-3 col-6  py-3">
             <p class="ul-title">{{ __('translation.head_li9')}}</p>
             <ul class="unstyle p-0">
-                <li> <a href="{{ route('requests.index', ['locale' => app()->getLocale()]) }}">{{ __('translation.foot_li3')}} </a>
-                <li> <a href="{{ route('models.public.index', ['locale' => app()->getLocale()]) }}">{{ __('translation.head_li4')}}</a>
+                <li> <a class="footer-link" href="{{ route('requests.index', ['locale' => app()->getLocale()]) }}">{{ __('translation.foot_li3')}} </a>
+                <li> <a class="footer-link" href="{{ route('models.public.index', ['locale' => app()->getLocale()]) }}">{{ __('translation.head_li4')}}</a>
             </ul>
         </div>
         <div class="col-lg-3 col-6 py-3">
@@ -75,6 +73,7 @@
 
         </div>
     </div>
+    <script src="{{ asset('js/jquery.js') }}"></script>
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/DrawSVGPlugin.min.js"></script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/GSDevTools.min.js"></script> --}}

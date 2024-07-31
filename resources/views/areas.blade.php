@@ -211,7 +211,7 @@
 
     }
 </style>
-<div class="container mt-5">
+<div class="container mt-5 scroll-fade-in">
     <p class="title">{{ __("translation.p_title") }}</p>
     <p style="float: right;">{{ __("translation.p_float") }}</p>
     <div class="row" style="margin-top: 65px;">
@@ -223,7 +223,7 @@
         </div>
     </div>
 </div>
-<div class="container mt-5">
+<div class="container mt-5 scroll-fade-in">
     <p style="float: right;" class="title">{{ __("translation.container_title") }}</p><br>
     <p>{{ __("translation.container_title_p") }}</p>
     <div class="row" style="margin-top: 65px;">
@@ -236,7 +236,7 @@
     </div>
 </div>
 
-<div class="container mt-5">
+<div class="container mt-5 scroll-fade-in">
     <p class="title">{{ __("translation.container2_title") }}</p>
     <p style="text-align: right; align-self: self-end;">{!! nl2br(e(__('translation.container2_title_p'))) !!}</p>
     <div class="row" style="margin-top: 65px;">
@@ -248,7 +248,7 @@
         </div>
     </div>
 </div>
-<div class="container mt-5">
+<div class="container mt-5 scroll-fade-in">
     <p style="float: right;" class="title">{{ __("translation.container3_title") }}</p><br>
     <p>{!! nl2br(e(__('translation.container3_title_p'))) !!}</p>
     <div class="row" style="margin-top: 35px;">
@@ -260,7 +260,7 @@
         </div>
     </div>
 </div>
-<div class="container" style="padding-top: 35px;">
+<div class="container scroll-fade-in" style="padding-top: 35px;">
     <p class="title">{!! nl2br(e(__('translation.container4_title'))) !!}</p>
     <p style="text-align: right; align-self: self-end;">{!! nl2br(e(__('translation.container4_title_p'))) !!}
     </p>
@@ -273,7 +273,7 @@
         </div>
     </div>
 </div>
-<div class="container mt-5">
+<div class="container mt-5 scroll-fade-in">
     <p style="float: right;" class="title">{!! nl2br(e(__('translation.container5_title'))) !!}</p><br>
     <p>{!! nl2br(e(__('translation.container5_title_p'))) !!}</p>
     <div class="row" style="margin-top: 65px;">
@@ -286,7 +286,7 @@
     </div>
 </div>
 
-<div class="container mt-5">
+<div class="container mt-5 scroll-fade-in">
     <p class="title">{{ __('translation.container6_title')}}</p>
     <p style="text-align: right; align-self: self-end;">{!! nl2br(e(__('translation.container6_title_p'))) !!}</p>
     <div class="row" style="margin-top: 45px;">
@@ -298,7 +298,7 @@
         </div>
     </div>
 </div>
-<div class="container mt-5">
+<div class="container mt-5 scroll-fade-in">
     <p style="float: right;" class="title">{{ __("translation.container7_title") }}</p><br>
     <p>{{ __("translation.container7_title_p") }}</p>
     <div class="row" style="margin-top: 65px;">
@@ -310,8 +310,8 @@
         </div>
     </div>
 </div>
-<div class="container mt-5">
-    <p class="title">{{ __("translation.container8_title") }}</p>
+<div class="container mt-5 scroll-fade-in">
+    <p class="title ">{{ __("translation.container8_title") }}</p>
     <p style="text-align: right; align-self: self-end;">{!! nl2br(e(__('translation.container8_title_p'))) !!}</p>
     <div class="row" style="margin-top: 35px;">
         <div class="col-md-7">
@@ -322,7 +322,7 @@
         </div>
     </div>
 </div>
-<div class="container mt-5">
+<div class="container mt-5 scroll-fade-in">
     <p style="float: right;" class="title">{!! nl2br(e(__('translation.container9_title'))) !!}
     <p>{!! nl2br(e(__('translation.container9_title_p'))) !!}</p>
     <div class="row" style="margin-top: 65px;">
@@ -334,7 +334,7 @@
         </div>
     </div>
 </div>
-<div class="container mt-5">
+<div class="container mt-5 scroll-fade-in">
     <p class="title">{{ __("translation.container10_title") }}</p>
     <p style="text-align: right; align-self: self-end;">{!! nl2br(e(__('translation.container10_title_p'))) !!}</p>
     <div class="row" style="margin-top: 35px;">
@@ -346,7 +346,7 @@
         </div>
     </div>
 </div>
-<div class="container mt-5">
+<div class="container mt-5 scroll-fade-in">
     <p style="float: right;" class="title">{!! nl2br(e(__('translation.container11_title'))) !!}</p>
     <p>{!! nl2br(e(__('translation.container11_title_p'))) !!}</p>
     <div class="row" style="margin-top: 35px;">
@@ -360,7 +360,7 @@
                 style="width: 49%; ">
         </div>
     </div>
-    <div class="container mt-5" style="margin-top: 10px !important;">
+    <div class="container mt-5 scroll-fade-in" style="margin-top: 10px !important;">
         <p style="text-align: right; align-self: self-end; margin-bottom: 0;" class="title">{!! nl2br(e(__('translation.container12_title'))) !!}</p>
         <p style="margin-bottom:0;">{!! nl2br(e(__('translation.container12_title_p'))) !!}</p>
         <div class="row" style="margin-top: 35px;">
