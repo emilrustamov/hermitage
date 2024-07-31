@@ -8,25 +8,25 @@
             @csrf
 
             <div class="form-group">
-                <label for="page_identifier">Page Identifier</label>
+                <label for="page_identifier">Идентификатор страницы</label>
                 <input type="text" class="form-control" id="page_identifier" name="page_identifier" required>
             </div>
 
             <div class="form-group mt-3">
-                <label for="banner">Image</label>
+                <label for="banner">картинка</label>
                 <div class="input-group">
                     <input id="banner" class="form-control" type="text" name="banner">
                     <span class="input-group-append">
                         <button id="lfm" data-input="banner" data-preview="holder" class="btn btn-primary"
                             type="button">
-                            <i class="fa fa-picture-o"></i> Choose
+                            <i class="fa fa-picture-o"></i> Выбрать
                         </button>
                     </span>
                 </div>
                 <img id="holder" style="margin-top:15px;max-height:100px;">
             </div>
 
-            <button type="submit" class="btn btn-primary">Add Banner</button>
+            <button type="submit" class="btn btn-primary">Добавить баннер</button>
         </form>
     </div>
 </div>

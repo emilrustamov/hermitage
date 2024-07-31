@@ -4,21 +4,21 @@
     <div class="admin-index">
         <div class="container mt-5">
             <div class="d-flex justify-content-between mb-5">
-                <h1>Partners</h1>
+                <h1>Партнеры</h1>
                 <div class="d-flex">
-                    <a href="{{ route('admin.partners.create') }}" class="btn btn-primary mb-3">Create Partner</a>
+                    <a href="{{ route('admin.partners.create') }}" class="btn btn-primary mb-3">Создать партнера</a>
                     <a href="{{ route('admin.partners.categories.index') }}" class="btn btn-primary mb-3">Категории</a>
                 </div>
             </div>
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Title</th>
-                        <th>Active</th>
-                        <th>Image</th>
-                        <th>Category</th>
-                        <th>Ordering</th>
-                        <th>Actions</th>
+                        <th>Названик</th>
+                        <th>Активный</th>
+                        <th>Фото</th>
+                        <th>Категории</th>
+                        <th>Порядок сортировки</th>
+                        <th>Действие</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,13 +36,13 @@
     
                             <td>
                                 <a href="{{ route('admin.partners.edit', $partner->id) }}"
-                                    class="btn btn-warning btn-sm">Edit</a>
+                                    class="btn btn-warning btn-sm">Изменить</a>
                                 <form action="{{ route('admin.partners.destroy', $partner->id) }}" method="POST"
                                     style="display:inline-block;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm"
-                                        onclick="return confirm('Are you sure?')">Delete</button>
+                                        onclick="return confirm('Are you sure?')">Удалить</button>
                                 </form>
                             </td>
                         </tr>

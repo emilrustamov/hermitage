@@ -1,17 +1,15 @@
 @include('layouts.header', ['slider' => true])
 
 <div style="padding: 25px 80px; background-color: #BCBDB8;">
-    <p class="col-lg-11 mx-auto text">Ознакомьтесь с нашим ассортиментом дизайнерской мебели, освещения, декора и
-        сантехники, которые есть в наличии и готовы к быстрой доставке...</p>
+    <p class="col-lg-11 mx-auto text">{{ __('translation.productsnew_title')}}</p>
     <br>
-    <p class="col-lg-11 mx-auto text">Не уверены, какой предмет подойдет для вашего дома или проекта? Наша команда
-        профессионалов в области дизайна интерьера всегда готова помочь вам найти идеальный предмет...</p>
+    <p class="col-lg-11 mx-auto text">{{ __('translation.productsnew_p1')}}</p>
 
     <div class="container mt-5">
         <form method="GET" action="{{ route('productsnew.index', ['locale' => app()->getLocale()]) }}" class="row">
             <div class="col-md-2">
                 <select name="category_id" class="form-control">
-                    <option value="all">Все категории</option>
+                    <option value="all">{{ __('translation.productsnew_option1')}}</option>
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}"
                             {{ request('category_id') == $category->id ? 'selected' : '' }}>
@@ -22,7 +20,7 @@
             </div>
             <div class="col-md-2">
                 <select name="brand_id" class="form-control">
-                    <option value="all">Все бренды</option>
+                    <option value="all">{{ __('translation.productsnew_option2')}}</option>
                     @foreach ($brands as $brand)
                         <option value="{{ $brand->id }}" {{ request('brand_id') == $brand->id ? 'selected' : '' }}>
                             {{ $brand->title_ru }}
@@ -32,18 +30,16 @@
             </div>
             <div class="col-md-2">
                 <select name="sort_by" class="form-control">
-                    <option value="created_at">По умолчанию</option>
-                    <option value="title" {{ request('sort_by') == 'title' ? 'selected' : '' }}>Название</option>
-                    <option value="price_asc" {{ request('sort_by') == 'price_asc' ? 'selected' : '' }}>Цена по
-                        возрастанию</option>
-                    <option value="price_desc" {{ request('sort_by') == 'price_desc' ? 'selected' : '' }}>Цена по
-                        убыванию</option>
+                    <option value="created_at">{{ __('translation.productsnew_sort1')}}</option>
+                    <option value="title" {{ request('sort_by') == 'title' ? 'selected' : '' }}>{{ __('translation.productsnew_sort2')}}</option>
+                    <option value="price_asc" {{ request('sort_by') == 'price_asc' ? 'selected' : '' }}>{{ __('translation.productsnew_price_up')}}</option>
+                    <option value="price_desc" {{ request('sort_by') == 'price_desc' ? 'selected' : '' }}>{{ __('translation.productsnew_price_down')}}</option>
                 </select>
             </div>
             <div class="col-md-2">
-                <button type="submit" class="btn btn-primary">Применить</button>
+                <button type="submit" class="btn btn-primary">{{ __('translation.productsnew_apply')}}</button>
                 <a href="{{ route('products.index', ['locale' => app()->getLocale()]) }}"
-                    class="btn btn-secondary">Сбросить</a>
+                    class="btn btn-secondary">{{ __('translation.productsnew_reset')}}</a>
             </div>
         </form>
     </div>

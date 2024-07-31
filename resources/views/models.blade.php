@@ -14,9 +14,9 @@
                             <p class="model-name">{{ $model->title }}</p>
                             <div class="btn-wrapper">
                                 @if($model->file)
-                                    <a href="{{ asset('storage/' . $model->file) }}" class="btn btn-primary" download>Download</a>
+                                    <a href="{{ asset('storage/' . $model->file) }}" class="btn btn-primary" download>{{ __('translation.3d_download')}}</a>
                                 @else
-                                    <button class="btn btn-secondary" disabled>No File</button>
+                                    <button class="btn btn-secondary" disabled>{{ __('translation.3d_no')}}</button>
                                 @endif
                             </div>
                         </div>

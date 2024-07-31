@@ -13,16 +13,16 @@
     <img class="photo-for-reg" src="{{ asset('/images/register-photo.jpg') }}" alt="reg">
     <div class="form-reg w-50 justify-content-center">
         @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-        <p class="text-center reg-title">Я новый клиент</p>
-        <p class="text-center reg-sub">Пожалуйста, зарегистрируйтесь чтобы создать </br> учётную запись</p>
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+        <p class="text-center reg-title">{{ __('translation.reg_p1')}}</p>
+        <p class="text-center reg-sub">{{ __('translation.reg_p2')}}</p>
 
 
         <form method="POST" action="{{ route('register', ['locale' => app()->getLocale()]) }}">
@@ -33,7 +33,7 @@
                     <div class="required">
                         <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
                             name="name" value="{{ old('name') }}" required autocomplete="name" autofocus
-                            placeholder="Имя">
+                            placeholder="{{ __('translation.sid_label1')}}">
                         <div class="required-sign"></div>
                     </div>
 
@@ -48,7 +48,7 @@
                     <div class="required">
                         <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror"
                             name="surname" value="{{ old('surname') }}" required autocomplete="surname"
-                            placeholder="Фамилия">
+                            placeholder="{{ __('translation.surnm')}}">
                         <div class="required-sign"></div>
                     </div>
 
@@ -63,7 +63,7 @@
             <div class="d-flex justify-content-center">
                 <input id="company" type="text" class="company-input @error('company_name') is-invalid @enderror"
                     name="company_name" value="{{ old('company_name') }}" autocomplete="company"
-                    placeholder="Название компании">
+                    placeholder="{{ __('translation.namComp')}}">
 
                 @error('company_name')
                     <span class="invalid-feedback" role="alert">
@@ -75,7 +75,7 @@
                 <div class="required">
                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                         name="email" value="{{ old('email') }}" required autocomplete="email"
-                        placeholder="Электронная почта">
+                        placeholder="{{ __('translation.mail')}}">
                     <div class="required-sign"></div>
                 </div>
 
@@ -89,7 +89,7 @@
             <div class="d-flex justify-content-center">
                 <div class="required">
                     <input id="contacts" type="tel" class="form-control @error('contact') is-invalid @enderror"
-                        name="contact" required autocomplete="contacts" placeholder="Контакты">
+                        name="contact" required autocomplete="contacts" placeholder="{{ __('translation.foot_contact')}}">
                     <div class="required-sign"></div>
                 </div>
 
@@ -102,7 +102,7 @@
             <div class="d-flex justify-content-center">
                 <div class="required">
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
-                        name="password" required autocomplete="new-password" placeholder="Пароль">
+                        name="password" required autocomplete="new-password" placeholder="{{ __('translation.passw')}}">
                     <div class="required-sign"></div>
                 </div>
 
@@ -116,22 +116,33 @@
             <div class="d-flex justify-content-center">
                 <div class="required">
                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
-                        required autocomplete="new-password" placeholder="Подтвердите пароль">
+                        required autocomplete="new-password" placeholder="{{ __('translation.confPassw')}}">
                     <div class="required-sign"></div>
                 </div>
             </div>
-            <p class="pass-clue mt-2 mb-2">Пароль должен: быть длиной не менее 8 символов, содержать как буквы, так и
-                цифры</p>
-
-                <div class="mt-2 mb-3 d-flex align-items-center justify-content-center">
-                    <input type="checkbox" class="my-auto checkbox-input" name="subscribe_to_blog" id="subscribe_to_blog" value="1" {{ old('subscribe_to_blog') ? 'checked' : '' }}>
-                    <label for="subscribe_to_blog" class="agr-lab">Я бы хотел получать рассылки на электронную почту</label>
+            <p class="pass-clue mt-2 mb-2">{{ __('translation.reg_p3')}}</p>
+            <div class="d-flex justify-content-center">
+                <div class="required">
+                    <input id="contacts" type="tel" class="form-control @error('contact') is-invalid @enderror"
+                        name="contact" required autocomplete="contacts" placeholder="{{ __('translation.foot_contact')}}">
+                    <div class="required-sign"></div>
                 </div>
+
+                @error('contact')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="mt-2 mb-3 d-flex align-items-center  justify-content-center">
+                <input type="checkbox" class="my-auto checkbox-input" name="subscribe_to_blog" id="subscribe_to_blog" {{ old('subscribe_to_blog') ? 'checked' : '' }}>
+                <label for="subscribe_to_blog" class="agr-lab">{{ __('translation.reg_p4')}}</label>
+            </div>
             <div class="row mb-0 justify-content-center mx-auto">
                 <button type="submit" class="reg-btn">
-                    Зарегистрироваться
+                    {{ __('translation.reg_btn')}}
                 </button>
-                <a href="{{ route('login', ['locale' => app()->getLocale()]) }}   " class="log-a">Уже есть аккаунт?</a>
+                <a href="{{ route('login', ['locale' => app()->getLocale()]) }}   " class="log-a">{{ __('translation.reg_a')}}</a>
             </div>
         </form>
     </div>

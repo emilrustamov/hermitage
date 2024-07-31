@@ -1,17 +1,16 @@
 
-<div class="row align-items-center px-5 py-5" style="background-color: white">
-    <div class="col-lg-4  align-self-center d-flex flex-column">
-        <h2 class="heading">Подписывайтесь на нашу новостную рассылку</h2>
+<div class="row px-5 py-5" style="background-color: white">
+    <div class="col-lg-3  align-self-center d-flex flex-column">
+        <h2 class="heading">{{ __('translation.foot')}}</h2>
     </div>
     <div class="col-lg-4  mt-2 align-self-center d-flex flex-column">
-        Будьте первым, кто узнает о специальных предложениях, новых продуктах и событиях
-        </p>
+        {{ __('translation.foot_p1')}}
     </div>
     <div class="col-lg-4  align-self-center d-flex flex-column">
         <form action="{{ route('subscribe', ['locale' => app()->getLocale()]) }}" method="post" class="row">
             @csrf
-            <div class="form-group col-lg-9 col-6  align-self-center d-flex flex-column">
-                <input type="text" name="email" class="form-control subscr-input" placeholder="Электронная почта">
+            <div class="form-group mb-3 col-lg-9 col-6  align-self-center d-flex flex-column">
+                <input type="text" name="email" class="form-control" placeholder="{{ __('translation.mail')}}">
 
                 @error('email')
                     <span class="text-danger">{{ $message }}</span>
@@ -19,7 +18,7 @@
 
             </div>
             <div class="col-lg-3 col-6 text-end">
-                <button type="submit" class="btn cstmbtn">Подтвердить</button>
+                <button type="submit" class="btn cstmbtn">{{ __('translation.foot_btn')}}</button>
             </div>
         </form>
     </div>
@@ -28,40 +27,38 @@
 <footer class="container">
     <div class="row">
         <div class="col-lg-3 col-6  py-3">
-            <p class="ul-title">О нас</p>
+            <p class="ul-title">{{ __('translation.head_li1')}}</p>
             <ul class="unstyle p-0">
-                <li><a class="footer-link" href="{{ route('about', ['locale' => app()->getLocale()]) }}"> О нас</a></li>
-                <li><a class="footer-link" href="{{ route('areas', ['locale' => app()->getLocale()]) }}">Направления</a></li>
-                <li><a class="footer-link" href="{{ route('partners.index', ['locale' => app()->getLocale()]) }}"> Партнеры</a></li>
-                <li><a class="footer-link" href="{{ route('contracts.index', ['locale' => app()->getLocale()]) }}"> Контракты</a></li>
-                <li><a class="footer-link" href="{{ route('projects.index', ['locale' => app()->getLocale()]) }}"> Проекты</a></li>
-                <li><a class="footer-link" href="{{ route('certificates.index', ['locale' => app()->getLocale()]) }}"> Сертификаты</a></li>
-                <li><a class="footer-link" href="{{ route('blogs.index', ['locale' => app()->getLocale()]) }}"> Новости</a></li>
-                <li><a class="footer-link" href="{{ route('vacancies.index', ['locale' => app()->getLocale()]) }}"> Вакансии</a></li>
+                <li><a class="footer-link" href="{{ route('about', ['locale' => app()->getLocale()]) }}"> {{ __('translation.head_li1')}}</a></li>
+                <li><a class="footer-link" href="{{ route('areas', ['locale' => app()->getLocale()]) }}">{{ __('translation.head_li2')}}</a></li>
+                <li><a class="footer-link" href="{{ route('partners.index', ['locale' => app()->getLocale()]) }}"> {{ __('translation.head_li3')}}</a></li>
+                <li><a class="footer-link" href="{{ route('contracts.index', ['locale' => app()->getLocale()]) }}"> {{ __('translation.head_li4')}}</a></li>
+                <li><a class="footer-link" href="{{ route('projects.index', ['locale' => app()->getLocale()]) }}"> {{ __('translation.head_li5')}}</a></li>
+                <li><a class="footer-link" href="{{ route('certificates.index', ['locale' => app()->getLocale()]) }}"> {{ __('translation.head_li10')}}</a></li>
+                <li><a class="footer-link" href="{{ route('blogs.index', ['locale' => app()->getLocale()]) }}"> {{ __('translation.head_li7')}}</a></li>
+                <li><a class="footer-link" href="{{ route('vacancies.index', ['locale' => app()->getLocale()]) }}"> {{ __('translation.head_li8')}}</a></li>
             </ul>
         </div>
         <div class="col-lg-3 col-6  py-3">
-            <p class="ul-title">Товары</p>
+            <p class="ul-title">{{ __('translation.foot_prod')}}</p>
             <ul class="unstyle p-0">
-               <li><a class="footer-link" href="{{ route('products.index', ['locale' => app()->getLocale()]) }}"> В наличии</a> </li>
-                <li><a class="footer-link" href="{{ route('products.index', ['locale' => app()->getLocale()]) }}"> Новые поступления </a></li>
+               <li><a class="footer-link" href="{{ route('products.index', ['locale' => app()->getLocale()]) }}"> {{ __('translation.foot_li1')}}</a> </li>
+                <li><a class="footer-link" href="{{ route('products.index', ['locale' => app()->getLocale()]) }}"> {{ __('translation.foot_li2')}}</a></li>
             </ul>
         </div>
         <div class="col-lg-3 col-6  py-3">
-            <p class="ul-title">Заказать проект</p>
+            <p class="ul-title">{{ __('translation.head_li9')}}</p>
             <ul class="unstyle p-0">
-                <li> <a class="footer-link" href="{{ route('requests.index', ['locale' => app()->getLocale()]) }}">Расчет стоимости индивидуального проекта </a>
-                <li> <a class="footer-link" href="{{ route('models.public.index', ['locale' => app()->getLocale()]) }}">3D модели</a>
+                <li> <a class="footer-link" href="{{ route('requests.index', ['locale' => app()->getLocale()]) }}">{{ __('translation.foot_li3')}} </a>
+                <li> <a class="footer-link" href="{{ route('models.public.index', ['locale' => app()->getLocale()]) }}">{{ __('translation.head_li4')}}</a>
             </ul>
         </div>
         <div class="col-lg-3 col-6 py-3">
-            <p class="ul-title">Контакты</p>
-            <div class="footer-address">Ул. С. Сейди, 27<br>
-                Торговый центр "DÜRDÄNELI", 1 этаж<br>
-                шоурум HERMITAGE HOME INTERIORS<br>
-                <a class="footer-link">+99365 56-41-59</a><br>
-                <a class="footer-link">+99365 41-59-02</a>
-            </div><br>
+            <p class="ul-title">{{ __('translation.foot_contact')}}</p>
+            <div class="footer-address"> {!! nl2br(e(__('translation.foot_location'))) !!}
+                <a>+99365 56-41-59</a><br>
+                <a>+99365 41-59-02</a>
+            </div>
         </div>
 
         <div class="col-lg-6 col-6  py-3">

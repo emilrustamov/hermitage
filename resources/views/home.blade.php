@@ -1,3 +1,4 @@
+
 @include('layouts.header', ['slider' => true])
 
 @if (session('message'))
@@ -12,17 +13,13 @@
         </div>
         <div class="col-lg-4 align-self-center d-flex flex-column">
             <h1>{{ __('translation.about') }}</h1>
-            <div class="mb-4 fs-5">HERMITAGE HOME INTERIORS - это компания премиум класса, которая позволяет
-                почувствовать символ безупречного вкуса, синтеза современных технологий с традиционным итальянским
-                качеством, эксклюзивный современный дизайн и утончённый стиль , представляющий смесь различных культур и
-                времён.
-            </div>
-            <button class="see-more-btn">Узнать больше</button>
+            <div class="mb-4 fs-5">{{ __('translation.home_title') }}</div>
+            <button class="see-more-btn">{{ __('translation.home_btn')}}</button>
         </div>
     </div>
 </section>
 <section class="scroll-fade-in">
-    <p class="text-center our-areas">Наши направления</p>
+    <p class="text-center our-areas">{{ __('translation.home_partners') }}</p>
     <div class="container">
         <div class="row areas-block">
             @foreach ($categories as $category)
@@ -44,20 +41,19 @@
             <img src="{{ asset('/images/fullkuhnya.jpg') }}" alt="">
             <div class="inspire-text d-flex flex-column justify-content-between text-center">
                 <div class="d-flex flex-column">
-                    <p class="inspire-title">Вдохновение</p>
-                    <p class="inspire-sub">Ознакомьтесь с нашими последними жилыми и коммерческими проектами</p>
+                    <p class="inspire-title">{{ __('translation.home_title_p1')}}</p>
+                    <p class="inspire-sub">{{ __('translation.home_title_p2')}}</p>
                 </div>
-                <p class="text-uppercase insp-proj">Проекты</p>
+                <p class="text-uppercase insp-proj">{{ __('translation.home_title_p3')}}</p>
             </div>
-        </div>
-    </a>
+        </div></a>
 </section>
 <section class="scroll-fade-in">
     <a href="{{ route('contracts.index', ['locale' => app()->getLocale()]) }}">
         <div class="contacts-block">
             <img src="{{ asset('/images/yyldyz.jpg') }}" alt="">
             <div class="contracts-text d-flex flex-column justify-content-end text-center">
-                <p class="text-uppercase contr-proj">Контракты</p>
+                <p class="text-uppercase contr-proj">{{ __('translation.home_title_p4') }}</p>
             </div>
         </div>
     </a>

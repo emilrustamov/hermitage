@@ -1,7 +1,7 @@
 @include('layouts.header', ['slider' => true])
 
 <div class="container mt-5">
-    <h2 class="mb-5">Блог</h2>
+    <h2 class="mb-5">{{ __('translation.blog_a')}}</h2>
     <div class="row">
         @foreach ($blogs as $blog)
             <div class="col-md-4 col-lg-4 col-12">

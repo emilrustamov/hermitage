@@ -1,11 +1,11 @@
 @include('layouts.headerA', ['hasimage' => false])
 <div class="admin-index">
     <div class="container my-5">
-        <h1>Create New Model</h1>
+        <h1>Создать новый модель</h1>
         <form action="{{ route('admin.models.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="title">Title</label>
+                <label for="title">Название</label>
                 <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title') }}" required>
                 @error('title')
                     <span class="invalid-feedback" role="alert">
@@ -14,7 +14,7 @@
                 @enderror
             </div>
             <div class="form-group mt-3">
-                <label for="ordering">Ordering</label>
+                <label for="ordering">Заказ</label>
                 <input type="number" class="form-control @error('ordering') is-invalid @enderror" id="ordering" name="ordering" value="{{ old('ordering') }}" required>
                 @error('ordering')
                     <span class="invalid-feedback" role="alert">
@@ -23,7 +23,7 @@
                 @enderror
             </div>
             <div class="form-group mt-3">
-                <label for="image">Image</label>
+                <label for="image">Фото</label>
                 <input type="file" class="form-control-file @error('image') is-invalid @enderror" id="image" name="image">
                 @error('image')
                     <span class="invalid-feedback" role="alert">
@@ -32,7 +32,7 @@
                 @enderror
             </div>
             <div class="form-group mt-3">
-                <label for="file">File</label>
+                <label for="file">Файл</label>
                 <input type="file" class="form-control-file @error('file') is-invalid @enderror" id="file" name="file">
                 @error('file')
                     <span class="invalid-feedback" role="alert">
@@ -42,9 +42,9 @@
             </div>
             <div class="form-group form-check mt-3">
                 <input type="checkbox" class="form-check-input" id="is_active" name="is_active" {{ old('is_active') ? 'checked' : '' }}>
-                <label class="form-check-label" for="is_active">Active</label>
+                <label class="form-check-label" for="is_active">Действия</label>
             </div>
-            <button type="submit" class="btn btn-primary">Create Model</button>
+            <button type="submit" class="btn btn-primary">Создать модель</button>
         </form>
     </div>
 </div>
