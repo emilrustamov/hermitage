@@ -96,7 +96,7 @@
                                         <input type="checkbox" class="my-auto checkbox-input" name="agreement" required>
                                         <label for="agreement" class="agr-lab">Я согласен с правилами обработки обращений</label>
                                     </div>
-                                    <button type="submit" class="d-flex align-items-center justify-content-center">
+                                    <button type="submit" class="send-request-btn d-flex align-items-center justify-content-center">
                                         <p class="m-auto">Отправить заявку</p>
                                         <i class="fa fa-long-arrow-right"></i>
                                     </button>
@@ -181,7 +181,7 @@
                                         <input type="checkbox" class="my-auto checkbox-input" name="agreement" required>
                                         <label for="agreement" class="agr-lab">Я согласен с правилами обработки обращений</label>
                                     </div>
-                                    <button type="submit" class="d-flex align-items-center justify-content-center">
+                                    <button type="submit" class="send-request-btn d-flex align-items-center justify-content-center">
                                         <p class="m-auto">Отправить заявку</p>
                                         <i class="fa fa-long-arrow-right"></i>
                                     </button>

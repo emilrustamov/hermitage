@@ -211,7 +211,7 @@
 
     }
 </style>
-<div class="container mt-5">
+<div class="container mt-5 scroll-fade-in">
     <p class="title">Мебель</p>
     <p style="float: right;">Итальянская мебель отличается особой элегантностью и надежным качеством!</p>
     <div class="row" style="margin-top: 65px;">
@@ -223,7 +223,7 @@
         </div>
     </div>
 </div>
-<div class="container mt-5">
+<div class="container mt-5 scroll-fade-in">
     <p style="float: right;" class="title">ОСВЕЩЕНИЕ</p><br>
     <p>Создайте освещение, подходящее для вашего пространства с помощью продуманных решений!</p>
     <div class="row" style="margin-top: 65px;">
@@ -236,7 +236,7 @@
     </div>
 </div>
 
-<div class="container mt-5">
+<div class="container mt-5 scroll-fade-in">
     <p class="title">СИСТЕМА «УМНЫЙ ДОМ»</p>
     <p style="text-align: right; align-self: self-end;">Улучшите качество своей жизни, настроив гибкую <br>
         систему «Умный дом» в соответствии с собственным потребностями.</p>
@@ -249,7 +249,7 @@
         </div>
     </div>
 </div>
-<div class="container mt-5">
+<div class="container mt-5 scroll-fade-in">
     <p style="float: right;" class="title">Кухни бытовая техника</p><br>
     <p>Широкий выбор, эксклюзивный и современный дизайн <br> инновационных технологий</p>
     <div class="row" style="margin-top: 35px;">
@@ -261,7 +261,7 @@
         </div>
     </div>
 </div>
-<div class="container" style="padding-top: 35px;">
+<div class="container scroll-fade-in" style="padding-top: 35px;">
     <p class="title">ДЕКОРОТИВНЫЕ МАТЕРИАЛЫ</p>
     <p style="text-align: right; align-self: self-end;">Декор-это исскуство и функциональность, которые
         <br>ассоцируются с современностью!
@@ -275,7 +275,7 @@
         </div>
     </div>
 </div>
-<div class="container mt-5">
+<div class="container mt-5 scroll-fade-in">
     <p style="float: right;" class="title">КАМИНЫ</p><br>
     <p>Встраиваемые камины и электрокамины наполнят <br>ваш дом теплом и уютом!</p>
     <div class="row" style="margin-top: 65px;">
@@ -288,7 +288,7 @@
     </div>
 </div>
 
-<div class="container mt-5">
+<div class="container mt-5 scroll-fade-in">
     <p class="title">НАПОЛНЫЕ ПОКРЫТИЯ</p>
     <p style="text-align: right; align-self: self-end;">Качественные наполные покрытия из дерева,расскрывают
         характер натуральной древесины <br>во всем ее многообразии.</p>
@@ -301,7 +301,7 @@
         </div>
     </div>
 </div>
-<div class="container mt-5">
+<div class="container mt-5 scroll-fade-in">
     <p style="float: right;" class="title">САНТЕХНИКА</p><br>
     <p>Ванная комната то с чего начинается ваш день.</p>
     <div class="row" style="margin-top: 65px;">
@@ -313,8 +313,8 @@
         </div>
     </div>
 </div>
-<div class="container mt-5">
-    <p class="title">ПЛИТКА КАМЕНЬ</p>
+<div class="container mt-5 scroll-fade-in">
+    <p class="title ">ПЛИТКА КАМЕНЬ</p>
     <p style="text-align: right; align-self: self-end;">Уникальная цветовая гармония натуральные
         материалы<br>всегда
         близки к природе.</p>
@@ -327,7 +327,7 @@
         </div>
     </div>
 </div>
-<div class="container mt-5">
+<div class="container mt-5 scroll-fade-in">
     <p style="float: right;" class="title">СПА И ВЕЛНЕС</p><br>
     <p>Революционная предложение для <br> СПА-процедурь и полноценного релакса</p>
     <div class="row" style="margin-top: 65px;">
@@ -339,7 +339,7 @@
         </div>
     </div>
 </div>
-<div class="container mt-5">
+<div class="container mt-5 scroll-fade-in">
     <p class="title">ОТОПЛЕНИЕ,ВЕНТИЛЯЦИЯ И КОНДИЦИОНИРОВАНИЕ</p>
     <p style="text-align: right; align-self: self-end;">Самые инновационные системы отопления, вентиляции и
         кондиционирование<br>для вашего здорового климата.</p>
@@ -352,7 +352,7 @@
         </div>
     </div>
 </div>
-<div class="container mt-5">
+<div class="container mt-5 scroll-fade-in">
     <p style="float: right;" class="title">ОКНА И ДВЕРИ </p><br>
     <p>Это мастерская играформ и материалов, которые<br> сливаются воедино и приоткрывают занавес будущего мира
         дверей и окон.</p>
@@ -367,7 +367,7 @@
                 style="width: 49%; ">
         </div>
     </div>
-    <div class="container mt-5" style="margin-top: 10px !important;">
+    <div class="container mt-5 scroll-fade-in" style="margin-top: 10px !important;">
         <p style="text-align: right; align-self: self-end; margin-bottom: 0;" class="title">СТРОИТЕЛБНЫЕ МАТЕРИАЛЫ
         </p><br>
         <p style="margin-bottom:0;">Решения, которые соответствуют индивидуальным требованиям <br>проектов и

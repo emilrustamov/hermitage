@@ -37,6 +37,16 @@
         </div>
     </div>
 </section>
+<div id="toast-container" class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">Уведомление</strong>
+        </div>
+        <div class="toast-body">
+            Товар добавлен в корзину
+        </div>
+    </div>
+</div>
 <div id="toast-favorite-container" class="position-fixed top-0 end-0 p-3" style="z-index: 11">
     <div id="liveToastFavorite" class="toast" role="alert" aria-live="assertive" aria-atomic="true"
         style="display: none;">
@@ -45,16 +55,6 @@
         </div>
         <div class="toast-body">
             <!-- Сообщение будет обновлено в JavaScript -->
-        </div>
-    </div>
-</div>
-<div id="toast-container" class="position-fixed top-0 end-0 p-3" style="z-index: 11">
-    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header">
-            <strong class="me-auto">Уведомление</strong>
-        </div>
-        <div class="toast-body">
-            Товар добавлен в корзину
         </div>
     </div>
 </div>
@@ -90,7 +90,6 @@
         });
     });
 
-      
     function showFavoriteToast(message) {
         let toastEl = $('#liveToastFavorite');
 
@@ -105,6 +104,7 @@
             }, 2000); // Длительность показа Toast перед скрытием
         });
     }
+       
        
 
        
