@@ -17,7 +17,7 @@
                 @endforeach
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Filter</button>
+        <button type="submit" class="btn btn-primary">{{ __('translation.old_partners_btn')}}</button>
     </form>
 
     <div class="row">

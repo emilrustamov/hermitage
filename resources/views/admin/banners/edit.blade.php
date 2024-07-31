@@ -10,7 +10,7 @@
             @method('PUT')
 
             <div class="form-group">
-                <label for="page_identifier">Page Identifier</label>
+                <label for="page_identifier">Идентификатор страницы</label>
                 <input type="text" class="form-control" id="page_identifier" name="page_identifier"
                     value="{{ $banner->page_identifier }}" required>
             </div>
@@ -21,7 +21,7 @@
                 <span class="input-group-append">
                     <button id="lfm" data-input="banner" data-preview="holder" class="btn btn-primary mt-3"
                         type="button">
-                        <i class="fa fa-picture-o"></i> Choose
+                        <i class="fa fa-picture-o"></i> Выбрать
                     </button>
                 </span>
             </div>
@@ -32,7 +32,7 @@
 
 
 
-    <button type="submit" class="btn btn-primary mt-3">Update Banner</button>
+    <button type="submit" class="btn btn-primary mt-3">Обновить баннер</button>
     </form>
 </div>
 </div>

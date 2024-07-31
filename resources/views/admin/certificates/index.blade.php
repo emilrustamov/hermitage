@@ -3,9 +3,9 @@
 <div class="admin-index">
     <div class="container">
         <div class="d-flex justify-content-between">
-            <h1>Manage Certificates</h1>
+            <h1>Список сертификатов</h1>
     
-            <a href="{{ route('admin.certificates.create') }}" class="btn btn-primary mb-3">Add New Certificate</a>
+            <a href="{{ route('admin.certificates.create') }}" class="btn btn-primary mb-3">Добавить новый сертификат</a>
         </div>
 
         @if (session('success'))
@@ -18,9 +18,9 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Ordering</th>
-                    <th>Image</th>
-                    <th>Action</th>
+                    <th>Заказ</th>
+                    <th>Фото</th>
+                    <th>Действие</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,12 +33,12 @@
                         </td>
                         <td>
                             <a href="{{ route('admin.certificates.edit', $certificate->id) }}"
-                                class="btn btn-warning">Edit</a>
+                                class="btn btn-warning">Изменить</a>
                             <form action="{{ route('admin.certificates.destroy', $certificate->id) }}" method="POST"
                                 style="display:inline;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger">Удалить</button>
                             </form>
                         </td>
                     </tr>

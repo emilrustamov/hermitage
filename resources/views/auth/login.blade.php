@@ -14,8 +14,8 @@
     <img class="photo-for-reg" src="{{ asset('/images/register-photo.jpg') }}" alt="reg">
     <div class=" form-reg w-50 my-auto justify-content-center">
 
-        <p class="text-center reg-title">У меня уже есть аккаунт</p>
-        <p class="text-center reg-sub">Пожалуйста,введите свои данные, </br> чтобы войти в свою учётную запись</p>
+        <p class="text-center reg-title">{{ __('translation.auth_p1')}}</p>
+        <p class="text-center reg-sub">{!! nl2br(e(__('translation.auth_p2'))) !!}</p>
 
         @if (session('error'))
             <div class="alert alert-danger">
@@ -28,7 +28,7 @@
                 <div class="required">
                     <input id="email" type="email" class="form-control   @error('email') is-invalid @enderror"
                         name="email" value="{{ old('email') }}" required autocomplete="email"
-                        placeholder="Электронная почта">
+                        placeholder="{{ __('translation.mail')}}">
                     <div class="required-sign"></div>
                 </div>
 
@@ -42,7 +42,7 @@
             <div class="d-flex justify-content-center">
                 <div class="required">
                     <input id="password" type="password" class="form-control  @error('password') is-invalid @enderror"
-                        name="password" required autocomplete="new-password" placeholder="Пароль">
+                        name="password" required autocomplete="new-password" placeholder="{{ __('translation.passw')}}">
                     <div class="required-sign"></div>
                 </div>
 
@@ -58,14 +58,16 @@
 
             <div class="row mb-0 justify-content-center mx-auto">
                 <button type="submit" class="reg-btn">
-                    Авторизоваться
+                    {{ __('translation.auth_btn')}}
                 </button>
                 {{-- @if (Route::has('password.request')) --}}
-                <a href="{{ route('password.request', ['locale' => app()->getLocale()]) }}" class="log-a">Забыли
-                    пароль?</a>
+                <a href="{{ route('password.request', ['locale' => app()->getLocale()]) }}" class="log-a">{{ __('translation.auth_forgot')}}</a>
 
                 {{-- @endif --}}
             </div>
         </form>
     </div>
 </div>
+@include('layouts.footer')
+
+

@@ -26,7 +26,7 @@ class SetLocale
             $fallbackLocale = Config::get('app.fallback_locale');
             return redirect($fallbackLocale);
         }
-
+        
         return $next($request);
     }
 }

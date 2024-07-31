@@ -26,26 +26,26 @@
                 <div class="tab-content" id="languageTabsContent">
                     <div class="tab-pane fade show active" id="ru" role="tabpanel" aria-labelledby="ru-tab">
                         <div class="form-group mt-3">
-                            <label for="title_ru">Title (RU)</label>
+                            <label for="title_ru">Название (RU)</label>
                             <input type="text" class="form-control" id="title_ru" name="title_ru" value="{{ $brand->title_ru ?? '' }}" required>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="en" role="tabpanel" aria-labelledby="en-tab">
                         <div class="form-group mt-3">
-                            <label for="title_en">Title (EN)</label>
+                            <label for="title_en">Название (EN)</label>
                             <input type="text" class="form-control" id="title_en" name="title_en" value="{{ $brand->title_en ?? '' }}" required>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tk" role="tabpanel" aria-labelledby="tk-tab">
                         <div class="form-group mt-3">
-                            <label for="title_tk">Title (TK)</label>
+                            <label for="title_tk">Название (TK)</label>
                             <input type="text" class="form-control" id="title_tk" name="title_tk" value="{{ $brand->title_tk ?? '' }}" required>
                         </div>
                     </div>
                 </div>
                 <div class="form-group form-check mt-3">
                     <input type="checkbox" class="form-check-input" id="is_active" name="is_active" {{ isset($brand) && $brand->is_active ? 'checked' : '' }}>
-                    <label class="form-check-label" for="is_active">Active</label>
+                    <label class="form-check-label" for="is_active">Активный</label>
                 </div>
                 <button type="submit" class="btn btn-primary">{{ isset($brand) ? 'Update' : 'Create' }}</button>
             </form>

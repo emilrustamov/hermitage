@@ -1471,6 +1471,8 @@ footer {
 }
 .btn-wrapper {
   overflow: hidden;
+  margin-top: 35px;
+  margin-right: 10px;
 }
 .download-button {
   cursor: pointer;
@@ -1813,17 +1815,6 @@ footer {
 }
 
 
-// .footer-link{
-//   text-decoration: underline !important;
-//   text-decoration-color: transparent !important;
-//   text-underline-offset: 4px !important;
-//   transition: all 0.3s ease;
-//   color: #212529 !important;
-//   &:hover{
-//     text-decoration-color: #000 !important;
-//   }
-// }
-
 .footer-link {
   text-decoration: none;
   position: relative;
@@ -1867,3 +1858,50 @@ footer {
     }
   }
 }
+
+.show-all-a{
+  line-height: 64px;
+  color: #333;
+  text-decoration-color: #333 !important;
+  text-underline-offset: 3px;
+  transition: all 0.3s ease;
+  &:hover{
+    text-decoration-color: transparent !important;
+  }
+}
+
+@keyframes bounce2 {
+	0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+	10% {transform: translateY(-20px);}
+	25% {transform: translateY(-10px);}
+}
+
+.icon-wrapper{
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  i{
+    font-size: 22px;
+  }
+  &:hover{
+    animation: bounce2 2s ease infinite;
+  }
+}
+.scroll-to-top {
+  position: fixed;
+  bottom: 50px;
+  right: 30px;
+  background-color: #000;
+  color: #ffff00;
+  border: none;
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  font-size: 24px;
+  cursor: pointer;
+  opacity:1;
+  display: none; /* Скрыта по умолчанию */
+  z-index: 1000; /* Чтобы кнопка была выше остальных элементов */
+}
+
+

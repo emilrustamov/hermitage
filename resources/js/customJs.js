@@ -26,6 +26,35 @@ document.addEventListener('DOMContentLoaded', function () {
     // function closeSidebarFunction() {
     //     sidebar.style.right = '-27%';
     // }
+    const scrollToTopButton = document.getElementById('scrollToTopButton');
+
+    // Функция для показа или скрытия кнопки при скролле
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > 200) { // Показываем кнопку, если прокручено более 300px
+            scrollToTopButton.style.display = 'block';
+            scrollToTopButton.style.opacity = '0';
+            scrollToTopButton.style.transition = 'opacity 0.3s ease-in-out';
+
+            setTimeout(function () {
+                scrollToTopButton.style.opacity = '1';
+            }, 10); // Немного задержки для плавного эффекта
+        } else {
+            scrollToTopButton.style.opacity = '0';
+            setTimeout(function () {
+                scrollToTopButton.style.display = 'none';
+            }, 300); // Учитываем время перехода для плавного скрытия
+        }
+    });
+
+    // Прокрутка наверх при клике на кнопку
+    scrollToTopButton.addEventListener('click', function () {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Плавная прокрутка
+        });
+    });
+
+
 
     const dropdownToggle = document.getElementById('languageDropdown');
     const dropdownMenu = document.getElementById('dropdownMenu');
@@ -68,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
     fadeElements.forEach(element => {
         observer.observe(element);
     });
-   
+
 });
 
 // Проверяем, существует ли элемент с id 'partnersDropdown'

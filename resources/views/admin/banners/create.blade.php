@@ -29,7 +29,7 @@
             </div>
 
             <div class="form-group mt-3">
-                <label for="banner">Image</label>
+                <label for="banner">картинка</label>
                 <div class="input-group">
                     <input id="banner" class="form-control @error('banner') is-invalid @enderror" type="text" name="banner" value="{{ old('banner') }}">
                     <span class="input-group-append">
@@ -46,7 +46,7 @@
                 <img id="holder" style="margin-top:15px;max-height:100px;">
             </div>
 
-            <button type="submit" class="btn btn-primary">Add Banner</button>
+            <button type="submit" class="btn btn-primary">Добавить баннер</button>
         </form>
     </div>
 </div>
