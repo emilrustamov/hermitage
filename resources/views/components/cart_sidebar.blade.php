@@ -53,7 +53,7 @@
     <div class="cart-header">
         <div class="d-flex align-items-center justify-content-between">
             <img src="{{ asset('/images/icons/close.png') }}" id="closeSidebar" alt="">
-            <p class="fs-3">Корзина</p>
+            <p class="fs-3">{{ __('translation.sid')}}</p>
         </div>
     </div>
 
@@ -63,34 +63,34 @@
 
     <div class="cart-footer">
         <div class="total-sum d-flex justify-content-between">
-            <p>Общая сумма</p>
-            <p class="product-price text-center total-price">0,00 TMT</p>
+            <p>{{ __('translation.sid_p1')}}</p>
+            <p class="product-price text-center total-price">{{ __('translation.sid_p2')}}</p>
         </div>
         <div class="d-flex align-items-center shipment">
             <img src="{{ asset('/images/icons/shipment.png') }}" alt="">
-            <p class="my-auto">Доставка осуществляется в течении 3-5 дней</p>
+            <p class="my-auto">{{ __('translation.sid_p3')}}</p>
         </div>
         <!-- Кнопка для очистки корзины -->
         <div class="clear-cart">
-            <button id="clearCart" class="btn btn-danger w-100 mt-3">Очистить корзину</button>
+            <button id="clearCart" class="btn btn-danger w-100 mt-3">{{ __('translation.sid_btn')}}</button>
         </div>
 
         <!-- Форма для оформления заказа -->
         <form id="orderForm" class="order-form">
             <div class="form-group">
-                <label for="name">Имя</label>
+                <label for="name">{{ __('translation.sid_label1')}}</label>
                 <input type="text" id="name" name="name" class="form-control" required>
             </div>
             <div class="form-group">
-                <label for="phone">Телефон</label>
+                <label for="phone">{{ __('translation.sid_label2')}}</label>
                 <input type="text" id="phone" name="phone" class="form-control" required>
             </div>
             <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email">{{ __('translation.sid_label3')}}</label>
                 <input type="email" id="email" name="email" class="form-control">
             </div>
             <button type="submit" class="checkout-btn d-flex justify-content-center align-items-center">
-                <p class="my-auto mx-auto">Оформить заказ</p>
+                <p class="my-auto mx-auto">{{ __('translation.sid_label4')}}</p>
                 <i class="fa fa-long-arrow-right"></i>
             </button>
         </form>

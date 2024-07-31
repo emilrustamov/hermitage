@@ -1,20 +1,20 @@
 @include('layouts.headerA', ['hasimage' => false])
 <div class="admin-index">
     <div class="d-flex align-items-center justify-content-between mb-3">
-        <h1>Admin - Models</h1>
-        <a href="{{ route('admin.models.create') }}" class="btn btn-primary mb-3">Create New Model</a>
+        <h1>Админ модели </h1>
+        <a href="{{ route('admin.models.create') }}" class="btn btn-primary mb-3">Создать модель</a>
     </div>
     <table class="table table-bordered">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Title</th>
-                <th>Image</th>
-                <th>Status</th>
-                <th>Ordering</th>
-                <th>Created At</th>
-                <th>Updated At</th>
-                <th>Actions</th>
+                <th>Название</th>
+                <th>Фото</th>
+                <th>Статус</th>
+                <th>Заказ</th>
+                <th>Создать</th>
+                <th>Обновить</th>
+                <th>Действия</th>
             </tr>
         </thead>
         <tbody>
@@ -32,7 +32,7 @@
                 <td>{{ $model->created_at }}</td>
                 <td>{{ $model->updated_at }}</td>
                 <td>
-                    <a href="{{ route('admin.models.edit', $model->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{{ route('admin.models.edit', $model->id) }}" class="btn btn-warning btn-sm">Изменить</a>
                     <form action="{{ route('admin.models.destroy', $model->id) }}" method="POST" style="display:inline-block;">
                         @csrf
                         @method('DELETE')

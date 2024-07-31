@@ -56,42 +56,42 @@
                                 <span></span>
                                 <ul id="menu">
                                     <a class="nav-link" href="{{ route('about', ['locale' => app()->getLocale()]) }}">
-                                        <li>О нас</li>
+                                        <li>{{ __('translation.head_li1')}}</li>
                                     </a>
                                     <a class="nav-link" href="{{ route('areas', ['locale' => app()->getLocale()]) }}">
-                                        <li>Наши направления</li>
+                                        <li>{{ __('translation.head_li2')}}</li>
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('partners.index', ['locale' => app()->getLocale()]) }}">
-                                        <li>Партнеры</li>
+                                        <li>{{ __('translation.head_li3')}}</li>
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('contracts.index', ['locale' => app()->getLocale()]) }}">
-                                        <li>Контракты</li>
+                                        <li>{{ __('translation.head_li4')}}</li>
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('projects.index', ['locale' => app()->getLocale()]) }}">
-                                        <li>Проекты</li>
+                                        <li>{{ __('translation.head_li5')}}</li>
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('products.index', ['locale' => app()->getLocale()]) }}">
-                                        <li>Товары в наличии</li>
+                                        <li>{{ __('translation.head_li6')}}</li>
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('blogs.index', ['locale' => app()->getLocale()]) }}">
-                                        <li>Новости</li>
+                                        <li>{{ __('translation.head_li7')}}</li>
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('vacancies.index', ['locale' => app()->getLocale()]) }}">
-                                        <li>Вакансии</li>
+                                        <li>{{ __('translation.head_li8')}}</li>
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('requests.index', ['locale' => app()->getLocale()]) }}">
-                                        <li>Заказать проект</li>
+                                        <li>{{ __('translation.head_li9')}}</li>
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('certificates.index', ['locale' => app()->getLocale()]) }}">
-                                        <li>Сертификаты</li>
+                                        <li>{{ __('translation.head_li10')}}</li>
                                     </a>
 
 

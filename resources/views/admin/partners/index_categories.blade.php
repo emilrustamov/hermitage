@@ -21,17 +21,17 @@
                 @endif
                 <div class="d-flex justify-content-between mb-5">
                     <h1>Categories</h1>
-                    <a href="{{ route('admin.partners.categories.create') }}" class="btn btn-primary mb-3">Create Category</a>
+                    <a href="{{ route('admin.partners.categories.create') }}" class="btn btn-primary mb-3">Создать категории</a>
                 </div>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Title (RU)</th>
-                            <th>Title (EN)</th>
-                            <th>Title (TK)</th>
-                            <th>Active</th>
-                            <th>Actions</th>
+                            <th>Название (RU)</th>
+                            <th>Название (EN)</th>
+                            <th>Название (TK)</th>
+                            <th>Активация</th>
+                            <th>Действия</th>
                         </tr>
                     </thead>
                     <tbody>

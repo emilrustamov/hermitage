@@ -13,16 +13,16 @@
     <img class="photo-for-reg" src="{{ asset('/images/register-photo.jpg') }}" alt="reg">
     <div class="form-reg w-50 justify-content-center">
         @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-        <p class="text-center reg-title">Я новый клиент</p>
-        <p class="text-center reg-sub">Пожалуйста, зарегистрируйтесь чтобы создать </br> учётную запись</p>
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+        <p class="text-center reg-title">{{ __('translation.reg_p1')}}</p>
+        <p class="text-center reg-sub">{{ __('translation.reg_p2')}}</p>
 
 
         <form method="POST" action="{{ route('register', ['locale' => app()->getLocale()]) }}">
@@ -120,18 +120,29 @@
                     <div class="required-sign"></div>
                 </div>
             </div>
-            <p class="pass-clue mt-2 mb-2">Пароль должен: быть длиной не менее 8 символов, содержать как буквы, так и
-                цифры</p>
-
-                <div class="mt-2 mb-3 d-flex align-items-center justify-content-center">
-                    <input type="checkbox" class="my-auto checkbox-input" name="subscribe_to_blog" id="subscribe_to_blog" value="1" {{ old('subscribe_to_blog') ? 'checked' : '' }}>
-                    <label for="subscribe_to_blog" class="agr-lab">Я бы хотел получать рассылки на электронную почту</label>
+            <p class="pass-clue mt-2 mb-2">{{ __('translation.reg_p3')}}</p>
+            <div class="d-flex justify-content-center">
+                <div class="required">
+                    <input id="contacts" type="tel" class="form-control @error('contact') is-invalid @enderror"
+                        name="contact" required autocomplete="contacts" placeholder="Контакты">
+                    <div class="required-sign"></div>
                 </div>
+
+                @error('contact')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="mt-2 mb-3 d-flex align-items-center  justify-content-center">
+                <input type="checkbox" class="my-auto checkbox-input" name="subscribe_to_blog" id="subscribe_to_blog" {{ old('subscribe_to_blog') ? 'checked' : '' }}>
+                <label for="subscribe_to_blog" class="agr-lab">{{ __('translation.reg_p4')}}</label>
+            </div>
             <div class="row mb-0 justify-content-center mx-auto">
                 <button type="submit" class="reg-btn">
-                    Зарегистрироваться
+                    {{ __('translation.reg_btn')}}
                 </button>
-                <a href="/login" class="log-a">Уже есть аккаунт?</a>
+                <a href="/login" class="log-a">{{ __('translation.reg_a')}}</a>
             </div>
         </form>
     </div>

@@ -212,8 +212,8 @@
     }
 </style>
 <div class="container mt-5">
-    <p class="title">Мебель</p>
-    <p style="float: right;">Итальянская мебель отличается особой элегантностью и надежным качеством!</p>
+    <p class="title">{{ __("translation.p_title") }}</p>
+    <p style="float: right;">{{ __("translation.p_float") }}</p>
     <div class="row" style="margin-top: 65px;">
         <div class="col-md-7">
             <img src="{{ asset('/images/photos/1.jpg') }}" alt="Шкаф" class="wardrobe-image">
@@ -224,8 +224,8 @@
     </div>
 </div>
 <div class="container mt-5">
-    <p style="float: right;" class="title">ОСВЕЩЕНИЕ</p><br>
-    <p>Создайте освещение, подходящее для вашего пространства с помощью продуманных решений!</p>
+    <p style="float: right;" class="title">{{ __("translation.container_title") }}</p><br>
+    <p>{{ __("translation.container_title_p") }}</p>
     <div class="row" style="margin-top: 65px;">
         <div class="col-md-5 chair-image-container">
             <img src="{{ asset('/images/photos/3.jpg') }}" alt="Шкаф" class="chair-image">
@@ -237,9 +237,8 @@
 </div>
 
 <div class="container mt-5">
-    <p class="title">СИСТЕМА «УМНЫЙ ДОМ»</p>
-    <p style="text-align: right; align-self: self-end;">Улучшите качество своей жизни, настроив гибкую <br>
-        систему «Умный дом» в соответствии с собственным потребностями.</p>
+    <p class="title">{{ __("translation.container2_title") }}</p>
+    <p style="text-align: right; align-self: self-end;">{!! nl2br(e(__('translation.container2_title_p'))) !!}</p>
     <div class="row" style="margin-top: 65px;">
         <div class="col-md-7">
             <img src="{{ asset('/images/photos/5.png') }}" alt="Шкаф" class="wardrobe-image">
@@ -250,8 +249,8 @@
     </div>
 </div>
 <div class="container mt-5">
-    <p style="float: right;" class="title">Кухни бытовая техника</p><br>
-    <p>Широкий выбор, эксклюзивный и современный дизайн <br> инновационных технологий</p>
+    <p style="float: right;" class="title">{{ __("translation.container3_title") }}</p><br>
+    <p>{!! nl2br(e(__('translation.container3_title_p'))) !!}</p>
     <div class="row" style="margin-top: 35px;">
         <div class="col-md-5 chair-image-container">
             <img src="{{ asset('/images/photos/7.jpg') }}" alt="Шкаф" class="chair-image plate">
@@ -262,9 +261,8 @@
     </div>
 </div>
 <div class="container" style="padding-top: 35px;">
-    <p class="title">ДЕКОРОТИВНЫЕ МАТЕРИАЛЫ</p>
-    <p style="text-align: right; align-self: self-end;">Декор-это исскуство и функциональность, которые
-        <br>ассоцируются с современностью!
+    <p class="title">{!! nl2br(e(__('translation.container4_title'))) !!}</p>
+    <p style="text-align: right; align-self: self-end;">{!! nl2br(e(__('translation.container4_title_p'))) !!}
     </p>
     <div class="row" style="margin-top: 40px;">
         <div class="col-md-7">
@@ -276,8 +274,8 @@
     </div>
 </div>
 <div class="container mt-5">
-    <p style="float: right;" class="title">КАМИНЫ</p><br>
-    <p>Встраиваемые камины и электрокамины наполнят <br>ваш дом теплом и уютом!</p>
+    <p style="float: right;" class="title">{!! nl2br(e(__('translation.container5_title'))) !!}</p><br>
+    <p>{!! nl2br(e(__('translation.container5_title_p'))) !!}</p>
     <div class="row" style="margin-top: 65px;">
         <div class="col-md-5 ">
             <img src="{{ asset('/images/photos/3.jpg') }}" alt="Шкаф" class="chandeleir-image">
@@ -289,9 +287,8 @@
 </div>
 
 <div class="container mt-5">
-    <p class="title">НАПОЛНЫЕ ПОКРЫТИЯ</p>
-    <p style="text-align: right; align-self: self-end;">Качественные наполные покрытия из дерева,расскрывают
-        характер натуральной древесины <br>во всем ее многообразии.</p>
+    <p class="title">{{ __('translation.container6_title')}}</p>
+    <p style="text-align: right; align-self: self-end;">{!! nl2br(e(__('translation.container6_title_p'))) !!}</p>
     <div class="row" style="margin-top: 45px;">
         <div class="col-md-7">
             <img src="{{ asset('/images/photos/13.jpg') }}" alt="Шкаф" class="wardrobe-image">
@@ -302,8 +299,8 @@
     </div>
 </div>
 <div class="container mt-5">
-    <p style="float: right;" class="title">САНТЕХНИКА</p><br>
-    <p>Ванная комната то с чего начинается ваш день.</p>
+    <p style="float: right;" class="title">{{ __("translation.container7_title") }}</p><br>
+    <p>{{ __("translation.container7_title_p") }}</p>
     <div class="row" style="margin-top: 65px;">
         <div class="col-md-5 ">
             <img src="{{ asset('/images/photos/15.jpg') }}" alt="Шкаф" class="chandeleir-image">
@@ -314,10 +311,8 @@
     </div>
 </div>
 <div class="container mt-5">
-    <p class="title">ПЛИТКА КАМЕНЬ</p>
-    <p style="text-align: right; align-self: self-end;">Уникальная цветовая гармония натуральные
-        материалы<br>всегда
-        близки к природе.</p>
+    <p class="title">{{ __("translation.container8_title") }}</p>
+    <p style="text-align: right; align-self: self-end;">{!! nl2br(e(__('translation.container8_title_p'))) !!}</p>
     <div class="row" style="margin-top: 35px;">
         <div class="col-md-7">
             <img src="{{ asset('/images/photos/17.jpg') }}" alt="Шкаф" class="wardrobe-image">
@@ -328,8 +323,8 @@
     </div>
 </div>
 <div class="container mt-5">
-    <p style="float: right;" class="title">СПА И ВЕЛНЕС</p><br>
-    <p>Революционная предложение для <br> СПА-процедурь и полноценного релакса</p>
+    <p style="float: right;" class="title">{!! nl2br(e(__('translation.container9_title'))) !!}
+    <p>{!! nl2br(e(__('translation.container9_title_p'))) !!}</p>
     <div class="row" style="margin-top: 65px;">
         <div class="col-md-5 ">
             <img src="{{ asset('/images/photos/19.jpg') }}" alt="Шкаф" class="chandeleir-image">
@@ -340,9 +335,8 @@
     </div>
 </div>
 <div class="container mt-5">
-    <p class="title">ОТОПЛЕНИЕ,ВЕНТИЛЯЦИЯ И КОНДИЦИОНИРОВАНИЕ</p>
-    <p style="text-align: right; align-self: self-end;">Самые инновационные системы отопления, вентиляции и
-        кондиционирование<br>для вашего здорового климата.</p>
+    <p class="title">{{ __("translation.container10_title") }}</p>
+    <p style="text-align: right; align-self: self-end;">{!! nl2br(e(__('translation.container10_title_p'))) !!}</p>
     <div class="row" style="margin-top: 35px;">
         <div class="col-md-7">
             <img src="{{ asset('/images/photos/21.jpg') }}" alt="Шкаф" class="wardrobe-image">
@@ -353,9 +347,8 @@
     </div>
 </div>
 <div class="container mt-5">
-    <p style="float: right;" class="title">ОКНА И ДВЕРИ </p><br>
-    <p>Это мастерская играформ и материалов, которые<br> сливаются воедино и приоткрывают занавес будущего мира
-        дверей и окон.</p>
+    <p style="float: right;" class="title">{!! nl2br(e(__('translation.container11_title'))) !!}</p>
+    <p>{!! nl2br(e(__('translation.container11_title_p'))) !!}</p>
     <div class="row" style="margin-top: 35px;">
         <div class="col-md-5">
             <img src="{{ asset('/images/photos/23.jpg') }}" alt="Шкаф" class="chandeleir-image door ">
@@ -368,10 +361,8 @@
         </div>
     </div>
     <div class="container mt-5" style="margin-top: 10px !important;">
-        <p style="text-align: right; align-self: self-end; margin-bottom: 0;" class="title">СТРОИТЕЛБНЫЕ МАТЕРИАЛЫ
-        </p><br>
-        <p style="margin-bottom:0;">Решения, которые соответствуют индивидуальным требованиям <br>проектов и
-            могут применяться на различных типах объектов</p>
+        <p style="text-align: right; align-self: self-end; margin-bottom: 0;" class="title">{!! nl2br(e(__('translation.container12_title'))) !!}</p>
+        <p style="margin-bottom:0;">{!! nl2br(e(__('translation.container12_title_p'))) !!}</p>
         <div class="row" style="margin-top: 35px;">
             <div class="col-md-5 ">
                 <img src="{{ asset('/images/photos/15.jpg') }}" alt="Шкаф" class="chandeleir-image">

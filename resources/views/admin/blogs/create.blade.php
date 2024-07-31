@@ -3,7 +3,7 @@
 <body>
     <div class="admin-index">
         <div class="container mt-5">
-            <h1>Create Blog</h1>
+            <h1>Создать блог</h1>
             <form action="{{ route('admin.blogs.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <ul class="nav nav-tabs" id="languageTabs" role="tablist">
@@ -23,44 +23,44 @@
                 <div class="tab-content" id="languageTabsContent">
                     <div class="tab-pane fade show active" id="ru" role="tabpanel" aria-labelledby="ru-tab">
                         <div class="form-group mt-3">
-                            <label for="title_ru">Title (RU)</label>
+                            <label for="title_ru">Название (RU)</label>
                             <input type="text" class="form-control" id="title_ru" name="title_ru" required>
                         </div>
 
                         <div class="form-group">
-                            <textarea id="description_ru" class="form-control" name="description_ru" rows="4" required>A simple menubar change.</textarea>
+                            <textarea id="description_ru" class="form-control" name="description_ru" rows="4" required>Простое изменение меню.</textarea>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="en" role="tabpanel" aria-labelledby="en-tab">
                         <div class="form-group mt-3">
-                            <label for="title_en">Title (EN)</label>
+                            <label for="title_en">Название (EN)</label>
                             <input type="text" class="form-control" id="title_en" name="title_en" required>
                         </div>
                         <div class="form-group">
-                            <textarea id="description_en" class="form-control" name="description_en" rows="4" required>A simple menubar change.</textarea>
+                            <textarea id="description_en" class="form-control" name="description_en" rows="4" required>Простое изменение меню.</textarea>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tk" role="tabpanel" aria-labelledby="tk-tab">
                         <div class="form-group mt-3">
-                            <label for="title_tk">Title (TK)</label>
+                            <label for="title_tk">Название (TK)</label>
                             <input type="text" class="form-control" id="title_tk" name="title_tk" required>
                         </div>
 
                         <div class="form-group">
 
-                            <textarea id="description_tk" class="form-control" name="description_tk" rows="4" required>A simple menubar change.</textarea>
+                            <textarea id="description_tk" class="form-control" name="description_tk" rows="4" required>Простое изменение меню.</textarea>
 
                         </div>
                     </div>
                 </div>
                 <div class="form-group mt-3">
-                    <label for="image">Image</label>
+                    <label for="image">Фото</label>
                     <div class="input-group">
                         <input id="image" class="form-control" type="text" name="image">
                         <span class="input-group-append">
                             <button id="lfm" data-input="image" data-preview="holder" class="btn btn-primary"
                                 type="button">
-                                <i class="fa fa-picture-o"></i> Choose
+                                <i class="fa fa-picture-o"></i> Выбрать
                             </button>
                         </span>
                     </div>
@@ -69,9 +69,9 @@
 
                 <div class="form-group form-check mt-3">
                     <input type="checkbox" class="form-check-input" id="is_active" name="is_active" checked>
-                    <label class="form-check-label" for="is_active">Active</label>
+                    <label class="form-check-label" for="is_active">Действие</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Create</button>
+                <button type="submit" class="btn btn-primary">Создать</button>
             </form>
         </div>
     </div>

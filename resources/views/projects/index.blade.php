@@ -7,7 +7,7 @@
     {{-- <h2 class="mb-5">ПРОЕКТЫ</h2> --}}
 
     @foreach ($projects as $year => $yearProjects)
-        <h2 class="fw-bold my-5">ПРОЕКТЫ | {{ $year }}</h2>
+        <h2 class="fw-bold my-5">{{ __('translation.projects_page_title') }} {{ $year }}</h2>
         <div class="row">
             @foreach ($yearProjects as $index => $project)
                 <div class="col-md-4 col-lg-4 col-12">

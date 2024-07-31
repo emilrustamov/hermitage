@@ -51,7 +51,7 @@
         </div>
     @endif
         <div class="with-black-links mb-5">
-            <a href="{{ route('projects.index', ['locale' => app()->getLocale()]) }}" class="nav-link">Все проекты</a>
+            <a href="{{ route('projects.index', ['locale' => app()->getLocale()]) }}" class="nav-link">{{ __('translation.all_projects_link') }}</a>
         </div>
 </div>
 
