@@ -25,25 +25,36 @@
         <div>
             <header>
                 @if ($slider)
-                    @if (isset($banner))
+                @if (isset($banners) && $banners->count() > 1)
+                    <div class="regular2">
+                        @foreach ($banners as $banner)
+                            <div class="slide slider-item" style="background-image: url('{{ asset('storage/' . $banner->banner) }}'); min-height:900px">
+                                <!-- Add content for each slide if needed -->
+                            </div>
+                        @endforeach
+                    </div>
+                @elseif (isset($banners) && $banners->count() == 1)
+                    <div class="single-slide slider-item"
+                        style="background-image: url('{{ asset('storage/' . $banners->first()->banner) }}');">
+                    </div>
+                @else
+                    @include('layouts.head_slider')
+                @endif
+            @else
+                @if ($show_single_slide ?? true)
+                    @if (isset($banners) && $banners->count() == 1)
                         <div class="single-slide slider-item"
-                            style="background-image: url('{{ asset('storage/' . $banner) }}');">
+                            style="background-image: url('{{ asset('storage/' . $banners->first()->banner) }}');">
                         </div>
                     @else
-                        @include('layouts.head_slider')
-                    @endif
-                @else
-                    @if ($show_single_slide ?? true)
-                        @if (isset($banner))
-                            <div class="single-slide slider-item"
-                                style="background-image: url('{{ asset('storage/' . $banner) }}'); ">
-                            </div>
-                        @else
-                            <div class="single-slide slider-item" style="background-image: url('{{ asset($image) }}');">
-                            </div>
-                        @endif
+                        <div class="single-slide slider-item" style="background-image: url('{{ asset($image) }}');">
+                        </div>
                     @endif
                 @endif
+            @endif
+            
+            
+            
 
 
                 <div class="header-content">
@@ -76,6 +87,10 @@
                                     <a class="nav-link"
                                         href="{{ route('products.index', ['locale' => app()->getLocale()]) }}">
                                         <li>Товары в наличии</li>
+                                    </a>
+                                    <a class="nav-link"
+                                        href="{{ route('productsnew.index', ['locale' => app()->getLocale()]) }}">
+                                        <li>Новые поступления</li>
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('blogs.index', ['locale' => app()->getLocale()]) }}">

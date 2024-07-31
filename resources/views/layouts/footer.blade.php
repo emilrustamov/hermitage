@@ -43,7 +43,7 @@
             <p class="ul-title">Товары</p>
             <ul class="unstyle p-0">
                <li><a class="footer-link" href="{{ route('products.index', ['locale' => app()->getLocale()]) }}"> В наличии</a> </li>
-                <li><a class="footer-link" href="{{ route('products.index', ['locale' => app()->getLocale()]) }}"> Новые поступления </a></li>
+                <li><a class="footer-link" href="{{ route('productsnew.index', ['locale' => app()->getLocale()]) }}"> Новые поступления </a></li>
             </ul>
         </div>
         <div class="col-lg-3 col-6  py-3">

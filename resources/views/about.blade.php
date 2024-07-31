@@ -1,11 +1,15 @@
 @php
-    $banner = App\Models\Banner::where('page_identifier', 'about')->first();
+    $banners = App\Models\Banner::where('page_identifier', 'about')->get();
 @endphp
 
 @include('layouts.header', [
-    'slider' => false,
-    'banner' => $banner ? $banner->banner : null,
+    'slider' => $banners->count() > 1,
+    'banner' => $banners->count() == 1 ? $banners->first()->banner : null,
+    'banners' => $banners,
+    'show_single_slide' => $banners->count() <= 1,
 ])
+
+
 <div class="container p-5 about-cont">
     <div class="left-div">
         <h2 class="fw-bold">О нас</h2>
