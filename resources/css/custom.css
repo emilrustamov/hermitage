@@ -68,6 +68,11 @@ nav {
 .punkt-menu {
   cursor: pointer;
   padding: 10px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.punkt-menu:hover {
+  color: #ffff00 !important;
 }
 
 .header-content {
@@ -111,7 +116,10 @@ nav {
   z-index: 2;
   -webkit-touch-callout: none;
 }
-#menuToggle span {
+#menuToggle input:hover + .spans span {
+  background-color: #ffff00;
+}
+#menuToggle .spans span {
   display: block;
   width: 33px;
   height: 4px;
@@ -128,30 +136,33 @@ nav {
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
-#menuToggle span:first-child {
+#menuToggle .spans span:first-child {
   -webkit-transform-origin: 0% 0%;
       -ms-transform-origin: 0% 0%;
           transform-origin: 0% 0%;
 }
-#menuToggle span:nth-last-child(2) {
+#menuToggle .spans span:nth-last-child(2) {
   -webkit-transform-origin: 0% 100%;
       -ms-transform-origin: 0% 100%;
           transform-origin: 0% 100%;
 }
-#menuToggle input:checked ~ span {
+#menuToggle .spans span:hover {
+  background-color: #ffff00;
+}
+#menuToggle input:checked ~ .spans span {
   opacity: 1;
   -webkit-transform: rotate(45deg) translate(-2px, -1px);
       -ms-transform: rotate(45deg) translate(-2px, -1px);
           transform: rotate(45deg) translate(-2px, -1px);
   background: #fff;
 }
-#menuToggle input:checked ~ span:nth-last-child(3) {
+#menuToggle input:checked ~ .spans span:nth-last-child(3) {
   opacity: 0;
   -webkit-transform: rotate(0) scale(0.2);
       -ms-transform: rotate(0) scale(0.2);
           transform: rotate(0) scale(0.2);
 }
-#menuToggle input:checked ~ span:nth-last-child(2) {
+#menuToggle input:checked ~ .spans span:nth-last-child(2) {
   -webkit-transform: rotate(-45deg) translateY(-1px);
       -ms-transform: rotate(-45deg) translateY(-1px);
           transform: rotate(-45deg) translateY(-1px);

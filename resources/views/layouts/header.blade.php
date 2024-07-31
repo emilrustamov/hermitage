@@ -51,9 +51,9 @@
                         <nav role="navigation">
                             <div id="menuToggle">
                                 <input type="checkbox" />
-                                <span></span>
-                                <span></span>
-                                <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
                                 <ul id="menu">
                                     <a class="nav-link" href="{{ route('about', ['locale' => app()->getLocale()]) }}">
                                         <li>О нас</li>
