@@ -9,17 +9,22 @@
         @foreach ($category->items as $item)
             <div class="col-lg-4 mb-4">
                 <div class="card">
-                    <a href="{{ asset($item->poster_img) }}" data-fancybox="gallery-{{ $item->id }}" data-caption="{{ $item->{'description_' . app()->getLocale()} }}">
-                        <img src="{{ asset($item->poster_img) }}" class="card-img-top" alt="{{ $item->{'description_' . app()->getLocale()} }}">
+                    <a href="{{ asset($item->poster_img) }}" data-fancybox="gallery-{{ $item->id }}"
+                        data-caption="{{ $item->{'description_' . app()->getLocale()} }}">
+                        <img src="{{ asset($item->poster_img) }}" class="card-img-top"
+                            alt="{{ $item->{'description_' . app()->getLocale()} }}">
                     </a>
                     @if (!empty($item->images))
                         @foreach (json_decode($item->images, true) as $image)
-                            <a href="{{ asset($image) }}" data-fancybox="gallery-{{ $item->id }}" data-caption="{{ $item->{'description_' . app()->getLocale()} }}"></a>
+                            <a href="{{ asset($image) }}" data-fancybox="gallery-{{ $item->id }}"
+                                data-caption="{{ $item->{'description_' . app()->getLocale()} }}"></a>
                         @endforeach
                     @endif
                     @if (!empty($item->videos))
                         @foreach (json_decode($item->videos, true) as $video)
-                            <a href="{{ asset($video) }}" data-fancybox="gallery-{{ $item->id }}" data-caption="{{ $item->{'description_' . app()->getLocale()} }}" data-type="iframe"></a>
+                            <a href="{{ asset($video) }}" data-fancybox="gallery-{{ $item->id }}"
+                                data-caption="{{ $item->{'description_' . app()->getLocale()} }}"
+                                data-type="iframe"></a>
                         @endforeach
                     @endif
                     <div class="card-body">
@@ -34,12 +39,12 @@
 @include('layouts.footer')
 
 
-{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 <script>
-    jQuery(function() {
-        jQuery('[data-fancybox]').fancybox({
+    $(document).ready(function() {
+        $('[data-fancybox]').fancybox({
             protect: true
         });
     });

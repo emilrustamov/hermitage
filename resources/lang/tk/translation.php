@@ -218,6 +218,6 @@ return[
       'projects_page_title'=>'Taslamalar',
 
       // Контракты
-      'contracts_page_title'=>'Контракты'
+      'contracts_page_title'=>'Şertnamalar'
 
 ];
