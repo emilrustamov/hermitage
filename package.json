@@ -15,6 +15,7 @@
         "vite": "^5.0.0"
     },
     "dependencies": {
+        "@fancyapps/fancybox": "^3.5.7",
         "@floating-ui/dom": "^1.6.5",
         "@fortawesome/fontawesome-free": "^6.5.2",
         "@popperjs/bundle": "^1.0.2",

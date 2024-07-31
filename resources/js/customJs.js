@@ -1,40 +1,31 @@
 document.addEventListener('DOMContentLoaded', function () {
-    //sidebar
-    var cartIcon = document.getElementById('cartIcon');
-    var sidebar = document.getElementById('sidebar');
-    var closeSidebar = document.getElementById('closeSidebar');
+    // //sidebar
+    // var cartIcon = document.getElementById('cartIcon');
+    // var sidebar = document.getElementById('sidebar');
+    // var closeSidebar = document.getElementById('closeSidebar');
 
-    // Открываем/закрываем сайдбар при клике на иконку корзины
-    cartIcon.addEventListener('click', function () {
-        toggleSidebar();
-    });
+    // // Открываем/закрываем сайдбар при клике на иконку корзины
+    // cartIcon.addEventListener('click', function () {
+    //     toggleSidebar();
+    // });
 
-    // Закрываем сайдбар при клике на крестик
-    closeSidebar.addEventListener('click', function () {
-        closeSidebarFunction();
-    });
+    // // Закрываем сайдбар при клике на крестик
+    // closeSidebar.addEventListener('click', function () {
+    //     closeSidebarFunction();
+    // });
 
-    // Закрываем сайдбар при клике вне него
-    window.addEventListener('click', function (event) {
-        if (event.target !== cartIcon && event.target !== sidebar && !sidebar.contains(event.target)) {
-            closeSidebarFunction();
-        }
-    });
+    // // Закрываем сайдбар при клике вне него
+    // window.addEventListener('click', function (event) {
+    //     if (event.target !== cartIcon && event.target !== sidebar && !sidebar.contains(event.target)) {
+    //         closeSidebarFunction();
+    //     }
+    // });
 
-    function toggleSidebar() {
-        var sidebarStyle = window.getComputedStyle(sidebar);
-        var sidebarRight = sidebarStyle.getPropertyValue('right');
 
-        if (sidebarRight === '0px' || sidebarRight === '0') {
-            sidebar.style.right = '-27%';
-        } else {
-            sidebar.style.right = '0';
-        }
-    }
 
-    function closeSidebarFunction() {
-        sidebar.style.right = '-27%';
-    }
+    // function closeSidebarFunction() {
+    //     sidebar.style.right = '-27%';
+    // }
 
     const dropdownToggle = document.getElementById('languageDropdown');
     const dropdownMenu = document.getElementById('dropdownMenu');
@@ -77,45 +68,14 @@ document.addEventListener('DOMContentLoaded', function () {
     fadeElements.forEach(element => {
         observer.observe(element);
     });
-    //custom tabs
-    document.querySelector('.tab-pane').classList.add('active');
+   
+});
 
-    document.querySelectorAll('.tab').forEach(function (tab) {
-        tab.addEventListener('click', function () {
-            document.querySelectorAll('.tab').forEach(function (t) {
-                t.classList.remove('active');
-            });
-            document.querySelectorAll('.tab-pane').forEach(function (tp) {
-                tp.classList.remove('active');
-            });
+// Проверяем, существует ли элемент с id 'partnersDropdown'
+var partnersDropdownToggle = document.getElementById('partnersDropdown');
+var partnersDropdownMenu = document.getElementById('partnersMenu');
 
-            this.classList.add('active');
-
-            var tabId = this.getAttribute('data-tab');
-            document.getElementById(tabId).classList.add('active');
-            // Показать или скрыть нужные секции
-            if (tabId === 'tab1') {
-                document.getElementById('architectureProj').classList.remove('d-none');
-                document.getElementById('architectureProj').classList.add('d-flex');
-                document.getElementById('designProj').classList.remove('d-flex');
-                document.getElementById('designProj').classList.add('d-none');
-            } else if (tabId === 'tab2') {
-                document.getElementById('architectureProj').classList.remove('d-flex');
-                document.getElementById('architectureProj').classList.add('d-none');
-                document.getElementById('designProj').classList.remove('d-none');
-                document.getElementById('designProj').classList.add('d-flex');
-            }
-        });
-    });
-
-
-
-
-
-    //partnersDropdown
-    var partnersDropdownToggle = document.getElementById('partnersDropdown');
-    var partnersDropdownMenu = document.getElementById('partnersMenu');
-
+if (partnersDropdownToggle && partnersDropdownMenu) {
     partnersDropdownToggle.addEventListener('click', function () {
         if (partnersDropdownMenu.style.display === 'none') {
             partnersDropdownMenu.style.display = 'block';
@@ -129,8 +89,4 @@ document.addEventListener('DOMContentLoaded', function () {
             partnersDropdownMenu.style.display = 'none';
         }
     });
-
-});
-
-
-
+}

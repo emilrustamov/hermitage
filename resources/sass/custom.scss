@@ -602,11 +602,13 @@ footer {
     // color: #202020;
   }
 }
-
+.cart-sidebar.closed {
+  right: -27% !important;
+}
 .cart-sidebar {
   position: fixed;
   top: 0;
-  right: -27%;
+  right: 0;
   /* начальное положение сайдбара за пределами экрана */
   width: 27%;
   height: 100%;

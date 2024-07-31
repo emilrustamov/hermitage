@@ -6,12 +6,10 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\CertificatesController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\RequestsController;
-use App\Http\Controllers\ThreedController;
 use App\Http\Controllers\VacancyController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SubscriberController;
-use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\AdminSubscriberController;
 use App\Http\Controllers\PartnerController;
 use UniSharp\LaravelFilemanager\Lfm;
@@ -24,7 +22,7 @@ use App\Http\Controllers\ModelsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ContractController;
-use App\Models\Contract;
+use App\Http\Controllers\DirectionsController;
 
 Route::get('/', function () {
     return redirect('/en');
@@ -47,16 +45,34 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 Auth::routes();
 
 Route::prefix('admin')->middleware(['web', 'auth', 'admin.access'])->group(function () {
+
     Route::get('/vacancies', [VacancyController::class, 'index'])->name('admin.vacancies.index');
     Route::get('/vacancies/create', [VacancyController::class, 'create'])->name('admin.vacancies.create');
     Route::post('/vacancies', [VacancyController::class, 'store'])->name('admin.vacancies.store');
     Route::get('/vacancies/{id}/edit', [VacancyController::class, 'edit'])->name('admin.vacancies.edit');
     Route::put('/vacancies/{id}', [VacancyController::class, 'update'])->name('admin.vacancies.update');
     Route::delete('/vacancies/{id}', [VacancyController::class, 'destroy'])->name('admin.vacancies.destroy');
+
     Route::get('/admin', function () {
         return view('admin.orders.index');
     })->name('admin');
 
+
+    // Категории направлений
+    Route::get('/directions/categories', [DirectionsController::class, 'indexCategory'])->name('admin.directions.categories.index');
+    Route::get('/directions/categories/create', [DirectionsController::class, 'createCategory'])->name('admin.directions.categories.create');
+    Route::post('/directions/categories', [DirectionsController::class, 'storeCategory'])->name('admin.directions.categories.store');
+    Route::get('/directions/categories/{id}/edit', [DirectionsController::class, 'editCategory'])->name('admin.directions.categories.edit');
+    Route::put('/directions/categories/{id}', [DirectionsController::class, 'updateCategory'])->name('admin.directions.categories.update');
+    Route::delete('/directions/categories/{id}', [DirectionsController::class, 'destroyCategory'])->name('admin.directions.categories.destroy');
+
+    // Элементы направлений
+    Route::get('/directions/items', [DirectionsController::class, 'indexItem'])->name('admin.directions.items.index');
+    Route::get('/directions/items/create', [DirectionsController::class, 'createItem'])->name('admin.directions.items.create');
+    Route::post('/directions/items', [DirectionsController::class, 'storeItem'])->name('admin.directions.items.store');
+    Route::get('/directions/items/{id}/edit', [DirectionsController::class, 'editItem'])->name('admin.directions.items.edit');
+    Route::put('/directions/items/{id}', [DirectionsController::class, 'updateItem'])->name('admin.directions.items.update');
+    Route::delete('/directions/items/{id}', [DirectionsController::class, 'destroyItem'])->name('admin.directions.items.destroy');
 
     Route::get('/blogs', [BlogController::class, 'index'])->name('admin.blogs.index');
     Route::get('/blogs/create', [BlogController::class, 'create'])->name('admin.blogs.create');
@@ -151,18 +167,13 @@ Route::prefix('admin')->middleware(['web', 'auth', 'admin.access'])->group(funct
 });
 
 
-
-// Route::get('/welcome', function () {
-//     return view('welcome');
-// })->name('welcome');
-
-
-
 Route::group(['prefix' => '{locale}', 'middleware' => 'web'], function () {
     Route::get('/', function ($locale) {
         app()->setLocale($locale);
         return view('home');
     })->name('home');
+    Route::get('/', [DirectionsController::class, 'index'])->name('home');
+    Route::get('/category/{id}', [DirectionsController::class, 'showCategory'])->name('category.show');
     Route::get('/about', function () {
         return view('about');
     })->name('about');
@@ -203,10 +214,6 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'web'], function () {
     Route::post('/subscriber/send-newsletter/{id}', [AdminSubscriberController::class, 'sendVacancyNewsletter'])->name('subscriber_send_newsletter');
     Route::post('/subscriber/send-newsletter/project/{id}', [AdminSubscriberController::class, 'sendProjectNewsletter'])->name('subscriber_send_project_newsletter');
     Route::post('/admin/subscriber/send-newsletter/blog/{id}', [AdminSubscriberController::class, 'sendBlogNewsletter'])->name('subscriber_send_blog_newsletter');
-
-
-
-
 });
 
 

@@ -197,20 +197,5 @@
 </section>
 
 @include('layouts.footer')
-<script>
-    function toggleRadio(radio) {
-        // Если радиокнопка уже выбрана, снимаем выбор
-        if (radio.wasChecked) {
-            radio.checked = false;
-        }
-        // Обновляем состояние wasChecked
-        radio.wasChecked = radio.checked;
-    }
+@vite(['resources/js/tabpane.js'])
 
-    document.querySelectorAll('.tab').forEach(tab => {
-        tab.addEventListener('click', function() {
-            const projectType = this.dataset.tab === 'tab1' ? 'Архитектурное проектирование' : 'Дизайн интерьера';
-            document.getElementById('projectType').value = projectType;
-        });
-    });
-</script>
