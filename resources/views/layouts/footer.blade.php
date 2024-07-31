@@ -11,7 +11,7 @@
         <form action="{{ route('subscribe', ['locale' => app()->getLocale()]) }}" method="post" class="row">
             @csrf
             <div class="form-group mb-3 col-lg-9 col-6  align-self-center d-flex flex-column">
-                <input type="text" name="email" class="form-control" placeholder="Email Address">
+                <input type="text" name="email" class="form-control" placeholder="{{ __('translation.mail')}}">
 
                 @error('email')
                     <span class="text-danger">{{ $message }}</span>

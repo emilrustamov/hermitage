@@ -34,6 +34,11 @@ return[
     'products_sort2'=> 'Atlandyrylyşy',
     'products_price_up'=> 'Bahalar ýokarlanýar',
     'products_price_down'=> 'Bahalar düşýär',
+
+    
+    'products_new_up'=> 'Täzelik ýokarlanýar',
+    'products_new_down'=> 'Täzelik düşýär',
+
     'products_apply'=>'Üýtgetmek',
     'products_reset'=>'Arassala',
     'products_new'=>'Täze',
@@ -177,14 +182,14 @@ return[
     'auth_forgot'=> 'Parol ýatdan çykdy?',
 
      // Header
-     'head_li1'=> 'Biza barada',
+     'head_li1'=> 'Biz barada',
      'head_li2'=> 'Biziň ugrumyz',
      'head_li3'=> 'Hyzmatdaşlar',
      'head_li4'=> 'Şertnamalar',
      'head_li5'=> 'Taslamalar',
      'head_li6'=> 'Elimizde bar bolan harytlar',
      'head_li7'=> 'Täzelikler',
-     'head_li8'=> 'Boş iş ýerleri',
+     'head_li8'=> 'Boş iş orunlary',
      'head_li9'=> 'Taslama sargyt etmek',
      'head_li10'=> 'Şahadatnamalar',
 
@@ -198,10 +203,11 @@ return[
     'foot_li4'=> '3D modeller',
     'foot_location'=> "Köç. S. Seýdi, 27\n'DÜRDÄNELI' Söwda merkezi, 1-nji gat\n HERMITAGE HOME INTERIORS şowrumy\n",
     'foot_contact'=> 'Belgiler',
+    'foot_prod'=> 'Harytlar',
 
          // Blog
-    'blog_р2'=> 'Blog',
-    'blog_a'=> 'Ähli bloglar',
+    'blog_р2'=> 'Habarlar',
+    'blog_a'=> 'Ähli habarlar',
 
     // Sidebar
     'sid'=> 'Sebet',
@@ -216,8 +222,23 @@ return[
 
       // Projects
       'projects_page_title'=>'Taslamalar',
+      'all_projects_link'=>'Ähli taslamalar',
 
       // Контракты
-      'contracts_page_title'=>'Şertnamalar'
+      'contracts_page_title'=>'Şertnamalar',
+      'all_contracts_link'=> 'Ähli şertnamalar',
+
+      
+
+          // Vacancy
+    'vacancy_all'=> 'Ähli boş iş orunlary ',
+
+        // Placeholders
+    'location'=> 'Ýurt, Şäher',
+    'mail'=> 'Email',
+    'passw'=>'Parol',
+    'confPassw'=>'Paroly tassyklaň',
+    'surnm'=>'Familiýas',
+    'namComp'=>'Kompanýanyň ady',
 
 ];

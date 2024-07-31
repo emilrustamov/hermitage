@@ -22,7 +22,7 @@
                         <p class="fw-bold">{{ __('translation.calc_p2')}}</p>
                     </div>
                     <div class="d-none flex-column design-proj " id="designProj">
-                        <p>{{ __('translation.calc_p2.1')}}</p>
+                        <p>{{ __('translation.calc_p1')}}</p>
                         <p class="fw-bold">{{ __('translation.calc_p3')}}</p>
                         <p class="fw-bold">{{ __('translation.calc_p4')}}</p>
                     </div>
@@ -82,11 +82,11 @@
                                     </div>
                                 <div class="contact-form d-flex flex-column">
                                     <p class="text-uppercase">{{ __('translation.calc_object_1')}}</p>
-                                    <input type="text" name="location" value="{{ auth()->check() ? auth()->user()->location : '' }}" placeholder="Страна, город*" required>
-                                    <input type="text" name="name" value="{{ auth()->check() ? auth()->user()->name : '' }}" placeholder="Имя*" required>
-                                    <input type="text" name="phone" value="{{ auth()->check() ? auth()->user()->contact : '' }}" placeholder="Телефон*" required>
-                                    <input type="email" name="email" value="{{ auth()->check() ? auth()->user()->email : '' }}" placeholder="Email*" required>
-                                    <textarea name="message" cols="30" rows="6" placeholder="Сообщение"></textarea>
+                                    <input type="text" name="location" value="{{ auth()->check() ? auth()->user()->location : '' }}" placeholder="{{ __('translation.location')}}*" required>
+                                    <input type="text" name="name" value="{{ auth()->check() ? auth()->user()->name : '' }}" placeholder="{{ __('translation.sid_label1')}}*" required>
+                                    <input type="text" name="phone" value="{{ auth()->check() ? auth()->user()->contact : '' }}" placeholder="{{ __('translation.sid_label2')}}*" required>
+                                    <input type="email" name="email" value="{{ auth()->check() ? auth()->user()->email : '' }}" placeholder="{{ __('translation.sid_label3')}}*" required>
+                                    <textarea name="message" cols="30" rows="6" placeholder="{{ __('translation.sub_btn_message')}}"></textarea>
                                     <div class="mt-2 mb-3 d-flex align-items-center justify-content-start">
                                         <input type="checkbox" class="my-auto checkbox-input" name="agreement" required>
                                         <label for="agreement" class="agr-lab">{{ __('translation.calc_agree')}}</label>
@@ -167,11 +167,11 @@
                                     </div>
                                 <div class="contact-form d-flex flex-column">
                                     <p class="text-uppercase">{{ __('translation.calc_object_1')}}</p>
-                                    <input type="text" name="location" value="{{ auth()->check() ? auth()->user()->location : '' }}" placeholder="Страна, город*" required>
-                                    <input type="text" name="name" value="{{ auth()->check() ? auth()->user()->name : '' }}" placeholder="Имя*" required>
-                                    <input type="text" name="phone" value="{{ auth()->check() ? auth()->user()->phone : '' }}" placeholder="Телефон*" required>
+                                    <input type="text" name="location" value="{{ auth()->check() ? auth()->user()->location : '' }}" placeholder="{{ __('translation.location')}}*" required>
+                                    <input type="text" name="name" value="{{ auth()->check() ? auth()->user()->name : '' }}" placeholder="{{ __('translation.sid_label1')}}*" required>
+                                    <input type="text" name="phone" value="{{ auth()->check() ? auth()->user()->phone : '' }}" placeholder="{{ __('translation.sid_label2')}}*" required>
                                     <input type="email" name="email" value="{{ auth()->check() ? auth()->user()->email : '' }}" placeholder="Email*" required>
-                                    <textarea name="message" cols="30" rows="6" placeholder="Сообщение"></textarea>
+                                    <textarea name="message" cols="30" rows="6" placeholder="{{ __('translation.sub_btn_message')}}"></textarea>
                                     <div class="mt-2 mb-3 d-flex align-items-center justify-content-start">
                                         <input type="checkbox" class="my-auto checkbox-input" name="agreement" required>
                                         <label for="agreement" class="agr-lab">{{ __('translation.calc_agree')}}</label>

@@ -28,7 +28,7 @@
                 <div class="required">
                     <input id="email" type="email" class="form-control   @error('email') is-invalid @enderror"
                         name="email" value="{{ old('email') }}" required autocomplete="email"
-                        placeholder="Электронная почта">
+                        placeholder="{{ __('translation.mail')}}">
                     <div class="required-sign"></div>
                 </div>
 
@@ -42,7 +42,7 @@
             <div class="d-flex justify-content-center">
                 <div class="required">
                     <input id="password" type="password" class="form-control  @error('password') is-invalid @enderror"
-                        name="password" required autocomplete="new-password" placeholder="Пароль">
+                        name="password" required autocomplete="new-password" placeholder="{{ __('translation.passw')}}">
                     <div class="required-sign"></div>
                 </div>
 

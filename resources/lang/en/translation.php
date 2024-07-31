@@ -31,6 +31,8 @@ times.',
     'products_sort2'=> 'Title',
     'products_price_up'=> 'Price in ascending order',
     'products_price_down'=> 'Price decreasing',
+    'products_new_up'=> 'Newness ascending',
+    'products_new_down'=> 'Newness descending',
     'products_apply'=>'Apply',
     'products_reset'=>'Reset',
     'products_new'=>'New',
@@ -94,14 +96,14 @@ times.',
     'calc_label18'=>'Authors support',
     'calc_disquared'=>'m²',
     // Subscriber
-    'sub_title'=>'Здравствуйте, подписчик!',
-    'sub_btn'=>'Показать весь блог!',
-    'sub_h2'=>'Подписка/новостная рассылка',
-    'sub_p1'=>'Чтобы получать последние новости и другие интересные материалы, подпишитесь на нас здесь:',
-    'sub_btn_now'=>'Подписаться сейчас',
-    'sub_user'=>'Блог пользователя',
-    'sub_send'=>'Все Подписаться Отправить сообщение.',
-    'sub_btn_message'=>'Сообщения',
+    'sub_title'=>'Hi,subscriber!',
+    'sub_btn'=>'Show to all blogs!',
+    'sub_h2'=>'Subscription/newsletter',
+    'sub_p1'=>'To get the latest news and other interesting content, subscribe to us here:',
+    'sub_btn_now'=>'Subscribe now',
+    'sub_user'=>'User blog',
+    'sub_send'=>'All Subscribe Send message.',
+    'sub_btn_message'=>'Message',
         // О нас
     'filter_by_category' => 'Filter by category',
     'all_categories' => 'All categories',
@@ -135,15 +137,11 @@ times.',
     'container_title'=> 'LIGHTING',    
     'container_title_p'=> 'Create lighting that suits your space with clever solutions!',
     'container2_title'=> 'Smart Home System',    
-
     'container2_title_p'=> "Improve your quality of life by customising a\n flexible «Smart Home» system to suit your needs.",  
     'container3_title' => 'Kitchen appliances',    
-
     'container3_title_p'=> "Wide selection, exclusive and modern design\ninnovative technologies",    
     'container4_title'=> 'DECORATIVE MATERIALS',    
-
     'container4_title_p'=> "Decor is the art and functionality\nassociated with modernity!",    
-  
     'container5_title'=> 'FIREPLACES',    
     'container5_title_p'=> "Built-in fireplaces and electric fireplaces fill\nyour home with warmth and cosiness!",  
     'container6_title'=> 'FLOOR COVERING ',    
@@ -186,7 +184,7 @@ times.',
 
      // Header
      'head_li1'=> 'About us',
-     'head_li2'=> 'Our destinations',
+     'head_li2'=> 'Our directions',
      'head_li3'=> 'Partners',
      'head_li4'=> 'Contracts',
      'head_li5'=> 'Projects',
@@ -207,10 +205,10 @@ times.',
     'foot_location'=> "St. S. Seydi, 27\nShopping Centre 'DÜRDÄNELI', 1 floor\nshowroom HERMITAGE HOME INTERIORS\n",
     'foot_contact'=> 'Contacts',
     'foot_prod'=> 'Products',
-
+    
     // Blog
     'blog_р2'=> 'Blog',
-    'blog_a'=> 'All blogs',
+    'blog_a'=> 'All news',
 
 
          // Sidebar
@@ -226,8 +224,22 @@ times.',
 
         // Projects
     'projects_page_title'=>'Projects',
-
-        // Контракты
+    'all_projects_link'=>'All projects',
+    
+    // Контракты
     'contracts_page_title'=>'Contracts',
+    'all_contracts_link'=>'All contracts',
+    
+
+    // Vacancy
+    'vacancy_all'=> 'All vacancies',
+
+      // Placeholders
+      'location'=> 'Country, City',
+      'mail'=> 'Email',
+      'passw'=>'Password',
+      'confPassw'=>'Confrim password',
+      'surnm'=>'Surname',
+      'namComp'=>'Name Company',
 
 ];

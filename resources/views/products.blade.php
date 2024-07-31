@@ -30,16 +30,12 @@
             </div>
             <div class="col-md-2">
                 <select name="sort_by" class="form-control">
-                    <option value="created_at">По умолчанию</option>
-                    <option value="title" {{ request('sort_by') == 'title' ? 'selected' : '' }}>Название</option>
-                    <option value="price_asc" {{ request('sort_by') == 'price_asc' ? 'selected' : '' }}>Цена по
-                        возрастанию</option>
-                    <option value="price_desc" {{ request('sort_by') == 'price_desc' ? 'selected' : '' }}>Цена по
-                        убыванию</option>
-                    <option value="newest_asc" {{ request('sort_by') == 'newest_asc' ? 'selected' : '' }}>Новизна по
-                        возрастанию</option>
-                    <option value="newest_desc" {{ request('sort_by') == 'newest_desc' ? 'selected' : '' }}>Новизна по
-                        убыванию</option>
+                    <option value="created_at">{{ __('translation.products_sort1')}}</option>
+                    <option value="title" {{ request('sort_by') == 'title' ? 'selected' : '' }}>{{ __('translation.products_sort2')}}</option>
+                    <option value="price_asc" {{ request('sort_by') == 'price_asc' ? 'selected' : '' }}>{{ __('translation.products_price_up')}}</option>
+                    <option value="price_desc" {{ request('sort_by') == 'price_desc' ? 'selected' : '' }}>{{ __('translation.products_price_down')}}</option>
+                    <option value="newest_asc" {{ request('sort_by') == 'newest_asc' ? 'selected' : '' }}>{{ __('translation.products_new_up')}}</option>
+                    <option value="newest_desc" {{ request('sort_by') == 'newest_desc' ? 'selected' : '' }}>{{ __('translation.products_new_down')}}</option>
                 </select>
             </div>
             <div class="col-md-2">

@@ -105,11 +105,11 @@
                                 </div>
                             <div class="contact-form d-flex flex-column">
                                 <p class="text-uppercase">{{ __('translation.calc_object_1')}}</p>
-                                <input type="text" placeholder="Страна, город*">
-                                <input type="text" placeholder="Имя*">
-                                <input type="text" placeholder="Телефон*">
-                                <input type="email" placeholder="Email*">
-                                <textarea name="" id="" cols="30" rows="6" placeholder="Сообщение"></textarea>
+                                <input type="text" placeholder="{{ __('translation.location')}}*">
+                                <input type="text" placeholder="{{ __('translation.sid_label1')}}*">
+                                <input type="text" placeholder="{{ __('translation.sid_label2')}}*">
+                                <input type="email" placeholder="{{ __('translation.location')}}*">
+                                <textarea name="" id="" cols="30" rows="6" placeholder="{{ __('translation.location')}}"></textarea>
                                 <div class="mt-2 mb-3 d-flex align-items-center  justify-content-start">
                                     <input type="checkbox" class="my-auto checkbox-input" name="agreement">
                                     <label for="agreement" class="agr-lab">{{ __('translation.calc_agree')}}</label>
