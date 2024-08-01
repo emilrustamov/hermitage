@@ -21,24 +21,24 @@
 </style>
 
 <body>
-    <div id="preloader">
-        <div class="d-flex flex-column w-100">
-            <div class="animated-logo">
-                @include('components.animated_logo')
-            </div>
-            <div style="height:50px"></div>
-            <div class="loader mx-auto">
-                <span></span>
-                <span></span>
-                <span></span>
-                <div class="percentage" id="percentage">0%</div>
-            </div>
-            <div style="height:50px"></div>
-
-            <div class="progress-bar-container">
-                <div class="progress-bar" id="progress-bar"></div>
-            </div>
+    {{-- <div id="preloader"> --}}
+    <div class="d-flex flex-column w-100">
+        <div class="animated-logo">
+            @include('components.animated_logo')
         </div>
+        <div style="height:50px"></div>
+        <div class="loader mx-auto">
+            <span></span>
+            <span></span>
+            <span></span>
+            <div class="percentage" id="percentage">0%</div>
+        </div>
+        <div style="height:50px"></div>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+    </div>
     </div>
 
     <div class="wrapper p-0">
@@ -138,6 +138,13 @@
                                 </ul>
                             </div>
                         </nav>
+                        <form method="GET" action="{{ route('search', ['locale' => app()->getLocale()]) }}"
+                            class="form-inline">
+                            <input class="form-control mr-sm-2" type="search" name="query"
+                                placeholder="{{ __('translation.search_placeholder') }}" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0"
+                                type="submit">{{ __('translation.search_button') }}</button>
+                        </form>
                         <div style="display: inline-flex">
                             <a href="{{ route('home', ['locale' => app()->getLocale()]) }}"><img
                                     src="{{ asset('/images/logo.svg') }}" style="filter:invert(1)" alt="logo"
