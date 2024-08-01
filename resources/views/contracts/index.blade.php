@@ -27,7 +27,7 @@
                         <div class="card-body mt-3">
                             <a class="proj-a text-center "
                                 href="{{ route('contracts.show', ['locale' => app()->getLocale(), 'id' => $contract->id]) }}">
-                                <h5 class="card-title text-uppercase">{{ $contract->title }}</h5>
+                                <h5 class="card-title card-title-link text-uppercase">{{ $contract->title }}</h5>
                             </a>
                         </div>
                     </div>

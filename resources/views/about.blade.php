@@ -81,8 +81,8 @@
             </div>
 
             <div class="col-lg-12 text-center scroll-fade-in">
-                <button class="download-btn">{{ __('translation.btn_presentation') }}<i class="fa fa-download"
-                        aria-hidden="true"></i></button>
+                <a href="/images/logo.svg" download><button class="download-btn">{{ __('translation.btn_presentation') }}<i class="fa fa-download"
+                        aria-hidden="true"></i></button></a>
             </div>
         </div>
     </div>

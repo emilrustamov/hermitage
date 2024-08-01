@@ -11,12 +11,12 @@
                         aria-controls="ru" aria-selected="true">Русский</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="en-tab" data-toggle="tab" href="#en" role="tab" aria-controls="en"
-                        aria-selected="false">English</a>
+                    <a class="nav-link" id="en-tab" data-toggle="tab" href="#en" role="tab"
+                        aria-controls="en" aria-selected="false">English</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="tk-tab" data-toggle="tab" href="#tk" role="tab" aria-controls="tk"
-                        aria-selected="false">Türkmençe</a>
+                    <a class="nav-link" id="tk-tab" data-toggle="tab" href="#tk" role="tab"
+                        aria-controls="tk" aria-selected="false">Türkmençe</a>
                 </li>
             </ul>
             <div class="tab-content" id="languageTabsContent">
@@ -26,7 +26,7 @@
                         <input type="text" class="form-control" id="title_ru" name="title_ru" required>
                     </div>
                     <div class="form-group">
-                        <textarea id="description_ru" class="form-control tinymce-editor" name="description_ru" rows="4" required></textarea>
+                        <textarea id="description_ru" class="form-control tinymce-editor" name="description_ru" rows="4"></textarea>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="en" role="tabpanel" aria-labelledby="en-tab">
@@ -35,7 +35,7 @@
                         <input type="text" class="form-control" id="title_en" name="title_en" required>
                     </div>
                     <div class="form-group">
-                        <textarea id="description_en" class="form-control tinymce-editor" name="description_en" rows="4" required></textarea>
+                        <textarea id="description_en" class="form-control tinymce-editor" name="description_en" rows="4"></textarea>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="tk" role="tabpanel" aria-labelledby="tk-tab">
@@ -44,7 +44,7 @@
                         <input type="text" class="form-control" id="title_tk" name="title_tk" required>
                     </div>
                     <div class="form-group">
-                        <textarea id="description_tk" class="form-control tinymce-editor" name="description_tk" rows="4" required></textarea>
+                        <textarea id="description_tk" class="form-control tinymce-editor" name="description_tk" rows="4"></textarea>
                     </div>
                 </div>
             </div>

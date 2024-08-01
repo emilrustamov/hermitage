@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
 {
+
     public function index()
     {
         $products = Product::query()->orderBy('created_at', 'desc')->paginate(20);
@@ -37,17 +38,14 @@ class ProductsController extends Controller
     {
         $query = Product::query()->where('is_active', 1);
 
-        // Фильтрация по категории
         if ($request->has('category_id') && $request->category_id != 'all') {
             $query->where('category_id', $request->category_id);
         }
 
-        // Фильтрация по бренду
         if ($request->has('brand_id') && $request->brand_id != 'all') {
             $query->where('brand_id', $request->brand_id);
         }
 
-        // Сортировка
         if ($request->has('sort_by')) {
             if ($request->sort_by == 'title') {
                 $query->orderBy('title_ru', 'asc');
@@ -68,25 +66,28 @@ class ProductsController extends Controller
         $categories = ProductCategory::all();
         $brands = ProductBrand::all();
 
+        if ($request->ajax()) {
+            $html = view('layouts.products-grid', compact('products'))->render();
+            return response()->json(['html' => $html]);
+        }
+
         return view('products', compact('products', 'categories', 'brands'));
     }
+
 
 
     public function publicIndexNew(Request $request)
     {
         $query = Product::query()->where([['is_active', 1], ['is_new', 1],]);
 
-        // Фильтрация по категории
         if ($request->has('category_id') && $request->category_id != 'all') {
             $query->where('category_id', $request->category_id);
         }
 
-        // Фильтрация по бренду
         if ($request->has('brand_id') && $request->brand_id != 'all') {
             $query->where('brand_id', $request->brand_id);
         }
 
-        // Сортировка
         if ($request->has('sort_by')) {
             if ($request->sort_by == 'title') {
                 $query->orderBy('title_ru', 'asc');
@@ -106,6 +107,11 @@ class ProductsController extends Controller
         $products = $query->paginate(20);
         $categories = ProductCategory::all();
         $brands = ProductBrand::all();
+
+        if ($request->ajax()) {
+            $html = view('layouts.products-grid', compact('products'))->render();
+            return response()->json(['html' => $html]);
+        }
 
         return view('productsnew', compact('products', 'categories', 'brands'));
     }
@@ -342,7 +348,7 @@ class ProductsController extends Controller
         return response()->json(['message' => 'Product removed from favorites']);
     }
 
-    
+
     public function showFavorites()
     {
         $user = auth()->user();

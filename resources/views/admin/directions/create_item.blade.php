@@ -5,6 +5,37 @@
         <h1>Create Direction Item</h1>
         <form action="{{ route('admin.directions.items.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
+            <ul class="nav nav-tabs" id="languageTabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="ru-tab" data-toggle="tab" href="#ru" role="tab"
+                        aria-controls="ru" aria-selected="true">Русский</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="en-tab" data-toggle="tab" href="#en" role="tab" aria-controls="en"
+                        aria-selected="false">English</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="tk-tab" data-toggle="tab" href="#tk" role="tab" aria-controls="tk"
+                        aria-selected="false">Türkmençe</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="languageTabsContent">
+                <div class="tab-pane fade show active" id="ru" role="tabpanel" aria-labelledby="ru-tab">
+                    <div class="form-group mt-3">
+                        <textarea id="description_ru" class="form-control tinymce-editor" name="description_ru" rows="4" ></textarea>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="en" role="tabpanel" aria-labelledby="en-tab">
+                    <div class="form-group mt-3">
+                        <textarea id="description_en" class="form-control tinymce-editor" name="description_en" rows="4" ></textarea>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="tk" role="tabpanel" aria-labelledby="tk-tab">
+                    <div class="form-group mt-3">
+                        <textarea id="description_tk" class="form-control tinymce-editor" name="description_tk" rows="4" ></textarea>
+                    </div>
+                </div>
+            </div>
             <div class="form-group mt-3">
                 <label for="category_id">Category</label>
                 <select class="form-control" id="category_id" name="category_id" required>
@@ -65,37 +96,7 @@
                 </div>
                 <img id="holder4" style="margin-top:15px;max-height:100px;">
             </div>
-            <ul class="nav nav-tabs" id="languageTabs" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="ru-tab" data-toggle="tab" href="#ru" role="tab"
-                        aria-controls="ru" aria-selected="true">Русский</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="en-tab" data-toggle="tab" href="#en" role="tab" aria-controls="en"
-                        aria-selected="false">English</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="tk-tab" data-toggle="tab" href="#tk" role="tab" aria-controls="tk"
-                        aria-selected="false">Türkmençe</a>
-                </li>
-            </ul>
-            <div class="tab-content" id="languageTabsContent">
-                <div class="tab-pane fade show active" id="ru" role="tabpanel" aria-labelledby="ru-tab">
-                    <div class="form-group mt-3">
-                        <textarea id="description_ru" class="form-control tinymce-editor" name="description_ru" rows="4" required></textarea>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="en" role="tabpanel" aria-labelledby="en-tab">
-                    <div class="form-group mt-3">
-                        <textarea id="description_en" class="form-control tinymce-editor" name="description_en" rows="4" required></textarea>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="tk" role="tabpanel" aria-labelledby="tk-tab">
-                    <div class="form-group mt-3">
-                        <textarea id="description_tk" class="form-control tinymce-editor" name="description_tk" rows="4" required></textarea>
-                    </div>
-                </div>
-            </div>
+            
             <div class="form-group mt-3">
                 <label for="ordering">Ordering</label>
                 <input type="number" class="form-control" id="ordering" name="ordering" required>

@@ -24,7 +24,7 @@
                     <div class="card-body mt-3">
                         <a class="blog-a"
                             href="{{ route('blogs.show', ['locale' => app()->getLocale(), 'id' => $blog->id]) }}">
-                            <h5 class="card-title">{{ $blog->title }}</h5>
+                            <h5 class="card-title card-title-link">{{ $blog->title }}</h5>
                         </a>
 
                     </div>

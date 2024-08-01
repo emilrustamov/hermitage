@@ -1,31 +1,71 @@
+window.addEventListener('load', function() {
+    let percentageElement = document.getElementById('percentage');
+    let progressBarElement = document.getElementById('progress-bar');
+    let counter = 0;
+    const paths = document.querySelectorAll('#preloaderLogo svg g path');
+    let currentIndex = 0;
+
+    // Функция для обновления анимации SVGator
+    function updateSvgatorAnimation(progress) {
+        loadSvgatorAnimation(progress);
+    }
+
+    let interval = setInterval(function() {
+        counter += 1;
+        percentageElement.innerText = counter + '%';
+        progressBarElement.style.width = counter + '%'; // Обновляем ширину прогресс-бара
+
+        // Анимация SVG
+        paths.forEach((path, index) => {
+            path.style.opacity = index === currentIndex ? '1' : '0.1';
+        });
+        currentIndex = (currentIndex + 1) % paths.length;
+
+        // Синхронизация анимации SVGator с увеличением счётчика
+        updateSvgatorAnimation(counter);
+
+        if (counter === 100) {
+            clearInterval(interval);
+            setTimeout(function() {
+                var preloader = document.getElementById('preloader');
+                preloader.classList.add('hidden');
+    
+                setTimeout(function() {
+                    preloader.style.display = 'none';
+                    var content = document.getElementById('content');
+                    content.style.display = 'block';
+                }, 500); // Время плавного исчезновения
+            }, 1000); // Добавьте небольшую задержку после завершения анимации
+        }
+    }, 45); // Скорость увеличения процента (40 мс)
+});
+
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
-    // //sidebar
-    // var cartIcon = document.getElementById('cartIcon');
-    // var sidebar = document.getElementById('sidebar');
-    // var closeSidebar = document.getElementById('closeSidebar');
 
-    // // Открываем/закрываем сайдбар при клике на иконку корзины
-    // cartIcon.addEventListener('click', function () {
-    //     toggleSidebar();
-    // });
+    const elements = document.querySelectorAll('.scroll-effect');
+    const handleScroll = () => {
+        elements.forEach(element => {
+            const rect = element.getBoundingClientRect();
+            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
-    // // Закрываем сайдбар при клике на крестик
-    // closeSidebar.addEventListener('click', function () {
-    //     closeSidebarFunction();
-    // });
+            if (rect.top <= windowHeight && rect.bottom >= 0) {
+                element.classList.add('visible');
 
-    // // Закрываем сайдбар при клике вне него
-    // window.addEventListener('click', function (event) {
-    //     if (event.target !== cartIcon && event.target !== sidebar && !sidebar.contains(event.target)) {
-    //         closeSidebarFunction();
-    //     }
-    // });
+                if (Math.random() > 0.5) {
+                    element.classList.add('left');
+                } else {
+                    element.classList.add('right');
+                }
+            }
+        });
+    };
 
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check on page load
 
-
-    // function closeSidebarFunction() {
-    //     sidebar.style.right = '-27%';
-    // }
     const scrollToTopButton = document.getElementById('scrollToTopButton');
 
     // Функция для показа или скрытия кнопки при скролле
