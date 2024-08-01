@@ -192,6 +192,7 @@ return[
      'head_li8'=> 'Boş iş orunlary',
      'head_li9'=> 'Taslama sargyt etmek',
      'head_li10'=> 'Şahadatnamalar',
+    'new_arrivals' => "Täzeden gelen",
 
         // Footer
     'foot'=>'Habarnamamyza ýazylyň',

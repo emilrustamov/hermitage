@@ -1984,3 +1984,47 @@ footer ul li a {
   display: none; /* Скрыта по умолчанию */
   z-index: 1000; /* Чтобы кнопка была выше остальных элементов */
 }
+
+.vacanc-img-wrapper {
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+  height: 370px;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.vacanc-img-wrapper img {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.vacanc-img-wrapper:hover img {
+  -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.card-body .card-title-link {
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.card-body .card-title-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0; /* Расположение underline под текстом */
+  width: 0;
+  height: 1px; /* Толщина underline */
+  background-color: #000; /* Цвет underline */
+  -webkit-transition: width 0.3s ease;
+  transition: width 0.3s ease; /* Анимация изменения ширины */
+}
+.card-body .card-title-link:hover::after {
+  width: 100%;
+}

@@ -1,31 +1,26 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // //sidebar
-    // var cartIcon = document.getElementById('cartIcon');
-    // var sidebar = document.getElementById('sidebar');
-    // var closeSidebar = document.getElementById('closeSidebar');
 
-    // // Открываем/закрываем сайдбар при клике на иконку корзины
-    // cartIcon.addEventListener('click', function () {
-    //     toggleSidebar();
-    // });
+    const elements = document.querySelectorAll('.scroll-effect');
+    const handleScroll = () => {
+        elements.forEach(element => {
+            const rect = element.getBoundingClientRect();
+            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
-    // // Закрываем сайдбар при клике на крестик
-    // closeSidebar.addEventListener('click', function () {
-    //     closeSidebarFunction();
-    // });
+            if (rect.top <= windowHeight && rect.bottom >= 0) {
+                element.classList.add('visible');
 
-    // // Закрываем сайдбар при клике вне него
-    // window.addEventListener('click', function (event) {
-    //     if (event.target !== cartIcon && event.target !== sidebar && !sidebar.contains(event.target)) {
-    //         closeSidebarFunction();
-    //     }
-    // });
+                if (Math.random() > 0.5) {
+                    element.classList.add('left');
+                } else {
+                    element.classList.add('right');
+                }
+            }
+        });
+    };
 
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check on page load
 
-
-    // function closeSidebarFunction() {
-    //     sidebar.style.right = '-27%';
-    // }
     const scrollToTopButton = document.getElementById('scrollToTopButton');
 
     // Функция для показа или скрытия кнопки при скролле

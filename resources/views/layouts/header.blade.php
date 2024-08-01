@@ -79,7 +79,7 @@
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('productsnew.index', ['locale' => app()->getLocale()]) }}">
-                                        <li>Новые поступления</li>
+                                        <li>{{ __('translation.new_arrivals') }}</li>
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('blogs.index', ['locale' => app()->getLocale()]) }}">

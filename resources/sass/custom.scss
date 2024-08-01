@@ -1894,3 +1894,44 @@ footer {
 }
 
 
+.vacanc-img-wrapper{
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+  height: 370px;
+  transition: all 0.4s ease;
+  img{
+    transition: all 0.3s ease;
+    object-fit: cover;
+  }
+  &:hover{
+    img{
+      transform: scale(1.2);
+    }
+  }
+}
+
+.card-body{
+  .card-title-link{
+    position: relative;
+    width: fit-content;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0; /* Расположение underline под текстом */
+      width: 0;
+      height: 1px; /* Толщина underline */
+      background-color: #000; /* Цвет underline */
+      transition: width 0.3s ease; /* Анимация изменения ширины */
+    }
+    &:hover{
+      &::after{
+        width: 100%;
+      }
+    }
+  }
+}
+

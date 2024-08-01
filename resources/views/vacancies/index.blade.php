@@ -10,15 +10,17 @@
     <div class="row justify-content-between ">
         @foreach ($vacancies as $vacancy)
             <div class=" vacanc-img mb-5">
-            {{-- <div class="col-md-6 col-lg-6 col-12 vacanc-img"> --}}
                 <div class="mb-4 ">
-
-                    <a href="{{ route('vacancies.show', ['locale' => app()->getLocale(), 'id' => $vacancy->id]) }}"><img src="{{ asset($vacancy->image) }}" class="card-img-top black-photo" alt="{{ $vacancy->title }}"></a>
-
+                    <a href="{{ route('vacancies.show', ['locale' => app()->getLocale(), 'id' => $vacancy->id]) }}">
+                        <div class="vacanc-img-wrapper">
+                            <img src="{{ asset($vacancy->image) }}" class="card-img-top black-photo"
+                                alt="{{ $vacancy->title }}">
+                            </div>
+                    </a>
                     <div class="card-body" style="margin-top:15px">
-                        <a style="color: black; text-decoration:none"
+                        <a class="" style="color: black; text-decoration:none"
                             href="{{ route('vacancies.show', ['locale' => app()->getLocale(), 'id' => $vacancy->id]) }}">
-                            <h5 class="card-title">{{ $vacancy->title }}</h5>
+                            <h5 class="card-title card-title-link">{{ $vacancy->title }}</h5>
                         </a>
 
                     </div>

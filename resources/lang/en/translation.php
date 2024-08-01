@@ -193,6 +193,7 @@ times.',
      'head_li8'=> 'Vacancies',
      'head_li9'=> 'Order a project',
      'head_li10'=> 'Certificates',
+     'new_arrivals' => "New arrivals",
 
     // Footer
      'foot'=>'Subscribe to our newsletter',
