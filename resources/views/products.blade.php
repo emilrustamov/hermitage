@@ -115,7 +115,27 @@
         </div>
     </div>
 </div>
+<script src="{{ asset('js/jquery.js') }}"></script>
+@include('layouts.footer')
+
 <script>
+    console.log(typeof $); // Должно вывести "function"
+
+    function showFavoriteToast(message) {
+    let toastEl = $('#liveToastFavorite'); // Убедитесь, что используете jQuery для обертки
+
+    // Изменить сообщение Toast
+    toastEl.find('.toast-body').text(message);
+
+    // Показать Toast с использованием jQuery fadeIn
+    toastEl.fadeIn(500, function() {
+        setTimeout(function() {
+            // Скрыть Toast с использованием jQuery fadeOut
+            toastEl.fadeOut(500);
+        }, 2000); // Длительность показа Toast перед скрытием
+    });
+}
+
     document.addEventListener('DOMContentLoaded', () => {
         const originalOrder = [];
         const nav = document.querySelector('#nav');
@@ -156,15 +176,6 @@
             originalOrder.forEach(item => nav.appendChild(item.element));
         }
     });
-    // $(document).ready(function() {
-    //     $(".content-appearance").slice(0, 12).show();
-    //     $("#loadMore").on("click", function(e) {
-    //         e.preventDefault();
-    //         $(".content-appearance:hidden").slice(0, 4).slideDown();
-    //         if ($(".content-appearance:hidden").length == 0) {
-    //             $("#loadMore").text("Нет элементов").addClass("noContent");
-    //         }
-    //     });
 
     document.querySelectorAll('.favorite-btn').forEach(button => {
     button.addEventListener('click', function() {
@@ -200,21 +211,7 @@
 });
 
 
-    function showFavoriteToast(message) {
-        let toastEl = $('#liveToastFavorite');
 
-        // Изменить сообщение Toast
-        toastEl.find('.toast-body').text(message);
-
-        // Показать Toast с использованием jQuery fadeIn
-        toastEl.fadeIn(500, function() {
-            setTimeout(function() {
-                // Скрыть Toast с использованием jQuery fadeOut
-                toastEl.fadeOut(500);
-            }, 2000); // Длительность показа Toast перед скрытием
-        });
-    }
 </script>
 
 
-@include('layouts.footer')

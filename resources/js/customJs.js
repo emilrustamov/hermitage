@@ -1,44 +1,47 @@
 window.addEventListener('load', function() {
     let percentageElement = document.getElementById('percentage');
     let progressBarElement = document.getElementById('progress-bar');
-    let counter = 0;
-    const paths = document.querySelectorAll('#preloaderLogo svg g path');
-    let currentIndex = 0;
 
-    // Функция для обновления анимации SVGator
-    function updateSvgatorAnimation(progress) {
-        loadSvgatorAnimation(progress);
-    }
+    // Проверяем, существуют ли элементы прелоадера на странице
+    if (percentageElement && progressBarElement) {
+        let counter = 0;
+        const paths = document.querySelectorAll('#preloaderLogo svg g path');
+        let currentIndex = 0;
 
-    let interval = setInterval(function() {
-        counter += 1;
-        percentageElement.innerText = counter + '%';
-        progressBarElement.style.width = counter + '%'; // Обновляем ширину прогресс-бара
-
-        // Анимация SVG
-        paths.forEach((path, index) => {
-            path.style.opacity = index === currentIndex ? '1' : '0.1';
-        });
-        currentIndex = (currentIndex + 1) % paths.length;
-
-        // Синхронизация анимации SVGator с увеличением счётчика
-        updateSvgatorAnimation(counter);
-
-        if (counter === 100) {
-            clearInterval(interval);
-            setTimeout(function() {
-                var preloader = document.getElementById('preloader');
-                preloader.classList.add('hidden');
-    
-                setTimeout(function() {
-                    preloader.style.display = 'none';
-                    var content = document.getElementById('content');
-                    content.style.display = 'block';
-                }, 500); // Время плавного исчезновения
-            }, 1000); // Добавьте небольшую задержку после завершения анимации
+        // Функция для обновления анимации SVGator
+        function updateSvgatorAnimation(progress) {
+            loadSvgatorAnimation(progress);
         }
-    }, 45); // Скорость увеличения процента (40 мс)
+
+        let interval = setInterval(function() {
+            counter += 1;
+            percentageElement.innerText = counter + '%';
+            progressBarElement.style.width = counter + '%'; // Обновляем ширину прогресс-бара
+
+            // Анимация SVG
+            paths.forEach((path, index) => {
+                path.style.opacity = index === currentIndex ? '1' : '0.1';
+            });
+            currentIndex = (currentIndex + 1) % paths.length;
+
+            // Синхронизация анимации SVGator с увеличением счётчика
+            updateSvgatorAnimation(counter);
+
+            if (counter === 100) {
+                clearInterval(interval);
+                setTimeout(function() {
+                    var preloader = document.getElementById('preloader');
+                    preloader.classList.add('hidden');
+        
+                    setTimeout(function() {
+                        preloader.style.display = 'none';
+                    }, 500); // Время плавного исчезновения
+                }, 1000); // Добавьте небольшую задержку после завершения анимации
+            }
+        }, 45); // Скорость увеличения процента (40 мс)
+    }
 });
+
 
 
 
