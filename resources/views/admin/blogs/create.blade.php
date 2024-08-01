@@ -28,7 +28,7 @@
                         </div>
 
                         <div class="form-group">
-                            <textarea id="description_ru" class="form-control" name="description_ru" rows="4" required>Простое изменение меню.</textarea>
+                            <textarea id="description_ru" class="form-control" name="description_ru" rows="4" required></textarea>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="en" role="tabpanel" aria-labelledby="en-tab">
@@ -37,7 +37,7 @@
                             <input type="text" class="form-control" id="title_en" name="title_en" required>
                         </div>
                         <div class="form-group">
-                            <textarea id="description_en" class="form-control" name="description_en" rows="4" required>Простое изменение меню.</textarea>
+                            <textarea id="description_en" class="form-control" name="description_en" rows="4" required></textarea>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tk" role="tabpanel" aria-labelledby="tk-tab">
@@ -48,7 +48,7 @@
 
                         <div class="form-group">
 
-                            <textarea id="description_tk" class="form-control" name="description_tk" rows="4" required>Простое изменение меню.</textarea>
+                            <textarea id="description_tk" class="form-control" name="description_tk" rows="4" required></textarea>
 
                         </div>
                     </div>

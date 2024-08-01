@@ -23,6 +23,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ContractController;
 use App\Http\Controllers\DirectionsController;
+use App\Http\Controllers\SearchController;
 
 Route::get('/', function () {
     return redirect('/en');
@@ -164,6 +165,8 @@ Route::prefix('admin')->middleware(['web', 'auth', 'admin.access'])->group(funct
     Route::put('/orders/{id}/status', [OrderController::class, 'updateStatus'])->name('admin.orders.updateStatus');
 
     Route::get('/requests', [RequestsController::class, 'adminIndex'])->name('admin.requests.index');
+
+
 });
 
 
@@ -214,6 +217,9 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'web'], function () {
     Route::post('/subscriber/send-newsletter/{id}', [AdminSubscriberController::class, 'sendVacancyNewsletter'])->name('subscriber_send_newsletter');
     Route::post('/subscriber/send-newsletter/project/{id}', [AdminSubscriberController::class, 'sendProjectNewsletter'])->name('subscriber_send_project_newsletter');
     Route::post('/admin/subscriber/send-newsletter/blog/{id}', [AdminSubscriberController::class, 'sendBlogNewsletter'])->name('subscriber_send_blog_newsletter');
+
+    
+    Route::get('/search', [SearchController::class, 'search'])->name('search');
 });
 
 
