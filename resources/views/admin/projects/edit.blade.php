@@ -46,7 +46,7 @@
                         <div class="form-group">
                             <label for="description_ru">Описание (RU)</label>
                             <textarea class="form-control @error('description_ru') is-invalid @enderror" id="description_ru" name="description_ru"
-                                rows="4" >{{ $project->description_ru }}</textarea>
+                                rows="4">{{ $project->description_ru }}</textarea>
                             @error('description_ru')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -100,7 +100,7 @@
                         <div class="form-group">
                             <label for="description_en">Описание (EN)</label>
                             <textarea class="form-control @error('description_en') is-invalid @enderror" id="description_en" name="description_en"
-                                rows="4" >{{ $project->description_en }}</textarea>
+                                rows="4">{{ $project->description_en }}</textarea>
                             @error('description_en')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -154,7 +154,7 @@
                         <div class="form-group">
                             <label for="description_tk">Описание (TK)</label>
                             <textarea class="form-control @error('description_tk') is-invalid @enderror" id="description_tk"
-                                name="description_tk" rows="4" >{{ $project->description_tk }}</textarea>
+                                name="description_tk" rows="4">{{ $project->description_tk }}</textarea>
                             @error('description_tk')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -274,14 +274,23 @@
                                 <i class="fa fa-picture-o"></i> Выбрать
                             </button>
                         </span>
-                        <div id="holder3" style="margin-top:15px;max-height:100px;"></div>
-                        @error('photos')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
                     </div>
-                    <img id="holder3" style="margin-top:15px;max-height:100px;">
+                    @error('photos')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    <div id="selected-photos" style="margin-top:15px;">
+                        @foreach (json_decode($project->photos) as $photo)
+                            <div class="photo-item" style="display: inline-block; position: relative; margin: 5px;">
+                                <img src="{{ asset($photo) }}" alt="Photo" class="img-thumbnail" width="100">
+                                <button type="button" class="btn btn-danger btn-sm remove-photo"
+                                    data-path="{{ $photo }}" style="position: absolute; top: 0; right: 0;">
+                                    &times;
+                                </button>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
 
                 <div class="form-group form-check mt-3">
@@ -302,7 +311,42 @@
         $('#lfm').filemanager('image');
         $('#lfm1').filemanager('file');
         $('#lfm2').filemanager('image');
-        $('#lfm3').filemanager('image'); // используем image для файлового менеджера фотографий
+        $('#lfm3').filemanager('image');
+        $(document).on('click', '.remove-photo', function() {
+            let photoPath = $(this).data('path');
+            let photosInput = $('#photos').val().split(',');
+            photosInput = photosInput.filter(path => path !== photoPath);
+            $('#photos').val(photosInput.join(','));
+            $(this).closest('.photo-item').remove();
+        });
+
+        // Обновление input поля при выборе новых фотографий через LFM
+        $('#lfm3').on('click', function() {
+            let photosInput = $('#photos').val().split(',');
+            let currentPhotos = photosInput.filter(path => path !== '');
+            window.open('/laravel-filemanager?type=image', 'FileManager', 'width=900,height=600');
+            window.SetUrl = function(items) {
+                let selectedPaths = items.map(item => item.url.replace(window.location.origin + '/storage/',
+                    ''));
+                let updatedPhotos = currentPhotos.concat(selectedPaths);
+                $('#photos').val(updatedPhotos.join(','));
+                updateSelectedPhotosView(updatedPhotos);
+            };
+        });
+
+        function updateSelectedPhotosView(photos) {
+            let photoContainer = $('#selected-photos');
+            photoContainer.empty(); // Очищаем контейнер
+            photos.forEach(photo => {
+                photoContainer.append(`
+                <div class="photo-item" style="display: inline-block; position: relative; margin: 5px;">
+                    <img src="/storage/${photo}" alt="Photo" class="img-thumbnail" width="100">
+                    <button type="button" class="btn btn-danger btn-sm remove-photo" data-path="${photo}"
+                        style="position: absolute; top: 0; right: 0;">&times;</button>
+                </div>
+            `);
+            });
+        }
     </script>
     <script>
         $('#year').datepicker({
