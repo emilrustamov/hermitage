@@ -116,7 +116,7 @@ return[
     'about_p' => "HERMITAGE HOME INTERIORS\nTürkmenistanda öňdebaryjy Ýewropa markalarynyň resmi hyzmatdaşydyr.",
     'about_h1'=> "Biziň wezipämiz we gözýetimimiz",
     'about_h1_2'=> "Biziň wezipämiz, her bir öýde rahatlyk derejesini ýokarlandyrmak, işlemegi we iň soňky global tendensiýalary birleşdirýän iň uly taslamalary döretmek we durmuşa geçirmekdir.",
-    'about_h1_3'=> " Müöderilerimiziň talaplaryny doly kanagatlandyrmak maksady bilen, biz rahatlyk döretmek üçin köp ýyllyk hünär tejribämizi ulanmaga dowam edýäris.",
+    'about_h1_3'=> " Müşderilerimiziň talaplaryny doly kanagatlandyrmak maksady bilen, biz rahatlyk döretmek üçin köp ýyllyk hünär tejribämizi ulanmaga dowam edýäris.",
     'about_h1_4'=> "Bu görnüş, geljegimiziň esasy açary bolmagyny dowam etdirýän dizaýn taryhymyzyň we medeni gymmatlygymyzyň esasyny düzdi.",
     'fw_bold_0' => "Bölekleýin satuw.",
     'fw_bold' => "Iň amatly üpjün ediji\nhemmesi bir ýerde.",

@@ -21,25 +21,25 @@ class BannerController extends Controller
     }
 
     public function update(Request $request, $id)
-{
-    $request->validate([
-        'page_identifier' => 'required|string',
-        'banner' => 'nullable|string', // Здесь ожидается строка URL
-    ]);
+    {
+        $request->validate([
+            'page_identifier' => 'required|string',
+            'banner' => 'nullable|string',
+        ]);
 
-    $banner = Banner::findOrFail($id);
+        $banner = Banner::findOrFail($id);
 
-    // Сохранение данных для отладки
-    // dd($request->all());
+        if ($request->has('banner')) {
+            $bannerPath = str_replace(url('/storage') . '/', '', $request->banner);
+            $banner->banner = $bannerPath;
+        }
 
-    // Сохраняем путь к изображению в базу данных
-    $banner->page_identifier = $request->page_identifier;
-    $banner->banner = $request->banner; // Сохраняем путь, переданный через форму
+        $banner->page_identifier = $request->page_identifier;
+        $banner->save();
 
-    $banner->save();
+        return redirect()->route('admin.banners.index')->with('success', 'Banner updated successfully.');
+    }
 
-    return redirect()->route('admin.banners.index')->with('success', 'Banner updated successfully.');
-}
 
 
     public function create()
@@ -51,17 +51,20 @@ class BannerController extends Controller
     {
         $request->validate([
             'page_identifier' => 'required|string',
-            'banner' => 'nullable|string', // Здесь ожидается строка URL
+            'banner' => 'nullable|string',
         ]);
+
+        $bannerPath = $request->has('banner') ? str_replace(url('/storage') . '/', '', $request->banner) : null;
 
         // Сохраняем новый баннер
         Banner::create([
             'page_identifier' => $request->page_identifier,
-            'banner' => $request->banner, // Сохраняем путь, переданный через форму
+            'banner' => $bannerPath,
         ]);
 
         return redirect()->route('admin.banners.index')->with('success', 'Banner created successfully.');
     }
+
 
     public function destroy($id)
     {
