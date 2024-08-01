@@ -3,7 +3,11 @@
 <div class="admin-index">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h1>Admin - Direction Items</h1>
-        <a href="{{ route('admin.directions.items.create') }}" class="btn btn-primary mb-3">Create New Item</a>
+        <div class="d-flex">
+            <a href="{{ route('admin.directions.items.create') }}" class="btn btn-primary mb-3">Create New Item</a>
+            <div style="width: 10px"></div>
+            <a href="{{ route('admin.directions.categories.index') }}" class="btn btn-primary mb-3">Список категорий</a>
+        </div>
     </div>
     <table class="table table-bordered">
         <thead>

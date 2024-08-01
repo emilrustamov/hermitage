@@ -40,6 +40,9 @@
                                         <a class="nav-link <?php if (request()->is('admin/blogs*')) { echo 'active'; } ?>" href="{{ route('admin.blogs.index') }}">
                                             <li>Блог</li>
                                         </a>
+                                        <a class="nav-link <?php if (request()->is('admin/directions*')) { echo 'active'; } ?>" href="{{ route('admin.directions.items.index') }}">
+                                            <li>Направления</li>
+                                        </a>
                                         <a class="nav-link <?php if (request()->is('admin/projects*')) { echo 'active'; } ?>" href="{{ route('admin.projects.index') }}">
                                             <li>Проекты</li>
                                         </a>

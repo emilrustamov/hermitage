@@ -21,40 +21,61 @@
 </style>
 
 <body>
+    <div id="preloader">
+        <div class="d-flex flex-column w-100">
+            <div class="animated-logo">
+                @include('components.animated_logo')
+            </div>
+            <div style="height:50px"></div>
+            <div class="loader mx-auto">
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="percentage" id="percentage">0%</div>
+            </div>
+            <div style="height:50px"></div>
+
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
     <div class="wrapper p-0">
         <div>
             <header>
                 @if ($slider)
-                @if (isset($banners) && $banners->count() > 1)
-                    <div class="regular2">
-                        @foreach ($banners as $banner)
-                            <div class="slide slider-item" style="background-image: url('{{ asset('storage/' . $banner->banner) }}'); min-height:900px">
-                                <!-- Add content for each slide if needed -->
-                            </div>
-                        @endforeach
-                    </div>
-                @elseif (isset($banners) && $banners->count() == 1)
-                    <div class="single-slide slider-item"
-                        style="background-image: url('{{ asset('storage/' . $banners->first()->banner) }}');">
-                    </div>
-                @else
-                    @include('layouts.head_slider')
-                @endif
-            @else
-                @if ($show_single_slide ?? true)
-                    @if (isset($banners) && $banners->count() == 1)
+                    @if (isset($banners) && $banners->count() > 1)
+                        <div class="regular2">
+                            @foreach ($banners as $banner)
+                                <div class="slide slider-item"
+                                    style="background-image: url('{{ asset('storage/' . $banner->banner) }}'); min-height:900px">
+                                    <!-- Add content for each slide if needed -->
+                                </div>
+                            @endforeach
+                        </div>
+                    @elseif (isset($banners) && $banners->count() == 1)
                         <div class="single-slide slider-item"
                             style="background-image: url('{{ asset('storage/' . $banners->first()->banner) }}');">
                         </div>
                     @else
-                        <div class="single-slide slider-item" style="background-image: url('{{ asset($image) }}');">
-                        </div>
+                        @include('layouts.head_slider')
+                    @endif
+                @else
+                    @if ($show_single_slide ?? true)
+                        @if (isset($banners) && $banners->count() == 1)
+                            <div class="single-slide slider-item"
+                                style="background-image: url('{{ asset('storage/' . $banners->first()->banner) }}');">
+                            </div>
+                        @else
+                            <div class="single-slide slider-item" style="background-image: url('{{ asset($image) }}');">
+                            </div>
+                        @endif
                     @endif
                 @endif
-            @endif
-            
-            
-            
+
+
+
 
 
                 <div class="header-content">
@@ -62,31 +83,31 @@
                         <nav role="navigation">
                             <div id="menuToggle">
                                 <input type="checkbox" />
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
                                 <ul id="menu">
                                     <a class="nav-link" href="{{ route('about', ['locale' => app()->getLocale()]) }}">
-                                        <li>{{ __('translation.head_li1')}}</li>
+                                        <li>{{ __('translation.head_li1') }}</li>
                                     </a>
                                     <a class="nav-link" href="{{ route('areas', ['locale' => app()->getLocale()]) }}">
-                                        <li>{{ __('translation.head_li2')}}</li>
+                                        <li>{{ __('translation.head_li2') }}</li>
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('partners.index', ['locale' => app()->getLocale()]) }}">
-                                        <li>{{ __('translation.head_li3')}}</li>
+                                        <li>{{ __('translation.head_li3') }}</li>
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('contracts.index', ['locale' => app()->getLocale()]) }}">
-                                        <li>{{ __('translation.head_li4')}}</li>
+                                        <li>{{ __('translation.head_li4') }}</li>
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('projects.index', ['locale' => app()->getLocale()]) }}">
-                                        <li>{{ __('translation.head_li5')}}</li>
+                                        <li>{{ __('translation.head_li5') }}</li>
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('products.index', ['locale' => app()->getLocale()]) }}">
-                                        <li>{{ __('translation.head_li6')}}</li>
+                                        <li>{{ __('translation.head_li6') }}</li>
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('productsnew.index', ['locale' => app()->getLocale()]) }}">
@@ -98,19 +119,19 @@
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('blogs.index', ['locale' => app()->getLocale()]) }}">
-                                        <li>{{ __('translation.head_li7')}}</li>
+                                        <li>{{ __('translation.head_li7') }}</li>
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('vacancies.index', ['locale' => app()->getLocale()]) }}">
-                                        <li>{{ __('translation.head_li8')}}</li>
+                                        <li>{{ __('translation.head_li8') }}</li>
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('requests.index', ['locale' => app()->getLocale()]) }}">
-                                        <li>{{ __('translation.head_li9')}}</li>
+                                        <li>{{ __('translation.head_li9') }}</li>
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('certificates.index', ['locale' => app()->getLocale()]) }}">
-                                        <li>{{ __('translation.head_li10')}}</li>
+                                        <li>{{ __('translation.head_li10') }}</li>
                                     </a>
 
 
