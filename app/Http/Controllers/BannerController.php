@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Banner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BannerController extends Controller
 {
@@ -20,24 +21,26 @@ class BannerController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-        $banner = Banner::findOrFail($id);
+{
+    $request->validate([
+        'page_identifier' => 'required|string',
+        'banner' => 'nullable|string', // Здесь ожидается строка URL
+    ]);
 
-        $request->validate([
-            'page_identifier' => 'required|string|unique:banners,page_identifier,' . $banner->id,
-            'banner' => 'nullable|string',
-        ]);
+    $banner = Banner::findOrFail($id);
 
-        if ($request->hasFile('banner')) {
-            $bannerPath = $request->file('banner')->store('banners', 'public');
-            $banner->banner = $bannerPath;
-        }
+    // Сохранение данных для отладки
+    // dd($request->all());
 
-        $banner->page_identifier = $request->page_identifier;
-        $banner->save();
+    // Сохраняем путь к изображению в базу данных
+    $banner->page_identifier = $request->page_identifier;
+    $banner->banner = $request->banner; // Сохраняем путь, переданный через форму
 
-        return redirect()->route('admin.banners.index')->with('success', 'Banner updated successfully');
-    }
+    $banner->save();
+
+    return redirect()->route('admin.banners.index')->with('success', 'Banner updated successfully.');
+}
+
 
     public function create()
     {
@@ -47,20 +50,30 @@ class BannerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'page_identifier' => 'required|string|unique:banners',
-            'banner' => 'nullable|string',
+            'page_identifier' => 'required|string',
+            'banner' => 'nullable|string', // Здесь ожидается строка URL
         ]);
 
-        $bannerPath = null;
-        if ($request->hasFile('banner')) {
-            $bannerPath = $request->file('banner')->store('banners', 'public');
-        }
-
+        // Сохраняем новый баннер
         Banner::create([
             'page_identifier' => $request->page_identifier,
-            'banner' => $bannerPath,
+            'banner' => $request->banner, // Сохраняем путь, переданный через форму
         ]);
 
-        return redirect()->route('admin.banners.index')->with('success', 'Banner created successfully');
+        return redirect()->route('admin.banners.index')->with('success', 'Banner created successfully.');
+    }
+
+    public function destroy($id)
+    {
+        $banner = Banner::findOrFail($id);
+
+        if ($banner->banner) {
+            // Удаляем файл баннера, если он существует
+            Storage::disk('public')->delete($banner->banner);
+        }
+
+        $banner->delete();
+
+        return redirect()->route('admin.banners.index')->with('success', 'Banner deleted successfully.');
     }
 }

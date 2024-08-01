@@ -1,4 +1,13 @@
-@include('layouts.header', ['slider' => true])
+@php
+    $banners = App\Models\Banner::where('page_identifier', 'about')->get();
+@endphp
+
+@include('layouts.header', [
+    'slider' => $banners->count() > 1,
+    'banner' => $banners->count() == 1 ? $banners->first()->banner : null,
+    'banners' => $banners,
+    'show_single_slide' => $banners->count() <= 1,
+])
 
 <div class="container mt-5">
     <h2 class="mb-5">{{ __('translation.blog_a')}}</h2>

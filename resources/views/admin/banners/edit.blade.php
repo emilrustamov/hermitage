@@ -16,10 +16,10 @@
             </div>
 
             <div class="form-group">
-                <label for="banner">Баннер</label>
-                <input id="image" class="form-control" type="text" name="image" value="{{ $banner->image }}">
+                <label for="banner">Banner</label>
+                <input id="banner" class="form-control @error('banner') is-invalid @enderror" type="text" name="banner" value="{{ old('banner') }}">
                 <span class="input-group-append">
-                    <button id="lfm" data-input="image" data-preview="holder" class="btn btn-primary mt-3"
+                    <button id="lfm" data-input="banner" data-preview="holder" class="btn btn-primary mt-3"
                         type="button">
                         <i class="fa fa-picture-o"></i> Выбрать
                     </button>

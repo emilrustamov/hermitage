@@ -1,9 +1,13 @@
 @php
-    $banner = App\Models\Banner::where('page_identifier', 'partners')->first();
+    $banners = App\Models\Banner::where('page_identifier', 'partners')->get();
 @endphp
 
-@include('layouts.header', ['slider' => false, 'banner' => $banner ? $banner->banner : null])
-{{-- @include('layouts.header', ['slider' => false, 'banner' => $banner ? $banner->banner : null]) --}}
+@include('layouts.header', [
+    'slider' => $banners->count() > 1,
+    'banner' => $banners->count() == 1 ? $banners->first()->banner : null,
+    'banners' => $banners,
+    'show_single_slide' => $banners->count() <= 1,
+])
 
 <div class="mt-5 px-5">
     {{-- <h1>Vacancies1</h1> --}}

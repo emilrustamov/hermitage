@@ -1,28 +1,35 @@
-    @php
-        $banner = App\Models\Banner::where('page_identifier', 'about')->first();
-    @endphp
+@php
+    $banners = App\Models\Banner::where('page_identifier', 'about')->get();
+@endphp
 
-    @include('layouts.header', [
-        'slider' => false,
-        'banner' => $banner ? $banner->banner : null,
-    ])
-    <div class="container p-5 about-cont">
-        <div class="left-div">
-            <h2 class="fw-bold">{{ __('translation.about') }}</h2>
-        </div>
-        <div class="w-50 mx-auto text-center p-twntw fw-bold my-5 scroll-fade-in">
-            {!! nl2br(e(__('translation.about_p'))) !!}
-        </div>
-        <div class="w-100">
+@include('layouts.header', [
+    'slider' => $banners->count() > 1,
+    'banner' => $banners->count() == 1 ? $banners->first()->banner : null,
+    'banners' => $banners,
+    'show_single_slide' => $banners->count() <= 1,
+])
 
-            <div class="">
-                <h1 class="fw-bold mb-5 p-sxtn">{{ __('translation.about_h1') }}</h1>
-                <p class="p-sxtn">{{ __('translation.about_h1_2') }}
-                </p>
-                <p class="p-sxtn">{{ __('translation.about_h1_3') }}
-                </p>
-                <p class="p-sxtn">{{ __('translation.about_h1_4') }}
-                </p>
+
+<div class="container p-5 about-cont">
+    <div class="left-div">
+        <h2 class="fw-bold">О нас</h2>
+    </div>
+    <div class="w-50 mx-auto text-center p-twntw fw-bold my-5 scroll-fade-in">
+        HERMITAGE HOME INTERIORS</br> является официальным партнёром </br>
+        ведущих европейских брендов в Туркменистане.
+    </div>
+    <div class="w-100">
+       
+        <div class="">
+            <h1 class="fw-bold mb-5 p-sxtn">Наша миссия и видение</h1>
+            <p class="p-sxtn">Наша миссия состоит в том, чтобы повысить уровень комфорта в каждом доме, создавать и реализовывать самые
+                амбициозные проекты,  сочетающие функциональность  и последние мировые тенденции.
+            <p>
+            <p class="p-sxtn">Мы продолжаем использовать наш многолетний профессиональный опыт для создания комфорта, функциональности
+                и атмосферы, которые полностью удовлетворяют требованиям  наших клиентов.
+            <p>
+            <p class="p-sxtn">Это видение было основой нашей истории и культурной ценности дизайна, которая по-прежнему является главным ключом  к нашим перспективам.
+            <p>
 
             </div>
         </div>

@@ -1,9 +1,13 @@
 @php
-    $banner = App\Models\Banner::where('page_identifier', 'partners')->first();
-    $categories = App\Models\PartnerCategory::where('is_active', true)->get();
+    $banners = App\Models\Banner::where('page_identifier', 'partners')->get();
 @endphp
 
-@include('layouts.header', ['slider' => false, 'banner' => $banner ? $banner->banner : null])
+@include('layouts.header', [
+    'slider' => $banners->count() > 1,
+    'banner' => $banners->count() == 1 ? $banners->first()->banner : null,
+    'banners' => $banners,
+    'show_single_slide' => $banners->count() <= 1,
+])
 
 <div class=" container">
     @foreach ($categories as $category)
