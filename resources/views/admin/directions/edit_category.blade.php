@@ -27,7 +27,7 @@
                         <input type="text" class="form-control" id="title_ru" name="title_ru" value="{{ $category->title_ru }}" required>
                     </div>
                     <div class="form-group">
-                        <textarea id="description_ru" class="form-control tinymce-editor" name="description_ru" rows="4" required>{{ $category->description_ru }}</textarea>
+                        <textarea id="description_ru" class="form-control tinymce-editor" name="description_ru" rows="4" >{{ $category->description_ru }}</textarea>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="en" role="tabpanel" aria-labelledby="en-tab">
@@ -36,7 +36,7 @@
                         <input type="text" class="form-control" id="title_en" name="title_en" value="{{ $category->title_en }}" required>
                     </div>
                     <div class="form-group">
-                        <textarea id="description_en" class="form-control tinymce-editor" name="description_en" rows="4" required>{{ $category->description_en }}</textarea>
+                        <textarea id="description_en" class="form-control tinymce-editor" name="description_en" rows="4" >{{ $category->description_en }}</textarea>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="tk" role="tabpanel" aria-labelledby="tk-tab">
@@ -45,7 +45,7 @@
                         <input type="text" class="form-control" id="title_tk" name="title_tk" value="{{ $category->title_tk }}" required>
                     </div>
                     <div class="form-group">
-                        <textarea id="description_tk" class="form-control tinymce-editor" name="description_tk" rows="4" required>{{ $category->description_tk }}</textarea>
+                        <textarea id="description_tk" class="form-control tinymce-editor" name="description_tk" rows="4" >{{ $category->description_tk }}</textarea>
                     </div>
                 </div>
             </div>

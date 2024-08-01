@@ -46,7 +46,7 @@
                         <div class="form-group">
                             <label for="description_ru">Описание (RU)</label>
                             <textarea class="form-control @error('description_ru') is-invalid @enderror" id="description_ru" name="description_ru"
-                                rows="4" required>{{ $project->description_ru }}</textarea>
+                                rows="4" >{{ $project->description_ru }}</textarea>
                             @error('description_ru')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -100,7 +100,7 @@
                         <div class="form-group">
                             <label for="description_en">Описание (EN)</label>
                             <textarea class="form-control @error('description_en') is-invalid @enderror" id="description_en" name="description_en"
-                                rows="4" required>{{ $project->description_en }}</textarea>
+                                rows="4" >{{ $project->description_en }}</textarea>
                             @error('description_en')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -154,7 +154,7 @@
                         <div class="form-group">
                             <label for="description_tk">Описание (TK)</label>
                             <textarea class="form-control @error('description_tk') is-invalid @enderror" id="description_tk"
-                                name="description_tk" rows="4" required>{{ $project->description_tk }}</textarea>
+                                name="description_tk" rows="4" >{{ $project->description_tk }}</textarea>
                             @error('description_tk')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -283,10 +283,6 @@
                     </div>
                     <img id="holder3" style="margin-top:15px;max-height:100px;">
                 </div>
-
-
-
-
 
                 <div class="form-group form-check mt-3">
                     <input type="checkbox" class="form-check-input" id="is_active" name="is_active"

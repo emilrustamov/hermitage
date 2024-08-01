@@ -82,17 +82,17 @@
             <div class="tab-content" id="languageTabsContent">
                 <div class="tab-pane fade show active" id="ru" role="tabpanel" aria-labelledby="ru-tab">
                     <div class="form-group mt-3">
-                        <textarea id="description_ru" class="form-control tinymce-editor" name="description_ru" rows="4" required></textarea>
+                        <textarea id="description_ru" class="form-control tinymce-editor" name="description_ru" rows="4" ></textarea>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="en" role="tabpanel" aria-labelledby="en-tab">
                     <div class="form-group mt-3">
-                        <textarea id="description_en" class="form-control tinymce-editor" name="description_en" rows="4" required></textarea>
+                        <textarea id="description_en" class="form-control tinymce-editor" name="description_en" rows="4" ></textarea>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="tk" role="tabpanel" aria-labelledby="tk-tab">
                     <div class="form-group mt-3">
-                        <textarea id="description_tk" class="form-control tinymce-editor" name="description_tk" rows="4" required></textarea>
+                        <textarea id="description_tk" class="form-control tinymce-editor" name="description_tk" rows="4" ></textarea>
                     </div>
                 </div>
             </div>

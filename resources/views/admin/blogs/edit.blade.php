@@ -1,4 +1,5 @@
 @include('layouts.headerA', ['hasimage' => false])
+
 <body>
     <div class="admin-index">
         <div class="container mt-5">
@@ -29,9 +30,9 @@
                         </div>
                         <div class="form-group">
                             <label for="description_ru">Описание (RU)</label>
-                            <textarea class="form-control" id="description_ru" name="description_ru" rows="4" required>{{ $blog->description_ru }}</textarea>
+                            <textarea class="form-control" id="description_ru" name="description_ru" rows="4">{{ $blog->description_ru }}</textarea>
                         </div>
-    
+
                     </div>
                     <div class="tab-pane fade" id="en" role="tabpanel" aria-labelledby="en-tab">
                         <div class="form-group mt-3">
@@ -41,7 +42,7 @@
                         </div>
                         <div class="form-group">
                             <label for="description_en">Описание (EN)</label>
-                            <textarea class="form-control" id="description_en" name="description_en" rows="4" required>{{ $blog->description_en }}</textarea>
+                            <textarea class="form-control" id="description_en" name="description_en" rows="4">{{ $blog->description_en }}</textarea>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tk" role="tabpanel" aria-labelledby="tk-tab">
@@ -52,7 +53,7 @@
                         </div>
                         <div class="form-group">
                             <label for="description_tk">Описание (TK)</label>
-                            <textarea class="form-control" id="description_tk" name="description_tk" rows="4" required>{{ $blog->description_tk }}</textarea>
+                            <textarea class="form-control" id="description_tk" name="description_tk" rows="4">{{ $blog->description_tk }}</textarea>
                         </div>
                     </div>
                 </div>
@@ -83,25 +84,10 @@
         </div>
     </div>
 
-    {{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> --}}
-    {{-- <script src="{{ asset('/js/jquery.js') }}"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
 
     @include('layouts.footerA')
     <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
-    {{-- <script>
-        tinymce.init({
-            selector: 'textarea',
-            menu: {
-                edit: {
-                    title: 'Edit',
-                    items: 'undo, redo, selectall'
-                }
-            }
-        });
-    </script> --}}
+
     @include('components.forms.tinymce-editor')
 
     <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
