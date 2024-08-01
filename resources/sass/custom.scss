@@ -19,6 +19,17 @@
 body {
   font-family: 'TT Sans Pro';
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: #eaeaea;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #212529;
+  border-radius: 6px;
+}
+
 $body-bg: #f8fafc;
 $black: #272727;
 
@@ -26,9 +37,6 @@ $black: #272727;
 $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
-::-webkit-scrollbar {
-  background-color: white;
-}
 * {
   box-sizing: border-box;
 }
@@ -53,6 +61,12 @@ nav {
     color: black;
     font-size: 14px;
     padding: 0 10px;
+    transition: all 0.3s ease;
+  }
+  &:hover {
+    .dropdown-toggle {
+      color: #ffff00 !important;
+    }
   }
 }
 
@@ -181,7 +195,7 @@ nav {
 .regular2 {
   position: relative;
 }
-.tox-editor-header{
+.tox-editor-header {
   z-index: 0 !important;
 }
 #menu {
@@ -337,6 +351,8 @@ footer {
   font-size: 16px;
   border: none;
   cursor: pointer;
+  transition: all 0.3s ease;
+  
 }
 
 .dropdown-menu {
@@ -798,15 +814,15 @@ footer {
         font-family: 'TT Sans Pro';
         margin-right: 40px;
       }
-      i{
+      i {
         position: absolute;
         top: 20px;
         right: 60px;
         transition: all 0.3s ease;
       }
-      &:hover{
+      &:hover {
         background-color: #a1a19e;
-        i{
+        i {
           right: 50px;
         }
       }
@@ -1416,8 +1432,8 @@ footer {
         background-color: #fff; /* Цвет underline */
         transition: width 0.3s ease; /* Анимация изменения ширины */
       }
-      &:hover{
-        &::after{
+      &:hover {
+        &::after {
           width: 100%;
         }
       }
@@ -1460,8 +1476,8 @@ footer {
         background-color: #fff; /* Цвет underline */
         transition: width 0.3s ease; /* Анимация изменения ширины */
       }
-      &:hover{
-        &::after{
+      &:hover {
+        &::after {
           width: 100%;
         }
       }
@@ -1821,7 +1837,6 @@ footer {
   }
 }
 
-
 .footer-link {
   text-decoration: none;
   position: relative;
@@ -1844,53 +1859,62 @@ footer {
   }
 }
 
-
-.subscr-input{
+.subscr-input {
   border-radius: 0 !important;
   background-color: #eaeaea;
 }
 
-.send-request-btn{
+.send-request-btn {
   position: relative;
   cursor: pointer;
-  i{
+  i {
     position: absolute;
     top: 17px;
     right: 40px;
     transition: all 0.3s ease;
   }
-  &:hover{
-    i{
+  &:hover {
+    i {
       right: 30px;
     }
   }
 }
 
-.show-all-a{
+.show-all-a {
   line-height: 64px;
   color: #333;
   text-decoration-color: #333 !important;
   text-underline-offset: 3px;
   transition: all 0.3s ease;
-  &:hover{
+  &:hover {
     text-decoration-color: transparent !important;
   }
 }
 
 @keyframes bounce2 {
-	0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-	10% {transform: translateY(-20px);}
-	25% {transform: translateY(-10px);}
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(-20px);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
 }
 
-.icon-wrapper{
+.icon-wrapper {
   width: 50px;
   height: 50px;
   cursor: pointer;
-  i{
+  i {
     font-size: 22px;
   }
-  &:hover{
+  &:hover {
     animation: bounce2 2s ease infinite;
   }
 }
@@ -1906,31 +1930,30 @@ footer {
   height: 65px;
   font-size: 24px;
   cursor: pointer;
-  opacity:1;
+  opacity: 1;
   display: none; /* Скрыта по умолчанию */
   z-index: 1000; /* Чтобы кнопка была выше остальных элементов */
 }
 
-
-.vacanc-img-wrapper{
+.vacanc-img-wrapper {
   width: 100%;
   display: inline-block;
   overflow: hidden;
   height: 370px;
   transition: all 0.4s ease;
-  img{
+  img {
     transition: all 0.3s ease;
     object-fit: cover;
   }
-  &:hover{
-    img{
+  &:hover {
+    img {
       transform: scale(1.2);
     }
   }
 }
 
-.card-body{
-  .card-title-link{
+.card-body {
+  .card-title-link {
     position: relative;
     width: fit-content;
     cursor: pointer;
@@ -1945,8 +1968,8 @@ footer {
       background-color: #000; /* Цвет underline */
       transition: width 0.3s ease; /* Анимация изменения ширины */
     }
-    &:hover{
-      &::after{
+    &:hover {
+      &::after {
         width: 100%;
       }
     }
@@ -1979,12 +2002,12 @@ $z-index-preloader: 9999;
   transition: opacity 0.5s ease;
   opacity: 1;
 
-  .animated-logo{
-    svg{
+  .animated-logo {
+    svg {
       width: 100%;
       height: 100px;
     }
- }
+  }
   &.hidden {
     opacity: 0;
   }
@@ -2025,7 +2048,7 @@ $z-index-preloader: 9999;
       position: absolute;
       top: 50%;
       left: 50%;
-      font-family: "Rendika";
+      font-family: 'Rendika';
       transform: translate(-50%, -50%);
       font-size: 18px;
       color: #fff;
@@ -2037,8 +2060,12 @@ $z-index-preloader: 9999;
 
 // Анимация
 @keyframes preloader {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 // Скрытое содержимое по умолчанию
@@ -2059,4 +2086,15 @@ $z-index-preloader: 9999;
 }
 
 
+.purchases{
+  margin-bottom: 300px;
+}
 
+.custom-select{
+  background-color: transparent !important;
+  padding: 15px;
+  font-size: 16px;
+  color: #333;
+  border: none !important;
+  outline: none !important;
+}

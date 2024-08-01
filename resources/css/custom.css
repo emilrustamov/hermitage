@@ -17,7 +17,13 @@ body {
 }
 
 ::-webkit-scrollbar {
-  background-color: white;
+  width: 8px;
+  background-color: #eaeaea;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #212529;
+  border-radius: 6px;
 }
 
 * {
@@ -50,6 +56,11 @@ nav {
   color: black;
   font-size: 14px;
   padding: 0 10px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.dropdown:hover .dropdown-toggle {
+  color: #ffff00 !important;
 }
 
 .with-black-links .nav-link {
@@ -362,6 +373,8 @@ footer ul li a {
   font-size: 16px;
   border: none;
   cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .dropdown-menu {
@@ -2066,6 +2079,10 @@ footer ul li a {
   transition: opacity 0.5s ease;
   opacity: 1;
 }
+#preloader .animated-logo svg {
+  width: 100%;
+  height: 100px;
+}
 #preloader.hidden {
   opacity: 0;
 }
@@ -2139,4 +2156,31 @@ footer ul li a {
 }
 #content {
   display: none;
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background-color: #fff;
+  -webkit-transition: width 0.1s ease-in-out;
+  transition: width 0.1s ease-in-out;
+}
+
+.purchases {
+  margin-bottom: 300px;
+}
+
+.custom-select {
+  background-color: transparent !important;
+  padding: 15px;
+  font-size: 16px;
+  color: #333;
+  border: none !important;
+  outline: none !important;
 }

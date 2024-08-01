@@ -9,7 +9,25 @@
     'banners' => $banners,
     'show_single_slide' => $banners->count() <= 1,
 ])
+ <div id="preloader">
+    <div class="d-flex flex-column w-100">
+        <div class="animated-logo">
+            @include('components.animated_logo')
+        </div>
+        <div style="height:50px"></div>
+        <div class="loader mx-auto">
+            <span></span>
+            <span></span>
+            <span></span>
+            <div class="percentage" id="percentage">0%</div>
+        </div>
+        <div style="height:50px"></div>
 
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+    </div>
+</div>
 @if (session('message'))
     <div class="alert alert-success">
         {{ session('message') }}
@@ -28,7 +46,7 @@
     </div>
 </section>
 <section class="scroll-fade-in">
-    <p class="text-center our-areas">{{ __('translation.home_partners') }}</p>
+    <p class="text-center our-areas" id="areas">{{ __('translation.home_partners') }}</p>
     <div class="container">
         <div class="row areas-block">
             @foreach ($categories as $category)

@@ -17,7 +17,7 @@
     <div class="container mt-5">
         <form method="GET" action="{{ route('products.index', ['locale' => app()->getLocale()]) }}" class="row">
             <div class="col-md-2">
-                <select name="category_id" class="form-control">
+                <select name="category_id" class="custom-select">
                     <option value="all">{{ __('translation.products_option1')}}</option>
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}"
@@ -28,7 +28,7 @@
                 </select>
             </div>
             <div class="col-md-2">
-                <select name="brand_id" class="form-control">
+                <select name="brand_id" class="custom-select">
                     <option value="all">{{ __('translation.products_option2')}}</option>
                     @foreach ($brands as $brand)
                         <option value="{{ $brand->id }}" {{ request('brand_id') == $brand->id ? 'selected' : '' }}>
@@ -38,7 +38,7 @@
                 </select>
             </div>
             <div class="col-md-2">
-                <select name="sort_by" class="form-control">
+                <select name="sort_by" class="custom-select">
                     <option value="created_at">{{ __('translation.products_sort1')}}</option>
                     <option value="title" {{ request('sort_by') == 'title' ? 'selected' : '' }}>{{ __('translation.products_sort2')}}</option>
                     <option value="price_asc" {{ request('sort_by') == 'price_asc' ? 'selected' : '' }}>{{ __('translation.products_price_up')}}</option>

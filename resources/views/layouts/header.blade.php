@@ -21,25 +21,7 @@
 </style>
 
 <body>
-    <div id="preloader">
-        <div class="d-flex flex-column w-100">
-            <div class="animated-logo">
-                @include('components.animated_logo')
-            </div>
-            <div style="height:50px"></div>
-            <div class="loader mx-auto">
-                <span></span>
-                <span></span>
-                <span></span>
-                <div class="percentage" id="percentage">0%</div>
-            </div>
-            <div style="height:50px"></div>
-
-            <div class="progress-bar-container">
-                <div class="progress-bar" id="progress-bar"></div>
-            </div>
-        </div>
-    </div>
+   
 
     <div class="wrapper p-0">
         <div>
@@ -90,7 +72,7 @@
                                     <a class="nav-link" href="{{ route('about', ['locale' => app()->getLocale()]) }}">
                                         <li>{{ __('translation.head_li1') }}</li>
                                     </a>
-                                    <a class="nav-link" href="{{ route('areas', ['locale' => app()->getLocale()]) }}">
+                                    <a class="nav-link" href="#areas">
                                         <li>{{ __('translation.head_li2') }}</li>
                                     </a>
                                     <a class="nav-link"
@@ -112,10 +94,6 @@
                                     <a class="nav-link"
                                         href="{{ route('productsnew.index', ['locale' => app()->getLocale()]) }}">
                                         <li>{{ __('translation.new_arrivals') }}</li>
-                                    </a>
-                                    <a class="nav-link"
-                                        href="{{ route('productsnew.index', ['locale' => app()->getLocale()]) }}">
-                                        <li>Новые поступления</li>
                                     </a>
                                     <a class="nav-link"
                                         href="{{ route('blogs.index', ['locale' => app()->getLocale()]) }}">
