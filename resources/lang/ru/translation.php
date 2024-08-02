@@ -246,6 +246,8 @@ return [
     'namComp'=>'Название компании',
     
 
-
+// Поиск
+'search_placeholder' => 'Введите для поиска',
+'search_results_for' => 'Результаты поиска',
 
 ];

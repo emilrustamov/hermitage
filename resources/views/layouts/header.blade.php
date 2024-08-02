@@ -21,7 +21,7 @@
 </style>
 
 <body>
-   
+
 
     <div class="wrapper p-0">
         <div>
@@ -116,20 +116,23 @@
                                 </ul>
                             </div>
                         </nav>
-                        <form method="GET" action="{{ route('search', ['locale' => app()->getLocale()]) }}"
-                            class="form-inline">
-                            <input class="form-control mr-sm-2" type="search" name="query"
-                                placeholder="{{ __('translation.search_placeholder') }}" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0"
-                                type="submit">{{ __('translation.search_button') }}</button>
-                        </form>
+                     
                         <div style="display: inline-flex">
                             <a href="{{ route('home', ['locale' => app()->getLocale()]) }}"><img
                                     src="{{ asset('/images/logo.svg') }}" style="filter:invert(1)" alt="logo"
                                     class="logo"></a>
                         </div>
                     </div>
-                    <div class="text-end">
+                    <form method="GET" action="{{ route('search', ['locale' => app()->getLocale()]) }}"
+                        class="form-inline custom-search d-flex align-self-center">
+                      <input class="form-control mr-sm-2" type="search" name="query"
+                             placeholder="{{ __('translation.search_placeholder') }}" aria-label="Search">
+                      <button class="btn btn-icon d-flex align-self-center" type="submit">
+                          <i class="fa-solid fa-magnifying-glass"></i>
+                      </button>
+                  </form>
+                  
+                    <div class="text-end align-self-center d-flex">
                         <div class="dropdown">
                             <button class="dropdown-toggle" type="button" id="languageDropdown"
                                 style="{{ request()->routeIs(['register', 'login', 'password.request']) ? 'color: black;' : 'color: white;' }}">
