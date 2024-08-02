@@ -220,6 +220,8 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'web'], function () {
 
     
     Route::get('/search', [SearchController::class, 'search'])->name('search');
+    Route::get('/filter-products', [ProductsController::class, 'filterProducts'])->name('products.filter');
+
 });
 
 

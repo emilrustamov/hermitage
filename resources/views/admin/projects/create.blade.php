@@ -53,7 +53,7 @@
                         <div class="form-group">
                             <label for="description_ru">Описание (RU)</label>
                             <textarea id="description_ru" class="form-control @error('description_ru') is-invalid @enderror" name="description_ru"
-                                rows="4" required>1234</textarea>
+                                rows="4" ></textarea>
                             @error('description_ru')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -106,7 +106,7 @@
                         <div class="form-group">
                             <label for="description_en">Описание (EN)</label>
                             <textarea id="description_en" class="form-control @error('description_en') is-invalid @enderror" name="description_en"
-                                rows="4" required>124124</textarea>
+                                rows="4" ></textarea>
                             @error('description_en')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -158,7 +158,7 @@
                         <div class="form-group">
                             <label for="description_tk">Описание (TK)</label>
                             <textarea id="description_tk" class="form-control @error('description_tk') is-invalid @enderror"
-                                name="description_tk" rows="4" required>124214</textarea>
+                                name="description_tk" rows="4" ></textarea>
                             @error('description_tk')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

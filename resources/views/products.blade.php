@@ -10,15 +10,15 @@
 ])
 
 <div style="padding: 25px 80px; background-color: #BCBDB8;">
-    <p class="col-lg-11 mx-auto text">{{ __('translation.products_title')}}</p>
+    <p class="col-lg-11 mx-auto text">{{ __('translation.products_title') }}</p>
     <br>
-    <p class="col-lg-11 mx-auto text">{{ __('translation.products_p1')}}</p>
+    <p class="col-lg-11 mx-auto text">{{ __('translation.products_p1') }}</p>
 
     <div class="container mt-5">
         <form method="GET" action="{{ route('products.index', ['locale' => app()->getLocale()]) }}" class="row">
             <div class="col-md-2">
                 <select name="category_id" class="custom-select">
-                    <option value="all">{{ __('translation.products_option1')}}</option>
+                    <option value="all">{{ __('translation.products_option1') }}</option>
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}"
                             {{ request('category_id') == $category->id ? 'selected' : '' }}>
@@ -29,7 +29,7 @@
             </div>
             <div class="col-md-2">
                 <select name="brand_id" class="custom-select">
-                    <option value="all">{{ __('translation.products_option2')}}</option>
+                    <option value="all">{{ __('translation.products_option2') }}</option>
                     @foreach ($brands as $brand)
                         <option value="{{ $brand->id }}" {{ request('brand_id') == $brand->id ? 'selected' : '' }}>
                             {{ $brand->title_ru }}
@@ -39,18 +39,23 @@
             </div>
             <div class="col-md-2">
                 <select name="sort_by" class="custom-select">
-                    <option value="created_at">{{ __('translation.products_sort1')}}</option>
-                    <option value="title" {{ request('sort_by') == 'title' ? 'selected' : '' }}>{{ __('translation.products_sort2')}}</option>
-                    <option value="price_asc" {{ request('sort_by') == 'price_asc' ? 'selected' : '' }}>{{ __('translation.products_price_up')}}</option>
-                    <option value="price_desc" {{ request('sort_by') == 'price_desc' ? 'selected' : '' }}>{{ __('translation.products_price_down')}}</option>
-                    <option value="newest_asc" {{ request('sort_by') == 'newest_asc' ? 'selected' : '' }}>{{ __('translation.products_new_up')}}</option>
-                    <option value="newest_desc" {{ request('sort_by') == 'newest_desc' ? 'selected' : '' }}>{{ __('translation.products_new_down')}}</option>
+                    <option value="created_at">{{ __('translation.products_sort1') }}</option>
+                    <option value="title" {{ request('sort_by') == 'title' ? 'selected' : '' }}>
+                        {{ __('translation.products_sort2') }}</option>
+                    <option value="price_asc" {{ request('sort_by') == 'price_asc' ? 'selected' : '' }}>
+                        {{ __('translation.products_price_up') }}</option>
+                    <option value="price_desc" {{ request('sort_by') == 'price_desc' ? 'selected' : '' }}>
+                        {{ __('translation.products_price_down') }}</option>
+                    <option value="newest_asc" {{ request('sort_by') == 'newest_asc' ? 'selected' : '' }}>
+                        {{ __('translation.products_new_up') }}</option>
+                    <option value="newest_desc" {{ request('sort_by') == 'newest_desc' ? 'selected' : '' }}>
+                        {{ __('translation.products_new_down') }}</option>
                 </select>
             </div>
             <div class="col-md-2">
-                <button type="submit" class="btn btn-primary">{{ __('translation.products_apply')}}</button>
+                <button type="submit" class="btn btn-primary">{{ __('translation.products_apply') }}</button>
                 <a href="{{ route('products.index', ['locale' => app()->getLocale()]) }}"
-                    class="btn btn-secondary">{{ __('translation.products_reset')}}</a>
+                    class="btn btn-secondary">{{ __('translation.products_reset') }}</a>
             </div>
         </form>
     </div>
@@ -62,7 +67,7 @@
             <!-- Display Products -->
             <div class="products-grid row">
                 @foreach ($products as $product)
-                    <div class="content-appearance col-lg-3 p-0 product-card" id="content-price"
+                    <div class="content-appearance  p-0 product-card" id="content-price"
                         data-sort="{{ $product->price }}">
                         <div class="product-image-container"
                             style="background-image: url('{{ $product->image }}'); background-size: cover">
@@ -74,18 +79,17 @@
                                     <i
                                         class="fa-heart {{ Auth::user()->favorites->contains($product->id) ? 'fa-solid' : 'fa-regular' }}"></i>
                                 </button>
-
                             @endauth
-                            {{-- <img src="{{ asset($product->image) }}" alt="Product Image" class="product-img"> --}}
                         </div>
                         <div class="hover-content">
                             <div class="d-flex justify-content-between">
                                 <p class="product-text">{{ $product->title_ru }}</p>
-                                <p class="product-price">{{ $product->price }} {{ __('translation.products_tmt')}}</p>
+                                <p class="product-price">{{ $product->price }} {{ __('translation.products_tmt') }}
+                                </p>
                             </div>
                             <button class="add-to-cart" data-id="{{ $product->id }}"
                                 data-title="{{ $product->title_ru }}" data-price="{{ $product->price }}"
-                                data-image="{{ asset($product->image) }}">{{ __('translation.products_trash')}}</button>
+                                data-image="{{ asset($product->image) }}">{{ __('translation.products_trash') }}</button>
                         </div>
                     </div>
                 @endforeach
@@ -115,8 +119,9 @@
         </div>
     </div>
 </div>
-<script src="{{ asset('js/jquery.js') }}"></script>
+
 @include('layouts.footer')
+
 
 <script>
     console.log(typeof $); // Должно вывести "function"
@@ -177,41 +182,62 @@
         }
     });
 
+
     document.querySelectorAll('.favorite-btn').forEach(button => {
-    button.addEventListener('click', function() {
-        let productId = this.dataset.id;
-        let button = this;
+        button.addEventListener('click', function() {
+            let productId = this.dataset.id;
+            let button = this;
 
-        let url = `/${locale}/favorite/` + (button.querySelector('i').classList.contains('fa-regular') ? 'add' : 'remove');
+            let url = `/${locale}/favorite/` + (button.querySelector('i').classList.contains(
+                'fa-regular') ? 'add' : 'remove');
 
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                product_id: productId
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.message === 'Product added to favorites') {
-                button.querySelector('i').classList.add('fa-solid');
-                button.querySelector('i').classList.remove('fa-regular');
-                showFavoriteToast('Товар добавлен в избранное');
-            } else if (data.message === 'Product removed from favorites') {
-                button.querySelector('i').classList.add('fa-regular');
-                button.querySelector('i').classList.remove('fa-solid');
-                showFavoriteToast('Товар удален из избранного');
-            }
-        })
-        .catch(error => console.error('Error:', error));
+            fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        product_id: productId
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message === 'Product added to favorites') {
+                        button.querySelector('i').classList.add('fa-solid');
+                        button.querySelector('i').classList.remove('fa-regular');
+                        showFavoriteToast('Товар добавлен в избранное');
+                    } else if (data.message === 'Product removed from favorites') {
+                        button.querySelector('i').classList.add('fa-regular');
+                        button.querySelector('i').classList.remove('fa-solid');
+                        showFavoriteToast('Товар удален из избранного');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
     });
-});
 
 
 
 </script>
 
 
+<script>
+  $(function() {
+    $('form').on('change', 'select', function() {
+        let form = $(this).closest('form');
+        $.ajax({
+            url: form.attr('action'),
+            type: 'GET',
+            data: form.serialize(),
+            success: function(response) {
+                $('.products-grid').html(response.html);
+            },
+            error: function(xhr) {
+                console.log(xhr.responseText); // Просмотр ошибок, если что-то пошло не так
+            }
+        });
+    });
+});
+
+</script>
