@@ -27,11 +27,12 @@ class CartController extends Controller
     public function items()
     {
         $cart = Session::get('cart', []);
-
-        $total = array_reduce($cart, function($carry, $item) {
+        $total = array_reduce($cart, function ($carry, $item) {
             return $carry + $item['price'];
         }, 0);
 
-        return response()->json(['cart' => $cart, 'total' => $total]);
+        $count = count($cart);
+
+        return response()->json(['cart' => $cart, 'total' => $total, 'count' => $count]);
     }
 }

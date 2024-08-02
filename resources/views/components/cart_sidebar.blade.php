@@ -49,11 +49,11 @@
         margin: 0 40px;
     }
 </style>
-<div class="cart-sidebar closed" id="sidebar" >
+<div class="cart-sidebar closed" id="sidebar">
     <div class="cart-header">
         <div class="d-flex align-items-center justify-content-between">
             <img src="{{ asset('/images/icons/close.png') }}" id="closeSidebar" alt="">
-            <p class="fs-3">{{ __('translation.sid')}}</p>
+            <p class="fs-3">{{ __('translation.sid') }}</p>
         </div>
     </div>
 
@@ -63,34 +63,34 @@
 
     <div class="cart-footer">
         <div class="total-sum d-flex justify-content-between">
-            <p>{{ __('translation.sid_p1')}}</p>
-            <p class="product-price text-center total-price">{{ __('translation.sid_p2')}}</p>
+            <p>{{ __('translation.sid_p1') }}</p>
+            <p class="product-price text-center total-price">{{ __('translation.sid_p2') }}</p>
         </div>
         <div class="d-flex align-items-center shipment">
             <img src="{{ asset('/images/icons/shipment.png') }}" alt="">
-            <p class="my-auto">{{ __('translation.sid_p3')}}</p>
+            <p class="my-auto">{{ __('translation.sid_p3') }}</p>
         </div>
         <!-- Кнопка для очистки корзины -->
         <div class="clear-cart">
-            <button id="clearCart" class="btn btn-danger w-100 mt-3">{{ __('translation.sid_btn')}}</button>
+            <button id="clearCart" class="btn btn-danger w-100 mt-3">{{ __('translation.sid_btn') }}</button>
         </div>
 
         <!-- Форма для оформления заказа -->
         <form id="orderForm" class="order-form">
             <div class="form-group">
-                <label for="name">{{ __('translation.sid_label1')}}</label>
+                <label for="name">{{ __('translation.sid_label1') }}</label>
                 <input type="text" id="name" name="name" class="form-control" required>
             </div>
             <div class="form-group">
-                <label for="phone">{{ __('translation.sid_label2')}}</label>
+                <label for="phone">{{ __('translation.sid_label2') }}</label>
                 <input type="text" id="phone" name="phone" class="form-control" required>
             </div>
             <div class="form-group">
-                <label for="email">{{ __('translation.sid_label3')}}</label>
+                <label for="email">{{ __('translation.sid_label3') }}</label>
                 <input type="email" id="email" name="email" class="form-control">
             </div>
             <button type="submit" class="checkout-btn d-flex justify-content-center align-items-center">
-                <p class="my-auto mx-auto">{{ __('translation.sid_label4')}}</p>
+                <p class="my-auto mx-auto">{{ __('translation.sid_label4') }}</p>
                 <i class="fa fa-long-arrow-right"></i>
             </button>
         </form>
@@ -109,44 +109,47 @@
             const cartItems = document.querySelector('.cart-items');
             cartItems.innerHTML = ''; // Clear existing items
             let total = 0;
+            let itemCount = 0; // Для подсчета количества товаров
 
             cart.forEach(item => {
                 const itemHtml = `
             <div class="product-item" data-id="${item.id}">
-  <div class="product">
-        <div class="d-flex justify-content-between">
-            <div class="d-flex">
-                 <button class="remove-item btn my-auto" data-id="${item.id}">
-    <i class="fa-regular fa-trash-can"></i>
-  </button>
-                <img src="${item.image}" alt="Product Image" width="40px" height="40px" class="align-self-center cart-prod-img"/>
-                <div>
-                  <p class="product-cart-title">${item.title}</p>
-                  <div class="d-flex justify-content-between">
-                    <div class="d-flex flex-column">
-                      <p class="product-price-info">Цена за единицу товара:</p>
-                      <div class="quantity-control">
-                        <button class="decrease-quantity my-auto" data-id="${item.id}">
-                          -
-                        </button>
-                        <p class="quant my-auto">${item.quantity}</p>
-                        <button class="increase-quantity my-auto" data-id="${item.id}">
-                          +
-                        </button>
-                      </div>
+                <div class="product">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex">
+                            <button class="remove-item btn my-auto" data-id="${item.id}">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </button>
+                            <img src="${item.image}" alt="Product Image" width="40px" height="40px" class="align-self-center cart-prod-img"/>
+                            <div>
+                                <p class="product-cart-title">${item.title}</p>
+                                <div class="d-flex justify-content-between">
+                                    <div class="d-flex flex-column">
+                                        <p class="product-price-info">Цена за единицу товара:</p>
+                                        <div class="quantity-control">
+                                            <button class="decrease-quantity my-auto" data-id="${item.id}">-</button>
+                                            <p class="quant my-auto">${item.quantity}</p>
+                                            <button class="increase-quantity my-auto" data-id="${item.id}">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="product-price">${item.price} TMT</p>
                     </div>
-            </div>
-            </div>
                 </div>
-        <p class="product-price">${item.price} TMT</p>
-      </div>
-  </div>
-</div>`;
+            </div>`;
                 cartItems.insertAdjacentHTML('beforeend', itemHtml);
                 total += item.price * item.quantity;
+                itemCount += item.quantity; // Увеличиваем количество товаров
             });
 
             document.querySelector('.total-price').textContent = `${total.toFixed(2)} TMT`;
+
+            // Обновляем бейдж с количеством товаров
+            document.getElementById('cartBadge').textContent = itemCount;
+            // Скрываем бейдж, если в корзине нет товаров
+            document.getElementById('cartBadge').style.display = itemCount > 0 ? 'block' : 'none';
         }
 
         function saveCart(cart) {
@@ -160,7 +163,7 @@
                 let productId = this.dataset.id;
                 let productTitle = this.dataset.title;
                 let productPrice = parseFloat(this.dataset.price);
-                let productImage = this.dataset.image; // Получаем изображение
+                let productImage = this.dataset.image;
 
                 const cart = JSON.parse(localStorage.getItem('cart')) || [];
                 const existingItem = cart.find(item => item.id === productId);
@@ -179,7 +182,7 @@
 
                 saveCart(cart);
                 loadCart();
-        
+
                 showToast('Товар добавлен в корзину');
             });
         });
@@ -297,34 +300,39 @@
 
     // Функции для работы с сайдбаром
     document.addEventListener('DOMContentLoaded', function() {
-    var cartIcon = document.getElementById('cartIcon');
-    var sidebar = document.getElementById('sidebar');
-    var closeSidebar = document.getElementById('closeSidebar');
+        var cartIcon = document.getElementById('cartIcon');
+        var sidebar = document.getElementById('sidebar');
+        var closeSidebar = document.getElementById('closeSidebar');
 
-    cartIcon.addEventListener('click', function() {
-        sidebar.classList.toggle('closed');
-    });
+        cartIcon.addEventListener('click', function() {
+            sidebar.classList.toggle('closed');
+            console.log('хлоп');
+            });
 
-    closeSidebar.addEventListener('click', function() {
-        sidebar.classList.add('closed');
-    });
-
-    window.addEventListener('click', function(event) {
-        if (event.target !== cartIcon && event.target !== sidebar && !sidebar.contains(event.target)) {
+        closeSidebar.addEventListener('click', function() {
             sidebar.classList.add('closed');
-        }
-    });
+            console.log('хлоп');
 
-    function openSidebar() {
-        sidebar.classList.remove('closed');
-    }
+        });
 
-    document.querySelector('.cart-items').addEventListener('click', function(event) {
-        if (event.target.classList.contains('increase-quantity') || event.target.classList.contains('decrease-quantity') || event.target.classList.contains('remove-item')) {
-            event.stopPropagation(); // Предотвращаем закрытие корзины
+        window.addEventListener('click', function(event) {
+            if (event.target !== cartIcon && event.target !== sidebar && !sidebar.contains(event
+                .target)) {
+                sidebar.classList.add('closed');
+            }
+        });
+
+        function openSidebar() {
+            sidebar.classList.remove('closed');
         }
+
+        document.querySelector('.cart-items').addEventListener('click', function(event) {
+            if (event.target.classList.contains('increase-quantity') || event.target.classList.contains(
+                    'decrease-quantity') || event.target.classList.contains('remove-item')) {
+                event.stopPropagation(); // Предотвращаем закрытие корзины
+            }
+        });
     });
-});
 
     function toggleSidebar() {
         var sidebarStyle = window.getComputedStyle(sidebar);
@@ -342,17 +350,17 @@
     }
 
     function showToast(message) {
-    let toastEl = $('#liveToast');
+        let toastEl = $('#liveToast');
 
-    // Изменить сообщение Toast
-    toastEl.find('.toast-body').text(message);
+        // Изменить сообщение Toast
+        toastEl.find('.toast-body').text(message);
 
-    // Показать Toast с использованием jQuery fadeIn
-    toastEl.fadeIn(500, function() {
-        setTimeout(function() {
-            // Скрыть Toast с использованием jQuery fadeOut
-            toastEl.fadeOut(500);
-        }, 2000); // Длительность показа Toast перед скрытием
-    });
-}
+        // Показать Toast с использованием jQuery fadeIn
+        toastEl.fadeIn(500, function() {
+            setTimeout(function() {
+                // Скрыть Toast с использованием jQuery fadeOut
+                toastEl.fadeOut(500);
+            }, 2000); // Длительность показа Toast перед скрытием
+        });
+    }
 </script>

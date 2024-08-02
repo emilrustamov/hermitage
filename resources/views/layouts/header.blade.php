@@ -112,38 +112,80 @@
                                         <li>{{ __('translation.head_li10') }}</li>
                                     </a>
 
-
+                                    {{-- <li class="desktop-none">
+                                        <div class="text-end align-self-center d-flex">
+                                            <div class="dropdown">
+                                                <button class="dropdown-toggle" type="button" id="languageDropdown"
+                                                    style="{{ request()->routeIs(['register', 'login', 'password.request']) ? 'color: black;' : 'color: white;' }}">
+                                                    {{ strtoupper(app()->getLocale()) }}
+                                                </button>
+                                                <div class="dropdown-menu" id="dropdownMenu">
+                                                    <a class="dropdown-item" href="#" data-lang="ru">RU</a>
+                                                    <a class="dropdown-item" href="#" data-lang="en">EN</a>
+                                                    <a class="dropdown-item" href="#" data-lang="tk">TK</a>
+                                                </div>
+                                            </div>
+                                            @auth
+                                                <a href="{{ route('logout', ['locale' => app()->getLocale()]) }}"
+                                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                                    class="logout-a">
+                                                    <i class="fa fa-sign-out punkt-menu {{ request()->routeIs(['register', 'login', 'password.request']) ? 'black-imp' : 'white-imp' }}"
+                                                        aria-hidden="true"></i>
+                                                </a>
+                                                <script>
+                                                    document.querySelector('a[href="{{ route('logout', ['locale' => app()->getLocale()]) }}"]').addEventListener(
+                                                        'click',
+                                                        function(event) {
+                                                            event.preventDefault();
+                                                            if (confirm('Are you sure you want to log out?')) {
+                                                                document.getElementById('logout-form').submit();
+                                                            }
+                                                        });
+                                                </script>
+                                                <form id="logout-form" action="{{ route('logout', ['locale' => app()->getLocale()]) }}"
+                                                    method="POST" style="display: none;">
+                                                    @csrf
+                                                </form>
+                                            @else
+                                                <a href="{{ route('register', ['locale' => app()->getLocale()]) }}" style="color: transparent">
+                                                    <i class="fa fa-user punkt-menu {{ request()->routeIs(['register', 'login', 'password.request']) ? 'black-imp' : 'white-imp' }}"
+                                                        aria-hidden="true"></i>
+                                                </a>
+                                            @endauth
+                                            @auth
+                                                <a href="{{ route('favorite.show', ['locale' => app()->getLocale()]) }}"><i
+                                                        class="fa fa-heart punkt-menu {{ request()->routeIs(['register', 'login', 'password.request']) ? 'black-imp' : 'white-imp' }}"
+                                                        aria-hidden="true" style="color:white;"></i></a>
+                                            @endauth
+                                        </div>
+                                    </li> --}}
                                 </ul>
                             </div>
                         </nav>
-                     
+
                         <div style="display: inline-flex">
                             <a href="{{ route('home', ['locale' => app()->getLocale()]) }}"><img
                                     src="{{ asset('/images/logo.svg') }}" style="filter:invert(1)" alt="logo"
                                     class="logo"></a>
                         </div>
                     </div>
-                    <form method="GET" action="{{ route('search', ['locale' => app()->getLocale()]) }}"
-                        class="form-inline custom-search d-flex align-self-center">
-                      <input class="form-control mr-sm-2" type="search" name="query"
-                             placeholder="{{ __('translation.search_placeholder') }}" aria-label="Search">
-                      <button class="btn btn-icon d-flex align-self-center" type="submit">
-                          <i class="fa-solid fa-magnifying-glass"></i>
-                      </button>
-                  </form>
-                  
-                    <div class="text-end align-self-center d-flex">
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="languageDropdown"
-                                style="{{ request()->routeIs(['register', 'login', 'password.request']) ? 'color: black;' : 'color: white;' }}">
-                                {{ strtoupper(app()->getLocale()) }}
+                    <div class="d-flex">
+
+                        {{-- <i class="fa fa-shopping-cart punkt-menu desktop-none"
+                        style="{{ request()->routeIs(['register', 'login', 'password.request']) ? 'color: black;' : 'color: white;' }}; position:relative;"
+                        aria-hidden="true" id="cartIcon"> <span id="cartBadge" class="badge badge-pill badge-danger"></span></i> --}}
+                    </div>
+
+                    <div class="text-end align-self-center d-flex mobile-none">
+                        <form method="GET" action="{{ route('search', ['locale' => app()->getLocale()]) }}"
+                            class="form-inline custom-search d-flex align-self-center">
+                            <input class="form-control mr-sm-2" type="search" name="query"
+                                placeholder="{{ __('translation.search_placeholder') }}" aria-label="Search">
+                            <button class="btn btn-icon d-flex align-self-center" type="submit">
+                                <i class="fa-solid fa-magnifying-glass"></i>
                             </button>
-                            <div class="dropdown-menu" id="dropdownMenu">
-                                <a class="dropdown-item" href="#" data-lang="ru">RU</a>
-                                <a class="dropdown-item" href="#" data-lang="en">EN</a>
-                                <a class="dropdown-item" href="#" data-lang="tk">TK</a>
-                            </div>
-                        </div>
+                        </form>
+
                         @auth
                             <a href="{{ route('logout', ['locale' => app()->getLocale()]) }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
@@ -172,15 +214,28 @@
                             </a>
                         @endauth
                         <i class="fa fa-shopping-cart punkt-menu"
-                            style="{{ request()->routeIs(['register', 'login', 'password.request']) ? 'color: black;' : 'color: white;' }}"
-                            aria-hidden="true" id="cartIcon"></i>
+                            style="{{ request()->routeIs(['register', 'login', 'password.request']) ? 'color: black;' : 'color: white;' }}; position:relative;"
+                            aria-hidden="true" id="cartIcon"> <span id="cartBadge"
+                                class="badge badge-pill badge-danger"></span></i>
+
 
 
                         @auth
                             <a href="{{ route('favorite.show', ['locale' => app()->getLocale()]) }}"><i
                                     class="fa fa-heart punkt-menu {{ request()->routeIs(['register', 'login', 'password.request']) ? 'black-imp' : 'white-imp' }}"
-                                    aria-hidden="true" style="color:white"></i></a>
+                                    aria-hidden="true" style="color:white;"></i></a>
                         @endauth
+                        <div class="dropdown">
+                            <button class="dropdown-toggle" type="button" id="languageDropdown"
+                                style="{{ request()->routeIs(['register', 'login', 'password.request']) ? 'color: black;' : 'color: white;' }}">
+                                {{ strtoupper(app()->getLocale()) }}
+                            </button>
+                            <div class="dropdown-menu" id="dropdownMenu">
+                                <a class="dropdown-item" href="#" data-lang="ru">RU</a>
+                                <a class="dropdown-item" href="#" data-lang="en">EN</a>
+                                <a class="dropdown-item" href="#" data-lang="tk">TK</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </header>

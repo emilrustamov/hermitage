@@ -1,5 +1,5 @@
 @php
-    $banners = App\Models\Banner::where('page_identifier', 'products')->get();
+    $banners = App\Models\Banner::where('page_identifier', 'about')->get();
 @endphp
 
 @include('layouts.header', [
@@ -9,14 +9,14 @@
     'show_single_slide' => $banners->count() <= 1,
 ])
 
-<div style="padding: 25px 80px; background-color: #BCBDB8;">
-    <p class="col-lg-11 mx-auto text">{{ __('translation.products_title') }}</p>
+<div style="padding: 25px 44px; background-color: #BCBDB8;">
+    <p class="col-lg-11  text" style="margin-left: 5px">{{ __('translation.products_title') }}</p>
     <br>
-    <p class="col-lg-11 mx-auto text">{{ __('translation.products_p1') }}</p>
+    <p class="col-lg-11  text" style="margin-left: 5px">{{ __('translation.products_p1') }}</p>
 
-    <div class="container mt-5">
+    <div class=" mt-5">
         <form method="GET" action="{{ route('products.index', ['locale' => app()->getLocale()]) }}" class="row">
-            <div class="col-md-2">
+            <div class="col-md-2" style="padding-left: 0 !important">
                 <select name="category_id" class="custom-select">
                     <option value="all">{{ __('translation.products_option1') }}</option>
                     @foreach ($categories as $category)
@@ -37,7 +37,7 @@
                     @endforeach
                 </select>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2" >
                 <select name="sort_by" class="custom-select">
                     <option value="created_at">{{ __('translation.products_sort1') }}</option>
                     <option value="title" {{ request('sort_by') == 'title' ? 'selected' : '' }}>
