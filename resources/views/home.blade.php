@@ -1,6 +1,6 @@
 
 @php
-    $banners = App\Models\Banner::where('page_identifier', 'homepage')->get();
+    $banners = App\Models\Banner::where('page_identifier', 'about')->get();
 @endphp
 
 @include('layouts.header', [

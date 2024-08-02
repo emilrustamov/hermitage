@@ -1,5 +1,7 @@
 @include('layouts.header', ['slider' => true])
 
+
+
 <div class="container mt-5">
     <h1>{{ $category->{'title_' . app()->getLocale()} }}</h1>
     <p>{{ strip_tags($category->{'description_' . app()->getLocale()}) }}</p>
@@ -8,12 +10,17 @@
     <div class="row">
         @foreach ($category->items as $item)
             <div class="col-lg-4 mb-4">
-                <div class="card">
-                    <a href="{{ asset($item->poster_img) }}" data-fancybox="gallery-{{ $item->id }}"
-                        data-caption="{{ $item->{'description_' . app()->getLocale()} }}">
-                        <img src="{{ asset($item->poster_img) }}" class="card-img-top"
-                            alt="{{ $item->{'description_' . app()->getLocale()} }}">
-                    </a>
+                <div class="card direction-item-card">
+                    <div class="card-img-container">
+                        <a href="{{ asset($item->poster_img) }}" data-fancybox="gallery-{{ $item->id }}"
+                            data-caption="{{ $item->{'description_' . app()->getLocale()} }}">
+                            <div class="card-img-overlay">
+                                <img src="{{ asset($item->partner_logo) }}" alt="Logo">
+                            </div>
+                            <img src="{{ asset($item->poster_img) }}" class="card-img-top"
+                                alt="{{ $item->{'description_' . app()->getLocale()} }}">
+                        </a>
+                    </div>
                     @if (!empty($item->images))
                         @foreach (json_decode($item->images, true) as $image)
                             <a href="{{ asset($image) }}" data-fancybox="gallery-{{ $item->id }}"
@@ -33,6 +40,8 @@
                 </div>
             </div>
         @endforeach
+
+
     </div>
 </div>
 
@@ -45,7 +54,19 @@
 <script>
     $(document).ready(function() {
         $('[data-fancybox]').fancybox({
-            protect: true
-        });
+        protect: true,
+        height: "700",
+        afterShow: function(instance, current) {
+            $('.fancybox-caption').addClass('fancybox-caption--active');
+        },
+        beforeClose: function(instance, current) {
+            $('.fancybox-caption').removeClass('fancybox-caption--active');
+        },
+        iframe: {
+            css: {
+                height: '700'  // Высота iframe, сохраните пропорции 16:9
+            }
+        }
+    });
     });
 </script>

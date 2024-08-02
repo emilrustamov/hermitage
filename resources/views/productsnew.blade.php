@@ -67,7 +67,7 @@
             <!-- Display Products -->
             <div class="products-grid row">
                 @foreach ($products as $product)
-                    <div class="content-appearance col-lg-3 p-0 product-card" id="content-price"
+                    <div class="content-appearance p-0 product-card" id="content-price"
                         data-sort="{{ $product->price }}">
                         <div class="product-image-container"
                             style="background-image: url('{{ $product->image }}'); background-size: cover">
