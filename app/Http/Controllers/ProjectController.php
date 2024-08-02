@@ -23,9 +23,9 @@ class ProjectController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
 
-        foreach ($projects as $project) {
-            $project->year = \Carbon\Carbon::parse($project->year)->format('Y');
-        }
+        // foreach ($projects as $project) {
+        //     $project->year = \Carbon\Carbon::parse($project->year)->format('Y');
+        // }
 
         $projects = $projects->groupBy('year');
 
@@ -45,7 +45,7 @@ class ProjectController extends Controller
             'title' => $project->$title,
             'description' => $project->$description,
             'image' => $project->image,
-            'year' => Carbon::parse($project->year)->format('Y'), // Добавлено для формата года
+            'year' => $project->year,
             'designer' => $project->$designer,
             'architect' => $project->$architect,
             'area' => $project->area,
@@ -80,7 +80,7 @@ class ProjectController extends Controller
             'description_tk' => 'required|string',
             'image' => 'nullable|string', // Changed to accept string for the path
             'plan_image' => 'nullable|string', // Changed to accept string for the path
-            'year' => 'required|date_format:Y-m-d',
+            'year' => 'required|integer',
             'video' => 'nullable|string',
             'location_ru' => 'nullable|string|max:255',
             'location_en' => 'nullable|string|max:255',
@@ -147,7 +147,7 @@ class ProjectController extends Controller
             'description_tk' => 'required|string',
             'image' => 'nullable|string', // Changed to accept string for the path
             'plan_image' => 'nullable|string', // Changed to accept string for the path
-            'year' => 'required|date_format:Y-m-d',
+            'year' => 'required|integer',
             'video' => 'nullable|string',
             'location_ru' => 'nullable|string|max:255',
             'location_en' => 'nullable|string|max:255',

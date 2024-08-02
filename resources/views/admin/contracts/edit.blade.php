@@ -203,6 +203,16 @@
                 @enderror
             </div>
             <div class="form-group mt-3">
+                <label for="area">Площадь</label>
+                <input id="area" name="area" class="form-control @error('area') is-invalid @enderror"
+                    width="276" value="{{ $contract->area }}" />
+                @error('area')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group mt-3">
                 <label for="image">Фото</label>
                 <div class="input-group">
                     <input id="image" class="form-control @error('image') is-invalid @enderror" type="text"
@@ -264,10 +274,11 @@
             <div class="form-group mt-3">
                 <label for="photos">Фото</label>
                 <div class="input-group">
-                    <input id="photos" class="form-control @error('photos') is-invalid @enderror" type="text" name="photos"
-                        value="{{ implode(',', json_decode($contract->photos) ?? []) }}">
+                    <input id="photos" class="form-control @error('photos') is-invalid @enderror" type="text"
+                        name="photos" value="{{ implode(',', json_decode($contract->photos) ?? []) }}">
                     <span class="input-group-append">
-                        <button id="lfm3" data-input="photos" data-preview="holder3" class="btn btn-primary" type="button">
+                        <button id="lfm3" data-input="photos" data-preview="holder3" class="btn btn-primary"
+                            type="button">
                             <i class="fa fa-picture-o"></i> Выбрать
                         </button>
                     </span>
@@ -281,8 +292,8 @@
                     @foreach (json_decode($contract->photos) as $photo)
                         <div class="photo-item" style="display: inline-block; position: relative; margin: 5px;">
                             <img src="{{ asset($photo) }}" alt="Photo" class="img-thumbnail" width="100">
-                            <button type="button" class="btn btn-danger btn-sm remove-photo" data-path="{{ $photo }}"
-                                style="position: absolute; top: 0; right: 0;">
+                            <button type="button" class="btn btn-danger btn-sm remove-photo"
+                                data-path="{{ $photo }}" style="position: absolute; top: 0; right: 0;">
                                 &times;
                             </button>
                         </div>
@@ -300,27 +311,15 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+@include('layouts.footerA')
 <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
-<script>
-    tinymce.init({
-        selector: 'textarea',
-        menu: {
-            edit: {
-                title: 'Edit',
-                items: 'undo, redo, selectall'
-            }
-        }
-    });
-</script>
+@include('components.forms.tinymce-editor')
 <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
 <script>
     $('#lfm').filemanager('image');
     $('#lfm1').filemanager('file');
     $('#lfm2').filemanager('image');
-    $('#lfm3').filemanager('image'); 
+    $('#lfm3').filemanager('image');
     $(document).on('click', '.remove-photo', function() {
         let photoPath = $(this).data('path');
         let photosInput = $('#photos').val().split(',');
@@ -335,7 +334,8 @@
         let currentPhotos = photosInput.filter(path => path !== '');
         window.open('/laravel-filemanager?type=image', 'FileManager', 'width=900,height=600');
         window.SetUrl = function(items) {
-            let selectedPaths = items.map(item => item.url.replace(window.location.origin + '/storage/', ''));
+            let selectedPaths = items.map(item => item.url.replace(window.location.origin + '/storage/',
+                ''));
             let updatedPhotos = currentPhotos.concat(selectedPaths);
             $('#photos').val(updatedPhotos.join(','));
             updateSelectedPhotosView(updatedPhotos);
@@ -355,10 +355,4 @@
             `);
         });
     }
-</script>
-<script>
-    $('#year').datepicker({
-        uiLibrary: 'bootstrap4',
-        format: 'yyyy-mm-dd'
-    });
 </script>

@@ -37,15 +37,19 @@ $black: #272727;
 $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+
 * {
   box-sizing: border-box;
 }
+
 p {
   margin-block-end: 10px;
 }
+
 .admin-content {
   min-height: 70vh;
 }
+
 nav {
   display: block;
   top: 50px;
@@ -63,6 +67,7 @@ nav {
     padding: 0 10px;
     transition: all 0.3s ease;
   }
+
   &:hover {
     .dropdown-toggle {
       color: #ffff00 !important;
@@ -109,6 +114,7 @@ nav {
   cursor: pointer;
   padding: 10px;
   transition: all 0.3s ease-in-out;
+
   &:hover {
     color: #ffff00 !important;
   }
@@ -151,6 +157,7 @@ nav {
     z-index: 2;
     -webkit-touch-callout: none;
   }
+
   span {
     display: block;
     width: 33px;
@@ -171,12 +178,13 @@ nav {
     &:nth-last-child(2) {
       transform-origin: 0% 100%;
     }
+
     &:hover {
       background-color: #ffff00;
     }
   }
 
-  input:checked ~ span {
+  input:checked~span {
     opacity: 1;
     transform: rotate(45deg) translate(-2px, -1px);
     background: #fff;
@@ -195,9 +203,11 @@ nav {
 .regular2 {
   position: relative;
 }
+
 .tox-editor-header {
   z-index: 0 !important;
 }
+
 #menu {
   position: absolute;
   width: 300px;
@@ -220,7 +230,7 @@ nav {
   }
 }
 
-#menuToggle input:checked ~ ul {
+#menuToggle input:checked~ul {
   transform: none;
 }
 
@@ -253,16 +263,20 @@ main {
 footer {
   flex: 0 0 auto;
   background-color: #eaeaea;
+
   .footer-address {
     line-height: 28px;
   }
+
   .ul-title {
     font-size: 18px;
     font-weight: 700;
   }
+
   ul {
     li {
       margin-bottom: 7px;
+
       a {
         color: #212529;
         text-decoration: none !important;
@@ -325,14 +339,17 @@ footer {
     transition: all 1s;
   }
 }
+
 .less-brightness {
   filter: brightness(0.6) contrast(0.6);
 }
+
 .aboutSctn {
   background-color: #eaeaea;
   max-width: 1800px;
   margin: 0 auto;
   height: 100vh;
+
   img {
     height: 80vh;
     margin-top: 35px;
@@ -341,7 +358,7 @@ footer {
 
 .dropdown {
   position: relative;
-  display: inline-block;
+  display: flex;
 }
 
 .dropdown-toggle {
@@ -352,7 +369,7 @@ footer {
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  
+
 }
 
 .dropdown-menu {
@@ -378,10 +395,13 @@ footer {
 .w-5 {
   width: 30px;
 }
+
 .logout-a {
   color: transparent;
 }
+
 @media (min-width: 1400px) {
+
   .container-xxl,
   .container-xl,
   .container-lg,
@@ -404,6 +424,7 @@ footer {
   margin-left: 60px;
   width: 200px;
   height: -webkit-fill-available;
+
   &.admin-logo {
     margin-left: 0;
   }
@@ -631,9 +652,11 @@ footer {
     // color: #202020;
   }
 }
+
 .cart-sidebar.closed {
   right: -27% !important;
 }
+
 .cart-sidebar {
   position: fixed;
   top: 0;
@@ -809,19 +832,23 @@ footer {
       border: none;
       background-color: #bcbdb8;
       transition: all 0.3s ease;
+
       .checkout-btn-p {
         font-size: 15px;
         font-family: 'TT Sans Pro';
         margin-right: 40px;
       }
+
       i {
         position: absolute;
         top: 20px;
         right: 60px;
         transition: all 0.3s ease;
       }
+
       &:hover {
         background-color: #a1a19e;
+
         i {
           right: 50px;
         }
@@ -834,6 +861,7 @@ footer {
   background-color: white;
   padding: 58px 40px 20px;
 }
+
 // .radio-wrapper{
 //   max-height: 670px;
 //   overflow-y: scroll;
@@ -842,10 +870,12 @@ footer {
   margin-left: 40px;
   margin-top: 80px;
 }
+
 .tabs {
   display: flex;
   cursor: pointer;
 }
+
 .tab {
   padding: 10px 35px;
   background-color: #f1f1f1;
@@ -854,14 +884,17 @@ footer {
   font-size: 12px;
   text-transform: uppercase;
   transition: all 0.3s ease;
+
   &.active {
     background-color: #fff;
     border: 1px black solid;
   }
 }
+
 .tab-pane {
   display: none;
   padding: 10px;
+
   &.active {
     display: block;
   }
@@ -871,6 +904,7 @@ footer {
 .design-proj {
   margin-right: 20px;
   width: 250px;
+
   p {
     font-size: 24px;
     text-transform: uppercase;
@@ -878,6 +912,7 @@ footer {
     line-height: normal;
   }
 }
+
 .radio-title {
   &.fr {
     margin-right: 84px;
@@ -901,7 +936,7 @@ footer {
     left: -9999px;
   }
 
-  input[type='radio'] + label {
+  input[type='radio']+label {
     position: relative;
     padding-left: 28px;
     cursor: pointer;
@@ -911,7 +946,7 @@ footer {
     color: #333;
   }
 
-  input[type='radio'] + label:before {
+  input[type='radio']+label:before {
     content: '';
     position: absolute;
     left: 0;
@@ -922,7 +957,7 @@ footer {
     border-radius: 100%;
   }
 
-  input[type='radio'] + label:after {
+  input[type='radio']+label:after {
     content: '✔';
     color: white;
     font-size: 11px;
@@ -937,12 +972,12 @@ footer {
     transform: scale(0);
   }
 
-  input[type='radio']:not(:checked) + label:after {
+  input[type='radio']:not(:checked)+label:after {
     opacity: 0;
     transform: scale(0);
   }
 
-  input[type='radio']:checked + label:after {
+  input[type='radio']:checked+label:after {
     opacity: 1;
     transform: scale(1);
   }
@@ -959,7 +994,7 @@ footer {
     left: -9999px;
   }
 
-  input[type='checkbox'] + label {
+  input[type='checkbox']+label {
     position: relative;
     padding-left: 28px;
     cursor: pointer;
@@ -969,7 +1004,7 @@ footer {
     color: #333;
   }
 
-  input[type='checkbox'] + label:before {
+  input[type='checkbox']+label:before {
     content: '';
     position: absolute;
     left: 0;
@@ -980,7 +1015,7 @@ footer {
     border-radius: 100%;
   }
 
-  input[type='checkbox'] + label:after {
+  input[type='checkbox']+label:after {
     content: '✔';
     color: white;
     font-size: 11px;
@@ -995,12 +1030,12 @@ footer {
     transform: scale(0);
   }
 
-  input[type='checkbox']:not(:checked) + label:after {
+  input[type='checkbox']:not(:checked)+label:after {
     opacity: 0;
     transform: scale(0);
   }
 
-  input[type='checkbox']:checked + label:after {
+  input[type='checkbox']:checked+label:after {
     opacity: 1;
     transform: scale(1);
   }
@@ -1199,41 +1234,49 @@ footer {
 .about-cont {
   a {
     transition: all 0.3s ease;
+
     &:hover {
       color: #636363;
     }
   }
+
   .img-wrapper {
     cursor: pointer;
     width: 550px;
     height: 300px;
     display: inline-block;
     overflow: hidden;
+
     img {
       width: 550px;
       height: 300px;
       object-fit: cover;
       transition: all 0.3s ease;
+
       &:hover {
         transform: scale(1.2);
       }
     }
   }
+
   .p-sxtn {
     font-size: 16px;
     text-decoration: none !important;
     color: #212529;
   }
+
   .p-eitn {
     font-size: 18px;
     text-decoration: none !important;
     color: #212529;
   }
+
   .p-twntw {
     font-size: 22px;
     text-decoration: none !important;
     color: #212529;
   }
+
   .download-btn {
     cursor: pointer;
     padding: 15px 50px;
@@ -1244,17 +1287,21 @@ footer {
     outline: none;
     color: white;
     transition: all 0.5s ease;
+
     &:hover {
       opacity: 0.7;
     }
+
     i {
       margin-left: 30px;
     }
   }
 }
+
 .scroll-fade-in {
   opacity: 0;
   transition: opacity 0.7s ease;
+
   &.visible {
     opacity: 1;
   }
@@ -1265,6 +1312,7 @@ footer {
   position: relative;
   z-index: 1;
   transition: all 0.4s ease;
+
   .threed-wrapper {
     position: relative;
 
@@ -1278,11 +1326,13 @@ footer {
       width: 100%;
       height: 80px;
       transition: opacity 0.3s ease;
+
       svg {
         width: 100%;
         height: 100%;
         visibility: hidden;
       }
+
       .model-name {
         font-size: 16px;
         color: #212529;
@@ -1295,8 +1345,10 @@ footer {
   &:hover {
     z-index: 99999;
     transform: scale(1.05);
+
     .threed-wrapper {
       z-index: 99999;
+
       .hover-content {
         z-index: 99999;
         opacity: 1;
@@ -1304,6 +1356,7 @@ footer {
     }
   }
 }
+
 .proj-wrapper,
 .blog-wrapper {
   cursor: pointer;
@@ -1311,19 +1364,23 @@ footer {
   width: fit-content;
   display: inline-block;
   overflow: hidden;
+
   .card-img-top {
     transition: all 0.5s ease;
     height: 350px;
+
     &:hover {
       transform: scale(1.2);
     }
   }
 }
+
 .proj-a,
 .blog-a {
   color: #212529;
   text-decoration: none !important;
 }
+
 .card-img-top {
   height: 370px;
   object-fit: cover;
@@ -1347,17 +1404,20 @@ footer {
 .partners-logo {
   margin-right: 20px;
   align-self: center;
+
   img {
     width: 100%;
     height: auto;
     object-fit: cover;
   }
 }
+
 .our-areas {
   font-size: 20px;
   margin-bottom: 30px;
   font-weight: 700;
 }
+
 .areas-block {
   .area-wrap {
     margin-bottom: 20px;
@@ -1366,6 +1426,7 @@ footer {
     overflow: hidden;
     width: 100%;
     height: 300px;
+
     img {
       filter: brightness(0.6) contrast(0.6);
       position: relative;
@@ -1373,10 +1434,12 @@ footer {
       height: 300px;
       object-fit: cover;
       transition: all 0.3s ease;
+
       &:hover {
         transform: scale(1.2);
       }
     }
+
     .area-title {
       font-size: 18px;
       font-weight: bold;
@@ -1388,10 +1451,12 @@ footer {
     }
   }
 }
+
 .inspire-block {
   height: 100vh;
   width: 100%;
   position: relative;
+
   img {
     filter: brightness(0.6) contrast(0.6);
     position: relative;
@@ -1399,6 +1464,7 @@ footer {
     height: 100vh;
     object-fit: cover;
   }
+
   .inspire-text {
     margin: 30px 0;
     height: 95vh;
@@ -1406,14 +1472,17 @@ footer {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+
     .inspire-title {
       color: white;
       font-size: 32px;
     }
+
     .inspire-sub {
       color: white;
       font-size: 24px;
     }
+
     .insp-proj {
       color: white;
       font-size: 28px;
@@ -1422,16 +1491,22 @@ footer {
       cursor: pointer;
       margin-left: auto;
       margin-right: auto;
+
       &::after {
         content: '';
         position: absolute;
         left: 0;
-        bottom: 2px; /* Расположение underline под текстом */
+        bottom: 2px;
+        /* Расположение underline под текстом */
         width: 0;
-        height: 1px; /* Толщина underline */
-        background-color: #fff; /* Цвет underline */
-        transition: width 0.3s ease; /* Анимация изменения ширины */
+        height: 1px;
+        /* Толщина underline */
+        background-color: #fff;
+        /* Цвет underline */
+        transition: width 0.3s ease;
+        /* Анимация изменения ширины */
       }
+
       &:hover {
         &::after {
           width: 100%;
@@ -1440,10 +1515,12 @@ footer {
     }
   }
 }
+
 .contacts-block {
   height: 100vh;
   width: 100%;
   position: relative;
+
   img {
     filter: brightness(0.6) contrast(0.6);
     position: relative;
@@ -1451,6 +1528,7 @@ footer {
     height: 100vh;
     object-fit: cover;
   }
+
   .contracts-text {
     margin: 30px 0;
     height: 94vh;
@@ -1458,6 +1536,7 @@ footer {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+
     .contr-proj {
       color: white;
       font-size: 28px;
@@ -1466,16 +1545,22 @@ footer {
       cursor: pointer;
       margin-left: auto;
       margin-right: auto;
+
       &::after {
         content: '';
         position: absolute;
         left: 0;
-        bottom: 2px; /* Расположение underline под текстом */
+        bottom: 2px;
+        /* Расположение underline под текстом */
         width: 0;
-        height: 1px; /* Толщина underline */
-        background-color: #fff; /* Цвет underline */
-        transition: width 0.3s ease; /* Анимация изменения ширины */
+        height: 1px;
+        /* Толщина underline */
+        background-color: #fff;
+        /* Цвет underline */
+        transition: width 0.3s ease;
+        /* Анимация изменения ширины */
       }
+
       &:hover {
         &::after {
           width: 100%;
@@ -1484,37 +1569,45 @@ footer {
     }
   }
 }
+
 .thr-model {
   margin-bottom: 25px;
+
   img {
     width: 100%;
     height: 500px;
     object-fit: cover;
   }
 }
+
 .btn-wrapper {
   overflow: hidden;
   margin-top: 35px;
   margin-right: 10px;
 }
+
 .download-button {
   cursor: pointer;
 }
+
 // .vacanc-img{
 //   width: ;
 // }
 @media (min-width: 992px) {
   .vacanc-img {
     width: 47%;
+
     &:nth-of-type(odd) {
       margin-right: 30px;
     }
   }
 }
+
 @media (max-width: 991px) {
   .vacanc-img {
     width: 100%;
   }
+
   .header-content {
     padding: 20px 10px;
 
@@ -1579,6 +1672,7 @@ footer {
 @media (min-width: 1000px) and (max-width: 1440px) {
   .vacanc-img {
     width: 48%;
+
     .card-img-top {
       height: 250px;
     }
@@ -1588,6 +1682,7 @@ footer {
 @media (min-width: 769px) and (max-width: 991px) {
   .vacanc-img {
     width: 50%;
+
     .card-img-top {
       height: 250px;
     }
@@ -1601,10 +1696,12 @@ footer {
     }
   }
 }
+
 @media (min-width: 320px) and (max-width: 426px) {
   .fav-slider {
     padding: 0 !important;
   }
+
   .slider-item {
     min-height: 400px !important;
   }
@@ -1618,12 +1715,14 @@ footer {
 
 .order-form {
   margin: 0 40px;
+
   .form-group {
     label {
       color: white;
     }
   }
 }
+
 /* Общие стили */
 .product-card {
   position: relative;
@@ -1696,6 +1795,7 @@ footer {
 .add-to-cart:hover {
   background: darkgray;
 }
+
 .cart-sidebar {
   .cart-footer {
     .checkout-btn {
@@ -1717,6 +1817,7 @@ footer {
   /* display: flex; */
   color: white;
   margin: 0 40px 0 0;
+
   .product-price {
     margin-top: 26px;
   }
@@ -1749,9 +1850,11 @@ footer {
   opacity: 0.7;
   width: 60px;
 }
+
 .clear-cart {
   margin: 0 40px;
 }
+
 .description {
   background-color: red;
   font-size: 16px;
@@ -1772,6 +1875,7 @@ footer {
   color: white;
   font-size: 14px;
   transition: all 0.3s ease;
+
   &:hover {
     background-color: #000 !important;
     text-decoration-color: #000 !important;
@@ -1801,17 +1905,23 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px; /* Установите размер кнопки, чтобы она была удобна для клика */
+  width: 40px;
+  /* Установите размер кнопки, чтобы она была удобна для клика */
   height: 40px;
-  border: none; /* Уберите рамку, если это нужно */
-  background-color: transparent; /* Сделайте фон прозрачным, если это нужно */
-  cursor: pointer; /* Убедитесь, что курсор меняется при наведении */
+  border: none;
+  /* Уберите рамку, если это нужно */
+  background-color: transparent;
+  /* Сделайте фон прозрачным, если это нужно */
+  cursor: pointer;
+  /* Убедитесь, что курсор меняется при наведении */
 }
+
 .cart-items {
   .product-item {
     margin: 0 40px 0 0;
   }
 }
+
 .cart-prod-img {
   margin: 0 20px 0 0;
   width: 150px;
@@ -1832,6 +1942,7 @@ footer {
   outline: none;
   border: none;
   cursor: pointer;
+
   i {
     font-size: 24px;
   }
@@ -1867,12 +1978,14 @@ footer {
 .send-request-btn {
   position: relative;
   cursor: pointer;
+
   i {
     position: absolute;
     top: 17px;
     right: 40px;
     transition: all 0.3s ease;
   }
+
   &:hover {
     i {
       right: 30px;
@@ -1886,12 +1999,14 @@ footer {
   text-decoration-color: #333 !important;
   text-underline-offset: 3px;
   transition: all 0.3s ease;
+
   &:hover {
     text-decoration-color: transparent !important;
   }
 }
 
 @keyframes bounce2 {
+
   0%,
   20%,
   50%,
@@ -1899,9 +2014,11 @@ footer {
   100% {
     transform: translateY(0);
   }
+
   10% {
     transform: translateY(-20px);
   }
+
   25% {
     transform: translateY(-10px);
   }
@@ -1911,13 +2028,16 @@ footer {
   width: 50px;
   height: 50px;
   cursor: pointer;
+
   i {
     font-size: 22px;
   }
+
   &:hover {
     animation: bounce2 2s ease infinite;
   }
 }
+
 .scroll-to-top {
   position: fixed;
   bottom: 50px;
@@ -1931,8 +2051,10 @@ footer {
   font-size: 24px;
   cursor: pointer;
   opacity: 1;
-  display: none; /* Скрыта по умолчанию */
-  z-index: 1000; /* Чтобы кнопка была выше остальных элементов */
+  display: none;
+  /* Скрыта по умолчанию */
+  z-index: 1000;
+  /* Чтобы кнопка была выше остальных элементов */
 }
 
 .vacanc-img-wrapper {
@@ -1941,10 +2063,12 @@ footer {
   overflow: hidden;
   height: 370px;
   transition: all 0.4s ease;
+
   img {
     transition: all 0.3s ease;
     object-fit: cover;
   }
+
   &:hover {
     img {
       transform: scale(1.2);
@@ -1958,16 +2082,22 @@ footer {
     width: fit-content;
     cursor: pointer;
     transition: all 0.3s ease;
+
     &::after {
       content: '';
       position: absolute;
       left: 0;
-      bottom: 0; /* Расположение underline под текстом */
+      bottom: 0;
+      /* Расположение underline под текстом */
       width: 0;
-      height: 1px; /* Толщина underline */
-      background-color: #000; /* Цвет underline */
-      transition: width 0.3s ease; /* Анимация изменения ширины */
+      height: 1px;
+      /* Толщина underline */
+      background-color: #000;
+      /* Цвет underline */
+      transition: width 0.3s ease;
+      /* Анимация изменения ширины */
     }
+
     &:hover {
       &::after {
         width: 100%;
@@ -2008,6 +2138,7 @@ $z-index-preloader: 9999;
       height: 100px;
     }
   }
+
   &.hidden {
     opacity: 0;
   }
@@ -2053,7 +2184,8 @@ $z-index-preloader: 9999;
       font-size: 18px;
       color: #fff;
       font-weight: bold;
-      z-index: 1; /* Поверх всего остального */
+      z-index: 1;
+      /* Поверх всего остального */
     }
   }
 }
@@ -2063,6 +2195,7 @@ $z-index-preloader: 9999;
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -2072,6 +2205,7 @@ $z-index-preloader: 9999;
 #content {
   display: none;
 }
+
 .progress-bar-container {
   width: 100%;
   height: 1px;
@@ -2086,15 +2220,45 @@ $z-index-preloader: 9999;
 }
 
 
-.purchases{
+.purchases {
   margin-bottom: 300px;
 }
 
-.custom-select{
+.custom-select {
   background-color: transparent !important;
   padding: 15px;
   font-size: 16px;
   color: #333;
   border: none !important;
   outline: none !important;
+}
+
+.custom-search {
+  max-width: 50%;
+  width: 100%;
+
+  input {
+    background-color: transparent !important;
+    border: transparent;
+    border-radius: 0%;
+  }
+
+  input:focus {
+    background-color: transparent !important;
+    border-bottom: solid 2px black;
+    box-shadow: none;
+  }
+
+  input::-webkit-input-placeholder {
+    text-align: center;
+  }
+
+  .btn-icon {
+    color: white;
+
+    &:hover {
+      color: #ffff00 !important;
+    }
+  }
+
 }

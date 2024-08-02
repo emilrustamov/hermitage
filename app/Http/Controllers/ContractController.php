@@ -23,9 +23,6 @@ class ContractController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
 
-        foreach ($contracts as $contract) {
-            $contract->year = \Carbon\Carbon::parse($contract->year)->format('Y');
-        }
 
         $contracts = $contracts->groupBy('year');
 
@@ -45,7 +42,7 @@ class ContractController extends Controller
             'title' => $contract->$title,
             'description' => $contract->$description,
             'image' => $contract->image,
-            'year' => Carbon::parse($contract->year)->format('Y'), // Добавлено для формата года
+            'year' => $contract->year, // Добавлено для формата года
             'designer' => $contract->$designer,
             'architect' => $contract->$architect,
             'area' => $contract->area,
@@ -80,7 +77,7 @@ class ContractController extends Controller
             'description_tk' => 'required|string',
             'image' => 'nullable|string', // Changed to accept string for the path
             'plan_image' => 'nullable|string', // Changed to accept string for the path
-            'year' => 'required|date_format:Y-m-d',
+            'year' => 'required|integer',
             'video' => 'nullable|string',
             'location_ru' => 'nullable|string|max:255',
             'location_en' => 'nullable|string|max:255',
@@ -147,7 +144,7 @@ class ContractController extends Controller
             'description_tk' => 'required|string',
             'image' => 'nullable|string', // Changed to accept string for the path
             'plan_image' => 'nullable|string', // Changed to accept string for the path
-            'year' => 'required|date_format:Y-m-d',
+            'year' => 'required|integer',
             'video' => 'nullable|string',
             'location_ru' => 'nullable|string|max:255',
             'location_en' => 'nullable|string|max:255',

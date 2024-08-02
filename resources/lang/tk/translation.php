@@ -242,4 +242,8 @@ return[
     'surnm'=>'Familiýas',
     'namComp'=>'Kompanýanyň ady',
 
+       // Поиск
+       'search_placeholder' => 'Gözlemek üçin giriň',
+       'search_results_for' => 'Gözleg netijeleri',
+
 ];

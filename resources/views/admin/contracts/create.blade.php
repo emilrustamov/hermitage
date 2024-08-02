@@ -44,7 +44,7 @@
                         <div class="form-group">
                             <label for="description_ru">Описание (RU)</label>
                             <textarea id="description_ru" class="form-control @error('description_ru') is-invalid @enderror" name="description_ru"
-                                rows="4" ></textarea>
+                                rows="4"></textarea>
                             @error('description_ru')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -149,7 +149,7 @@
                         <div class="form-group">
                             <label for="description_tk">Описание (TK)</label>
                             <textarea id="description_tk" class="form-control @error('description_tk') is-invalid @enderror"
-                                name="description_tk" rows="4" ></textarea>
+                                name="description_tk" rows="4"></textarea>
                             @error('description_tk')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -193,6 +193,16 @@
                     <input id="year" name="year" width="276"
                         class="form-control @error('year') is-invalid @enderror" />
                     @error('year')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="form-group mt-3">
+                    <label for="area">Площадь</label>
+                    <input id="area" name="year" width="276"
+                        class="form-control @error('area') is-invalid @enderror" />
+                    @error('area')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -294,11 +304,5 @@
         $('#lfm').filemanager('image');
         $('#lfm1').filemanager('file');
         $('#lfm2').filemanager('image');
-        $('#lfm3').filemanager('image'); // используем image для файлового менеджера фотографий
+        $('#lfm3').filemanager('image');
     </script>
-    {{-- <script>
-        $('#year').datepicker({
-            uiLibrary: 'bootstrap4',
-            format: 'yyyy-mm-dd'
-        });
-    </script> --}}
