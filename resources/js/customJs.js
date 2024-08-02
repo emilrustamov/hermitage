@@ -1,8 +1,14 @@
 window.addEventListener('load', function() {
     let percentageElement = document.getElementById('percentage');
     let progressBarElement = document.getElementById('progress-bar');
-    let counter = 0;
     const paths = document.querySelectorAll('#preloaderLogo svg g path');
+
+    // Проверка на существование элементов и функции
+    if (!percentageElement || !progressBarElement || !paths.length || typeof loadSvgatorAnimation !== 'function') {
+        return; // Если чего-то не хватает, выходим из функции
+    }
+
+    let counter = 0;
     let currentIndex = 0;
 
     // Функция для обновления анимации SVGator
@@ -28,13 +34,17 @@ window.addEventListener('load', function() {
             clearInterval(interval);
             setTimeout(function() {
                 var preloader = document.getElementById('preloader');
-                preloader.classList.add('hidden');
-    
-                setTimeout(function() {
-                    preloader.style.display = 'none';
-                    var content = document.getElementById('content');
-                    content.style.display = 'block';
-                }, 500); // Время плавного исчезновения
+                if (preloader) {
+                    preloader.classList.add('hidden');
+        
+                    setTimeout(function() {
+                        preloader.style.display = 'none';
+                        var content = document.getElementById('content');
+                        if (content) {
+                            content.style.display = 'block';
+                        }
+                    }, 500); // Время плавного исчезновения
+                }
             }, 1000); // Добавьте небольшую задержку после завершения анимации
         }
     }, 45); // Скорость увеличения процента (40 мс)

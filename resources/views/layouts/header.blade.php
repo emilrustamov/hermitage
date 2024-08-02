@@ -26,7 +26,7 @@
     <div class="wrapper p-0">
         <div>
             <header>
-                @if ($slider)
+                {{-- @if ($slider)
                     @if (isset($banners) && $banners->count() > 1)
                         <div class="regular2">
                             @foreach ($banners as $banner)
@@ -54,7 +54,7 @@
                             </div>
                         @endif
                     @endif
-                @endif
+                @endif --}}
 
 
 
@@ -116,7 +116,7 @@
                                 </ul>
                             </div>
                         </nav>
-                     
+
                         <div style="display: inline-flex">
                             <a href="{{ route('home', ['locale' => app()->getLocale()]) }}"><img
                                     src="{{ asset('/images/logo.svg') }}" style="filter:invert(1)" alt="logo"
@@ -125,13 +125,13 @@
                     </div>
                     <form method="GET" action="{{ route('search', ['locale' => app()->getLocale()]) }}"
                         class="form-inline custom-search d-flex align-self-center">
-                      <input class="form-control mr-sm-2" type="search" name="query"
-                             placeholder="{{ __('translation.search_placeholder') }}" aria-label="Search">
-                      <button class="btn btn-icon d-flex align-self-center" type="submit">
-                          <i class="fa-solid fa-magnifying-glass"></i>
-                      </button>
-                  </form>
-                  
+                        <input class="form-control mr-sm-2" type="search" name="query"
+                            placeholder="{{ __('translation.search_placeholder') }}" aria-label="Search">
+                        <button class="btn btn-icon d-flex align-self-center" type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+
                     <div class="text-end align-self-center d-flex">
                         <div class="dropdown">
                             <button class="dropdown-toggle" type="button" id="languageDropdown"
@@ -172,14 +172,15 @@
                             </a>
                         @endauth
                         <i class="fa fa-shopping-cart punkt-menu"
-                            style="{{ request()->routeIs(['register', 'login', 'password.request']) ? 'color: black;' : 'color: white;' }}"
-                            aria-hidden="true" id="cartIcon"></i>
+                            style="{{ request()->routeIs(['register', 'login', 'password.request']) ? 'color: black;' : 'color: white;' }}; position:relative;"
+                            aria-hidden="true" id="cartIcon"> <span id="cartBadge" class="badge badge-pill badge-danger"></span></i>
+                       
 
 
                         @auth
                             <a href="{{ route('favorite.show', ['locale' => app()->getLocale()]) }}"><i
                                     class="fa fa-heart punkt-menu {{ request()->routeIs(['register', 'login', 'password.request']) ? 'black-imp' : 'white-imp' }}"
-                                    aria-hidden="true" style="color:white"></i></a>
+                                    aria-hidden="true" style="color:white;"></i></a>
                         @endauth
                     </div>
                 </div>
