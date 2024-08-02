@@ -291,6 +291,7 @@
                         </span>
                     @enderror
                     <div id="selected-photos" style="margin-top:15px;">
+                        @if (json_decode($project->photos) !== null)    
                         @foreach (json_decode($project->photos) as $photo)
                             <div class="photo-item" style="display: inline-block; position: relative; margin: 5px;">
                                 <img src="{{ asset($photo) }}" alt="Photo" class="img-thumbnail" width="100">
@@ -300,6 +301,7 @@
                                 </button>
                             </div>
                         @endforeach
+                        @endif
                     </div>
                 </div>
 
