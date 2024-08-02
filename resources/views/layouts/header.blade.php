@@ -26,7 +26,7 @@
     <div class="wrapper p-0">
         <div>
             <header>
-                {{-- @if ($slider)
+                @if ($slider)
                     @if (isset($banners) && $banners->count() > 1)
                         <div class="regular2">
                             @foreach ($banners as $banner)
@@ -54,7 +54,7 @@
                             </div>
                         @endif
                     @endif
-                @endif --}}
+                @endif
 
 
 
