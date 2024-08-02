@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Создать проект</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
+@include('layouts.headerA', ['hasimage' => false])
 
 <body>
-    @include('layouts.headerA', ['hasimage' => false])
     <div class="admin-index">
         <div class="container mt-5">
             <h1>Создать проект</h1>
@@ -53,7 +44,7 @@
                         <div class="form-group">
                             <label for="description_ru">Описание (RU)</label>
                             <textarea id="description_ru" class="form-control @error('description_ru') is-invalid @enderror" name="description_ru"
-                                rows="4" ></textarea>
+                                rows="4"></textarea>
                             @error('description_ru')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -106,7 +97,7 @@
                         <div class="form-group">
                             <label for="description_en">Описание (EN)</label>
                             <textarea id="description_en" class="form-control @error('description_en') is-invalid @enderror" name="description_en"
-                                rows="4" ></textarea>
+                                rows="4"></textarea>
                             @error('description_en')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -158,7 +149,7 @@
                         <div class="form-group">
                             <label for="description_tk">Описание (TK)</label>
                             <textarea id="description_tk" class="form-control @error('description_tk') is-invalid @enderror"
-                                name="description_tk" rows="4" ></textarea>
+                                name="description_tk" rows="4"></textarea>
                             @error('description_tk')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -202,6 +193,16 @@
                     <input id="year" name="year" width="276"
                         class="form-control @error('year') is-invalid @enderror" />
                     @error('year')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="form-group mt-3">
+                    <label for="area">Площадь</label>
+                    <input id="area" name="area" width="276"
+                        class="form-control @error('area') is-invalid @enderror" />
+                    @error('area')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -269,7 +270,8 @@
                         <input id="photos" class="form-control @error('photos') is-invalid @enderror"
                             type="text" name="photos">
                         <span class="input-group-append">
-                            <button id="lfm3" data-input="photos" data-preview="holder3" class="btn btn-primary" type="button">
+                            <button id="lfm3" data-input="photos" data-preview="holder3"
+                                class="btn btn-primary" type="button">
                                 <i class="fa fa-picture-o"></i> Выбрать
                             </button>
                         </span>

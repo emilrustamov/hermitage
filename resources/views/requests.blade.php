@@ -1,5 +1,5 @@
 @php
-    $banners = App\Models\Banner::where('page_identifier', 'projectscalc')->get();
+    $banners = App\Models\Banner::where('page_identifier', 'projectcalc')->get();
 @endphp
 
 @include('layouts.header', [

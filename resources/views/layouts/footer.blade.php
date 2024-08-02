@@ -86,7 +86,7 @@
 
 </footer>
 </div>
-<script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('/js/jquery.js') }}"></script>
 <script src="{{ asset('resources/js/scrolltotop.js') }}"></script>
 </body>
 <html>

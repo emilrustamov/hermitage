@@ -54,13 +54,19 @@
 <script>
     $(document).ready(function() {
         $('[data-fancybox]').fancybox({
-            protect: true,
-            afterShow: function(instance, current) {
-                $('.fancybox-caption').addClass('fancybox-caption--active');
-            },
-            beforeClose: function(instance, current) {
-                $('.fancybox-caption').removeClass('fancybox-caption--active');
+        protect: true,
+        height: "700",
+        afterShow: function(instance, current) {
+            $('.fancybox-caption').addClass('fancybox-caption--active');
+        },
+        beforeClose: function(instance, current) {
+            $('.fancybox-caption').removeClass('fancybox-caption--active');
+        },
+        iframe: {
+            css: {
+                height: '700'  // Высота iframe, сохраните пропорции 16:9
             }
-        });
+        }
+    });
     });
 </script>

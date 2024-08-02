@@ -31,7 +31,7 @@
                     </li>
                 </ul>
                 <div class="tab-content" id="languageTabsContent">
-                    <!-- Russian Tab -->
+
                     <div class="tab-pane fade show active" id="ru" role="tabpanel" aria-labelledby="ru-tab">
                         <div class="form-group mt-3">
                             <label for="title_ru">Название (RU)</label>
@@ -85,7 +85,7 @@
                         </div>
                     </div>
 
-                    <!-- English Tab -->
+
                     <div class="tab-pane fade" id="en" role="tabpanel" aria-labelledby="en-tab">
                         <div class="form-group mt-3">
                             <label for="title_en">Название (EN)</label>
@@ -139,7 +139,7 @@
                         </div>
                     </div>
 
-                    <!-- Turkmen Tab -->
+
                     <div class="tab-pane fade" id="tk" role="tabpanel" aria-labelledby="tk-tab">
                         <div class="form-group mt-3">
                             <label for="title_tk">Название (TK)</label>
@@ -198,6 +198,16 @@
                     <input id="year" name="year" class="form-control @error('year') is-invalid @enderror"
                         width="276" value="{{ $project->year }}" />
                     @error('year')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="form-group mt-3">
+                    <label for="area">Год</label>
+                    <input id="area" name="area" class="form-control @error('area') is-invalid @enderror"
+                        width="276" value="{{ $project->area }}" />
+                    @error('area')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
