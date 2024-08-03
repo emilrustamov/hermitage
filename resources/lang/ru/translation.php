@@ -247,7 +247,11 @@ return [
     
 
 // Поиск
-'search_placeholder' => 'Введите для поиска',
+'search_placeholder' => 'Поиск',
 'search_results_for' => 'Результаты поиска',
+
+// Reminder
+'products_reminder'=>'Уведомление',
+'products_reminder_add'=> 'Товар добавлен в sssssss корзину',
 
 ];

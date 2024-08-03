@@ -1136,8 +1136,7 @@ footer ul li a {
 .blog-wrapper {
   cursor: pointer;
   height: 350px;
-  width: -moz-fit-content;
-  width: fit-content;
+  width: 100%;
   display: inline-block;
   overflow: hidden;
 }

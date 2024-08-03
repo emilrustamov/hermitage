@@ -72,7 +72,7 @@
                                     <a class="nav-link" href="{{ route('about', ['locale' => app()->getLocale()]) }}">
                                         <li>{{ __('translation.head_li1') }}</li>
                                     </a>
-                                    <a class="nav-link" href="#areas">
+                                    <a class="nav-link" href="{{ route('home', ['locale' => app()->getLocale()]) }}#areas">
                                         <li>{{ __('translation.head_li2') }}</li>
                                     </a>
                                     <a class="nav-link"

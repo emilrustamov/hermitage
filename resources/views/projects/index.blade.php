@@ -8,6 +8,11 @@
     'banners' => $banners,
     'show_single_slide' => $banners->count() <= 1,
 ])
+<style>
+    .proj-wrapper, .blog-wrapper{
+        width: 100% !important;
+    }
+</style>
 <div class="container">
     {{-- <h2 class="mb-5">ПРОЕКТЫ</h2> --}}
 

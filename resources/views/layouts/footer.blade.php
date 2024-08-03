@@ -50,7 +50,8 @@
             <p class="ul-title">{{ __('translation.head_li9')}}</p>
             <ul class="unstyle p-0">
                 <li> <a class="footer-link" href="{{ route('requests.index', ['locale' => app()->getLocale()]) }}">{{ __('translation.foot_li3')}} </a>
-                <li> <a class="footer-link" href="{{ route('models.public.index', ['locale' => app()->getLocale()]) }}">{{ __('translation.head_li4')}}</a>
+                <li> <a class="footer-link" href="{{ route('models.public.index', ['locale' => app()->getLocale()]) }}">3D модели</a>
+                {{-- <li> <a class="footer-link" href="{{ route('contracts.public.index', ['locale' => app()->getLocale()]) }}">{{ __('translation.head_li4')}}</a> --}}
             </ul>
         </div>
         <div class="col-lg-3 col-6 py-3">
