@@ -25,14 +25,23 @@
             </div>
             <div class="form-group mt-3">
                 <label for="image">Фото</label>
-                <input type="file" class="form-control-file @error('image') is-invalid @enderror" id="image" name="image">
-                @error('image')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
+                <div class="input-group">
+                    <input id="image" class="form-control @error('image') is-invalid @enderror" type="text"
+                        name="image" value="{{ $model->image }}">
+                    <span class="input-group-append">
+                        <button id="lfm" data-input="image" data-preview="holder" class="btn btn-primary"
+                            type="button">
+                            <i class="fa fa-picture-o"></i> Выбрать
+                        </button>
                     </span>
-                @enderror
+                    @error('image')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        @enderror
+                </div>
                 @if ($model->image)
-                    <img src="{{ asset('storage/' . $model->image) }}" alt="image" style="max-height: 100px;">
+                    <img id="holder" src="{{ asset($model->image) }}" alt="Current Image"
+                        class="img-thumbnail mt-2" width="200">
                 @endif
             </div>
             <div class="form-group mt-3">
@@ -56,3 +65,10 @@
     </div>
 </div>
 @include('layouts.footerA')
+
+@include('layouts.footerA')
+<script>
+    $('#lfm').filemanager('image');
+</script>
+<script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
+

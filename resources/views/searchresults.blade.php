@@ -1,7 +1,9 @@
 @php
     $banners = App\Models\Banner::where('page_identifier', 'about')->get();
 @endphp
-
+@php
+    $locale = app()->getLocale(); // Получаем текущий язык
+@endphp
 @include('layouts.header', [
     'slider' => $banners->count() > 1,
     'banner' => $banners->count() == 1 ? $banners->first()->banner : null,
@@ -30,10 +32,13 @@
                     </div>
                     <div class="hover-content">
                         <div class="d-flex justify-content-between">
-                            <p class="product-text">{{ $product->title }}</p>
+                            @php
+                            $titleField = 'title_' . $locale; // Формируем имя поля для текущего языка
+                        @endphp
+                            <p class="product-text">{{ $product->$titleField }}</p>
                             <p class="product-price">{{ $product->price }} {{ __('translation.products_tmt') }}</p>
                         </div>
-                        <button class="add-to-cart" data-id="{{ $product->id }}" data-title="{{ $product->title }}"
+                        <button class="add-to-cart" data-id="{{ $product->id }}" data-title="{{ $product->titleField }}"
                             data-price="{{ $product->price }}"
                             data-image="{{ asset($product->image) }}">{{ __('translation.products_trash') }}</button>
                     </div>
@@ -119,6 +124,8 @@
     //     });
 
     document.querySelectorAll('.favorite-btn').forEach(button => {
+        let addToFavorite = @json(__('translation.product_added_favorite'));
+        let rmvFromFavorite = @json(__('translation.product_removed_favorite'));
         button.addEventListener('click', function() {
             let productId = this.dataset.id;
             let button = this;
@@ -141,11 +148,11 @@
                     if (data.message === 'Product added to favorites') {
                         button.querySelector('i').classList.add('fa-solid');
                         button.querySelector('i').classList.remove('fa-regular');
-                        showFavoriteToast('Товар добавлен в избранное');
+                        showFavoriteToast(addToFavorite);
                     } else if (data.message === 'Product removed from favorites') {
                         button.querySelector('i').classList.add('fa-regular');
                         button.querySelector('i').classList.remove('fa-solid');
-                        showFavoriteToast('Товар удален из избранного');
+                        showFavoriteToast(rmvFromFavorite);
                     }
                 })
                 .catch(error => console.error('Error:', error));

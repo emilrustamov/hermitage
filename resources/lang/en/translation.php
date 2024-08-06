@@ -38,6 +38,9 @@ times.',
     'products_new' => 'New',
     'products_tmt' => 'TMT',
     'products_trash' => 'Add to basket',
+    'notification' => 'Notification',
+    'product_added_cart' => 'Product successfully added to cart',
+    'product_removed_favorite'=> 'Product removed from favorites',
 
     // Products new
     'productsnew_title' => 'Explore our range of designer furniture, lighting, décor and
@@ -175,12 +178,14 @@ times.',
     'reg_p4' => 'I would like to receive email newsletters',
     'reg_btn' => 'Register',
     'reg_a' => 'Already have an account?',
-
+    'remember_me' => 'Remember me',
+    
     // Auth
     'auth_p1' => 'I already have an account',
     'auth_p2' => 'Please enter your details to log in to your account',
     'auth_btn' => 'Authorise',
     'auth_forgot' => 'Forgot your password?',
+  
 
     // Header
     'head_li1' => 'About us',

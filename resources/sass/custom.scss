@@ -2128,6 +2128,44 @@ $z-index-preloader: 9999;
   box-shadow: 0px 0px 10px 0px $color, inset 0px 0px 10px 0px $color;
 }
 
+
+.vertical-progress-container {
+  width: 10px;
+  height: 100vh;
+  background-color: #000;
+  position: fixed;
+  right: 30px;
+  top: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.vertical-progress-bar {
+  width: 100%;
+  height: 0;
+  background-color: #fff;
+  transition: height 2s ease-in-out; /* Увеличили время анимации */
+  position: relative;
+}
+
+.percentage {
+  position: absolute;
+  left: -40px; /* Располагаем проценты слева от линии */
+  transform: translateY(-50%); /* Центрируем текст по вертикали */
+  font-family: "Rendika";
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #fff;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+
+
+
+
 // Стили для прелоадера
 #preloader {
   position: fixed;
@@ -2186,19 +2224,19 @@ $z-index-preloader: 9999;
       }
     }
 
-    .percentage {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      font-family: 'Rendika';
-      transform: translate(-50%, -50%);
-      font-size: 32px;
-      letter-spacing: 2px;
-      color: #fff;
-      font-weight: bold;
-      z-index: 1;
-      /* Поверх всего остального */
-    }
+    // .percentage {
+    //   position: absolute;
+    //   top: 50%;
+    //   left: 50%;
+    //   font-family: 'Rendika';
+    //   transform: translate(-50%, -50%);
+    //   font-size: 32px;
+    //   letter-spacing: 2px;
+    //   color: #fff;
+    //   font-weight: bold;
+    //   z-index: 1;
+    //   /* Поверх всего остального */
+    // }
   }
 }
 

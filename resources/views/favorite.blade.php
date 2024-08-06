@@ -1,5 +1,5 @@
 @php
-    $banners = App\Models\Banner::where('page_identifier', 'favoriteProducts')->get();
+    $banners = App\Models\Banner::where('page_identifier', 'about')->get();
 @endphp
 
 @include('layouts.header', [
@@ -49,10 +49,10 @@
 <div id="toast-container" class="position-fixed top-0 end-0 p-3" style="z-index: 11">
     <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
-            <strong class="me-auto">Уведомление</strong>
+            <strong class="me-auto">{{ __("translation.notification") }}</strong>
         </div>
         <div class="toast-body">
-            Товар добавлен в корзину
+            {{ __("translation.product_added_cart") }}
         </div>
     </div>
 </div>
@@ -60,7 +60,7 @@
     <div id="liveToastFavorite" class="toast" role="alert" aria-live="assertive" aria-atomic="true"
         style="display: none;">
         <div class="toast-header">
-            <strong class="me-auto">Уведомление</strong>
+            <strong class="me-auto">{{ __("translation.notification") }}</strong>
         </div>
         <div class="toast-body">
             <!-- Сообщение будет обновлено в JavaScript -->
@@ -72,6 +72,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var locale = '{{ app()->getLocale() }}';
+        let rmvFromFavorite = @json(__('translation.product_removed_favorite'));
 
         document.querySelectorAll('.remove-favorite').forEach(button => {
             button.addEventListener('click', function() {
@@ -88,7 +89,7 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.message === 'Product removed from favorites') {
-                        showFavoriteToast('Товар удалён из избранного');
+                        showFavoriteToast(rmvFromFavorite);
                         this.closest('.product-item').remove();
                     } else {
                         showFavoriteToast('Ошибка при удалении из избранного');

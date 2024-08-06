@@ -14,7 +14,7 @@
                 @enderror
             </div>
             <div class="form-group mt-3">
-                <label for="ordering">Заказ</label>
+                <label for="ordering">Порядок</label>
                 <input type="number" class="form-control @error('ordering') is-invalid @enderror" id="ordering" name="ordering" value="{{ old('ordering') }}" required>
                 @error('ordering')
                     <span class="invalid-feedback" role="alert">
@@ -24,7 +24,17 @@
             </div>
             <div class="form-group mt-3">
                 <label for="image">Фото</label>
-                <input type="file" class="form-control-file @error('image') is-invalid @enderror" id="image" name="image">
+                <div class="input-group">
+                    <input id="image" class="form-control @error('image') is-invalid @enderror"
+                        type="text" name="image">
+                    <span class="input-group-append">
+                        <button id="lfm" data-input="image" data-preview="holder" class="btn btn-primary"
+                            type="button">
+                            <i class="fa fa-picture-o"></i> Выбрать
+                        </button>
+                    </span>
+                </div>
+                <img id="holder" style="margin-top:15px;max-height:100px;">
                 @error('image')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -42,10 +52,17 @@
             </div>
             <div class="form-group form-check mt-3">
                 <input type="checkbox" class="form-check-input" id="is_active" name="is_active" {{ old('is_active') ? 'checked' : '' }}>
-                <label class="form-check-label" for="is_active">Действия</label>
+                <label class="form-check-label" for="is_active">Активный</label>
             </div>
             <button type="submit" class="btn btn-primary">Создать модель</button>
         </form>
     </div>
 </div>
+
+
+
 @include('layouts.footerA')
+<script>
+    $('#lfm').filemanager('image');
+</script>
+<script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>

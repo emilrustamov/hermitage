@@ -104,6 +104,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        let addToCartMessage = @json(__('translation.product_added_cart'));
         function loadCart() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const cartItems = document.querySelector('.cart-items');
@@ -183,7 +184,7 @@
                 saveCart(cart);
                 loadCart();
 
-                showToast('Товар добавлен в корзину');
+             showToast(addToCartMessage); 
             });
         });
 
@@ -307,7 +308,7 @@
         cartIcon.addEventListener('click', function() {
             sidebar.classList.toggle('closed');
             console.log('хлоп');
-            });
+        });
 
         closeSidebar.addEventListener('click', function() {
             sidebar.classList.add('closed');
@@ -317,7 +318,7 @@
 
         window.addEventListener('click', function(event) {
             if (event.target !== cartIcon && event.target !== sidebar && !sidebar.contains(event
-                .target)) {
+                    .target)) {
                 sidebar.classList.add('closed');
             }
         });

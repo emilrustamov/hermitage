@@ -86,9 +86,20 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
+        $request->merge([
+            'subscribe_to_blog' => $request->has('subscribe_to_blog'),
+        ]);
+
         $this->validator($request->all())->validate();
 
         event(new Registered($user = $this->create($request->all())));
+
+        // Запомнить пользователя, если опция выбрана
+        if ($request->has('remember')) {
+            auth()->login($user, true);
+        } else {
+            auth()->login($user);
+        }
 
         return redirect('/')->with('message', 'Спасибо за регистрацию, ожидайте, пока Вас примет модератор.');
     }

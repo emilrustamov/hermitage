@@ -21,7 +21,7 @@ class CartController extends Controller
         $cart[$request->id] = $product;
         Session::put('cart', $cart);
 
-        return response()->json(['message' => 'Товар добавлен в корзину']);
+        return ;
     }
 
     public function items()

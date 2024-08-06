@@ -21,24 +21,30 @@ class BannerController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-        $request->validate([
-            'page_identifier' => 'required|string',
-            'banner' => 'nullable|string',
-        ]);
+{
+    $request->validate([
+        'page_identifier' => 'required|string',
+        'banner' => 'nullable|string',
+        'video' => 'nullable|string', // Новый валидатор для видео
+    ]);
 
-        $banner = Banner::findOrFail($id);
+    $banner = Banner::findOrFail($id);
 
-        if ($request->has('banner')) {
-            $bannerPath = str_replace(url('/storage') . '/', '', $request->banner);
-            $banner->banner = $bannerPath;
-        }
-
-        $banner->page_identifier = $request->page_identifier;
-        $banner->save();
-
-        return redirect()->route('admin.banners.index')->with('success', 'Banner updated successfully.');
+    if ($request->has('banner')) {
+        $bannerPath = str_replace(url('/storage') . '/', '', $request->banner);
+        $banner->banner = $bannerPath;
     }
+
+    if ($request->has('video')) {
+        $videoPath = str_replace(url('/storage') . '/', '', $request->video);
+        $banner->video = $videoPath;
+    }
+
+    $banner->page_identifier = $request->page_identifier;
+    $banner->save();
+
+    return redirect()->route('admin.banners.index')->with('success', 'Banner updated successfully.');
+}
 
 
 
@@ -52,18 +58,22 @@ class BannerController extends Controller
         $request->validate([
             'page_identifier' => 'required|string',
             'banner' => 'nullable|string',
+            'video' => 'nullable|string', // Новый валидатор для видео
         ]);
 
         $bannerPath = $request->has('banner') ? str_replace(url('/storage') . '/', '', $request->banner) : null;
+        $videoPath = $request->has('video') ? str_replace(url('/storage') . '/', '', $request->video) : null;
 
         // Сохраняем новый баннер
         Banner::create([
             'page_identifier' => $request->page_identifier,
             'banner' => $bannerPath,
+            'video' => $videoPath,
         ]);
 
         return redirect()->route('admin.banners.index')->with('success', 'Banner created successfully.');
     }
+
 
 
     public function destroy($id)

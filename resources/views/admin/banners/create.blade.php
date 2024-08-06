@@ -20,7 +20,8 @@
 
             <div class="form-group">
                 <label for="page_identifier">Page Identifier</label>
-                <input type="text" class="form-control @error('page_identifier') is-invalid @enderror" id="page_identifier" name="page_identifier" value="{{ old('page_identifier') }}" required>
+                <input type="text" class="form-control @error('page_identifier') is-invalid @enderror"
+                    id="page_identifier" name="page_identifier" value="{{ old('page_identifier') }}" required>
                 @error('page_identifier')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -31,9 +32,11 @@
             <div class="form-group mt-3">
                 <label for="banner">картинка</label>
                 <div class="input-group">
-                    <input id="banner" class="form-control @error('banner') is-invalid @enderror" type="text" name="banner" value="{{ old('banner') }}">
+                    <input id="banner" class="form-control @error('banner') is-invalid @enderror" type="text"
+                        name="banner" value="{{ old('banner') }}">
                     <span class="input-group-append">
-                        <button id="lfm" data-input="banner" data-preview="holder" class="btn btn-primary" type="button">
+                        <button id="lfm" data-input="banner" data-preview="holder" class="btn btn-primary"
+                            type="button">
                             <i class="fa fa-picture-o"></i> Choose
                         </button>
                     </span>
@@ -46,6 +49,27 @@
                 <img id="holder" style="margin-top:15px;max-height:100px;">
             </div>
 
+            <div class="form-group mt-3">
+                <label for="video">Видео</label>
+                <div class="input-group">
+                    <input id="video" class="form-control @error('video') is-invalid @enderror" type="text" name="video" value="{{ old('video') }}">
+                    <span class="input-group-append">
+                        <button id="lfm-video" data-input="video" data-preview="holder-video" class="btn btn-primary" type="button">
+                            <i class="fa fa-video-camera"></i> Выбрать
+                        </button>
+                    </span>
+                </div>
+                @error('video')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                <video id="holder-video" style="margin-top:15px;max-height:100px;" controls>
+                    <source src="{{ old('video') }}" type="video/mp4">
+                </video>
+            </div>
+            
+
             <button type="submit" class="btn btn-primary">Добавить баннер</button>
         </form>
     </div>
@@ -55,4 +79,5 @@
 <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
 <script>
     $('#lfm').filemanager('image');
+    $('#lfm-video').filemanager('video');
 </script>

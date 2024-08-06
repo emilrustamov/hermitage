@@ -40,6 +40,10 @@
                                         <a class="nav-link <?php if (request()->is('admin/blogs*')) { echo 'active'; } ?>" href="{{ route('admin.blogs.index') }}">
                                             <li>Блог</li>
                                         </a>
+                                       
+                                        <a class="nav-link <?php if (request()->is('admin/directions*')) { echo 'active'; } ?>" href="{{ route('admin.directions.categories.index') }}">
+                                            <li>Категории направлений</li>
+                                        </a>
                                         <a class="nav-link <?php if (request()->is('admin/directions*')) { echo 'active'; } ?>" href="{{ route('admin.directions.items.index') }}">
                                             <li>Направления</li>
                                         </a>
@@ -73,7 +77,7 @@
                                         <a class="nav-link <?php if (request()->is('admin/requests*')) { echo 'active'; } ?>" href="{{ route('admin.requests.index') }}">
                                             <li>Заявки на расчёт</li>
                                         </a>
-                                        
+                                       
     
                                     </ul>
                                 </div>

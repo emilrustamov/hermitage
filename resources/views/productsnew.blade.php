@@ -1,7 +1,9 @@
 @php
     $banners = App\Models\Banner::where('page_identifier', 'newproducts')->get();
 @endphp
-
+@php
+    $locale = app()->getLocale(); // Получаем текущий язык
+@endphp
 @include('layouts.header', [
     'slider' => $banners->count() > 1,
     'banner' => $banners->count() == 1 ? $banners->first()->banner : null,
@@ -14,15 +16,18 @@
     <br>
     <p class="col-lg-11 mx-auto text">{{ __('translation.products_p1') }}</p>
 
-    <div class="container mt-5">
+    <div class="mt-5">
         <form method="GET" action="{{ route('products.index', ['locale' => app()->getLocale()]) }}" class="row">
-            <div class="col-md-2">
+            <div class="col-md-2" style="padding-left: 0 !important">
                 <select name="category_id" class="custom-select">
                     <option value="all">{{ __('translation.products_option1') }}</option>
                     @foreach ($categories as $category)
+                        @php
+                            $titleField = 'title_' . $locale; // Формируем имя поля для текущего языка
+                        @endphp
                         <option value="{{ $category->id }}"
                             {{ request('category_id') == $category->id ? 'selected' : '' }}>
-                            {{ $category->title_ru }}
+                            {{ $category->$titleField }}
                         </option>
                     @endforeach
                 </select>
@@ -31,8 +36,11 @@
                 <select name="brand_id" class="custom-select">
                     <option value="all">{{ __('translation.products_option2') }}</option>
                     @foreach ($brands as $brand)
+                        @php
+                            $titleField = 'title_' . $locale; // Формируем имя поля для текущего языка
+                        @endphp
                         <option value="{{ $brand->id }}" {{ request('brand_id') == $brand->id ? 'selected' : '' }}>
-                            {{ $brand->title_ru }}
+                            {{ $brand->$titleField }}
                         </option>
                     @endforeach
                 </select>
@@ -101,10 +109,10 @@
 <div id="toast-container" class="position-fixed top-0 end-0 p-3" style="z-index: 11">
     <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
-            <strong class="me-auto">Уведомление</strong>
+            <strong class="me-auto">{{__('translations.notification')}}</strong>
         </div>
         <div class="toast-body">
-            Товар добавлен в корзину
+            
         </div>
     </div>
 </div>
@@ -112,7 +120,7 @@
     <div id="liveToastFavorite" class="toast" role="alert" aria-live="assertive" aria-atomic="true"
         style="display: none;">
         <div class="toast-header">
-            <strong class="me-auto">Уведомление</strong>
+            <strong class="me-auto">{{__('translations.notification')}}</strong>
         </div>
         <div class="toast-body">
             <!-- Сообщение будет обновлено в JavaScript -->
@@ -218,21 +226,21 @@
 
 
 <script>
-  $(function() {
-    $('form').on('change', 'select', function() {
-        let form = $(this).closest('form');
-        $.ajax({
-            url: form.attr('action'),
-            type: 'GET',
-            data: form.serialize(),
-            success: function(response) {
-                $('.products-grid').html(response.html);
-            },
-            error: function(xhr) {
-                console.log(xhr.responseText); // Просмотр ошибок, если что-то пошло не так
-            }
+    $(function() {
+        $('form').on('change', 'select', function() {
+            let form = $(this).closest('form');
+            $.ajax({
+                url: form.attr('action'),
+                type: 'GET',
+                data: form.serialize(),
+                success: function(response) {
+                    $('.products-grid').html(response.html);
+                },
+                error: function(xhr) {
+                    console.log(xhr
+                    .responseText); // Просмотр ошибок, если что-то пошло не так
+                }
+            });
         });
     });
-});
-
 </script>

@@ -1,4 +1,3 @@
-
 @php
     $banners = App\Models\Banner::where('page_identifier', 'about')->get();
 @endphp
@@ -9,25 +8,25 @@
     'banners' => $banners,
     'show_single_slide' => $banners->count() <= 1,
 ])
- <div id="preloader">
-    <div class="d-flex flex-column w-100">
+
+<div id="preloader">
+    <div class="d-flex flex-column w-100 align-items-center justify-content-center">
         <div class="animated-logo">
             @include('components.animated_logo')
         </div>
         <div style="height:50px"></div>
         <div class="loader mx-auto">
-            <span></span>
-            <span></span>
-            <span></span>
-            <div class="percentage" id="percentage">0%</div>
+            <div class="vertical-progress-container">
+                <div class="vertical-progress-bar" id="progress-bar">
+                    <div class="percentage" id="percentage">0%</div>
+                </div>
+            </div>
         </div>
         <div style="height:50px"></div>
-
-        <div class="progress-bar-container">
-            <div class="progress-bar" id="progress-bar"></div>
-        </div>
     </div>
 </div>
+
+
 @if (session('message'))
     <div class="alert alert-success">
         {{ session('message') }}
@@ -41,7 +40,7 @@
         <div class="col-lg-4 align-self-center d-flex flex-column">
             <h1>{{ __('translation.about') }}</h1>
             <div class="mb-4 fs-5">{{ __('translation.home_title') }}</div>
-            <button class="see-more-btn">{{ __('translation.home_btn')}}</button>
+            <button class="see-more-btn">{{ __('translation.home_btn') }}</button>
         </div>
     </div>
 </section>
@@ -54,11 +53,16 @@
                     <div class="area-wrap">
                         <a href="{{ route('category.show', ['id' => $category->id, 'locale' => app()->getLocale()]) }}">
                             <img src="{{ asset($category->main_image) }}" alt="">
-                            <p class="area-title">{{ $category->title_ru }}</p>
+                            @php
+                                $locale = app()->getLocale();
+                                $titleField = 'title_' . $locale;
+                            @endphp
+                            <p class="area-title">{{ $category->$titleField }}</p>
                         </a>
                     </div>
                 </div>
             @endforeach
+
         </div>
     </div>
 </section>
@@ -68,12 +72,13 @@
             <img src="{{ asset('/images/fullkuhnya.jpg') }}" alt="">
             <div class="inspire-text d-flex flex-column justify-content-between text-center">
                 <div class="d-flex flex-column">
-                    <p class="inspire-title">{{ __('translation.home_title_p1')}}</p>
-                    <p class="inspire-sub">{{ __('translation.home_title_p2')}}</p>
+                    <p class="inspire-title">{{ __('translation.home_title_p1') }}</p>
+                    <p class="inspire-sub">{{ __('translation.home_title_p2') }}</p>
                 </div>
-                <p class="text-uppercase insp-proj">{{ __('translation.home_title_p3')}}</p>
+                <p class="text-uppercase insp-proj">{{ __('translation.home_title_p3') }}</p>
             </div>
-        </div></a>
+        </div>
+    </a>
 </section>
 <section class="scroll-fade-in">
     <a href="{{ route('contracts.index', ['locale' => app()->getLocale()]) }}">

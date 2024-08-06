@@ -1,51 +1,45 @@
-
-
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
     let percentageElement = document.getElementById('percentage');
     let progressBarElement = document.getElementById('progress-bar');
-    
-    // Проверяем, существуют ли элементы прелоадера на странице
+
     if (percentageElement && progressBarElement) {
         let counter = 0;
         let targetPercentage = 90; // Максимальный процент до загрузки страницы
         const paths = document.querySelectorAll('#preloaderLogo svg g path');
         let currentIndex = 0;
-    
-        // Функция для обновления анимации SVGator
+
         function updateSvgatorAnimation(progress) {
             loadSvgatorAnimation(progress);
         }
 
-        // Функция для обновления прогресса загрузки
         function updateProgress() {
             if (counter < targetPercentage) {
                 counter += 1;
                 percentageElement.innerText = counter + '%';
-                progressBarElement.style.width = counter + '%'; // Обновляем ширину прогресс-бара
-    
-                // Анимация SVG
+                progressBarElement.style.height = counter + '%';
+                percentageElement.style.bottom = counter + '%'; 
+                percentageElement.style.transform = 'translateY(-' + counter + '%)';
+
                 paths.forEach((path, index) => {
                     path.style.opacity = index === currentIndex ? '1' : '0.1';
                 });
                 currentIndex = (currentIndex + 1) % paths.length;
-    
-                // Синхронизация анимации SVGator с увеличением счётчика
+
                 updateSvgatorAnimation(counter);
             }
         }
 
-        // Обновляем прогресс до полной загрузки страницы
-        var interval = setInterval(updateProgress, 45);
+        // Устанавливаем обновление прогресса на интервале 13ms, чтобы достигнуть 90% за 1200ms
+        let intervalDuration = 13; 
+        var interval = setInterval(updateProgress, intervalDuration); 
 
-        // Убедимся, что прелоадер скрывается после полной загрузки страницы
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             clearInterval(interval);
             counter = 100;
             percentageElement.innerText = counter + '%';
-            progressBarElement.style.width = counter + '%';
+            progressBarElement.style.height = counter + '%';
+            percentageElement.style.bottom = counter + '%';
+            percentageElement.style.transform = 'translateY(-' + counter + '%)';
             updateSvgatorAnimation(counter);
 
             setTimeout(function () {
@@ -58,11 +52,13 @@ document.addEventListener('DOMContentLoaded', function () {
                         if (content) {
                             content.style.display = 'block';
                         }
-                    }, 500); // Время плавного исчезновения
+                    }, 500); 
                 }
-            }, 1000); // Добавьте небольшую задержку после завершения анимации
+            }, 1200); 
         });
     }
+
+
     const elements = document.querySelectorAll('.scroll-effect');
     const handleScroll = () => {
         elements.forEach(element => {

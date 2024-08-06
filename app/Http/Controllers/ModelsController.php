@@ -15,7 +15,6 @@ class ModelsController extends Controller
         return view('admin.models.index', compact('models'));
     }
 
-
     public function publicIndex()
     {
         $models = Models::where('is_active', 1)
@@ -25,7 +24,6 @@ class ModelsController extends Controller
 
         return view('models', compact('models'));
     }
-
 
     public function publicShow($id)
     {
@@ -47,43 +45,33 @@ class ModelsController extends Controller
         ]);
     }
 
-
-
     public function create()
     {
         return view('admin.models.create');
     }
 
-
     public function store(Request $request)
-{
-    $request->validate([
-        'title' => 'required|string|max:255',
-        'ordering' => 'required|integer',
-        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'file' => 'nullable|file|mimes:pdf,zip,rar,doc,docx|max:10000',
-    ]);
-
-    $imagePath = $request->file('image') ? $request->file('image')->store('model_images', 'public') : null;
-    $filePath = $request->file('file') ? $request->file('file')->store('model_files', 'public') : null;
-
-    Models::create([
-        'title' => $request->title,
-        'ordering' => $request->ordering,
-        'image' => $imagePath,
-        'file' => $filePath, // Добавляем это
-        'is_active' => $request->has('is_active'),
-    ]);
-
-    return redirect()->route('admin.models.index')->with('success', 'Model created successfully.');
-}
-
-
-
-    public function show(string $id)
     {
-    }
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'ordering' => 'required|integer',
+            'image' => 'nullable|string|max:255',
+            'file' => 'nullable|file|mimes:pdf,zip,rar,doc,docx|max:10000',
+        ]);
 
+        $imagePath = $request->image;
+        $filePath = $request->file('file') ? $request->file('file')->store('model_files', 'public') : null;
+
+        Models::create([
+            'title' => $request->title,
+            'ordering' => $request->ordering,
+            'image' => $imagePath,
+            'file' => $filePath,
+            'is_active' => $request->has('is_active'),
+        ]);
+
+        return redirect()->route('admin.models.index')->with('success', 'Model created successfully.');
+    }
 
     public function edit($id)
     {
@@ -91,24 +79,22 @@ class ModelsController extends Controller
         return view('admin.models.edit', compact('model'));
     }
 
-
     public function update(Request $request, $id)
     {
         $request->validate([
             'title' => 'required|string|max:255',
             'ordering' => 'required|integer',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|string|max:255',
             'file' => 'nullable|file|mimes:pdf,zip,rar,doc,docx|max:10000',
         ]);
 
         $model = Models::findOrFail($id);
 
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('model_images', 'public');
+        if ($request->image) {
             if ($model->image) {
                 Storage::disk('public')->delete($model->image);
             }
-            $model->image = $imagePath;
+            $model->image = $request->image;
         }
 
         if ($request->hasFile('file')) {
@@ -128,10 +114,6 @@ class ModelsController extends Controller
         return redirect()->route('admin.models.index')->with('success', 'Model updated successfully.');
     }
 
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($id)
     {
         $model = Models::findOrFail($id);

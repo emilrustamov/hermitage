@@ -21,8 +21,6 @@
 </style>
 
 <body>
-
-
     <div class="wrapper p-0">
         <div>
             <header>
@@ -30,16 +28,33 @@
                     @if (isset($banners) && $banners->count() > 1)
                         <div class="regular2">
                             @foreach ($banners as $banner)
-                                <div class="slide slider-item"
-                                    style="background-image: url('{{ asset('storage/' . $banner->banner) }}'); min-height:900px">
-                                    <!-- Add content for each slide if needed -->
-                                </div>
+                                @if ($banner->video)
+                                    <div class="slide slider-item">
+                                        <video autoplay muted loop>
+                                            <source src="{{ asset('storage/' . $banner->video) }}" type="video/mp4">
+                                            Ваш браузер не поддерживает видео.
+                                        </video>
+                                    </div>
+                                @else
+                                    <div class="slide slider-item"
+                                        style="background-image: url('{{ asset('storage/' . $banner->banner) }}'); min-height:900px">
+                                    </div>
+                                @endif
                             @endforeach
                         </div>
                     @elseif (isset($banners) && $banners->count() == 1)
-                        <div class="single-slide slider-item"
-                            style="background-image: url('{{ asset('storage/' . $banners->first()->banner) }}');">
-                        </div>
+                        @if ($banners->first()->video)
+                            <div class="single-slide slider-item">
+                                <video autoplay muted loop>
+                                    <source src="{{ asset('storage/' . $banners->first()->video) }}" type="video/mp4">
+                                    Ваш браузер не поддерживает видео.
+                                </video>
+                            </div>
+                        @else
+                            <div class="single-slide slider-item"
+                                style="background-image: url('{{ asset('storage/' . $banners->first()->banner) }}');">
+                            </div>
+                        @endif
                     @else
                         @include('layouts.head_slider')
                     @endif
@@ -55,11 +70,6 @@
                         @endif
                     @endif
                 @endif
-
-
-
-
-
                 <div class="header-content">
                     <div class="d-flex">
                         <nav role="navigation">
@@ -170,10 +180,6 @@
                         </div>
                     </div>
                     <div class="d-flex">
-
-                        {{-- <i class="fa fa-shopping-cart punkt-menu desktop-none"
-                        style="{{ request()->routeIs(['register', 'login', 'password.request']) ? 'color: black;' : 'color: white;' }}; position:relative;"
-                        aria-hidden="true" id="cartIcon"> <span id="cartBadge" class="badge badge-pill badge-danger"></span></i> --}}
                     </div>
 
                     <div class="text-end align-self-center d-flex mobile-none">
