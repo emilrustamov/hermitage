@@ -6,7 +6,6 @@
     <h1>{{ $category->{'title_' . app()->getLocale()} }}</h1>
     <p>{{ strip_tags($category->{'description_' . app()->getLocale()}) }}</p>
 
-    <h2>{{ __('translation.category_items') }}</h2>
     <div class="row">
         @foreach ($category->items as $item)
             <div class="col-lg-4 mb-4">

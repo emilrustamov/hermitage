@@ -1,5 +1,5 @@
 @php
-    $banners = App\Models\Banner::where('page_identifier', 'about')->get();
+    $banners = App\Models\Banner::where('page_identifier', 'homepage')->get();
 @endphp
 
 @include('layouts.header', [
@@ -46,18 +46,22 @@
 </section>
 <section class="scroll-fade-in">
     <p class="text-center our-areas" id="areas">{{ __('translation.home_partners') }}</p>
-    <div class="container">
+    <div class="container" style="margin-bottom: 50px">
         <div class="row areas-block">
             @foreach ($categories as $category)
                 <div class="col-lg-3">
                     <div class="area-wrap">
                         <a href="{{ route('category.show', ['id' => $category->id, 'locale' => app()->getLocale()]) }}">
                             <img src="{{ asset($category->main_image) }}" alt="">
+<<<<<<< HEAD
                             @php
                                 $locale = app()->getLocale();
                                 $titleField = 'title_' . $locale;
                             @endphp
                             <p class="area-title">{{ $category->$titleField }}</p>
+=======
+                            <p class="area-title text-center">{{ $category->title_ru }}</p>
+>>>>>>> 37c285b357f058be7da4624d76e8df0b5e3a6ce3
                         </a>
                     </div>
                 </div>

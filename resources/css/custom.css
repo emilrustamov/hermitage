@@ -1358,8 +1358,7 @@ footer ul li a {
 .blog-wrapper {
   cursor: pointer;
   height: 350px;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
+  width: 100%;
   width: fit-content;
   display: inline-block;
   overflow: hidden;
@@ -1837,7 +1836,6 @@ footer ul li a {
 }
 
 .description {
-  background-color: red;
   font-size: 16px;
 }
 

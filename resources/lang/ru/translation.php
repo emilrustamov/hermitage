@@ -251,9 +251,19 @@ return [
     'surnm' => 'Фамилия',
     'namComp' => 'Название компании',
 
+<<<<<<< HEAD
 
     // Поиск
     'search_placeholder' => 'Введите для поиска',
     'search_results_for' => 'Результаты поиска',
+=======
+// Поиск
+'search_placeholder' => 'Поиск',
+'search_results_for' => 'Результаты поиска',
+>>>>>>> 37c285b357f058be7da4624d76e8df0b5e3a6ce3
+
+// Reminder
+'products_reminder'=>'Уведомление',
+'products_reminder_add'=> 'Товар добавлен в sssssss корзину',
 
 ];

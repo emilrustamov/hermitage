@@ -1,5 +1,5 @@
 @php
-    $banners = App\Models\Banner::where('page_identifier', 'threemodels')->get();
+    $banners = App\Models\Banner::where('page_identifier', 'models')->get();
 @endphp
 
 @include('layouts.header', [

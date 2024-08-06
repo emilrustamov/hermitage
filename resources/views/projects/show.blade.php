@@ -1,7 +1,7 @@
 @include('layouts.header', ['slider' => false, 'image' => $image])
 
 <div class="container mt-5">
-    <h3 class="text-uppercase fw-bold">{{ $data['title'] }}</h3>
+    <h3 class="text-uppercase fw-bold mb-5">{{ $data['title'] }}</h3>
     
     <div class="d-flex ">
         <p class="proj-title" style="margin-right: 3px">Дизайнер:</p> 
@@ -23,7 +23,7 @@
         <p class="proj-title" style="margin-right: 3px">Год:</p> 
         <p>{{ $data['year'] }}</p>
     </div>
-    <div class="description fs-4">
+    <div class="description fs-5" style="background-color: transparent !important">
         <p class="fs-3">{!! $data['description'] !!}</p>
     </div>
 
